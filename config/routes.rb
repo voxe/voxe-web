@@ -1,4 +1,16 @@
 Joinplato::Application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :elections do
+        post :compare
+        post :themes
+        post :candidates
+      end
+      resources :themes
+      resources :candidates
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

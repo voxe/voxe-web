@@ -1,6 +1,6 @@
 MongoMapper.config = { 
   Rails.env => {
-    'uri' => ENV['MONGOHQ_URL'] || 'mongodb://localhost/joinplato_development'
+    'uri' => ENV['MONGOHQ_URL'] || "mongodb://localhost/joinplato_#{Rails.env}"
   }
 }
 
