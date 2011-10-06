@@ -32,4 +32,9 @@ group :test do
   gem 'turn', :require => false
 end
 
+group :development do
+  gem "haml-rails"
+end
+
+gem 'mongo_mapper'
 gem "haml"
