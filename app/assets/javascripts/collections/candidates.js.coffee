@@ -1,0 +1,1 @@
+class window.CandidatesCollection extends Backbone.Collection

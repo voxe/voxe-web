@@ -1,0 +1,1 @@
+class window.ThemesCollection extends Backbone.Collection

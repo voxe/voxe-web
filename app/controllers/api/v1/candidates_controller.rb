@@ -1,4 +1,4 @@
-class API::V1::CandidatesController < ApplicationController
+class Api::V1::CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def index

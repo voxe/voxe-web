@@ -1,0 +1,10 @@
+embed_assets: on
+
+# https://gist.github.com/234982
+template_function: "Mustache.template"
+
+template_extension: "html.mustache"
+
+javascripts:
+  templates:
+    - app/assets/templates/**/*.html.mustache

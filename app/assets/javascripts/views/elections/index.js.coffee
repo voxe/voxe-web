@@ -4,4 +4,5 @@ class window.ElectionsIndexView extends Backbone.View
     app.collections.elections.bind 'add', @addElection
     
   addElection: (election)->
-    alert 'addElection'
+    view = new ElectionsIndexElectionView(model: election)
+    $('#elections').append(view.render().el)

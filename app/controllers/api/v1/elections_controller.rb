@@ -1,11 +1,16 @@
-class API::V1::ElectionsController < ApplicationController
+class Api::V1::ElectionsController < ApplicationController
+  
+  def index
+  end
+  
   # GET /api/v1/elections/1
+  # 
   def show
-    @election = Election.find(params[:id])
-
-    respond_to do |format|
-      format.json { render json: @election }
-    end
+    # @election = Election.find(params[:id])
+    # 
+    # respond_to do |format|
+    #   format.json { render json: @election }
+    # end
   end
 
   # POST /elections

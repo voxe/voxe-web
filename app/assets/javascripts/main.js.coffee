@@ -8,6 +8,14 @@ $(document).ready ->
   # backbone collections
   app.collections.elections = new ElectionsCollection()
   
+  # backbone models
+  app.models.election = new ElectionModel()
+  
+  # backbone views
+  app.views.electionsIndex = new ElectionsIndexView()
+  
+  app.views.electionsShow = new ElectionsShowView()
+  
   # backbone app
   app.initialize = ->
     app.controllers.application = new ApplicationController()

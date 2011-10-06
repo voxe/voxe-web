@@ -1,8 +1,15 @@
 class window.ApplicationController extends Backbone.Router
 
   routes:
-    "elections": "elections"
+    "elections": "electionsIndex"
+    "elections/compare": "electionsCompare"
+    "elections/:id": "electionsShow"
   
-  elections: ->
-    alert 'elections'
-    app.collections.elections.fetch()
+  electionsIndex: ->
+    app.collections.elections.fetch add: true
+    
+  electionsShow: (electionId) ->
+    app.models.election.id = electionId
+    app.models.election.fetch()
+    
+  

@@ -1,4 +1,4 @@
-class API::V1::ThemesController < ApplicationController
+class Api::V1::ThemesController < ApplicationController
   # GET /themes
   # GET /themes.json
   def index
