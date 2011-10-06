@@ -36,6 +36,11 @@ end
 
 group :development do
   gem "haml-rails"
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'factory_girl_rails'
 end
 
 gem 'mongo_mapper'

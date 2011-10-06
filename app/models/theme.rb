@@ -5,7 +5,7 @@ class Theme
   key :icon, String
 
   many :propositions
-  
+
   def elections
     # TODO Is it possible ?
   end

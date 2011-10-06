@@ -1,11 +1,13 @@
 Joinplato::Application.routes.draw do
-  
+
   namespace :api, :defaults => { :format => 'json' } do
     namespace :v1 do
       resources :elections do
-        post :compare
-        post :themes
-        post :candidates
+        member do
+          post :compare
+          post :addtheme
+          post :addcandidate
+        end
       end
       resources :themes
       resources :candidates
