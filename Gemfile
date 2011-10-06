@@ -17,7 +17,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'mongo_mapper'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -36,3 +35,6 @@ end
 group :development do
   gem "haml-rails"
 end
+
+gem 'mongo_mapper'
+gem "haml"
