@@ -1,4 +1,5 @@
 == Environment
 
 Ruby 1.9.2
+mongoDB 1.8.X
 
