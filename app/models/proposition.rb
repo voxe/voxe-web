@@ -7,4 +7,6 @@ class Proposition
   belongs_to :theme
   belongs_to :election
 
+  validates_presence_of :text
+
 end

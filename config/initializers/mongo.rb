@@ -1,6 +1,6 @@
 MongoMapper.config = { 
   "production"  => { 'uri' => ENV['MONGOHQ_URL'] },
-  "development" => { 'uri' => "mongodb://localhost/joinplato_test" },
+  "development" => { 'uri' => "mongodb://localhost/joinplato_development" },
   "test"        => { 'uri' => "mongodb://localhost/joinplato_test" }
 }
 

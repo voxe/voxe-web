@@ -7,6 +7,8 @@ class Election
 
   many :candidates, :in => :candidate_ids
 
+  validates_presence_of :name
+
   def themes
     Theme.find(theme_ids.keys)
   end
