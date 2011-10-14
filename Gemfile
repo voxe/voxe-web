@@ -9,7 +9,7 @@ gem 'rails', '3.1.0'
 
 group :development do
   # http://documentcloud.github.com/jammit/
-  gem 'jammit'
+  # gem 'jammit'
 end
 
 # Gems used only for assets and not required
