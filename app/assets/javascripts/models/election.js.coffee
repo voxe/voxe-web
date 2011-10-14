@@ -2,6 +2,12 @@ class window.ElectionModel extends Backbone.Model
   
   urlRoot: '/api/v1/elections'
   
+  addThemeId: (themeId)->
+    
+  
+  addCandidateId: (candidateId)->
+    
+  
   toJSON: ->
     object = _.clone(@attributes)
     for key,value of object      

@@ -13,6 +13,8 @@ Joinplato::Application.routes.draw do
       resources :candidates
     end
   end
+  
+  match 'ux/' => 'ux#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

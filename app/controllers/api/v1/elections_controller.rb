@@ -4,7 +4,7 @@ class Api::V1::ElectionsController < ApplicationController
   def show
     @election = Election.find(params[:id])
 
-    render json: @election
+    render json: {election: @election}
   end
 
   # POST /api/v1/elections
@@ -12,7 +12,7 @@ class Api::V1::ElectionsController < ApplicationController
     @election = Election.new(params[:election])
 
     if @election.save
-      head :ok
+      render json: {election: @election}
     else
       render json: @election.errors, status: :unprocessable_entity
     end

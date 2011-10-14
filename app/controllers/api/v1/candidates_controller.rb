@@ -5,7 +5,7 @@ class Api::V1::CandidatesController < ApplicationController
     @candidate = Candidate.new(params[:candidate])
 
     if @candidate.save
-      head :ok
+      render json: {candidate: @candidate}
     else
       render json: @candidate.errors, status: :unprocessable_entity
     end

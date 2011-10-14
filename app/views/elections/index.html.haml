@@ -1,7 +1,51 @@
-#elections
-
-#candidates
-
-#themes
-
-#propositions
+.topbar
+  .fill
+    .container
+      %a.brand Plato
+      %ul.nav
+        %li.class
+          %a Home
+        %li
+          %a About
+        %li
+          %a Press
+      %ul.nav.secondary-nav
+        %li
+          %input.btn.primary{"data-controls-modal" => "modal", "data-backdrop" => "true", "data-keyboard" => "true"}
+            start a new election
+      
+.container
+  .hero-unit
+    %h1 Plato
+    %p building the world's platform for politics
+    %p
+      %button.btn.primary.large{"data-controls-modal" => "modal", "data-backdrop" => "true", "data-keyboard" => "true"}
+        start a new election
+        
+  #modal.modal.hide
+    .modal-header
+      %a.close &times;
+      %h3 Start a new Election
+    .modal-body
+      %form
+        %fieldset
+          .clearfix
+            %label Name
+            .input
+              %input.xlarge{:type => "text"}
+        
+    .modal-footer
+      %a.btn.primary Start
+    
+  .row
+    - 4.times do
+      .span4
+        %ul.media-grid
+          %li
+            %a.thumbnail= image_tag "http://placehold.it/210x150"
+        %blockquote
+          %p= link_to 'Nicolas Sarkozy', ""
+          %small UMP
+  
+  %footer
+    plato (open)

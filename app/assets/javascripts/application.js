@@ -7,9 +7,10 @@
 //= require jquery
 //= require jquery_ujs
 
-//= require libs/underscore.1.2.0
-//= require libs/backbone.0.5.3
-//= require libs/mustache.0.4.0
+//= require libs/underscore-1.2.0
+//= require libs/backbone-0.5.3
+//= require libs/mustache-0.4.0
+//= require libs/bootstrap-1.3.0/bootstrap-modal
 
 //= require_tree .
 
