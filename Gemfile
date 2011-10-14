@@ -45,3 +45,5 @@ end
 
 gem 'mongo_mapper'
 gem "haml"
+
+gem 'thin'
