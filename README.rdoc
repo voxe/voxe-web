@@ -1,0 +1,16 @@
+== Environment
+
+* Ruby 1.9.2
+* mongoDB 1.8.X
+
+== Deployment
+
+At the command prompt, start the web server:
+
+  rails server
+
+== Testing
+
+At the command prompt, launch tests:
+
+  rake test

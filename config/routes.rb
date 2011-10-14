@@ -4,13 +4,20 @@ Joinplato::Application.routes.draw do
     namespace :v1 do
       resources :elections do
         member do
-          post :compare
           post :addtheme
           post :addcandidate
+        end
+        collection do
+          get :search
         end
       end
       resources :themes
       resources :candidates
+      resources :propositions do
+        collection do
+          get :search
+        end
+      end
     end
   end
   

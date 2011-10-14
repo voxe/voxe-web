@@ -2,9 +2,21 @@ class Api::V1::ElectionsController < ApplicationController
 
   # GET /api/v1/elections/1
   def show
-    @election = Election.find(params[:id])
+    @election = Election.fields.find(params[:id])
 
-    render json: {election: @election}
+    # render json: { :election {@election: only: [:id, :name], include: [:candidates], methods: [:themes]} }
+    render json: { election: @election.as_json(
+      only: [:id, :name],
+      include: [:candidates],
+      methods: [:themes]
+    ) }
+  end
+
+  # GET /api/v1/elections/search
+  def search
+    @elections = Election.all
+
+    render json: { elections: @elections.as_json(only: [:id, :name]) }
   end
 
   # POST /api/v1/elections
@@ -12,19 +24,10 @@ class Api::V1::ElectionsController < ApplicationController
     @election = Election.new(params[:election])
 
     if @election.save
-      render json: {election: @election}
+      render json: { election: @election.as_json(only: [:id, :name]) }, status: :created
     else
       render json: @election.errors, status: :unprocessable_entity
     end
-  end
-
-  # POST /api/v1/elections/1/compare
-  def compare
-    @election = Election.find(params[:id])
-    @theme = Theme.find(params[:themeId])
-    @candidates = Candidate.find(params[:candidateIds].split(','))
-
-    render json: @election.compare(@theme.id, @candidates.collect(&:id))
   end
 
   # POST /api/v1/elections/1/addtheme
