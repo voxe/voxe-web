@@ -4,4 +4,4 @@ MongoMapper.config = {
   "test"        => { 'uri' => "mongodb://localhost/joinplato_test" }
 }
 
-MongoMapper.connect(Rails.env)
+MongoMapper.connect(Rails.env) unless MongoMapper.config[Rails.env].blank?
