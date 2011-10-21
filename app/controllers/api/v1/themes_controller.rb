@@ -1,9 +1,8 @@
 class Api::V1::ThemesController < ApplicationController
+  load_and_authorize_resource
 
   # POST /api/v1/themes
   def create
-    @theme = Theme.new params[:theme]
-
     if @theme.save
       render json: {theme: @theme}
     else
@@ -14,14 +13,12 @@ class Api::V1::ThemesController < ApplicationController
   # GET /api/v1/themes
   def index
     @themes = Theme.all
-
     render json: {themes: @themes}
   end
 
   # POST /api/v1/themes/1/addphoto
   def addphoto
-    @theme = Theme.find params[:id]
-    photo  = @theme.photos.build type: params[:type], image: params[:image]
+    photo = @theme.photos.build type: params[:type], image: params[:image]
 
     if photo.save
       render json: {photo: photo}

@@ -11,7 +11,7 @@ class Photo
   alias_method :url, :image_url
 
   validates_presence_of :image
-  validates_inclusion_of :type, :in => %w( square )
+  validates_inclusion_of :type, in: %w( square )
 
   def serializable_hash options = {}
     super({only: :type, methods: :url}.merge(options))

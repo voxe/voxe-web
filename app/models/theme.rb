@@ -4,7 +4,7 @@ class Theme
   key :name, String
 
   many :propositions
-  many :photos, :as => :photoable
+  many :photos, as: :photoable
 
   validates_presence_of :name
 

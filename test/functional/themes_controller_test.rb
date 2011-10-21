@@ -2,6 +2,8 @@ require 'test_helper'
 
 class Api::V1::ThemesControllerTest < ActionController::TestCase
   setup do
+    sign_in FactoryGirl.create(:admin)
+
     @theme = FactoryGirl.create(:theme)
   end
 

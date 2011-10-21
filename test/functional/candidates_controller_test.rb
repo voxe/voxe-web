@@ -2,6 +2,8 @@ require 'test_helper'
 
 class Api::V1::CandidatesControllerTest < ActionController::TestCase
   setup do
+    sign_in FactoryGirl.create(:admin)
+
     @election = FactoryGirl.create(:election)
 
     @election.theme_ids[FactoryGirl.create(:theme).to_param] = [

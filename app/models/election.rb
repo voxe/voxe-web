@@ -5,7 +5,7 @@ class Election
   key :candidate_ids, Array
   key :theme_ids, Hash
 
-  many :candidates, :in => :candidate_ids
+  many :candidates, in: :candidate_ids
 
   validates_presence_of :name
 

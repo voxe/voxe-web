@@ -44,3 +44,10 @@ gem 'fog'
 
 # MongoMapper for carrierwave
 gem 'mm-carrierwave'
+
+# User authentication
+gem 'devise'
+gem 'mm-devise'
+
+# User authorization
+gem 'cancan'

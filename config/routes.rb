@@ -1,9 +1,11 @@
 Joinplato::Application.routes.draw do
 
+  devise_for :users
+
   namespace :api, :defaults => { :format => 'json' } do
     namespace :v1 do
 
-      resources :elections do
+      resources :elections, :except => :index do
         member do
           post :addtheme
           post :addcandidate

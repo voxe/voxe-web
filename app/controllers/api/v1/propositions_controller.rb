@@ -1,4 +1,5 @@
 class Api::V1::PropositionsController < ApplicationController
+  load_and_authorize_resource
 
   # GET /api/v1/propositions/search
   def search

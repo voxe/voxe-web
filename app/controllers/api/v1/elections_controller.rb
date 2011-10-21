@@ -1,12 +1,10 @@
 class Api::V1::ElectionsController < ApplicationController
+  load_and_authorize_resource
 
   # GET /api/v1/elections/1
   def show
-    @election = Election.find params[:id]
-
     render json: { election: @election.as_json(
       only:    [:id, :name],
-      # FIXME
       include: {candidates: {only: [:id, :firstName, :lastName, :photos]}},
       methods: [:themes]
     ) }
@@ -21,8 +19,6 @@ class Api::V1::ElectionsController < ApplicationController
 
   # POST /api/v1/elections
   def create
-    @election = Election.new params[:election]
-
     if @election.save
       render json: { election: @election.as_json(only: [:id, :name]) }, status: :created
     else
@@ -32,7 +28,6 @@ class Api::V1::ElectionsController < ApplicationController
 
   # POST /api/v1/elections/1/addtheme
   def addtheme
-    @election     = Election.find params[:id]
     @theme        = Theme.find params[:themeId]
     @parent_theme = Theme.find(params[:parentThemeId]) if params[:parentThemeId]
 
@@ -52,7 +47,6 @@ class Api::V1::ElectionsController < ApplicationController
 
   # POST /api/v1/elections/1/addcandidate
   def addcandidate
-    @election  = Election.find params[:id]
     @candidate = Candidate.find params[:candidateId]
 
     @election.candidate_ids << @candidate.to_param
