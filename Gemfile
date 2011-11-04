@@ -51,3 +51,6 @@ gem 'mm-devise'
 
 # User authorization
 gem 'cancan'
+
+# Webserver
+gem 'thin'
