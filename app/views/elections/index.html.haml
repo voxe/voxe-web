@@ -9,6 +9,14 @@
           %a About
         %li
           %a Press
+        - if user_signed_in?
+          %li
+            = link_to "Sign out", destroy_user_session_path, method: :delete
+        -else
+          %li
+            = link_to "Sign in", new_user_session_path
+          %li
+            = link_to "Sign up", new_user_registration_path
       %ul.nav.secondary-nav
         %li
           %input.btn.primary{"data-controls-modal" => "modal", "data-backdrop" => "true", "data-keyboard" => "true"}
@@ -36,7 +44,16 @@
         
     .modal-footer
       %a.btn.primary Start
-    
+
+  - if user_signed_in?
+    .row
+      .span16
+        .page-header
+          %h3
+            Hi
+            = current_user.email
+            let's get started !
+
   .row
     - 4.times do
       .span4

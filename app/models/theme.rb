@@ -2,9 +2,11 @@ class Theme
   include MongoMapper::Document
 
   key :name, String
-  key :icon, String
 
   many :propositions
+  many :photos, as: :photoable
+
+  validates_presence_of :name
 
   def elections
     # TODO Is it possible ?

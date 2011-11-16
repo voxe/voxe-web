@@ -1,13 +1,11 @@
 class Api::V1::ElectionsController < ApplicationController
+  load_and_authorize_resource
 
   # GET /api/v1/elections/1
   def show
-    @election = Election.fields.find(params[:id])
-
-    # render json: { :election {@election: only: [:id, :name], include: [:candidates], methods: [:themes]} }
     render json: { election: @election.as_json(
-      only: [:id, :name],
-      include: [:candidates],
+      only:    [:id, :name],
+      include: {candidates: {only: [:id, :firstName, :lastName, :photos]}},
       methods: [:themes]
     ) }
   end
@@ -21,8 +19,6 @@ class Api::V1::ElectionsController < ApplicationController
 
   # POST /api/v1/elections
   def create
-    @election = Election.new(params[:election])
-
     if @election.save
       render json: { election: @election.as_json(only: [:id, :name]) }, status: :created
     else
@@ -32,8 +28,7 @@ class Api::V1::ElectionsController < ApplicationController
 
   # POST /api/v1/elections/1/addtheme
   def addtheme
-    @election = Election.find(params[:id])
-    @theme = Theme.find(params[:themeId])
+    @theme        = Theme.find params[:themeId]
     @parent_theme = Theme.find(params[:parentThemeId]) if params[:parentThemeId]
 
     unless @parent_theme
@@ -44,7 +39,7 @@ class Api::V1::ElectionsController < ApplicationController
     end
 
     if @election.save
-      head :ok
+      render json: {theme: @theme}
     else
       render json: @election.errors, status: :unprocessable_entity
     end
@@ -52,13 +47,12 @@ class Api::V1::ElectionsController < ApplicationController
 
   # POST /api/v1/elections/1/addcandidate
   def addcandidate
-    @election = Election.find(params[:id])
-    @candidate = Candidate.find(params[:candidateId])
+    @candidate = Candidate.find params[:candidateId]
 
     @election.candidate_ids << @candidate.to_param
 
     if @election.save
-      head :ok
+      render json: {candidate: @candidate}
     else
       render json: @election.errors, status: :unprocessable_entity
     end
