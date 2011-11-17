@@ -14,4 +14,13 @@ class Api::V1::PropositionsController < ApplicationController
     render json: { propositions: @propositions }
   end
 
+  # POST /api/v1/propositions
+  def create
+    if @proposition.save
+      render json: {proposition: @proposition}
+    else
+      render json: @proposition.errors, status: :unprocessable_entity
+    end
+  end
+
 end

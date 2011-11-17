@@ -89,6 +89,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.17.2)
+    minitest (2.8.0)
     mm-carrierwave (0.0.2)
       carrierwave (~> 0.5)
       mongo_mapper (~> 0.9)
@@ -148,7 +149,7 @@ GEM
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
-      tilt (!= 1.3.0, ~> 1.1)
+      tilt (~> 1.1, != 1.3.0)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -180,6 +181,7 @@ DEPENDENCIES
   fog
   haml-rails
   jquery-rails
+  minitest
   mm-carrierwave
   mm-devise
   mongo_mapper
