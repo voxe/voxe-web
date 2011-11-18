@@ -38,4 +38,18 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     end
   end
 
+  test "should create a proposition" do
+    proposition_attributes                = {}
+    proposition_attributes['text']        = "Something"
+    proposition_attributes['electionId']  = @election.id
+    proposition_attributes['themeId']     = @election.sub_themes.first
+    proposition_attributes['candidateId'] = @election.candidates.last.id
+
+    assert_difference('Proposition.count') do
+      post :create, proposition: proposition_attributes
+    end
+
+    assert_response :success
+  end
+
 end
