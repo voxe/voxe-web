@@ -1,0 +1,64 @@
+%YAML 1.1
+---
+# votons2007.spip_rubriques
+-
+  id_rubrique: 441
+  titre: "Bové"
+  descriptif: "José"
+  id_mot: 41
+-
+  id_rubrique: 9
+  titre: "Sarkozy"
+  descriptif: "Nicolas"
+  id_mot: 1
+-
+  id_rubrique: 10
+  titre: "Royal"
+  descriptif: "Ségolène"
+  id_mot: 2
+-
+  id_rubrique: 34
+  titre: "Voynet"
+  descriptif: "Dominique"
+  id_mot: 27
+-
+  id_rubrique: 33
+  titre: "Le Pen"
+  descriptif: "Jean-Marie"
+  id_mot: 26
+-
+  id_rubrique: 35
+  titre: "Buffet"
+  descriptif: "Marie-George"
+  id_mot: 28
+-
+  id_rubrique: 43
+  titre: "Bayrou"
+  descriptif: "François"
+  id_mot: 32
+-
+  id_rubrique: 274
+  titre: "de Villiers"
+  descriptif: "Philippe"
+  id_mot: 35
+-
+  id_rubrique: 431
+  titre: "Besancenot"
+  descriptif: "Olivier"
+  id_mot: 38
+-
+  id_rubrique: 433
+  titre: "Laguiller"
+  descriptif: "Arlette"
+  id_mot: 39
+-
+  id_rubrique: 449
+  titre: "Nihous"
+  descriptif: "Frédéric"
+  id_mot: 47
+-
+  id_rubrique: 450
+  titre: "Schivardi"
+  descriptif: "Gérard"
+  id_mot: 46
+...

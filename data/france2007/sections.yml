@@ -1,0 +1,200 @@
+%YAML 1.1
+---
+# votons2007.spip_rubriques
+-
+  id_parent: 17
+  id_rubrique: 160
+  titre: "30. Fiscalité écologique"
+-
+  id_parent: 17
+  id_rubrique: 158
+  titre: "10. Energie"
+-
+  id_parent: 12
+  id_rubrique: 340
+  titre: "30. Nouvelles technologies"
+-
+  id_parent: 19
+  id_rubrique: 44
+  titre: "30. Le Président de la République"
+-
+  id_parent: 19
+  id_rubrique: 46
+  titre: "40. Le Parlement (Sénat et Assemblée Nationale)"
+-
+  id_parent: 19
+  id_rubrique: 47
+  titre: "50. Sénat"
+-
+  id_parent: 19
+  id_rubrique: 48
+  titre: "60. Assemblée nationale"
+-
+  id_parent: 19
+  id_rubrique: 49
+  titre: "70. Le Gouvernement"
+-
+  id_parent: 19
+  id_rubrique: 52
+  titre: "80. Collectivités territoriales"
+-
+  id_parent: 19
+  id_rubrique: 55
+  titre: "10. Modifications institutionnelles"
+-
+  id_parent: 17
+  id_rubrique: 159
+  titre: "20. La protection de l'environnement"
+-
+  id_parent: 19
+  id_rubrique: 73
+  titre: "90. Les autres institutions"
+-
+  id_parent: 12
+  id_rubrique: 130
+  titre: "1. Politique culturelle"
+-
+  id_parent: 12
+  id_rubrique: 335
+  titre: "10. Médias"
+-
+  id_parent: 12
+  id_rubrique: 132
+  titre: "20. Télévision publique"
+-
+  id_parent: 16
+  id_rubrique: 350
+  titre: "20. Justice"
+-
+  id_parent: 16
+  id_rubrique: 351
+  titre: "10. Sécurité"
+-
+  id_parent: 17
+  id_rubrique: 346
+  titre: "100. A l'échelle ..."
+-
+  id_parent: 17
+  id_rubrique: 174
+  titre: "15. L’agriculture"
+-
+  id_parent: 20
+  id_rubrique: 318
+  titre: "10. Les services publics"
+-
+  id_parent: 96
+  id_rubrique: 189
+  titre: "10. Institutions et fonctionnement"
+-
+  id_parent: 96
+  id_rubrique: 193
+  titre: "20. Adhésions à l’Union"
+-
+  id_parent: 96
+  id_rubrique: 194
+  titre: "30. Politique économique"
+-
+  id_parent: 96
+  id_rubrique: 195
+  titre: "40. Politiques de l’Union"
+-
+  id_parent: 11
+  id_rubrique: 215
+  titre: "10. Quelle politique étrangère ?"
+-
+  id_parent: 11
+  id_rubrique: 216
+  titre: "20. Mondialisation"
+-
+  id_parent: 16
+  id_rubrique: 217
+  titre: "30. La défense nationale"
+-
+  id_parent: 11
+  id_rubrique: 218
+  titre: "40. Aides au développement"
+-
+  id_parent: 11
+  id_rubrique: 219
+  titre: "50. Afrique"
+-
+  id_parent: 11
+  id_rubrique: 220
+  titre: "60. Proche-Orient"
+-
+  id_parent: 13
+  id_rubrique: 248
+  titre: "30. Le sport"
+-
+  id_parent: 18
+  id_rubrique: 259
+  titre: "50. Personnes handicapées"
+-
+  id_parent: 18
+  id_rubrique: 264
+  titre: "45. Les femmes"
+-
+  id_parent: 19
+  id_rubrique: 275
+  titre: "20. Elections"
+-
+  id_parent: 14
+  id_rubrique: 287
+  titre: "1. Emploi"
+-
+  id_parent: 14
+  id_rubrique: 294
+  titre: "10. Economie"
+-
+  id_parent: 14
+  id_rubrique: 300
+  titre: "20. Etat"
+-
+  id_parent: 18
+  id_rubrique: 307
+  titre: "10. Immigration"
+-
+  id_parent: 13
+  id_rubrique: 359
+  titre: "10. Education secondaire"
+-
+  id_parent: 13
+  id_rubrique: 369
+  titre: "20. Recherche et enseignement supérieur"
+-
+  id_parent: 97
+  id_rubrique: 383
+  titre: "10. Solidarité"
+-
+  id_parent: 97
+  id_rubrique: 393
+  titre: "20. La santé"
+-
+  id_parent: 97
+  id_rubrique: 406
+  titre: "30. Le logement"
+-
+  id_parent: 18
+  id_rubrique: 413
+  titre: "20. Famille"
+-
+  id_parent: 20
+  id_rubrique: 426
+  titre: "1. Territoires"
+-
+  id_parent: 18
+  id_rubrique: 445
+  titre: "30.  Religion et laïcité"
+-
+  id_parent: 469
+  id_rubrique: 471
+  titre: "20. Les 5 Propositions"
+-
+  id_parent: 469
+  id_rubrique: 472
+  titre: "5. Signature du pacte"
+-
+  id_parent: 469
+  id_rubrique: 470
+  titre: "10. Les 10 Objectifs"
+...

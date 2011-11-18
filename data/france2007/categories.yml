@@ -1,0 +1,976 @@
+%YAML 1.1
+---
+# votons2007.spip_rubriques
+-
+  id_parent: 158
+  id_rubrique: 162
+  titre: "20. Nucléaire"
+-
+  id_parent: 215
+  id_rubrique: 283
+  titre: "1. Politique générale"
+-
+  id_parent: 46
+  id_rubrique: 57
+  titre: "20. Gestion de l’ordre du jour"
+-
+  id_parent: 46
+  id_rubrique: 58
+  titre: "50. Affaires européennes"
+-
+  id_parent: 44
+  id_rubrique: 61
+  titre: "40. Procédure de destitution"
+-
+  id_parent: 48
+  id_rubrique: 59
+  titre: "20. Mandat des députés"
+-
+  id_parent: 47
+  id_rubrique: 60
+  titre: "20. Mandat des sénateurs"
+-
+  id_parent: 216
+  id_rubrique: 344
+  titre: "10. Gérer la mondialisation"
+-
+  id_parent: 44
+  id_rubrique: 45
+  titre: "20. Mandat"
+-
+  id_parent: 46
+  id_rubrique: 54
+  titre: "60. Affaires étrangères"
+-
+  id_parent: 44
+  id_rubrique: 50
+  titre: "30. Statut pénal"
+-
+  id_parent: 44
+  id_rubrique: 51
+  titre: "10. Rôle"
+-
+  id_parent: 49
+  id_rubrique: 53
+  titre: "20. Nombre de ministères"
+-
+  id_parent: 55
+  id_rubrique: 56
+  titre: "10. Sous quelle forme ?"
+-
+  id_parent: 46
+  id_rubrique: 63
+  titre: "40. Commissions"
+-
+  id_parent: 55
+  id_rubrique: 64
+  titre: "20. Modifications de la Constitution"
+-
+  id_parent: 46
+  id_rubrique: 65
+  titre: "30. Modalités d’examen des textes"
+-
+  id_parent: 158
+  id_rubrique: 161
+  titre: "10. Energies renouvelables"
+-
+  id_parent: 49
+  id_rubrique: 69
+  titre: "30. Cumul des mandats"
+-
+  id_parent: 46
+  id_rubrique: 68
+  titre: "10. Statut de parlementaire"
+-
+  id_parent: 48
+  id_rubrique: 70
+  titre: "10. Election des députés"
+-
+  id_parent: 48
+  id_rubrique: 280
+  titre: "1. Rôle"
+-
+  id_parent: 52
+  id_rubrique: 82
+  titre: "10. Décentralisation"
+-
+  id_parent: 73
+  id_rubrique: 77
+  titre: "20. Conseil économique et social"
+-
+  id_parent: 49
+  id_rubrique: 81
+  titre: "10. Fonctionnement"
+-
+  id_parent: 73
+  id_rubrique: 78
+  titre: "10. Conseil constitutionnel"
+-
+  id_parent: 46
+  id_rubrique: 79
+  titre: "70. Défense"
+-
+  id_parent: 47
+  id_rubrique: 80
+  titre: "10. Election des sénateurs"
+-
+  id_parent: 335
+  id_rubrique: 339
+  titre: "35. Radios"
+-
+  id_parent: 130
+  id_rubrique: 139
+  titre: "20. En Europe"
+-
+  id_parent: 130
+  id_rubrique: 140
+  titre: "30. Dans le monde"
+-
+  id_parent: 335
+  id_rubrique: 336
+  titre: "10. Presse"
+-
+  id_parent: 335
+  id_rubrique: 337
+  titre: "20. Télévision"
+-
+  id_parent: 132
+  id_rubrique: 143
+  titre: "10. Budget"
+-
+  id_parent: 340
+  id_rubrique: 341
+  titre: "10. Internet"
+-
+  id_parent: 215
+  id_rubrique: 342
+  titre: "20. Les français à l’étranger"
+-
+  id_parent: 132
+  id_rubrique: 145
+  titre: "30. Audiovisuel public extérieur"
+-
+  id_parent: 132
+  id_rubrique: 144
+  titre: "20. Mission"
+-
+  id_parent: 130
+  id_rubrique: 138
+  titre: "10. En France"
+-
+  id_parent: 264
+  id_rubrique: 272
+  titre: "80. Contraception et IVG"
+-
+  id_parent: 158
+  id_rubrique: 163
+  titre: "30. EDF"
+-
+  id_parent: 159
+  id_rubrique: 164
+  titre: "10. Réchauffement climatique"
+-
+  id_parent: 159
+  id_rubrique: 165
+  titre: "20. Biodiversité"
+-
+  id_parent: 159
+  id_rubrique: 166
+  titre: "30. Education et sensibilisation"
+-
+  id_parent: 159
+  id_rubrique: 167
+  titre: "40. Autres actions"
+-
+  id_parent: 160
+  id_rubrique: 168
+  titre: "10. Taxes"
+-
+  id_parent: 160
+  id_rubrique: 169
+  titre: "20. Crédit d'impôts"
+-
+  id_parent: 158
+  id_rubrique: 171
+  titre: "100. Politique de transport"
+-
+  id_parent: 174
+  id_rubrique: 176
+  titre: "20. Recherche et OGM"
+-
+  id_parent: 159
+  id_rubrique: 343
+  titre: "35. Institutions"
+-
+  id_parent: 189
+  id_rubrique: 190
+  titre: "10. Traité constitutionnel ?"
+-
+  id_parent: 189
+  id_rubrique: 191
+  titre: "20. Banque Centrale Européenne"
+-
+  id_parent: 189
+  id_rubrique: 192
+  titre: "5. Fonctionnement"
+-
+  id_parent: 193
+  id_rubrique: 196
+  titre: "10. Turquie"
+-
+  id_parent: 193
+  id_rubrique: 197
+  titre: "20. Elargissement"
+-
+  id_parent: 194
+  id_rubrique: 198
+  titre: "10. Croissance et compétitivité"
+-
+  id_parent: 194
+  id_rubrique: 199
+  titre: "20. Services publics"
+-
+  id_parent: 194
+  id_rubrique: 200
+  titre: "30. Zone euro"
+-
+  id_parent: 194
+  id_rubrique: 201
+  titre: "40. Pacte de stabilité"
+-
+  id_parent: 194
+  id_rubrique: 202
+  titre: "50. Mise en place"
+-
+  id_parent: 194
+  id_rubrique: 203
+  titre: "60. Fiscalité"
+-
+  id_parent: 195
+  id_rubrique: 204
+  titre: "10. Budget de l’Union"
+-
+  id_parent: 195
+  id_rubrique: 205
+  titre: "90. Défense"
+-
+  id_parent: 195
+  id_rubrique: 206
+  titre: "40. Education"
+-
+  id_parent: 195
+  id_rubrique: 207
+  titre: "110. Culture"
+-
+  id_parent: 158
+  id_rubrique: 349
+  titre: "1. Propositions"
+-
+  id_parent: 195
+  id_rubrique: 209
+  titre: "60. Environnement et énergie"
+-
+  id_parent: 195
+  id_rubrique: 210
+  titre: "70. Recherche"
+-
+  id_parent: 195
+  id_rubrique: 211
+  titre: "80. Politique Etrangère"
+-
+  id_parent: 195
+  id_rubrique: 212
+  titre: "30. Sociale"
+-
+  id_parent: 195
+  id_rubrique: 213
+  titre: "50. Immigration"
+-
+  id_parent: 195
+  id_rubrique: 214
+  titre: "55. Sécurité"
+-
+  id_parent: 215
+  id_rubrique: 222
+  titre: "10. Rôle du président"
+-
+  id_parent: 217
+  id_rubrique: 230
+  titre: "10. Politique de défense"
+-
+  id_parent: 217
+  id_rubrique: 231
+  titre: "20. Moyens"
+-
+  id_parent: 217
+  id_rubrique: 232
+  titre: "30. Nucléaire"
+-
+  id_parent: 217
+  id_rubrique: 233
+  titre: "40. L'Europe"
+-
+  id_parent: 217
+  id_rubrique: 234
+  titre: "50. Statut des militaires"
+-
+  id_parent: 217
+  id_rubrique: 235
+  titre: "60. Autres"
+-
+  id_parent: 218
+  id_rubrique: 236
+  titre: "10. Priorités et actions"
+-
+  id_parent: 218
+  id_rubrique: 238
+  titre: "30. Régions du monde concernées"
+-
+  id_parent: 218
+  id_rubrique: 239
+  titre: "40. Gestion"
+-
+  id_parent: 218
+  id_rubrique: 240
+  titre: "50. Commerce équitable"
+-
+  id_parent: 218
+  id_rubrique: 241
+  titre: "60. Institutions"
+-
+  id_parent: 218
+  id_rubrique: 242
+  titre: "70. Dettes des pays pauvres"
+-
+  id_parent: 219
+  id_rubrique: 243
+  titre: "10. Politique africaine"
+-
+  id_parent: 219
+  id_rubrique: 244
+  titre: "20. Actions"
+-
+  id_parent: 220
+  id_rubrique: 245
+  titre: "10. Politique"
+-
+  id_parent: 216
+  id_rubrique: 345
+  titre: "20. Institutions internationales"
+-
+  id_parent: 248
+  id_rubrique: 249
+  titre: "10. Budget"
+-
+  id_parent: 248
+  id_rubrique: 250
+  titre: "20. Education et sport"
+-
+  id_parent: 248
+  id_rubrique: 251
+  titre: "30. Accès à une activité sportive"
+-
+  id_parent: 248
+  id_rubrique: 252
+  titre: "40. Associatif sportif"
+-
+  id_parent: 248
+  id_rubrique: 253
+  titre: "50. Fédérations sportives"
+-
+  id_parent: 248
+  id_rubrique: 254
+  titre: "60. Collectivités locales"
+-
+  id_parent: 248
+  id_rubrique: 256
+  titre: "80. Sport de haut niveau"
+-
+  id_parent: 248
+  id_rubrique: 257
+  titre: "90. Dopage"
+-
+  id_parent: 248
+  id_rubrique: 258
+  titre: "100. Autres"
+-
+  id_parent: 259
+  id_rubrique: 260
+  titre: "10. Accès à l'école"
+-
+  id_parent: 259
+  id_rubrique: 261
+  titre: "20. Droits"
+-
+  id_parent: 259
+  id_rubrique: 262
+  titre: "30. Allocations et compensations"
+-
+  id_parent: 259
+  id_rubrique: 263
+  titre: "40. Autres mesures"
+-
+  id_parent: 264
+  id_rubrique: 265
+  titre: "10. Violences faites aux femmes"
+-
+  id_parent: 264
+  id_rubrique: 266
+  titre: "20. Vie des femmes"
+-
+  id_parent: 264
+  id_rubrique: 267
+  titre: "30. Congé maternité"
+-
+  id_parent: 275
+  id_rubrique: 268
+  titre: "40. Parité"
+-
+  id_parent: 264
+  id_rubrique: 270
+  titre: "60. Santé"
+-
+  id_parent: 264
+  id_rubrique: 271
+  titre: "70. Mères"
+-
+  id_parent: 264
+  id_rubrique: 273
+  titre: "45. Egalité et parité"
+-
+  id_parent: 294
+  id_rubrique: 323
+  titre: "31. Grandes Entreprises"
+-
+  id_parent: 55
+  id_rubrique: 276
+  titre: "30. Nouveaux droits du citoyen"
+-
+  id_parent: 275
+  id_rubrique: 277
+  titre: "40. Vote blanc"
+-
+  id_parent: 46
+  id_rubrique: 282
+  titre: "1. Rôle"
+-
+  id_parent: 275
+  id_rubrique: 278
+  titre: "10. Modalités de vote"
+-
+  id_parent: 47
+  id_rubrique: 281
+  titre: "1. Rôle"
+-
+  id_parent: 195
+  id_rubrique: 284
+  titre: "1. Politique générale"
+-
+  id_parent: 275
+  id_rubrique: 285
+  titre: "20. Statut de l'élu"
+-
+  id_parent: 73
+  id_rubrique: 286
+  titre: "60. Les autres institutions"
+-
+  id_parent: 287
+  id_rubrique: 288
+  titre: "10. Droit du travail"
+-
+  id_parent: 287
+  id_rubrique: 289
+  titre: "20. Chômage"
+-
+  id_parent: 472
+  id_rubrique: 423
+  titre: "5. Signature du pacte écologique"
+-
+  id_parent: 287
+  id_rubrique: 291
+  titre: "40. Salaires et revenus"
+-
+  id_parent: 287
+  id_rubrique: 292
+  titre: "50. Les jeunes"
+-
+  id_parent: 287
+  id_rubrique: 293
+  titre: "60. Les séniors"
+-
+  id_parent: 294
+  id_rubrique: 295
+  titre: "10. Pouvoir d’achat"
+-
+  id_parent: 294
+  id_rubrique: 296
+  titre: "20. Qualification et innovation"
+-
+  id_parent: 294
+  id_rubrique: 297
+  titre: "30. PME"
+-
+  id_parent: 294
+  id_rubrique: 298
+  titre: "40. Concurrence"
+-
+  id_parent: 294
+  id_rubrique: 299
+  titre: "50. Délocalisations"
+-
+  id_parent: 300
+  id_rubrique: 301
+  titre: "10. Finances publiques"
+-
+  id_parent: 300
+  id_rubrique: 302
+  titre: "20. Impôts des particuliers"
+-
+  id_parent: 300
+  id_rubrique: 304
+  titre: "30. Aide publique"
+-
+  id_parent: 300
+  id_rubrique: 305
+  titre: "40. Administration"
+-
+  id_parent: 307
+  id_rubrique: 308
+  titre: "10. Législation"
+-
+  id_parent: 307
+  id_rubrique: 309
+  titre: "20. L'immigration et la politique extérieure"
+-
+  id_parent: 307
+  id_rubrique: 310
+  titre: "30. L’immigration illégale"
+-
+  id_parent: 307
+  id_rubrique: 311
+  titre: "40. Le contrôle de l’immigration"
+-
+  id_parent: 307
+  id_rubrique: 312
+  titre: "50. Réformer l'administration"
+-
+  id_parent: 307
+  id_rubrique: 313
+  titre: "60. Les femmes"
+-
+  id_parent: 294
+  id_rubrique: 314
+  titre: "60. Tourisme"
+-
+  id_parent: 174
+  id_rubrique: 315
+  titre: "30. Un nouvel élan"
+-
+  id_parent: 174
+  id_rubrique: 316
+  titre: "40. La pêche et la chasse"
+-
+  id_parent: 174
+  id_rubrique: 317
+  titre: "50. La PAC et l'Europe"
+-
+  id_parent: 318
+  id_rubrique: 319
+  titre: "10. Le service minimum"
+-
+  id_parent: 318
+  id_rubrique: 320
+  titre: "20. Gestion des services publics"
+-
+  id_parent: 318
+  id_rubrique: 321
+  titre: "30. Le rôle de l’Etat"
+-
+  id_parent: 318
+  id_rubrique: 322
+  titre: "11. Les agents publics"
+-
+  id_parent: 307
+  id_rubrique: 324
+  titre: "70. L'intégration"
+-
+  id_parent: 294
+  id_rubrique: 325
+  titre: "15. Consommateurs"
+-
+  id_parent: 300
+  id_rubrique: 326
+  titre: "22. Impôts sur les sociétés"
+-
+  id_parent: 300
+  id_rubrique: 328
+  titre: "5. Dettes de l’Etat"
+-
+  id_parent: 287
+  id_rubrique: 330
+  titre: "12. Temps de travail"
+-
+  id_parent: 52
+  id_rubrique: 329
+  titre: "20. Organisation"
+-
+  id_parent: 130
+  id_rubrique: 332
+  titre: "15. L’emploi culturel"
+-
+  id_parent: 130
+  id_rubrique: 333
+  titre: "17. Créations culturelles"
+-
+  id_parent: 130
+  id_rubrique: 334
+  titre: "18. Education et culture"
+-
+  id_parent: 335
+  id_rubrique: 338
+  titre: "30. Cinéma"
+-
+  id_parent: 346
+  id_rubrique: 347
+  titre: "10. Européenne"
+-
+  id_parent: 346
+  id_rubrique: 348
+  titre: "20. Internationale"
+-
+  id_parent: 350
+  id_rubrique: 352
+  titre: "10. Réforme de la justice"
+-
+  id_parent: 350
+  id_rubrique: 353
+  titre: "20. Moyens"
+-
+  id_parent: 351
+  id_rubrique: 356
+  titre: "10. Délinquance"
+-
+  id_parent: 350
+  id_rubrique: 355
+  titre: "40. Prisons"
+-
+  id_parent: 351
+  id_rubrique: 357
+  titre: "20. Police"
+-
+  id_parent: 351
+  id_rubrique: 358
+  titre: "1. Politique de sécurité"
+-
+  id_parent: 359
+  id_rubrique: 360
+  titre: "Les ZEP"
+-
+  id_parent: 359
+  id_rubrique: 361
+  titre: "Orientation"
+-
+  id_parent: 359
+  id_rubrique: 362
+  titre: "Enseignement privé"
+-
+  id_parent: 359
+  id_rubrique: 363
+  titre: "La violence à l'école"
+-
+  id_parent: 359
+  id_rubrique: 364
+  titre: "Les parcours professionnels"
+-
+  id_parent: 359
+  id_rubrique: 365
+  titre: "Evaluation de l'éducation et carte scolaire"
+-
+  id_parent: 359
+  id_rubrique: 366
+  titre: "Les méthodes d'enseignement"
+-
+  id_parent: 359
+  id_rubrique: 367
+  titre: "Vie associative, cuturelle et sportive"
+-
+  id_parent: 359
+  id_rubrique: 368
+  titre: "Handicap et discrimination positive"
+-
+  id_parent: 369
+  id_rubrique: 370
+  titre: "Aides financières et budget"
+-
+  id_parent: 369
+  id_rubrique: 371
+  titre: "Rapprochement entre universités et grandes écoles"
+-
+  id_parent: 369
+  id_rubrique: 372
+  titre: "Orientation des étudiants"
+-
+  id_parent: 369
+  id_rubrique: 373
+  titre: "Réformes de l’enseignement supérieur"
+-
+  id_parent: 369
+  id_rubrique: 374
+  titre: "Filières professionnelles"
+-
+  id_parent: 369
+  id_rubrique: 375
+  titre: "Les stages"
+-
+  id_parent: 369
+  id_rubrique: 376
+  titre: "Les conditions de travail des étudiants"
+-
+  id_parent: 369
+  id_rubrique: 377
+  titre: "La recherche dans l'enseignement supérieur"
+-
+  id_parent: 369
+  id_rubrique: 378
+  titre: "La recherche dans les entreprises"
+-
+  id_parent: 369
+  id_rubrique: 379
+  titre: "La recherche publique"
+-
+  id_parent: 369
+  id_rubrique: 380
+  titre: "Recherche & Développement"
+-
+  id_parent: 359
+  id_rubrique: 381
+  titre: "Aide aux élèves"
+-
+  id_parent: 383
+  id_rubrique: 386
+  titre: "30. Les minimas sociaux"
+-
+  id_parent: 383
+  id_rubrique: 387
+  titre: "40. Les retraites"
+-
+  id_parent: 383
+  id_rubrique: 388
+  titre: "50. Les personnes âgées"
+-
+  id_parent: 383
+  id_rubrique: 389
+  titre: "60. Le monde associatif et bénévole"
+-
+  id_parent: 383
+  id_rubrique: 390
+  titre: "70. Les quartiers difficiles"
+-
+  id_parent: 383
+  id_rubrique: 391
+  titre: "80. L’économie sociale"
+-
+  id_parent: 383
+  id_rubrique: 392
+  titre: "90. Le service civique obligatoire"
+-
+  id_parent: 393
+  id_rubrique: 394
+  titre: "10. Les jeunes"
+-
+  id_parent: 393
+  id_rubrique: 395
+  titre: "20. Le travail"
+-
+  id_parent: 393
+  id_rubrique: 396
+  titre: "30. Les territoires"
+-
+  id_parent: 393
+  id_rubrique: 397
+  titre: "40. Le système de santé"
+-
+  id_parent: 393
+  id_rubrique: 398
+  titre: "50. L’évaluation du système de santé"
+-
+  id_parent: 393
+  id_rubrique: 399
+  titre: "60. L’orientation des patients"
+-
+  id_parent: 393
+  id_rubrique: 400
+  titre: "70. La gestion de fin de vie"
+-
+  id_parent: 393
+  id_rubrique: 401
+  titre: "80. Les drogues douces"
+-
+  id_parent: 393
+  id_rubrique: 402
+  titre: "90. La recherche"
+-
+  id_parent: 393
+  id_rubrique: 403
+  titre: "91. La prévention"
+-
+  id_parent: 393
+  id_rubrique: 404
+  titre: "92. Conditions de travail des médecins"
+-
+  id_parent: 393
+  id_rubrique: 405
+  titre: "93. L’enseignement médical"
+-
+  id_parent: 406
+  id_rubrique: 407
+  titre: "10. Le financement de la propriété"
+-
+  id_parent: 406
+  id_rubrique: 408
+  titre: "20. Les logements sociaux"
+-
+  id_parent: 406
+  id_rubrique: 409
+  titre: "30. Le logement locatif"
+-
+  id_parent: 406
+  id_rubrique: 410
+  titre: "40. Les aides au logement"
+-
+  id_parent: 406
+  id_rubrique: 411
+  titre: "50. Structures d'hébergement d'urgence"
+-
+  id_parent: 406
+  id_rubrique: 412
+  titre: "60. La politique de logement"
+-
+  id_parent: 413
+  id_rubrique: 414
+  titre: "10. Aide à la parentalité"
+-
+  id_parent: 413
+  id_rubrique: 415
+  titre: "20. Encadrement de la petite enfance"
+-
+  id_parent: 413
+  id_rubrique: 416
+  titre: "30. Congé parental"
+-
+  id_parent: 413
+  id_rubrique: 417
+  titre: "40. Aides fiscales"
+-
+  id_parent: 413
+  id_rubrique: 418
+  titre: "50. Aides aux personnes âgées"
+-
+  id_parent: 413
+  id_rubrique: 419
+  titre: "60. Le mariage, le PACS, l’adoption et les couples homosexuels"
+-
+  id_parent: 413
+  id_rubrique: 420
+  titre: "70. Autre"
+-
+  id_parent: 359
+  id_rubrique: 422
+  titre: "réformes de l'éducation nationale"
+-
+  id_parent: 383
+  id_rubrique: 437
+  titre: "85. L'organisation du système de solidarité"
+-
+  id_parent: 340
+  id_rubrique: 436
+  titre: "20. Logiciels libres"
+-
+  id_parent: 426
+  id_rubrique: 427
+  titre: "10. Politique de la ville"
+-
+  id_parent: 426
+  id_rubrique: 428
+  titre: "20. Politique rurale"
+-
+  id_parent: 426
+  id_rubrique: 429
+  titre: "30. Outre-mer"
+-
+  id_parent: 287
+  id_rubrique: 444
+  titre: "45. Les syndicats"
+-
+  id_parent: 445
+  id_rubrique: 446
+  titre: "10. Religions"
+-
+  id_parent: 445
+  id_rubrique: 447
+  titre: "5. Laïcité"
+-
+  id_parent: 470
+  id_rubrique: 464
+  titre: "25. Fiscalité : établir le véritable prix des services rendus par la nature"
+-
+  id_parent: 470
+  id_rubrique: 465
+  titre: "30. Biodiversité : faire entrer la nature dans l'aménagement du territoire "
+-
+  id_parent: 471
+  id_rubrique: 457
+  titre: "100. Education et sensibilisation à l’écologie"
+-
+  id_parent: 471
+  id_rubrique: 454
+  titre: "70. Taxe carbone"
+-
+  id_parent: 470
+  id_rubrique: 455
+  titre: "22. Transports : sortir du tout routier"
+-
+  id_parent: 471
+  id_rubrique: 456
+  titre: "60. Vice-Premier ministre chargé du développement durable"
+-
+  id_parent: 471
+  id_rubrique: 458
+  titre: "90. Systématiser les procédures de démocratie participative"
+-
+  id_parent: 471
+  id_rubrique: 459
+  titre: "80. Réorienter les subventions agricoles vers une agriculture de qualité"
+-
+  id_parent: 470
+  id_rubrique: 460
+  titre: "5. Economie : vers une logique de durabilité"
+-
+  id_parent: 470
+  id_rubrique: 461
+  titre: "10. Energie : organiser la baisse de la consommation"
+-
+  id_parent: 470
+  id_rubrique: 462
+  titre: "15. Agriculture : produire autrement"
+-
+  id_parent: 470
+  id_rubrique: 463
+  titre: "20. Territoire : contenir l'extension périurbaine et relocaliser les activités humaines "
+-
+  id_parent: 470
+  id_rubrique: 466
+  titre: "35. Santé : prévenir avant de guérir"
+-
+  id_parent: 470
+  id_rubrique: 467
+  titre: "40. Recherche et innovation : faire de l'environnement un moteur pour l'innovation"
+-
+  id_parent: 470
+  id_rubrique: 468
+  titre: "45. Politique internationale : prendre l'initiative"
+-
+  id_parent: 294
+  id_rubrique: 474
+  titre: "65. Economie et développement durable"
+...
