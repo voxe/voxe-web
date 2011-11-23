@@ -6,19 +6,19 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
 
     @election = FactoryGirl.create(:election)
 
-    @election.theme_ids[FactoryGirl.create(:theme).to_param] = [
-      FactoryGirl.create(:theme).to_param,
-      FactoryGirl.create(:theme).to_param
+    @election.themes = [
+      FactoryGirl.create(:theme),
+      FactoryGirl.create(:theme)
     ]
 
     3.times do
       @election.candidates << FactoryGirl.create(:candidate)
-      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => Theme.find(@election.theme_ids.first).first)
-      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => Theme.find(@election.theme_ids.first).last)
+      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => @election.themes.first)
+      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => @election.themes.last)
       @election.candidates.last
     end
 
-    @election.save
+    @election.save!
   end
 
   test "should search some propositions" do
@@ -42,7 +42,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     proposition_attributes                = {}
     proposition_attributes['text']        = "Something"
     proposition_attributes['electionId']  = @election.id
-    proposition_attributes['themeId']     = @election.sub_themes.first
+    proposition_attributes['themeId']     = @election.themes.first
     proposition_attributes['candidateId'] = @election.candidates.last.id
 
     assert_difference('Proposition.count') do

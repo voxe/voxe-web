@@ -61,3 +61,6 @@ gem 'cancan'
 
 # Webserver
 gem 'thin'
+
+# Positions on themes
+gem 'mm_sortable_item'

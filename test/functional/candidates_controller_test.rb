@@ -6,19 +6,19 @@ class Api::V1::CandidatesControllerTest < ActionController::TestCase
 
     @election = FactoryGirl.create(:election)
 
-    @election.theme_ids[FactoryGirl.create(:theme).to_param] = [
-      FactoryGirl.create(:theme).to_param,
-      FactoryGirl.create(:theme).to_param
+    @election.themes = [
+      FactoryGirl.create(:theme),
+      FactoryGirl.create(:theme)
     ]
 
     3.times do
       @election.candidates << FactoryGirl.create(:candidate)
-      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => Theme.find(@election.theme_ids.first).first)
-      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => Theme.find(@election.theme_ids.first).last)
+      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => @election.themes.first)
+      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => @election.themes.last)
       @election.candidates.last
     end
 
-    @election.save
+    @election.save!
     @candidate = @election.candidates.first
   end
 
