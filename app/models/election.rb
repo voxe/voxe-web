@@ -6,13 +6,17 @@ class Election
 
   many :candidates, in: :candidateIds
   many :themes
+  many :propositions
 
   validates_presence_of :name
 
   def serializable_hash options = {}
     super({
       only:    [:id, :name],
-      include: {candidates: {only: [:id, :firstName, :lastName, :photos]}},
+      include: {
+        candidates: {only: [:id, :firstName, :lastName, :photos]},
+        propositions: {}
+      },
       methods: [:themes]
     }.merge(options))
   end

@@ -14,7 +14,7 @@ class Theme
   validates_presence_of :name
 
   def serializable_hash options = {}
-    super({include: [:themes, :propositions]}.merge(options))
+    super({include: :themes}.merge(options))
   end
 
 end

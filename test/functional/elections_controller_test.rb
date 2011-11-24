@@ -53,6 +53,14 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
       theme = Theme.find(json_theme['id'])
       assert_equal theme.name, json_theme['name']
     end
+
+    assert_equal Array, json['election']['propositions'].class
+    json['election']['propositions'].each do |json_proposition|
+      assert json_theme['id'].present?
+      assert @election.propositions.map{|t| t.id.to_s}.include?(json_proposition['id'])
+      proposition = Proposition.find(json_proposition['id'])
+      assert_equal proposition.name, json_proposition['name']
+    end
   end
 
   test "should add a theme for an election" do
