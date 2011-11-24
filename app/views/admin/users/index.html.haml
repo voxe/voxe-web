@@ -1,0 +1,10 @@
+= link_to "Add user", [:new, :admin, :user]
+
+%br
+
+- for user in @users do
+  = user.email
+  = user.admin?
+  = link_to "Edit", [:edit, :admin, user]
+  = link_to "Destroy", [:admin, user], method: :delete, confirm: "Are you sure to destroy #{user.email} ?"
+  %br
