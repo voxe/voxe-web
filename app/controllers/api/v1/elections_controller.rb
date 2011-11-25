@@ -3,18 +3,14 @@ class Api::V1::ElectionsController < ApplicationController
 
   # GET /api/v1/elections/1
   def show
-    render json: { election: @election.as_json(
-      only:    [:id, :name],
-      include: {candidates: {only: [:id, :firstName, :lastName, :photos]}},
-      methods: [:themes]
-    ) }
+    render json: { election: @election }
   end
 
   # GET /api/v1/elections/search
   def search
     @elections = Election.all
 
-    render json: { elections: @elections.as_json(only: [:id, :name]) }
+    render json: { elections: @elections }
   end
 
   # POST /api/v1/elections
@@ -28,15 +24,9 @@ class Api::V1::ElectionsController < ApplicationController
 
   # POST /api/v1/elections/1/addtheme
   def addtheme
-    @theme        = Theme.find params[:themeId]
-    @parent_theme = Theme.find(params[:parentThemeId]) if params[:parentThemeId]
+    @theme = Theme.find params[:themeId]
 
-    unless @parent_theme
-      @election.theme_ids[@theme.to_param] ||= []
-    else
-      @election.theme_ids[@parent_theme.to_param] ||= []
-      @election.theme_ids[@parent_theme.to_param] << @theme.to_param
-    end
+    @election.themes << @theme
 
     if @election.save
       render json: {theme: @theme}
@@ -49,7 +39,7 @@ class Api::V1::ElectionsController < ApplicationController
   def addcandidate
     @candidate = Candidate.find params[:candidateId]
 
-    @election.candidate_ids << @candidate.to_param
+    @election.candidates << @candidate
 
     if @election.save
       render json: {candidate: @candidate}

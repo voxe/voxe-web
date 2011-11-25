@@ -6,9 +6,9 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
 
     @election = FactoryGirl.create(:election)
 
-    @election.theme_ids[FactoryGirl.create(:theme).to_param] = [
-      FactoryGirl.create(:theme).to_param,
-      FactoryGirl.create(:theme).to_param
+    @election.themes = [
+      FactoryGirl.create(:theme),
+      FactoryGirl.create(:theme)
     ]
 
     3.times do
@@ -18,7 +18,7 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
       @election.candidates.last
     end
 
-    @election.save
+    @election.save!
   end
 
   test "should create an election" do
@@ -49,9 +49,17 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
     assert_equal Array, json['election']['themes'].class
     json['election']['themes'].each do |json_theme|
       assert json_theme['id'].present?
-      assert @election.theme_ids.keys.include?(json_theme['id'])
+      assert @election.themes.map{|t| t.id.to_s}.include?(json_theme['id'])
       theme = Theme.find(json_theme['id'])
       assert_equal theme.name, json_theme['name']
+    end
+
+    assert_equal Array, json['election']['propositions'].class
+    json['election']['propositions'].each do |json_proposition|
+      assert json_theme['id'].present?
+      assert @election.propositions.map{|t| t.id.to_s}.include?(json_proposition['id'])
+      proposition = Proposition.find(json_proposition['id'])
+      assert_equal proposition.name, json_proposition['name']
     end
   end
 
@@ -62,19 +70,11 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
     assert assigns(:election).themes.include?(@theme)
   end
 
-  test "should add a subtheme for an election" do
-    @parent_theme = @election.themes.first
-    @theme = FactoryGirl.create(:theme)
-    post :addtheme, id: @election.to_param, themeId: @theme.to_param, parentThemeId: @parent_theme.to_param
-    assert_response :success
-    assert assigns(:election).sub_themes_of(@parent_theme.to_param).include?(@theme)
-  end
-
   test "should add a candidate for an election" do
     @candidate = FactoryGirl.create(:candidate)
     post :addcandidate, id: @election.to_param, candidateId: @candidate
     assert_response :success
-    assert assigns(:election).candidate_ids.include?(@candidate.to_param)
+    assert assigns(:election).candidates.map{|c| c.id.to_s}.include?(@candidate.to_param)
   end
 
   test "should search some elections" do
@@ -85,6 +85,5 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
 
     json = JSON.parse(@response.body)
     assert json['elections'].present?
-    assert_equal ["id", "name"], json['elections'].first.keys
   end
 end

@@ -10,7 +10,11 @@ class Candidate
   validates_presence_of [:firstName, :lastName]
 
   def elections
-    Election.where(candidate_ids: self.id)
+    Election.where(candidateIds: self.id).all
+  end
+
+  def serializable_hash options = {}
+    super({methods: :elections}.merge(options))
   end
 
 end

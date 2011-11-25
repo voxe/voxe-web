@@ -15,6 +15,15 @@ class Api::V1::ThemesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should create a sub theme" do
+    assert_difference('Theme.count') do
+      post :create, theme: FactoryGirl.attributes_for(:theme).merge({parentThemeId: @theme.to_param})
+    end
+
+    assert_equal @theme.id, assigns(:theme).theme.id
+    assert_response :success
+  end
+
   test "should get all themes" do
     get :index
 
