@@ -1,68 +1,10 @@
-.topbar
-  .fill
-    .container
-      %a.brand Plato
-      %ul.nav
-        %li.class
-          %a Home
-        %li
-          %a About
-        %li
-          %a Press
-        - if user_signed_in?
-          %li
-            = link_to "Sign out", destroy_user_session_path, method: :delete
-        -else
-          %li
-            = link_to "Sign in", new_user_session_path
-          %li
-            = link_to "Sign up", new_user_registration_path
-      %ul.nav.secondary-nav
-        %li
-          %input.btn.primary{"data-controls-modal" => "modal", "data-backdrop" => "true", "data-keyboard" => "true"}
-            start a new election
-      
-.container
-  .hero-unit
-    %h1 Plato
-    %p building the world's platform for politics
-    %p
-      %button.btn.primary.large{"data-controls-modal" => "modal", "data-backdrop" => "true", "data-keyboard" => "true"}
-        start a new election
-        
-  #modal.modal.hide
-    .modal-header
-      %a.close &times;
-      %h3 Start a new Election
-    .modal-body
-      %form
-        %fieldset
-          .clearfix
-            %label Name
-            .input
-              %input.xlarge{:type => "text"}
-        
-    .modal-footer
-      %a.btn.primary Start
+#index
 
-  - if user_signed_in?
-    .row
-      .span16
-        .page-header
-          %h3
-            Hi
-            = current_user.email
-            let's get started !
-
-  .row
-    - 4.times do
-      .span4
-        %ul.media-grid
-          %li
-            %a.thumbnail= image_tag "http://placehold.it/210x150"
-        %blockquote
-          %p= link_to 'Nicolas Sarkozy', ""
-          %small UMP
+  #elections
+    = form_tag "#" do
+      new election
+      = text_field_tag :name
   
-  %footer
-    plato (open)
+      = submit_tag "submit"
+  
+  #election

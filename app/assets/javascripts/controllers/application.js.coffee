@@ -8,8 +8,6 @@ class window.ApplicationController extends Backbone.Router
   electionsIndex: ->
     app.collections.elections.fetch add: true
     
-  electionsShow: (electionId) ->
+  electionsShow: (electionId) ->    
     app.models.election.id = electionId
     app.models.election.fetch()
-    
-  

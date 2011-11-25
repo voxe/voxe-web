@@ -31,15 +31,21 @@ namespace :migrate do
     end
     puts "categories: #{all_categories.count}"
     
-    # themes.each do |theme_id, theme|
-    #   puts "- theme: #{theme_id} - #{theme["titre"]}"
-    #   sections[theme_id].each do |section|
-    #     puts "-- section: #{section["id_rubrique"]} #{section["titre"]}"
-    #     categories[section["id_rubrique"]].each do |category|
-    #       puts "--- category: #{category["id_rubrique"]} #{category["titre"]}"
-    #     end
-    #   end
-    # end
+    election = Election.create(:name => "Election Présidentielle France 2007")
+    
+    themes.each do |theme_id, theme|
+      puts "- theme: #{theme_id} - #{theme["titre"]}"
+      # create theme and match id
+      id = Theme.create(:name => theme["titre"]).id
+      themes_ids[theme_id] = id
+      
+      sections[theme_id].each do |section|
+        puts "-- section: #{section["id_rubrique"]} #{section["titre"]}"
+        categories[section["id_rubrique"]].each do |category|
+          puts "--- category: #{category["id_rubrique"]} #{category["titre"]}"
+        end
+      end
+    end
     
     c = YAML.load_file "data/france2007/candidates.yml"
     candidates = {}

@@ -30,10 +30,11 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can [:read, :search], Election
-      can [:read, :elections], Candidate
-      can :search, Proposition
-      can :read, Theme
+      can :manage, :all
+      # can [:read, :search], Election
+      # can [:read, :elections], Candidate
+      # can :search, Proposition
+      # can :read, Theme
     end
 
   end

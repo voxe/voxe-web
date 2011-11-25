@@ -1,7 +1,6 @@
 class ElectionsController < ApplicationController
   
-  def index
-    
+  def index 
   end
   
 end
