@@ -201,6 +201,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   fog
+  haml
   haml-rails
   jammit
   jquery-rails
