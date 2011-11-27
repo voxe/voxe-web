@@ -1,6 +1,3 @@
-%YAML 1.1
----
-# votons2007.spip_rubriques
 -
   id_rubrique: 441
   titre: "Bové"
@@ -61,4 +58,3 @@
   titre: "Schivardi"
   descriptif: "Gérard"
   id_mot: 46
-...
