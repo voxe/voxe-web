@@ -1,7 +1,11 @@
 == Environment
 
-* Ruby 1.9.2
+* Ruby 1.9.2 (use RVM)
 * mongoDB 1.8.X
+
+== Gems
+
+run rake migrate:france2007 to get some data from 2007 French Presidential Election
 
 == Deployment
 
