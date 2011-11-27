@@ -40,8 +40,10 @@ end
 gem 'jquery-rails'
 
 # MongoDB adapter and an optimizer for MongoDB
-gem 'mongo_mapper'
-gem 'bson_ext'
+# gem "mongoid", "~> 2.3"
+# gem "bson_ext", "~> 1.4"
+gem "mongoid"
+gem "bson_ext"
 
 # Upload system
 gem 'carrierwave'
@@ -49,12 +51,11 @@ gem 'carrierwave'
 # S3 gem for carrierwave
 gem 'fog'
 
-# MongoMapper for carrierwave
-gem 'mm-carrierwave'
+# Mongoid for carrierwave
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 # User authentication
 gem 'devise'
-gem 'mm-devise'
 
 # User authorization
 gem 'cancan'
@@ -62,5 +63,5 @@ gem 'cancan'
 # Webserver
 gem 'thin'
 
-# Positions on themes
-gem 'mm_sortable_item'
+# Lists for Mongoid
+gem 'acts_as_list_mongoid'

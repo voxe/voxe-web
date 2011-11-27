@@ -21,6 +21,7 @@ class Api::V1::ThemesControllerTest < ActionController::TestCase
     end
 
     assert_equal @theme.id, assigns(:theme).theme.id
+    assert @theme.themes.map {|t| t.id.to_s}.include? assigns(:theme).id.to_s
     assert_response :success
   end
 
@@ -30,7 +31,7 @@ class Api::V1::ThemesControllerTest < ActionController::TestCase
     assert_response :success
     json = JSON.parse(@response.body)
     assert json['themes'].present?
-    assert json['themes'].first['id'].present?
+    assert json['themes'].first['_id'].present?
     assert json['themes'].first['name'].present?
   end
 

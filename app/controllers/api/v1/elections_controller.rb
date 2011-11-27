@@ -16,7 +16,7 @@ class Api::V1::ElectionsController < ApplicationController
   # POST /api/v1/elections
   def create
     if @election.save
-      render json: { election: @election.as_json(only: [:id, :name]) }, status: :created
+      render json: { election: @election }, status: :created
     else
       render json: @election.errors, status: :unprocessable_entity
     end

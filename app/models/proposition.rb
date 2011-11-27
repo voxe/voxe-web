@@ -1,10 +1,10 @@
 class Proposition
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :text,        String
-  key :candidateId, String
-  key :themeId,     String
-  key :electionId,  String
+  field :text,        type: String
+  field :candidateId, type: String
+  field :themeId,     type: String
+  field :electionId,  type: String
 
   belongs_to :candidate, foreign_key: :candidateId
   belongs_to :theme,     foreign_key: :themeId

@@ -24,7 +24,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
   test "should search some propositions" do
     get :search, electionId: @election.to_param,
       themeIds: @election.themes.collect(&:to_param).join(','),
-      candidateIds: @election.candidates.all.last(2).collect(&:to_param).join(',')
+      candidateIds: @election.candidates.all[0..2].collect(&:to_param).join(',')
 
     assert_response :success
     json = JSON.parse(@response.body)

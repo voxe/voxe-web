@@ -28,7 +28,7 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
 
     json = JSON.parse @response.body
     assert_response :success
-    assert json["election"]["id"].present?
+    assert json["election"]["_id"].present?
   end
 
   test "should show an election" do
@@ -40,25 +40,25 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
 
     assert_equal Array, json['election']['candidates'].class
     json['election']['candidates'].each do |json_candidate|
-      assert json_candidate['id'].present?
-      candidate = @election.candidates.find(json_candidate['id'])
+      assert json_candidate['_id'].present?
+      candidate = Candidate.find(json_candidate['_id'])
       assert_equal candidate.firstName, json_candidate['firstName']
       assert_equal candidate.lastName, json_candidate['lastName']
     end
 
     assert_equal Array, json['election']['themes'].class
     json['election']['themes'].each do |json_theme|
-      assert json_theme['id'].present?
-      assert @election.themes.map{|t| t.id.to_s}.include?(json_theme['id'])
-      theme = Theme.find(json_theme['id'])
+      assert json_theme['_id'].present?
+      assert @election.themes.map{|t| t.id.to_s}.include?(json_theme['_id'])
+      theme = Theme.find(json_theme['_id'])
       assert_equal theme.name, json_theme['name']
     end
 
     assert_equal Array, json['election']['propositions'].class
     json['election']['propositions'].each do |json_proposition|
-      assert json_theme['id'].present?
-      assert @election.propositions.map{|t| t.id.to_s}.include?(json_proposition['id'])
-      proposition = Proposition.find(json_proposition['id'])
+      assert json_theme['_id'].present?
+      assert @election.propositions.map{|t| t.id.to_s}.include?(json_proposition['_id'])
+      proposition = Proposition.find(json_proposition['_id'])
       assert_equal proposition.name, json_proposition['name']
     end
   end

@@ -1,19 +1,23 @@
 class Theme
-  include MongoMapper::Document
-  plugin MongoMapper::Plugins::SortableItem
+  include Mongoid::Document
+  include ActsAsList::Mongoid
 
-  key :name, String
-  key :parentThemeId, String
+  field :position,      type: Integer
+  field :name,          type: String
+  field :parentThemeId, type: String
 
   belongs_to :election
   belongs_to :theme, foreign_key: :parentThemeId
-  many :themes, foreign_key: :parentThemeId
-  many :propositions
-  many :photos, as: :photoable
+  has_many :themes, foreign_key: :parentThemeId
+  has_many :propositions
+  has_many :photos, as: :photoable
+
+  acts_as_list column: :position
 
   validates_presence_of :name
 
   def serializable_hash options = {}
+    options ||= {}
     super({include: :themes}.merge(options))
   end
 

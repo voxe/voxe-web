@@ -1,11 +1,10 @@
 class Photo
-  require 'carrierwave/orm/mongomapper'
-  include MongoMapper::EmbeddedDocument
+  include Mongoid::Document
 
-  key :image, String
-  key :type, String
+  field :image, type: String
+  field :type, type: String
 
-  belongs_to :photoable
+  belongs_to :photoable, polymorphic: true
 
   mount_uploader :image, ImageUploader
   alias_method :url, :image_url
@@ -14,6 +13,7 @@ class Photo
   validates_inclusion_of :type, in: %w( square )
 
   def serializable_hash options = {}
+    options ||= {}
     super({only: :type, methods: :url}.merge(options))
   end
 end

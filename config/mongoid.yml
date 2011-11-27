@@ -1,0 +1,11 @@
+development:
+  host: localhost
+  database: joinplato_development
+
+test:
+  host: localhost
+  database: joinplato_test
+
+# set these environment variables on your prod server
+production:
+  uri: <%= ENV['MONGOHQ_URL'] %>

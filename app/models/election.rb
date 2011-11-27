@@ -1,20 +1,20 @@
 class Election
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :name, String
-  key :candidateIds, Array
+  field :name, type: String
 
-  many :candidates, in: :candidateIds
-  many :themes
-  many :propositions
+  has_and_belongs_to_many :candidates
+  has_many :themes
+  has_many :propositions
 
   validates_presence_of :name
 
   def serializable_hash options = {}
+    options ||= {}
     super({
-      only:    [:id, :name],
+      only:    [:_id, :name],
       include: {
-        candidates: {only: [:id, :firstName, :lastName, :photos]},
+        candidates: {only: [:_id, :firstName, :lastName, :photos]},
         propositions: {}
       },
       methods: [:themes]

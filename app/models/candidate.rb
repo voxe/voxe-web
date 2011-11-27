@@ -1,20 +1,18 @@
 class Candidate
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :firstName, String
-  key :lastName, String
+  field :firstName, type: String
+  field :lastName, type: String
 
-  many :propositions
-  many :photos, as: :photoable
+  has_and_belongs_to_many :elections
+  has_many :propositions
+  has_many :photos, as: :photoable
 
   validates_presence_of [:firstName, :lastName]
 
-  def elections
-    Election.where(candidateIds: self.id).all
-  end
-
   def serializable_hash options = {}
-    super({methods: :elections}.merge(options))
+    # super({methods: :elections}.merge(options))
+    super options
   end
 
 end
