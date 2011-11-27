@@ -12,5 +12,8 @@ child @candidates do
   attributes :id, :name
 end
 child @propositions do
-  attributes :id, :text, :themeId, :candidateId
+  attributes :id, :text, :candidateId
+  node(:sectionId) do |proposition|
+    proposition.themeId
+  end
 end
