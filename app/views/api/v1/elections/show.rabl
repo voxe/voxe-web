@@ -11,6 +11,6 @@ child @election do
     end
   end
   child :candidates do
-    attributes :id, :name
+    attributes :id, :firstName, :lastName
   end
 end

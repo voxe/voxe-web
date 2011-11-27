@@ -9,7 +9,7 @@ child @theme do
   end
 end
 child @candidates do
-  attributes :id, :name
+  attributes :id, :firstName, :lastName
 end
 child @propositions do
   attributes :id, :text, :candidateId
