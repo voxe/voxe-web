@@ -1,16 +1,14 @@
 class Api::V1::ElectionsController < ApplicationController
+  
   load_and_authorize_resource
 
   # GET /api/v1/elections/1
   def show
-    render json: { election: @election }
   end
 
   # GET /api/v1/elections/search
   def search
     @elections = Election.all
-
-    render json: { elections: @elections }
   end
 
   # POST /api/v1/elections

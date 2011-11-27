@@ -1,4 +1,5 @@
 class Api::V1::CandidatesController < ApplicationController
+  
   load_and_authorize_resource
 
   # POST /api/v1/candidates
@@ -12,14 +13,6 @@ class Api::V1::CandidatesController < ApplicationController
 
   # GET /api/v1/candidates/1
   def show
-    render json: {candidate: @candidate}
-  end
-
-  # GET /api/v1/candidates/1/elections
-  def elections
-    @elections = @candidate.elections
-
-    render json: {elections: @elections}
   end
 
   # POST /api/v1/candidates/1/addphoto

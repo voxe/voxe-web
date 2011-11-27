@@ -1,4 +1,11 @@
 Joinplato::Application.routes.draw do
+  
+  # web
+  resources :elections do
+    member do
+      post :compare
+    end
+  end
 
   devise_for :users
 
@@ -27,7 +34,6 @@ Joinplato::Application.routes.draw do
 
       resources :candidates do
         member do
-          get :elections
           post :addphoto
         end
       end

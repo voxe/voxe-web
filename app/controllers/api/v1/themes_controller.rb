@@ -1,4 +1,5 @@
 class Api::V1::ThemesController < ApplicationController
+  
   load_and_authorize_resource
 
   # POST /api/v1/themes
@@ -8,12 +9,6 @@ class Api::V1::ThemesController < ApplicationController
     else
       render json: @theme.errors, status: :unprocessable_entity
     end
-  end
-
-  # GET /api/v1/themes
-  def index
-    @themes = Theme.all
-    render json: {themes: @themes}
   end
 
   # POST /api/v1/themes/1/addphoto

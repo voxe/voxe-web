@@ -2,8 +2,11 @@
 %html
   %head
     %title Joinplato
-    = stylesheet_link_tag "http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css", "application"
-    = javascript_include_tag "application", "templates"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    .topbar
+      .topbar-inner
+        .container= link_to "The Voxe", elections_path, :class => "brand"
     = yield

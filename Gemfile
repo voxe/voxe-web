@@ -65,3 +65,6 @@ gem 'thin'
 
 # Lists for Mongoid
 gem 'acts_as_list_mongoid'
+
+# API templates
+gem 'rabl'

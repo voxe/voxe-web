@@ -9,6 +9,10 @@ class Candidate
   has_many :photos, as: :photoable
 
   validates_presence_of [:firstName, :lastName]
+  
+  def name
+    "#{firstName} #{lastName}"
+  end
 
   def serializable_hash options = {}
     # super({methods: :elections}.merge(options))
