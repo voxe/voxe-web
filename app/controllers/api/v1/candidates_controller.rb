@@ -1,5 +1,4 @@
 class Api::V1::CandidatesController < ApplicationController
-  
   load_and_authorize_resource
 
   # POST /api/v1/candidates

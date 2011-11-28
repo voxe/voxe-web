@@ -6,15 +6,20 @@ class Api::V1::CandidatesControllerTest < ActionController::TestCase
 
     @election = FactoryGirl.create(:election)
 
-    @election.themes = [
-      FactoryGirl.create(:theme),
-      FactoryGirl.create(:theme)
-    ]
+    @theme = FactoryGirl.create(:theme)
+    @category = FactoryGirl.create(:theme)
+    @category.theme = @theme
+    @category.save
+    @section = FactoryGirl.create(:theme)
+    @section.theme = @category
+    @section.save
+
+    @election.themes << @theme
 
     3.times do
       @election.candidates << FactoryGirl.create(:candidate)
-      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => @election.themes.first)
-      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => @election.themes.last)
+      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => @section)
+      FactoryGirl.create(:proposition, :election => @election, :candidate => @election.candidates.last, :theme => @section)
       @election.candidates.last
     end
 
@@ -38,15 +43,6 @@ class Api::V1::CandidatesControllerTest < ActionController::TestCase
     assert json['candidate'].present?
     assert_equal @candidate.firstName, json['candidate']['firstName']
     assert_equal @candidate.lastName, json['candidate']['lastName']
-  end
-
-  test "should show elections of a candidate" do
-    get :elections, id: @candidate.to_param
-
-    assert_response :success
-    json = JSON.parse @response.body
-    assert json['elections'].present?
-    assert_equal @election.name, json['elections'].first['name']
   end
 
   test "should post a photo on a candidate" do

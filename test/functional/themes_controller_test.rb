@@ -25,16 +25,6 @@ class Api::V1::ThemesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get all themes" do
-    get :index
-
-    assert_response :success
-    json = JSON.parse(@response.body)
-    assert json['themes'].present?
-    assert json['themes'].first['_id'].present?
-    assert json['themes'].first['name'].present?
-  end
-
   test "should post a photo on a theme" do
     post :addphoto, id: @theme.to_param,
       type: 'square',

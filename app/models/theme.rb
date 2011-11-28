@@ -16,6 +16,11 @@ class Theme
 
   validates_presence_of :name
 
+  def sections
+    return [] unless election.present?
+    themes.map { |category| category.themes }.flatten
+  end
+
   def serializable_hash options = {}
     options ||= {}
     super({include: :themes}.merge(options))
