@@ -1,0 +1,17 @@
+.row
+  .span16
+    %p= link_to "Add a candidate", [:new, :admin, :candidate]
+
+    %table
+      %tr
+        %th First name
+        %th Last name
+        %th Elections
+        %th Actions
+      - for candidate in @candidates do
+        %tr
+          %td= candidate.firstName
+          %td= candidate.lastName
+          %td= candidate.elections.map(&:name).join(', ')
+          %td
+            = link_to "Edit", [:edit, :admin, candidate]

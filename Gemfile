@@ -54,6 +54,9 @@ gem 'fog'
 # Mongoid for carrierwave
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
+# Rmagick for carrierwave
+gem 'mini_magick'
+
 # User authentication
 gem 'devise'
 

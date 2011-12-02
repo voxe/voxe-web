@@ -10,13 +10,21 @@ Joinplato::Application.routes.draw do
   devise_for :users
 
   namespace :admin do
+    match '/' => 'dashboard#index'
     resources :users
+    resources :elections
+    resources :candidates
+    resources :propositions do
+      collection do
+        get :manage
+      end
+    end
   end
 
-  namespace :api, :defaults => { :format => 'json' } do
+  namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
 
-      resources :elections, :except => :index do
+      resources :elections, except: :index do
         member do
           post :addtheme
           post :addcandidate
