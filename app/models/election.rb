@@ -4,10 +4,12 @@ class Election
   field :name, type: String
 
   has_and_belongs_to_many :candidates
-  has_many :themes
+  has_many :themes, dependent: :destroy, autosave: true
   has_many :propositions
 
   validates_presence_of :name
+
+  accepts_nested_attributes_for :themes, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
 
   def serializable_hash options = {}
     options ||= {}

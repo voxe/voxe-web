@@ -35,3 +35,9 @@ body {
   padding: 20px 20px 10px;
   margin: -20px -20px 20px;
 }
+
+form .image-form {
+  float: left;
+  margin: 0px 6px;
+}
+

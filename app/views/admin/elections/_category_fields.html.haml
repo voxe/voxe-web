@@ -1,0 +1,12 @@
+.fields
+  .clearfix.offset1
+    = f.label :name, "Category"
+    .input
+      = f.text_field :name
+      = link_to_remove_fields "Remove", f
+
+  = f.fields_for :themes do |section_f|
+    = render 'section_fields', f: section_f
+  .clearfix.offset3
+    = link_to_add_fields "Add a section", f, :themes, :section
+    %hr

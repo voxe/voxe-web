@@ -1,0 +1,15 @@
+.row
+  .span16
+    %h1
+      = @election.name
+      \-
+      = @candidate.name
+    %h2
+      = @section.name
+    %br
+
+    = form_tag [:admin, :propositions] do
+      - for proposition in @section.propositions do
+        = render 'proposition_fields', proposition: proposition
+      .add_fields
+        = link_to_function("Add a proposition", "add_fields(this, 'propositions', '#{escape_javascript(render 'proposition_fields', proposition: Proposition.new(electionId: @election.id, themeId: @section.id, candidateId: @candidate.id))}')")

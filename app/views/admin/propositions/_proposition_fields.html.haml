@@ -1,0 +1,8 @@
+.fields
+  = form_for [:admin, proposition], remote: true do |f|
+    = f.hidden_field :electionId
+    = f.hidden_field :candidateId
+    = f.hidden_field :themeId
+    .clearfix
+      = f.text_area :text, class: 'xxlarge', rows: 3
+      = f.submit class: "btn"

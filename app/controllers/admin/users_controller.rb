@@ -1,8 +1,8 @@
 class Admin::UsersController < ApplicationController
+  layout 'backoffice'
   load_and_authorize_resource
 
   def index
-    @users = User.all
   end
 
   def new
@@ -11,7 +11,8 @@ class Admin::UsersController < ApplicationController
   def create
     @user.admin = params[:user][:admin]
     if @user.save
-      redirect_to action: :index, notice: "User was sucessfully created"
+      flash[:notice] = "User was sucessfully created"
+      redirect_to action: :index
     else
       render action: :new
     end
@@ -23,7 +24,8 @@ class Admin::UsersController < ApplicationController
   def update
     @user.admin = params[:user][:admin]
     if @user.save
-      redirect_to action: :index, notice: "User was sucessfully updated"
+      flash[:notice] = "User was sucessfully updated"
+      redirect_to action: :index
     else
       render action: :edit
     end
@@ -31,7 +33,8 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to action: :index, notice: "User was sucessfully destroyed"
+    flash[:notice] = "User was sucessfully destroyed"
+    redirect_to action: :index
   end
 
 end
