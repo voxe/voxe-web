@@ -1,8 +1,20 @@
+== Getting started
+
+1. At the prompt command, install dependencies (more details bellow):
+  bundle install
+
+2. At the prompt command, migrate your database:
+  rake db:migrate
+
+3. At the prompt command, start your server:
+  rails server
+
 == Environment
 
 * Ruby 1.9.2 (use RVM)
 * mongoDB 1.8.X
 * imagemagick
+* heroku
 
 == Dependencies
 
@@ -15,9 +27,24 @@ run rake migrate:france2007 to get some data from 2007 French Presidential Elect
 
 == Deployment
 
-At the command prompt, start the web server:
+Ensure your have the heroku gem. If not install it, at the command prompt:
+  gem install heroku
 
-  rails server
+Prerequired, add two remote branches for heroku deployment.
+
+On for production mode:
+  git remote add heroku git@heroku.com:joinplato.git
+
+One for staging mode:
+  git remote add staging git@heroku.com:joinplato-staging.git
+
+Then you can deploy by pushing your branch on heroku.
+
+Deploying in production mode:
+  git push heroku master
+
+Deploying in staging mode:
+  git push staging master
 
 == Testing
 
