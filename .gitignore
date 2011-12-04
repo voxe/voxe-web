@@ -4,4 +4,5 @@ log/*.log
 tmp/
 .sass-cache/
 .DS_Store
+public/photos
 public/uploads
