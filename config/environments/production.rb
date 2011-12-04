@@ -69,6 +69,6 @@ Joinplato::Application.configure do
 
   config.middleware.use ExceptionNotifier,
     :email_prefix => "[ExceptionNotifier] ",
-    :sender_address => %{"Joinplato" <dev@joinplato.com>},
-    :exception_recipients => %w{dev@joinplato.com}
+    :sender_address => %{"Joinplato" <api@joinplato.com>},
+    :exception_recipients => %w{api@joinplato.com}
 end
