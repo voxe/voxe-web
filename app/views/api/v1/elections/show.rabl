@@ -12,10 +12,10 @@ child @election do
   end
   child :candidates do
     attributes :id, :firstName, :lastName
-    child :photos do
+    child :photo, :if => lambda { |c| c.photo? } do
       attributes :id
-      node(:squareURL) do |photo|
-        photo.image.url(:square)
+      node(:square) do |photo|
+        {url: photo.image.url(:square)}
       end
     end
   end
