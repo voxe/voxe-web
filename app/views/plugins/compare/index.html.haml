@@ -1,0 +1,18 @@
+!!! HTML
+%html
+  %head
+    %title= "#{@election.name} | The Voxe"
+    = stylesheet_link_tag "plugins"
+    = javascript_include_tag "plugins"
+  %body
+    .container
+      #application-view
+         
+    #footer
+      .container= link_to "The Voxe", "http://thevoxe.com", target: "_blank"
+      
+    #templates
+      = render 'templates.mustache'
+      
+    :javascript
+      new Plugin({electionId: "#{@election.id}"});

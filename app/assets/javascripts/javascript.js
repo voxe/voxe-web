@@ -5,7 +5,6 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery_ujs
 
 //= require libs/underscore-1.2.0
 //= require libs/backbone-0.5.3

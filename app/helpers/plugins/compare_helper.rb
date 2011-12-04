@@ -1,0 +1,2 @@
+module Plugins::CompareHelper
+end
