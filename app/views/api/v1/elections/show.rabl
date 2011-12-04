@@ -12,5 +12,11 @@ child @election do
   end
   child :candidates do
     attributes :id, :firstName, :lastName
+    child :photos do
+      attributes :id
+      node(:squareURL) do |photo|
+        photo.image.url(:square)
+      end
+    end
   end
 end
