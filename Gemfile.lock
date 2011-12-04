@@ -62,6 +62,8 @@ GEM
       warden (~> 1.1)
     erubis (2.7.0)
     eventmachine (0.12.10)
+    exception_notification (2.5.2)
+      actionmailer (>= 3.0.4)
     excon (0.7.9)
     execjs (1.2.9)
       multi_json (~> 1.0)
@@ -200,6 +202,7 @@ DEPENDENCIES
   carrierwave-mongoid
   coffee-rails (~> 3.1.1)
   devise
+  exception_notification
   factory_girl_rails
   fog
   haml
