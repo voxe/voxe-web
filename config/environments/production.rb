@@ -57,4 +57,18 @@ Joinplato::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com'
+  }
+
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[ExceptionNotifier] ",
+    :sender_address => %{"Joinplato" <dev@joinplato.com>},
+    :exception_recipients => %w{dev@joinplato.com}
 end

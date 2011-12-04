@@ -74,3 +74,6 @@ gem 'rabl'
 
 # templates
 gem 'haml'
+
+# Be notified by mail when something went wrong
+gem 'exception_notification'
