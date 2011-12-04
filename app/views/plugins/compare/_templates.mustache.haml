@@ -1,0 +1,29 @@
+#candidates-list-template
+  #header
+    %a.button.compare-button Compare
+    .container= "{{#election}}{{name}}{{/election}}"
+    
+  #content
+    .container
+      %ul.candidates
+        {{#candidates}}
+        %li{"candidate-id" => "{{id}}", "class" => "pierre {{#selected}}selected{{/selected}}"}
+          .image
+            <img src="{{#photo}}{{#sizes}}{{#small}}{{url}}{{/small}}{{/sizes}}{{/photo}}" width="30px" height="30px" />
+          .name= "{{firstName}} {{lastName}}"
+        {{/candidates}}
+        
+#themes-list-template
+  #header
+    .container= "{{#election}}{{name}}{{/election}}"
+    
+  #content
+    .container
+      %ul.themes
+        {{#election}}
+        {{#themes}}
+        %li{"theme-id" => "{{id}}"}
+          .image= image_tag "http://flickholdr.com/100/100/paris", :size => "30x30"
+          .name= "{{name}}"
+        {{/themes}}
+        {{/election}}

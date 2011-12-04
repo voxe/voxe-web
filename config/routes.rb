@@ -6,6 +6,16 @@ Joinplato::Application.routes.draw do
       post :compare
     end
   end
+  
+  resources :plugins, :only => :index
+  
+  namespace :plugins do
+    resources :compare, :only => :index do
+      collection do
+        get :propositions
+      end
+    end
+  end
 
   devise_for :users
 

@@ -2,7 +2,7 @@
   = f.label :image
   .input
     - if f.object.persisted?
-      .image-form= link_to image_tag(f.object.image.url(:thumb), class: 'thumbnail'), f.object.image.url, target: "_blank"
+      .image-form= link_to image_tag(f.object.image.url(:small), class: 'thumbnail'), f.object.image.url, target: "_blank"
       Delete this image ?
       = f.check_box :_destroy
       %br

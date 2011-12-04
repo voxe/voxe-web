@@ -16,6 +16,14 @@ class Candidate
   def name
     "#{firstName} #{lastName}"
   end
+  
+  def photo?
+    !photos.blank?
+  end
+  
+  def photo
+    photos.first
+  end
 
   def serializable_hash options = {}
     # super({methods: :elections}.merge(options))

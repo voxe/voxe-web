@@ -1,0 +1,160 @@
+// Place all the styles related to the plugins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body {
+  margin: 0;
+  font-family: "lucida grande",lucida,tahoma,helvetica,arial,sans-serif;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+.container {
+  padding: 40px 0 0 0;
+}
+
+#templates {
+  display: none;
+}
+
+#header, #footer {
+  background-color: #DDEEF6;
+  font-weight: bold;
+  position: fixed;
+  width: 100%;
+}
+
+#header {
+  font-size: 16px;
+  height: 44px;
+  top: 0;
+  border-bottom: #C0DEED 1px solid;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  .container {
+    padding: 13px 0 0 10px;
+  }
+  a.button {
+    float: right;
+    display: block;
+    margin: 10px 10px 0 0;
+    padding: 5px 8px;
+    background-color: #D5D5D5;
+    border-color: #999;
+    border-radius: 3px;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+#footer {
+  border-top: #C0DEED 1px solid;
+  bottom: 0;
+  height: 25px;
+  font-size: 10px;
+  a {
+    color: rgba(0, 0, 0, .5);
+  }
+  .container {
+    padding: 5px 0 0 10px;
+  }
+}
+
+#content {
+  background-color: #F6F6F6;
+  overflow-y: scroll;
+  .container {
+    padding: 10px;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  background-color: white;
+}
+
+ul {
+  li {
+    padding: 4px 0 2px 8px;
+    border-bottom: 1px solid #eee;
+    overflow: auto;
+  }
+  li:first-child {
+    border-radius: 3px 3px 0 0;
+  }
+  li:last-child {
+    border-radius: 0 0 3px 3px;
+  }
+}
+
+ul.candidates {
+  li.selected {
+    font-weight: bold;
+    background-color: #dedede !important;
+  }
+}
+
+ul.themes, ul.candidates {
+  li {
+    cursor: pointer;
+    .image {
+      float: left;
+      img {
+        border-radius: 2px;
+      }
+    }
+    .name {
+      margin: 5px 0 0 40px;
+      font-size: 13px;
+    }
+  }
+  li:hover {
+    background-color: #efefef;
+  }
+}
+
+#compare-view {
+  ul.section {
+    margin: 10px 0;
+    li.names {
+      padding: 8px 10px;
+      background-color: white;
+      .category-name {
+        font-size: 12px;
+      }
+      .section-name {
+        font-size: 12px;
+        text-transform: uppercase;
+        padding: 1px 3px 2px;
+        background-color: #BFBFBF;
+        border-radius: 3px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: white;
+      }
+    }
+  }
+  li.propositions {
+    padding: 5px 10px;
+    .image {
+      float: left;
+      img {
+        border-radius: 2px;
+      }
+    }
+    .name {
+      margin: 0 0 5px 50px;
+      font-size: 13px;
+    }
+    .proposition {
+      margin: 3px 0 0 50px;
+      font-size: 12px;
+    }
+  }
+}
