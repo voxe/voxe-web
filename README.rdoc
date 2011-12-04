@@ -2,8 +2,14 @@
 
 * Ruby 1.9.2 (use RVM)
 * mongoDB 1.8.X
+* imagemagick
 
-== Gems
+== Dependencies
+
+brew install imagemagick
+bundle install
+
+== Import Data
 
 run rake migrate:france2007 to get some data from 2007 French Presidential Election
 
