@@ -9,7 +9,7 @@
         {{#candidates}}
         %li{"candidate-id" => "{{id}}", "class" => "pierre {{#selected}}selected{{/selected}}"}
           .image
-            <img src="{{#photo}}{{#square}}{{url}}{{/square}}{{/photo}}" width="30px" height="30px" />
+            <img src="{{#photo}}{{#sizes}}{{#small}}{{url}}{{/small}}{{/sizes}}{{/photo}}" width="30px" height="30px" />
           .name= "{{firstName}} {{lastName}}"
         {{/candidates}}
         
