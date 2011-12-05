@@ -1,23 +1,6 @@
 Joinplato::Application.routes.draw do
   
-  # web
-  resources :elections do
-    member do
-      post :compare
-    end
-  end
-  
-  resources :plugins, :only => :index
-  
-  namespace :plugins do
-    resources :compare, :only => :index do
-      collection do
-        get :propositions
-      end
-    end
-  end
-
-  devise_for :users
+  # admin
 
   namespace :admin do
     match '/' => 'dashboard#index'
@@ -30,6 +13,8 @@ Joinplato::Application.routes.draw do
       end
     end
   end
+  
+  # API
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
@@ -65,8 +50,26 @@ Joinplato::Application.routes.draw do
     end
   end
   
-  match 'ux/' => 'ux#index'
+  # web-app
+  
+  resources :plugins, :only => :index
+  
+  namespace :plugins do
+    resources :compare, :only => :index do
+      collection do
+        get :propositions
+      end
+    end
+  end
 
+  devise_for :users
+  
+  match ':country/:election/propositions/:id' => 'propositions#show'
+  match ':country/:election/:candidates/:themes' => 'elections#compare', :as => :election_compare
+  match ':country/:election/:candidates' => 'elections#themes', :as => :election_themes
+  match ':country/:election' => 'elections#show', :as => :election
+  match ':country' => 'countries#show'
+  
   root to: 'elections#index'
 
 end

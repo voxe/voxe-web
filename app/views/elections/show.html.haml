@@ -2,23 +2,20 @@
   .content
     .page-header
       %h1= @election.name
-      
   
-    = form_tag compare_election_path(@election.id) do
-      %h2 Candidates
-      - @election.candidates.in_groups_of(4) do |candidates|
-        .row
-          - candidates.each do |candidate|
-            .span4            
-              = check_box_tag "candidates[]", candidate.id, false, :id => "candidate-#{candidate.id}"
-              = candidate.name
+    %h2 Candidates
+    - @election.candidates.in_groups_of(4) do |candidates|
+      .row
+        - candidates.each do |candidate|
+          .span4            
+            = link_to candidate.name, election_themes_path(@election.country.namespace, @election.namespace, candidate.namespace)
     
-      %h2 Themes
-      - @election.themes.in_groups_of(4).each do |themes|
-        .row
-          - themes.each do |theme|
-            .span4
-              = check_box_tag "themes[]", theme.id, false, :id => "theme-#{theme.id}"
-              = theme.name
-    
-      = submit_tag "compare", :class => "btn primary"
+      / %h2 Themes
+      / - @election.themes.in_groups_of(4).each do |themes|
+      /   .row
+      /     - themes.each do |theme|
+      /       .span4
+      /         = check_box_tag "themes[]", theme.id, false, :id => "theme-#{theme.id}"
+      /         = theme.name
+      /     
+      / = submit_tag "compare", :class => "btn primary"

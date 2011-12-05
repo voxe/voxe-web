@@ -5,13 +5,18 @@ class ElectionsController < ApplicationController
   end
   
   def show
-    @election = Election.find params[:id]
+    @election = Election.first conditions: {namespace: params[:election]}
+  end
+  
+  def themes
+    @election   = Election.first conditions: {namespace: params[:election]}
+    @candidates = Candidate.where(:namespace.in => params[:candidates].split(',')).all
   end
   
   def compare
-    @election   = Election.find params[:id]
-    @candidates = Candidate.find params[:candidates]
-    @themes     = Theme.find params[:themes]
+    @election   = Election.first conditions: {namespace: params[:election]}
+    @candidates = Candidate.where(:namespace.in => params[:candidates].split(',')).all
+    @themes     = [Theme.first]
     
     @propositions = {}
     @candidates.each do |candidate|
