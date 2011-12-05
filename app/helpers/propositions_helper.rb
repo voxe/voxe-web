@@ -1,0 +1,2 @@
+module PropositionsHelper
+end

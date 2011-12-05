@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UxControllerTest < ActionController::TestCase
+class CountryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

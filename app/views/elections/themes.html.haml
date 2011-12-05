@@ -1,0 +1,11 @@
+.container
+  .content
+    .page-header
+      %h1= @election.name
+      
+    %h2 Themes
+    - @election.themes.in_groups_of(4).each do |themes|
+      .row
+        - themes.each do |theme|
+          .span4
+            = link_to theme.name, election_compare_path(@election.country.namespace, @election.namespace, params[:candidates], theme.namespace)
