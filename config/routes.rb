@@ -50,6 +50,14 @@ Joinplato::Application.routes.draw do
     end
   end
   
+  # webviews
+  resources :webviews, :only => :index do
+    collection do
+      get :compare
+      get :propositions
+    end
+  end
+  
   # web-app
   
   resources :plugins, :only => :index
