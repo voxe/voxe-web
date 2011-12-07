@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#nav-bar {
+  position: absolute;
+  top: 0;
+  height: 44px;
+  background-color: black;
+  width: 100%;
+  a {
+    color: white;
+  }
+}
+
+.table-view-container {
+  position: absolute;
+  top: 44px;
+  width: 100%;
+  bottom: 44px;
+}
+
+.page-view {
+  display: none;
+}
+
+#tool-bar {
+  position: absolute;
+  bottom: 0;
+  height: 44px;
+  background-color: black;
+  width: 100%;
+}
