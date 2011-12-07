@@ -5,38 +5,45 @@ document.addEventListener(
   ,false
 )
 
-hideAddressBar= ->
-  # http://davidwalsh.name/hide-address-bar
-  # bug
-  window.scrollTo 0, 1
-
-init= ->
-  # http://cubiq.org/iscroll-4
-  tableView = new iScroll $('#page1 .table-view-container').get(0)
-
+document.addEventListener(
+  'touchstart', (e) ->
+    window.scrollTo 0,0.9
+  ,false
+)
+  
 window.addEventListener "load", ->
   # setTimeout hideAddressBar, 0
-  setTimeout init, 200
+  window.scrollTo(0,0.9)
   
-  pageOne = pageTwo = null
+  page1 = new iScroll $('#modal-view .table-view-container').get(0)
   
-  $('a.page1').click ->
-    $('.page-view').hide()
-    $('#page1').show()
+  window.themesTableView = window.propositionsTableView = null
+  
+  $('a.compare').click ->
+    $('#modal-view').hide()
+    $('#navigation-view').show()
+        
+    unless themesTableView
+      $('#themes').show()
+      window.themesTableView = new iScroll $('#themes .table-view-container').get(0)
+      
+  $('span').click (e)->
+    $(e.target).append('traveled to the heart of Republican Kansas on Tuesday')
+    setTimeout(->
+      propositionsTableView.refresh()
+    , 0)
     
-    unless page1
-      page1 = new iScroll $('#page1 .table-view-container').get(0)
+  $('#toolbar a').click ->
+    $('#modal-view').show()
+    $('#navigation-view').hide()
   
-  $('a.page2').click ->
+  $('a.themes').click ->
     $('.page-view').hide()
-    $('#page2').show()
-    
-    unless page2
-      page2 = new iScroll $('#page2 .table-view-container').get(0)
+    $('#themes').show()
  
-  $('a.page3').click ->
+  $('a.propositions').click ->
     $('.page-view').hide()
-    $('#page3').show()
+    $('#propositions').show()
 
-    unless page3
-      page3 = new iScroll $('#page3 .table-view-container').get(0) 
+    unless propositionsTableView
+      window.propositionsTableView = new iScroll $('#propositions .table-view-container').get(0) 

@@ -3,8 +3,9 @@ body {
   padding: 0;
 }
 
-#nav-bar {
+.nav-bar {
   position: absolute;
+  z-index: 2;
   top: 0;
   height: 44px;
   background-color: black;
@@ -14,10 +15,46 @@ body {
   }
 }
 
+#navigation-view {
+  .nav-bar {
+    a {
+      display: block;
+      width: 50%;
+      height: 100%;
+      text-align: center;
+      float: left;
+    }
+  }
+}
+
+#modal-view {
+  .nav-bar {
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+  }
+}
+
 .table-view-container {
   position: absolute;
   top: 44px;
   width: 100%;
+  z-index: 1;
+  .table-view {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.iphone .table-view-container {
+  bottom: -16px;
+}
+
+.android .table-view-container {
   bottom: 44px;
 }
 
@@ -25,10 +62,40 @@ body {
   display: none;
 }
 
-#tool-bar {
+.iphone #modal-view {
+  .table-view-container {
+    bottom: -60px;
+  }
+}
+
+.android  #modal-view {
+  .table-view-container {
+    bottom: 0;
+  }
+}
+
+#navigation-view {
+  display: none;
+}
+
+#toolbar {
   position: absolute;
-  bottom: 0;
+  z-index: 2;
   height: 44px;
-  background-color: black;
+  background-color: red;
   width: 100%;
+  a {
+    width: 100%;
+    text-align: center;
+    display: block;
+    height: 100%;
+  }
+}
+
+.iphone #toolbar {
+  bottom: -60px;
+}
+
+.android #toolbar {
+  bottom: 0;
 }

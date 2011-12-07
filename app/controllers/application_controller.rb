@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_touch_format
   
+  helper_method :touch_device
+  
   private
   
     def set_touch_format
@@ -18,6 +20,13 @@ class ApplicationController < ActionController::Base
   
     def touch_device?
       request.user_agent.to_s.downcase =~ /iphone|android/
+    end
+    
+    # returns 'android', 'iphone' or nil
+    def touch_device
+      return 'iphone' if request.user_agent.to_s.downcase =~ /iphone/
+      return 'android' if request.user_agent.to_s.downcase =~ /android/
+      nil
     end
   
 end

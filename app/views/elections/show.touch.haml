@@ -1,24 +1,34 @@
-#nav-bar
-  %a.page1 candidates
-  %a.page2 themes
-  %a.page3 propositions
-
-.page-view#page1
+#modal-view
+  .nav-bar
+    %a.compare compare
+    
   .table-view-container
     .table-view
       - @election.candidates.each do |candidate|
         %h2= candidate.firstName
         
-.page-view#page2
-  .table-view-container
-    .table-view
-      - @election.themes.each do |theme|
-        %h2= theme.name
+#navigation-view
+  .nav-bar
+    %a.themes themes
+    %a.propositions propositions
 
-.page-view#page3
-  .table-view-container
-    .table-view
-      - 30.times do
-        President Obama traveled to the heart of Republican Kansas on Tuesday, where he presented Americans with a choice: a "fair shot" with him, or a return to "you're on your own economics.
+  .page-view#themes
+    .table-view-container
+      .table-view
+        - @election.themes.each do |theme|
+          %h2= theme.name
 
-#tool-bar
+  .page-view#propositions
+    .table-view-container
+      .table-view
+        - 30.times do
+          President
+          %span Obama
+          traveled to the heart of Republican Kansas on Tuesday, where he presented Americans with a choice: a "fair shot" with him, or a return to "you're on your own economics.
+
+  #toolbar
+    %a candidates
+
+  :plain
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(
+    hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,0.9); } </script>
