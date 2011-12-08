@@ -6,6 +6,8 @@ class ElectionsController < ApplicationController
   
   def show
     @election = Election.first conditions: {namespace: params[:election]}
+    # returns 404 if election does not exist
+    return raise ActionController::RoutingError.new('Not Found') unless @election
   end
   
   def themes
