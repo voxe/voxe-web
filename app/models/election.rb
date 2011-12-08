@@ -30,6 +30,10 @@ class Election
     }.merge(options))
   end
   
+  def to_param
+    namespace
+  end
+  
   private
     def generate_namespace
       self.namespace = "#{name}".parameterize
