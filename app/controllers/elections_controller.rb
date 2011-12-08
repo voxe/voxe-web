@@ -15,14 +15,20 @@ class ElectionsController < ApplicationController
     # returns 404 if election does not exist
     return not_found unless @election
     @candidates = Candidate.where(:namespace.in => params[:candidates].split(',')).all
-    # redirect to election page if candidates is empty
-    return redirect_to election_path(@election.country, @election) if @candidates.blank?
+    # returns 404 if candidates is empty
+    return not_found if @candidates.blank?
   end
   
   def compare
     @election   = Election.first conditions: {namespace: params[:election]}
+    # returns 404 if election does not exist
+    return not_found unless @election
     @candidates = Candidate.where(:namespace.in => params[:candidates].split(',')).all
+    # returns 404 if candidates is empty
+    return not_found if @candidates.blank?
     @themes     = [Theme.first]
+    # returns 404 if theme is not valid
+    return not_found if @candidates.blank?
     
     @propositions = {}
     @candidates.each do |candidate|
