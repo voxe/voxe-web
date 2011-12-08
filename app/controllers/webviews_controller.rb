@@ -1,6 +1,8 @@
 class WebviewsController < ApplicationController
   
   layout false
+  # touch
+  before_filter :set_format
   
   def index
   end
@@ -36,5 +38,10 @@ class WebviewsController < ApplicationController
   def propositions
     @proposition = Proposition.find params[:id]
   end
+  
+  private
+    def set_format
+      request.format = :touch
+    end
   
 end
