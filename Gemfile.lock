@@ -36,6 +36,9 @@ GEM
     acts_as_list_mongoid (0.2.4)
       mongoid (>= 2.0.1)
       mongoid_embedded_helper (>= 0.2.5)
+    airbrake (3.0.6)
+      activesupport
+      builder
     ansi (1.4.1)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
@@ -62,8 +65,6 @@ GEM
       warden (~> 1.1)
     erubis (2.7.0)
     eventmachine (0.12.10)
-    exception_notification (2.5.2)
-      actionmailer (>= 3.0.4)
     excon (0.7.9)
     execjs (1.2.9)
       multi_json (~> 1.0)
@@ -196,13 +197,13 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list_mongoid
+  airbrake
   bson_ext
   cancan
   carrierwave
   carrierwave-mongoid
   coffee-rails (~> 3.1.1)
   devise
-  exception_notification
   factory_girl_rails
   fog
   haml

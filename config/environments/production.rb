@@ -67,8 +67,4 @@ Joinplato::Application.configure do
     :domain         => 'heroku.com'
   }
 
-  config.middleware.use ExceptionNotifier,
-    :email_prefix => "[ExceptionNotifier] ",
-    :sender_address => %{"Joinplato" <api@joinplato.com>},
-    :exception_recipients => %w{api@joinplato.com}
 end
