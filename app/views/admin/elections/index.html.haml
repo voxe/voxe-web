@@ -10,4 +10,4 @@
         %tr
           %td= election.name
           %td
-            = link_to "Edit", [:edit, :admin, election]
+            = link_to "Edit", edit_admin_election_path(election.id)

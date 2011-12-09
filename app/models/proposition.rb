@@ -1,5 +1,6 @@
 class Proposition
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :text,        type: String
   field :candidateId, type: String
@@ -11,5 +12,8 @@ class Proposition
   belongs_to :election,  foreign_key: :electionId
 
   validates_presence_of :candidate, :theme, :election, :text
+
+  embeds_many :embeds, as: :embedable
+  accepts_nested_attributes_for :embeds, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
 
 end

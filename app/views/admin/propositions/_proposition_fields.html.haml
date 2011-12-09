@@ -5,4 +5,9 @@
     = f.hidden_field :themeId
     .clearfix
       = f.text_area :text, class: 'xxlarge', rows: 3
-      = f.submit class: "btn"
+    - if proposition.persisted?
+      = f.fields_for :embeds do |embed_f|
+        = render 'embed_fields', f: embed_f
+      .clearfix.offset1
+        = link_to_add_fields "Add an embed", f, :embeds
+    = f.submit class: "btn"
