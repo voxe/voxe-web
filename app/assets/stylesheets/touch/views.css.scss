@@ -13,6 +13,9 @@
     border-bottom: 1px solid #eee;
     .image {
       float: left;
+      img {
+        border-radius: 3px;
+      }
     }
     .name {
       margin-left: 50px;
