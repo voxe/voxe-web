@@ -2,19 +2,25 @@ class Theme
   include Mongoid::Document
   include ActsAsList::Mongoid
 
+  # attributes
   field :position,      type: Integer
   field :name,          type: String
   field :parentThemeId, type: String
-
+  field :namespace, type: String
+  
+  # relations
   belongs_to :election
   belongs_to :theme, foreign_key: :parentThemeId
   has_many :themes, foreign_key: :parentThemeId, dependent: :destroy, autosave: true
   has_many :propositions, foreign_key: :themeId
   has_many :photos, as: :photoable
-
+  
   acts_as_list column: :position
-
-  validates_presence_of :name
+  
+  # validation
+  before_validation :generate_namespace
+  validates_presence_of :name, :namespace
+  validates_uniqueness_of :namespace
 
   accepts_nested_attributes_for :themes, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
   
@@ -32,5 +38,10 @@ class Theme
     options ||= {}
     super({include: :themes}.merge(options))
   end
+  
+  private
+    def generate_namespace
+      self.namespace = "#{name}".parameterize
+    end
 
 end
