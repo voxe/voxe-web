@@ -12,6 +12,10 @@ class Country
   before_validation :generate_namespace
   validates_presence_of :name, :namespace
   
+  def to_param
+    namespace
+  end
+  
   private
     def generate_namespace
       self.namespace = "#{name}".parameterize

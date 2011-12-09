@@ -72,7 +72,7 @@ Joinplato::Application.routes.draw do
 
   devise_for :users
   
-  match ':country/:election/propositions/:id' => 'propositions#show'
+  match ':country/:election/:candidates/propositions/:id' => 'propositions#show', :as => :proposition
   match ':country/:election/:candidates/:themes' => 'elections#compare', :as => :election_compare
   match ':country/:election/:candidates' => 'elections#themes', :as => :election_themes
   match ':country/:election' => 'elections#show', :as => :election

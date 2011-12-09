@@ -23,4 +23,4 @@
                 - @candidates.each do |candidate|
                   %td
                     - @propositions[candidate.id][section.id].each do |proposition|
-                      %p= proposition.text
+                      %p= link_to proposition.text, proposition_path(@election.country.namespace, @election.namespace, params[:candidates], proposition.id)

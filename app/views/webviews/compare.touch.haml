@@ -1,0 +1,6 @@
+= @election.name
+= @candidates.collect(&:name).join('')
+= @theme.name
+
+- @propositions.each do |proposition|
+  %div= link_to proposition.text, propositions_webviews_url(id: proposition.id)
