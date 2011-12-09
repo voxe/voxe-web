@@ -1,0 +1,29 @@
+.nav-bar {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 44px;
+  width: 100%;
+  
+  .title {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0 -1px 0 #167894;
+  }
+}
+
+.nav-bar {
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#5fb7cf), to(#188bb3));
+  background-image: -webkit-linear-gradient(top, #5fb7cf, #188bb3);
+  background-image: -moz-linear-gradient(top, #5fb7cf, #188bb3);
+  background-image: -o-linear-gradient(top, #5fb7cf, #188bb3);
+  background-image: -ms-linear-gradient(top, #5fb7cf, #188bb3);
+  background-image: linear-gradient(top, #5fb7cf, #188bb3);
+  border-bottom:1px solid #105871;
+}

@@ -1,8 +1,10 @@
 class Photo
   include Mongoid::Document
 
+  # attributes
   field :image, type: String
 
+  # relationships
   belongs_to :photoable, polymorphic: true
 
   mount_uploader :image, ImageUploader
@@ -12,4 +14,5 @@ class Photo
     options ||= {}
     super({only: :type, methods: :url}.merge(options))
   end
+  
 end

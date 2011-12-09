@@ -17,33 +17,20 @@ window.addEventListener "load", ->
   
   page1 = new iScroll $('#modal-view .table-view-container').get(0)
   
-  window.themesTableView = window.propositionsTableView = null
+  window.app = {models: {}, collections: {}, views:{}}
+  app.views.application = new ApplicationView(el: "#application-view")
+  app.views.candidatesList = new CandidatesListView(el: "#modal-view")
+  app.views.themesList = new ThemesListView(el: "#themes")
+  app.views.propositions = new PropositionsView(el: "#propositions")
   
-  $('a.compare').click ->
-    $('#modal-view').hide()
-    $('#navigation-view').show()
-        
-    unless themesTableView
-      $('#themes').show()
-      window.themesTableView = new iScroll $('#themes .table-view-container').get(0)
-      
-  $('span').click (e)->
-    $(e.target).append('traveled to the heart of Republican Kansas on Tuesday')
-    setTimeout(->
-      propositionsTableView.refresh()
-    , 0)
+  app.router = new AppRouter()
+  Backbone.history.start()
+  app.router.navigate "candidates", true
     
-  $('#toolbar a').click ->
-    $('#modal-view').show()
-    $('#navigation-view').hide()
-  
-  $('a.themes').click ->
-    $('.page-view').hide()
-    $('#themes').show()
- 
-  $('a.propositions').click ->
-    $('.page-view').hide()
-    $('#propositions').show()
-
-    unless propositionsTableView
-      window.propositionsTableView = new iScroll $('#propositions .table-view-container').get(0) 
+  # $('a.compare').click ->
+  #   $('#modal-view').hide()
+  #   $('#navigation-view').show()
+  #       
+  #   unless themesTableView
+  #     $('#themes').show()
+  #     window.themesTableView = new iScroll $('#themes .table-view-container').get(0)
