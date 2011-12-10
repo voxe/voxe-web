@@ -1,6 +1,5 @@
 class WebviewsController < ApplicationController
   
-  layout false
   # touch
   before_filter :set_format
   
@@ -29,10 +28,15 @@ class WebviewsController < ApplicationController
       return render text: "invalid themeId"
     end
     
-    @propositions = Proposition.where electionId: @election.id,
-      :candidateId.in => @candidates.collect(&:id),
-      # :themeId.in => sections_ids
-      :themeId.in => @theme.sections.collect(&:id)
+    @propositions = {}
+    @candidates.each do |candidate|
+      @propositions[candidate.id] = {}
+      @theme.themes.each do |category|
+        category.themes.each do |section|
+          @propositions[candidate.id][section.id] = Proposition.where :candidateId => candidate.id, :electionId => @election.id, :themeId => section.id
+        end
+      end
+    end
   end
   
   def propositions
