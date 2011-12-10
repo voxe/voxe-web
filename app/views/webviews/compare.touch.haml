@@ -1,18 +1,19 @@
-- @theme.themes.each do |categories|
-  .category-container
-    .category-name= categories.name
-    - categories.themes.each do |section|
-      .section-container
-        .section-name
-          %span= section.name
-        - @candidates.each do |candidate|
-          .candidate-container
-            .candidate-photo= image_tag candidate.photo_url(:small), size: "40x40"
-            .propositions-container
-              - count = @propositions[candidate.id][section.id].count
-              - @propositions[candidate.id][section.id][0..1].each do |proposition|
-                .proposition
-                  = link_to truncate(proposition.text, length: 140), propositions_webviews_path(id: proposition.id)
-              - if count > 2
-                .view-more
-                  %a View More
+#compare-view
+  - @theme.themes.each do |categories|
+    .category-container
+      .category-name= categories.name
+      - categories.themes.each do |section|
+        .section-container
+          .section-name
+            %span= section.name
+          - @candidates.each do |candidate|
+            .candidate-container
+              .candidate-photo= image_tag candidate.photo_url(:small), size: "40x40"
+              .propositions-container
+                - count = @propositions[candidate.id][section.id].count
+                - @propositions[candidate.id][section.id][0..1].each do |proposition|
+                  .proposition
+                    = link_to truncate(proposition.text, length: 140), proposition_webviews_path(propositionId: proposition.id)
+                - if count > 2
+                  .view-more
+                    %a View More

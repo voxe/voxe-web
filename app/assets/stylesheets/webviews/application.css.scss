@@ -4,58 +4,93 @@ body, html {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 a {
   text-decoration: none;
   color: black;
 }
 
-.category-container {
-}
-
-.category-name {
+#proposition-view {
   padding: 10px;
-  background-color: #ddd;
-  font-size: 16px;
-  font-weight: bold;
-  border-top: 1px solid #878787;
-  border-bottom: 1px solid #878787;
+  
+  .proposition-container {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      overflow: auto;
+    }
+  }
+  
+  .candidate-photo {
+    float: left;
+    img {
+      border-radius: 3px;
+    }
+  }
+  
+  .candidate-name {
+    margin-left: 60px;
+  }
 }
 
-.section-container {
-  margin: 10px 0 0 20px;
-  overflow: auto;
-}
+#compare-view {
+  
+  .category-container {
+  }
 
-.section-name span {
-  background-color: #eee;
-  padding: 5px;
-  border-radius: 5px;
-}
+  .category-name {
+    padding: 10px;
+    background-color: #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    border-top: 1px solid #878787;
+    border-bottom: 1px solid #878787;
+  }
 
-.candidate-container {
-  margin: 15px 0 0 0;
-  overflow: auto;
-}
+  .section-container {
+    margin: 10px 0 0 20px;
+    overflow: auto;
+  }
 
-.candidate-photo {
-  float: left;
-  img {
+  .section-name span {
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .candidate-container {
+    margin: 15px 0 0 0;
+    overflow: auto;
+  }
+
+  .candidate-photo {
+    float: left;
+    img {
+      border-radius: 3px;
+    }
+  }
+
+  .propositions-container {
+    margin: 0 10px 0 50px;
+    font-size: 13px;
+    border: 1px solid #ddd;
     border-radius: 3px;
   }
-}
 
-.propositions-container {
-  margin: 0 10px 0 50px;
-  font-size: 13px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-}
-
-.proposition, .view-more {
-  border-bottom: 1px solid #ddd;
-  a {
-    display: block;
-    line-height: 20px;
-    padding: 5px;
+  .proposition, .view-more {
+    border-bottom: 1px solid #ddd;
+    a {
+      display: block;
+      line-height: 20px;
+      padding: 5px;
+    }
   }
+  
 }

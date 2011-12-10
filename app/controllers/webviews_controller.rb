@@ -39,8 +39,8 @@ class WebviewsController < ApplicationController
     end
   end
   
-  def propositions
-    @proposition = Proposition.find params[:id]
+  def proposition
+    @proposition = Proposition.find params[:propositionId]
   end
   
   private
