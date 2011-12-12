@@ -3,7 +3,7 @@ class window.VoxeElection
   constructor: (options)->    
     window.app = {models: {}, collections: {}, views:{}}
     
-    app.models.election = new ElectionModel(id: options.electionId)
+    app.models.election = new ElectionModel()
     app.models.theme = new ThemeModel()
     
     app.collections.candidates = new CandidatesCollection()
@@ -24,3 +24,6 @@ class window.VoxeElection
     app.router.candidatesList()
 
     app.views.navigation.push 'themes'
+    
+    console.log options.election
+    app.models.election.set options.election

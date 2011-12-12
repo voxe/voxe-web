@@ -5,7 +5,6 @@ class window.ThemesListView extends Backbone.View
   
   initialize: ->
     @election().bind "change", @render, @
-    @election().fetch()
   
   events:
     "click ul.themes li": "themeClick"

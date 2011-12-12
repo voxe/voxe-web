@@ -8,6 +8,13 @@ class ElectionsController < ApplicationController
     @election = Election.first conditions: {namespace: params[:election]}
     # returns 404 if election does not exist
     return not_found unless @election
+    
+    respond_to do |format|
+      format.html
+      format.touch do
+        @json = render_to_string('api/v1/elections/show', layout: false)
+      end
+    end
   end
   
   def themes

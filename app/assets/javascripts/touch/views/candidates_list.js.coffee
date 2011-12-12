@@ -5,7 +5,6 @@ class window.CandidatesListView extends Backbone.View
   
   initialize: ->
     @election().bind "change", @render, @
-    @election().fetch()
       
   events:
     "click ul.candidates li": "candidateClick"

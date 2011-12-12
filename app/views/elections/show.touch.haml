@@ -1,6 +1,7 @@
-:coffeescript
-  $ ->
-    new VoxeElection electionId: "#{@election.id}"
+:javascript
+  $(function() {
+    new VoxeElection(#{@json});
+  });
     
 #templates
   = render 'touch.mustache'
