@@ -16,7 +16,7 @@ class window.VoxeElection
     app.views.application = new ApplicationView(el: "#application-view")
     app.views.navigation = new NavigationView(el: "#navigation-view")
 
-    app.views.candidatesList = new CandidatesListView(el: "#modal-view")
+    app.views.candidatesList = new CandidatesListView(el: "#candidates-list")
     app.views.themesList = new ThemesListView(el: "#themes")
     app.views.propositions = new PropositionsView(el: "#propositions")    
 

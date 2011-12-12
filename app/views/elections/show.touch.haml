@@ -6,18 +6,7 @@
   = render 'touch.mustache'
 
 #application-view
-  #modal-view
-    .nav-bar
-      .title= @election.name
-      %a.button.right Compare
-    
-    .table-view-container
-      .table-view
-        %ul.candidates
-          - @election.candidates.each do |candidate|
-            %li{"candidate-id" => candidate.id}
-              .image= image_tag candidate.photo_url(:small), size: "40x40"
-              .name= candidate.name
+  #candidates-list.modal-view
         
   #navigation-view
     .page-view#themes

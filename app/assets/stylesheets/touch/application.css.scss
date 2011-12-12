@@ -44,26 +44,26 @@ ul, li {
   display: none;
 }
 
-.iphone #modal-view {
+.iphone .modal-view {
   .table-view-container {
     bottom: -60px;
   }
 }
 
-.android  #modal-view {
+.android  .modal-view {
   .table-view-container {
     bottom: 0;
   }
 }
 
-#modal-view {
+.modal-view {
   z-index: 3;
 }
 
 #navigation-view {
 }
 
-#modal-view, #navigation-view {
+.modal-view, #navigation-view {
   position: absolute;
   width: 100%;
   top: 0;

@@ -7,9 +7,9 @@ class window.ApplicationView extends Backbone.View
     app.router.candidatesList()
     
   presentModalView: ->
-    $('#modal-view').show()
+    $('.modal-view').show()
     $('#navigation-view').hide()
     
   dissmissModalView: ->
-    $('#modal-view').hide()
+    $('.modal-view').hide()
     $('#navigation-view').show()

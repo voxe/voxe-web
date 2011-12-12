@@ -1,9 +1,11 @@
 class window.CandidatesListView extends Backbone.View
   
+  election: ->
+    app.models.election
+  
   initialize: ->
-    new iScroll $('#modal-view .table-view-container').get(0)
-    
-    app.models.election.fetch()
+    @election().bind "change", @render, @
+    @election().fetch()
       
   events:
     "click ul.candidates li": "candidateClick"
@@ -25,3 +27,8 @@ class window.CandidatesListView extends Backbone.View
     
     unless @scrollView
       @scrollView = new iScroll $('#themes .table-view-container').get(0)
+      
+  render: ->
+    $(@el).html Mustache.to_html($('#candidates-list-template').html(), election: @election())
+    new iScroll $('.table-view-container', @el).get(0)
+    setTimeout hideURLbar, 0

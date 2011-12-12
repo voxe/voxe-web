@@ -46,7 +46,7 @@ class Candidate
     end
     
     def default_photo(size)
-      "/images/candidate_#{size}.png"
+      "/images/candidate_#{size}.jpg".to_url
     end
 
 end

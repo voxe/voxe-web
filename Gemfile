@@ -81,3 +81,6 @@ gem "airbrake"
 
 # URL parser to checkout embed code
 gem 'ruby-oembed'
+
+# configuration for different env.
+gem "settingslogic"
