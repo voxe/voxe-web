@@ -1,0 +1,8 @@
+development:
+  host: http://localhost:3000
+  
+production:
+  host: http://voxe.org
+  
+staging:
+  host: http://joinplato-staging.herokuapp.com
