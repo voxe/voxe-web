@@ -27,7 +27,6 @@ class Admin::PropositionsController < ApplicationController
     else
       flash[:alert] = "Something went wrong while saving your proposition"
     end
-    redirect_to :back
   end
 
   def destroy

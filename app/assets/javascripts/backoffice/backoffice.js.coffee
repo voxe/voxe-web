@@ -7,4 +7,5 @@
   regexp = new RegExp("new_" + association, "g")
   $(link).parent().before(content.replace(regexp, new_id))
 
-$(document).ready -> $('.tabs').tabs()
+$ ->
+  $(".tabs").tabs()

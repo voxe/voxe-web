@@ -78,3 +78,6 @@ gem 'coffee-filter'
 
 # http://voxe.airbrake.io/
 gem "airbrake"
+
+# URL parser to checkout embed code
+gem 'ruby-oembed'
