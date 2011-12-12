@@ -12,4 +12,4 @@
 //= require libs/bootstrap-1.3.0/bootstrap-modal
 //= require libs/bootstrap-1.3.0/bootstrap-tabs
 
-//= require_tree .
+//= require_tree './web/'
