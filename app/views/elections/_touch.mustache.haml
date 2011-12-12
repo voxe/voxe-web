@@ -1,0 +1,29 @@
+#propositions-template
+  .nav-bar
+    %a.button.left  ← Themes
+    .title {{#theme}}{{name}}{{/theme}}
+
+  .table-view-container
+    .table-view
+      :plain
+        {{#categories}}
+          <div class="category">
+            <div class="category-name">{{name}}</div>
+            {{#sections}}
+              <div class="section">               
+                <div class="section-name">{{name}}</div>
+                {{#candidates}}
+                  <div class="candidates">
+                    {{firstName}} {{lastName}}
+            
+                    {{#propositions}}
+                      <div class="candidates">
+                        {{text}}
+                      </div>
+                    {{/propositions}}
+                  </div>
+                {{/candidates}}
+              </div>
+            {{/sections}}
+          </div>
+        {{/categories}}

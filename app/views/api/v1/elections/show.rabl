@@ -3,9 +3,9 @@ child @election do
   attributes :id, :name
   child :themes do
     attributes :id, :name, :position
-    child :themes => :categories do
+    child :themes do
       attributes :id, :name, :position
-      child :themes => :sections do
+      child :themes do
         attributes :id, :name, :position
       end
     end

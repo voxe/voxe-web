@@ -4,4 +4,12 @@ class window.ApplicationView extends Backbone.View
     "click #toolbar": "candidatesClick"
       
   candidatesClick: (e)->
-    app.router.navigate "candidates", true
+    app.router.candidatesList()
+    
+  presentModalView: ->
+    $('#modal-view').show()
+    $('#navigation-view').hide()
+    
+  dissmissModalView: ->
+    $('#modal-view').hide()
+    $('#navigation-view').show()

@@ -6,8 +6,8 @@ class window.ThemesListView extends Backbone.View
   themeClick: (e)->
     li = $(e.target).closest('li')
     themeId = li.attr("theme-id")
-    # theme = _.find app.models.election.get('themes'), (theme) ->
-    #   theme.id == themeId
-    # app.models.themeSelected = new ThemeModel(theme)
+    theme = _.find app.models.election.themes(), (theme) ->
+      theme.id == themeId    
+    app.models.theme.set theme
     
-    app.router.navigate "propositions", true
+    app.router.propositionsView()

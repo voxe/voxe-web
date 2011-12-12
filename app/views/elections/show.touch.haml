@@ -1,3 +1,10 @@
+:coffeescript
+  $ ->
+    new VoxeElection electionId: "#{@election.id}"
+    
+#templates
+  = render 'touch.mustache'
+
 #application-view
   #modal-view
     .nav-bar
@@ -26,22 +33,7 @@
                 .name= theme.name
 
     .page-view#propositions
-      .nav-bar
-        %a.button.left  ← Themes
-        .title Economie
-      
-      .table-view-container
-        .table-view
-          .propositions
-            - 30.times do
-              .proposition
-                President
-                %span Obama
-                traveled to the heart of Republican Kansas on Tuesday, where he presented Americans with a choice: a "fair shot" with him, or a return to "you're on your own economics.
+          
 
     #toolbar
       %a candidates
-
-    :plain
-      <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(
-      hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,0.9); } </script>

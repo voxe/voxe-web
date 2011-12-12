@@ -8,6 +8,7 @@
   }
   
   ul li {
+    cursor: pointer;
     padding: 10px;
     overflow: auto;
     border-bottom: 1px solid #eee;
@@ -46,6 +47,7 @@
   }
   
   li {
+    cursor: pointer;
     padding: 10px;
     border-bottom: 1px solid #eee;
     overflow: auto;
@@ -55,6 +57,10 @@
     .name {
       margin-left: 60px;
     }
+  }
+  
+  li:active {
+    background-color: #eee;
   }
   
   li:last-child {

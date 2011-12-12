@@ -4,6 +4,15 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+/* http://rakaz.nl/2009/09/iphone-webapps-101-getting-safari-out-of-the-way.html */
+
+* {
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+}
+
 ul, li {
   padding: 0;
   margin: 0;
@@ -47,6 +56,20 @@ ul, li {
   }
 }
 
+#modal-view {
+  z-index: 3;
+}
+
 #navigation-view {
+}
+
+#modal-view, #navigation-view {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+#templates {
   display: none;
 }
