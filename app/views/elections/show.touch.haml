@@ -10,17 +10,6 @@
         
   #navigation-view
     .page-view#themes
-      .nav-bar
-        .title Themes
-      
-      .table-view-container
-        .table-view
-          %ul.themes
-            - @election.themes.each do |theme|
-              %li{"theme-id" => theme.id}
-                .icon= image_tag 'transports.png'
-                .name= theme.name
-
     .page-view#propositions
           
 

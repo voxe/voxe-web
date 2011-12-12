@@ -13,6 +13,21 @@
               <div class="name">{{firstName}} {{lastName}}</div>
             </li>
           {{/election.candidates}}
+        
+#themes-list-template
+  .nav-bar
+    .title Themes
+  
+  .table-view-container
+    .table-view
+      %ul.themes
+        :plain
+          {{#election.themes}}
+            <li theme-id="{{id}}">
+              <div class="icon"><img src="{{photo.sizes.small.url}}" width="44px" height="44px" /></div>
+              <div class="name">{{name}}</div>
+            </li>
+          {{/election.themes}}
 
 #propositions-template
   .nav-bar

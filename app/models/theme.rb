@@ -39,9 +39,25 @@ class Theme
     super({include: :themes}.merge(options))
   end
   
+  def photo?
+    !photos.blank?
+  end
+  
+  def photo
+    photos.first
+  end
+  
+  def photo_url(size = nil)
+    photo? ? ((size == nil) ? photo.image.url : photo.image.send(size).url) : default_photo(size)
+  end
+  
   private
     def generate_namespace
       self.namespace = "#{name}".parameterize
+    end
+    
+    def default_photo(size)
+      "/images/theme_#{size}.jpg".to_url
     end
 
 end

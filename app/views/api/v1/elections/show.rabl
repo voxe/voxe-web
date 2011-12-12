@@ -3,6 +3,12 @@ child @election do
   attributes :id, :name
   child :themes do
     attributes :id, :name, :position
+    node :photo do |theme|
+      {sizes: (ImageUploader.new).versions.inject({}) do |hash, (version, url)|
+        hash[version] = {url: theme.photo_url(version)}
+        hash
+      end}
+    end
     child :themes do
       attributes :id, :name, :position
       child :themes do
