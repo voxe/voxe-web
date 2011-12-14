@@ -18,12 +18,13 @@ class window.VoxeElection
 
     app.views.candidatesList = new CandidatesListView(el: "#candidates-list")
     app.views.themesList = new ThemesListView(el: "#themes")
-    app.views.propositions = new PropositionsView(el: "#propositions")    
+    
+    app.views.compare = new CompareView(el: "#compare")
+    app.views.compare.render()
+    app.views.propositions = new PropositionsView(el: "#compare .table-view")
 
     app.router = new AppRouter()
     app.router.candidatesList()
-
     app.views.navigation.push 'themes'
     
-    console.log options.election
     app.models.election.set options.election

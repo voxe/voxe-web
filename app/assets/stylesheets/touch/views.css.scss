@@ -69,7 +69,11 @@
   
 }
 
-#propositions {
+#compare .table-view {
+  
+  .category, .section {
+    margin: 10px;
+  }
   
   .propositions {
     padding: 10px;

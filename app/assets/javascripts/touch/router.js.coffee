@@ -8,6 +8,5 @@ class window.AppRouter
   themesList: ->
     app.views.navigation.push 'themes'
     
-  propositionsView: ->
-    app.views.navigation.push 'propositions'
-    app.views.propositions.show()
+  compareView: ->
+    app.views.navigation.push 'compare'

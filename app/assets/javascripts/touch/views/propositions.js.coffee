@@ -10,11 +10,24 @@ class window.PropositionsView extends Backbone.View
     categories = []
     candidates = @candidates()
     propositions = @propositions()
-    _.each @theme().themes(), (category) ->
+    _.each @theme().themes(), (c) ->
+      category = {}
+      category.id = c.id
+      category.name = c.name
       sections = []
-      _.each category.themes, (section) ->
-        section.candidates = _.map candidates, (candidate)->
-          candidate.propositions = propositions[section.id][candidate.id]
+      _.each c.themes, (s) ->
+        section = {}
+        section.id = s.id
+        section.name = s.name
+        section.candidates = _.map candidates, (c)->
+          candidate = {}
+          candidate.id = c.id
+          candidate.firstName = c.firstName
+          candidate.photo = c.photo
+          if propositions[section.id] && propositions[section.id][candidate.id]
+            candidate.propositions = propositions[section.id][candidate.id]
+          else
+            candidate.propositions = []
           candidate
         sections.push section
       category.sections = sections
@@ -33,18 +46,18 @@ class window.PropositionsView extends Backbone.View
   
   initialize: ->
     app.collections.propositions.bind "reset", @render, @
-  
-  # TODO: change this method name
-  show: ->
+    app.collections.selectedCandidates.bind "change", @loadPropositions, @
+    app.models.theme.bind "change", @loadPropositions, @
+        
+  loadPropositions: ->
     app.collections.propositions.fetch()
-  
-  events:
-    "click a.button": "themesClick"
-    
-  themesClick: ->
-    app.router.themesList()
     
   render: ->
     $(@el).html Mustache.to_html($('#propositions-template').html(), theme: @theme(), categories: @categories())
+    unless @scrollView
+      @scrollView = new iScroll $('#compare .table-view-container').get(0)
+    setTimeout @refreshScroll, 0
     
-    new iScroll $('.table-view-container', @el).get(0)
+  refreshScroll: =>
+    @scrollView.refresh()
+    @scrollView.scrollTo 0, 0, 0

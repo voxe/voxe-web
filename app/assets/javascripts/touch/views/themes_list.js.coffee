@@ -16,7 +16,7 @@ class window.ThemesListView extends Backbone.View
       theme.id == themeId    
     app.models.theme.set theme
     
-    app.router.propositionsView()
+    app.router.compareView()
     
   render: ->
     $(@el).html Mustache.to_html($('#themes-list-template').html(), election: @election())
