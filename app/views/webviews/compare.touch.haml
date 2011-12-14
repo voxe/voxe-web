@@ -13,7 +13,7 @@
                 - count = @propositions[candidate.id][section.id].count
                 - @propositions[candidate.id][section.id][0..1].each do |proposition|
                   .proposition
-                    = link_to truncate(proposition.text, length: 140), proposition_webviews_path(propositionId: proposition.id)
+                    = link_to truncate(proposition.text, length: 140), proposition_webviews_url(propositionId: proposition.id)
                 - if count > 2
                   .view-more
                     %a View More
