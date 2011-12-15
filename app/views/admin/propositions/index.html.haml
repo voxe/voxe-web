@@ -7,24 +7,11 @@
     .pill-content
       - @elections.each_with_index do |election, i|
         .election{id: election.id, class: i.zero? ? 'active' : ''}
-          = form_tag manage_admin_propositions_path, method: 'get' do
-            = hidden_field_tag "manage[electionId]", election.id
-            .clearfix
-              = label_tag "manage[candidateId]", "Choose a candidate"
-              .input= collection_select :manage, :candidateId, election.candidates, :id, :name
-            .clearfix
-              = label_tag "manage[sectionIds]", "Choose the section you want to work on"
-              .input
-                %ul
-                  - for theme in election.themes do
-                    %li= theme.name
-                    %ul
-                      - for category in theme.themes do
-                        %li= category.name
-                        %ul
-                          - for section in category.themes do
-                            %li
-                              = radio_button_tag "manage[sectionId]", section.id
-                              = section.name
-            .actions
-              = submit_tag "Manage propositions", class: "btn primary"
+          = election.name
+          %ul
+            - for candidate in election.candidates do
+              %li
+                = candidate.name
+                (
+                = link_to "Manage propositions", manage_admin_propositions_path(electionId: election.id, candidateId: candidate.id)
+                )

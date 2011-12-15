@@ -20,19 +20,6 @@ class Api::V1::ElectionsController < ApplicationController
     end
   end
 
-  # POST /api/v1/elections/1/addtheme
-  def addtheme
-    @theme = Theme.find params[:themeId]
-
-    @election.themes << @theme
-
-    if @election.save
-      render json: {theme: @theme}
-    else
-      render json: @election.errors, status: :unprocessable_entity
-    end
-  end
-
   # POST /api/v1/elections/1/addcandidate
   def addcandidate
     @candidate = Candidate.find params[:candidateId]

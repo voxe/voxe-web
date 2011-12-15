@@ -7,9 +7,9 @@ class Admin::PropositionsController < ApplicationController
   end
 
   def manage
-    @election = Election.find params[:manage][:electionId]
-    @candidate = Candidate.find params[:manage][:candidateId]
-    @section = Theme.find params[:manage][:sectionId]
+    @election = Election.find params[:electionId]
+    @candidate = Candidate.find params[:candidateId]
+    @propositions = Proposition.where electionId: @election.id, candidateId: @candidate.id
   end
 
   def create
@@ -22,11 +22,7 @@ class Admin::PropositionsController < ApplicationController
   end
 
   def update
-    if @proposition.update_attributes params[:proposition]
-      flash[:notice] = "Your proposition was successfully updated"
-    else
-      flash[:alert] = "Something went wrong while saving your proposition"
-    end
+    @proposition.update_attributes params[:proposition]
   end
 
   def destroy

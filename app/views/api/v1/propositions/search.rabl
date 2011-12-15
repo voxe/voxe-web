@@ -1,20 +1,14 @@
 object false
-child @theme do
-  attributes :id, :name, :position
-  child :themes do
-    attributes :id, :name, :position
-    child :themes do
-      attributes :id, :name, :position
-    end
-  end
+child @tag do
+  attributes :id, :name
 end
 child @candidates do
   attributes :id, :firstName, :lastName
 end
 child @propositions do
   attributes :id, :text
-  node(:theme) do |proposition|
-    {id: proposition.themeId}
+  node :tags
+    attributes :id
   end
   node(:candidate) do |proposition|
     {id: proposition.candidateId}

@@ -7,6 +7,7 @@ Joinplato::Application.routes.draw do
     resources :users
     resources :elections
     resources :candidates
+    resources :tags
     resources :propositions do
       collection do
         get :manage

@@ -8,15 +8,12 @@ class Election
   # relations
   belongs_to :country
   has_and_belongs_to_many :candidates
-  has_many :themes, dependent: :destroy, autosave: true
   has_many :propositions
   
   # validations
   before_validation :generate_namespace
   validates_presence_of :name, :namespace
   validates_uniqueness_of :namespace
-
-  accepts_nested_attributes_for :themes, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
 
   def serializable_hash options = {}
     options ||= {}
@@ -25,8 +22,7 @@ class Election
       include: {
         candidates: {only: [:_id, :firstName, :lastName, :photos]},
         propositions: {}
-      },
-      methods: [:themes]
+      }
     }.merge(options))
   end
   

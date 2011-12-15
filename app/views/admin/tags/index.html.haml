@@ -1,0 +1,7 @@
+.row
+  .span16
+    %p= link_to "Add a tag", [:new, :admin, :tag]
+
+    %ul
+    - for tag in @tags do
+      %li= tag.name

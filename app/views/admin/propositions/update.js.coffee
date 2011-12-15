@@ -1,1 +1,1 @@
-$("edit-proposition-<%= @proposition.id %>").html('<%= escape_javascript(render("proposition_fields", proposition: @proposition))%>')
+$("#proposition-fields-<%= @proposition.id %>").replaceWith('<%= escape_javascript(render("proposition_fields", proposition: @proposition))%>')

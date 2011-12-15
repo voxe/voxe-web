@@ -20,10 +20,5 @@
               = check_box_tag "election[candidate_ids][]", candidate.id, @election.candidate_ids.include?(candidate.id)
               %span= candidate.name
 
-  = f.fields_for :themes do |theme_f|
-    = render 'theme_fields', f: theme_f
-
-  .clearfix.offset1= link_to_add_fields "Add a theme", f, :themes
-
   .actions
     = f.submit class: 'btn primary'
