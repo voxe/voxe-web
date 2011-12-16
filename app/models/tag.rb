@@ -3,6 +3,7 @@ class Tag
 
   field :name,      type: String
   field :namespace, type: String
+  field :icon,      type: String
 
   has_and_belongs_to_many :propositions
 
@@ -10,7 +11,7 @@ class Tag
   validates_presence_of :name, :namespace
   validates_uniqueness_of :namespace
 
-
+  mount_uploader :icon, IconUploader
 
   private
 
