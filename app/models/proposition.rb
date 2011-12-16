@@ -26,7 +26,7 @@ class Proposition
 
   def tag_names= names
     names.each do |name|
-      add_tag name
+      self.add_tag = name
     end
     tag_names
   end
