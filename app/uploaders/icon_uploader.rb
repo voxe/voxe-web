@@ -20,9 +20,9 @@ class IconUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+  def default_url
+    "/images/icons/tag_#{version_name}.png"
+  end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -35,6 +35,22 @@ class IconUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :scale => [50, 50]
   # end
+  
+  # Create different versions of your uploaded files:
+  version :small do
+    process :resize_to_fill => [32, 32]
+    process :convert => 'png'
+  end
+  
+  version :medium do
+    process :resize_to_fill => [64, 64]
+    process :convert => 'png'
+  end
+  
+  version :large do
+    process :resize_to_fill => [256, 256]
+    process :convert => 'png'
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

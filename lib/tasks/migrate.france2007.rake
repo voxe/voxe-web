@@ -1,102 +1,98 @@
 namespace :migrate do
   task "france2007" => :environment do
     
-    t = YAML.load_file "data/france2007/themes.yml"
-    themes = {}
-    t.each { |theme| themes[theme["id_rubrique"]] = theme }    
-    # puts themes.inspect
-    puts "themes: #{themes.count}"
+    # create country if needed
+    france = Country.find_or_create_by name: "France"
     
-    s = YAML.load_file "data/france2007/sections.yml"
+    # create election
+    election = Election.create! name: "Election France 2007", country: france
+    
+    # themes
+    all_themes = YAML.load_file "data/france2007/themes.yml"
+    themes = {}
+    all_themes.each { |theme| themes[theme["id_rubrique"]] = theme }    
+    puts "#themes: #{themes.count}"
+    
+    # sections
+    all_sections = YAML.load_file "data/france2007/sections.yml"
     sections = {}
-    s.each do |section|
+    all_sections.each do |section|
       sections[section["id_parent"]] = [] if sections[section["id_parent"]].blank?
       sections[section["id_parent"]] << section
     end
-    # sections.each do |key, items|
-    #   items.sort! { |item| item["titre"] }
-    # end
-    # puts sections.inspect
+    puts "#sections: #{sections.count}"
     
-    c = YAML.load_file "data/france2007/categories.yml"
+    # categories
+    all_categories = YAML.load_file "data/france2007/categories.yml"
     categories = {}
-    c.each do |category|
+    all_categories.each do |category|
       categories[category["id_parent"]] = [] if categories[category["id_parent"]].blank?
       categories[category["id_parent"]] << category
     end
-    puts "categories: #{categories.count}"
+    puts "#categories: #{categories.count}"
     
-    election = Election.create(:name => "Election France 2007")
-    
-    categories_ids = {}
-    
+    # create tags and hierarchy of tags    
     themes.each do |theme_id, theme|
-      # puts "- theme: #{theme_id} - #{theme["titre"]}"
-      # create theme and match id
-      t = Theme.create(:name => theme["titre"])
-      election.themes << t
-      
-      sections_ids = []
+      # create tag
+      tag1 = Tag.create!(:name => theme["titre"])
+      # add tag to root level of election
+      ElectionTag.create! election: election, tag: tag1
       
       sections[theme_id].each do |section|
-        # add section to theme
-        s = Theme.new(:name => section["titre"])
-        s.theme = t
-        s.save!
-        # match ids
-        sections_ids[section["id_rubrique"]] = s.id
-        
-        puts "-- section: #{section["id_rubrique"]} #{section["titre"]}"
-        
+        # create tag
+        tag2 = Tag.create!(:name => section["titre"])
+        ElectionTag.create! election: election, tag: tag2, parent_tag: tag1
+                
         categories[section["id_rubrique"]].each do |category|
-          # add category to section
-          c = Theme.new(:name => category["titre"])
-          c.theme = s
-          c.save!
-          
-          categories_ids[category["id_rubrique"]] = c.id
-          
-          puts "--- category: #{category["id_rubrique"]} #{category["titre"]}"
+          # create tag
+          tag3 = Tag.create!(:name => category["titre"])
+          ElectionTag.create! election: election, tag: tag3, parent_tag: tag2
         end
       end
     end
     
+    # prepare candidates
     c = YAML.load_file "data/france2007/candidates.yml"
     candidates = {}
     c.each do |candidate|
       candidates[candidate["id_mot"]] = candidate
     end
-    puts "candidates: #{candidates.count}"
+    puts "#candidates: #{candidates.count}"
     
+    # create candidates
     candidates_ids = {}
     candidates.each do |candidate_id, candidate|
-      puts "#{candidate.inspect}"
-      c = Candidate.create!(:firstName => candidate["descriptif"], :lastName => candidate["titre"])
+      c = Candidate.create!(:first_name => candidate["descriptif"], :last_name => candidate["titre"])
       c.elections << election
       candidates_ids[candidate_id] = c.id
     end
-        
-    p = YAML.load_file "data/france2007/propositions.yml"
-    propositions = []
-    p.each do |proposition|
+    
+    # propositions
+    all_propositions = YAML.load_file "data/france2007/propositions.yml"
+    all_propositions.each do |proposition|
       candidate = candidates[proposition["id_mot"]]
-      category = categories[proposition["id_rubrique"]]
-      propositions << {candidate: candidate,category: category,text: proposition["descriptif"]}
-      # puts "#{candidate["titre"]} #{candidate["descriptif"]} #{category["titre"]} #{proposition["descriptif"]}"
+      
+      category = all_categories.select { |category| category["id_rubrique"] == proposition["id_rubrique"] }.first
+      section = all_sections.select { |section| section["id_rubrique"] == category["id_parent"] }.first
+      theme = all_themes.select { |theme| theme["id_rubrique"] == section["id_parent"] }.first
       
       unless proposition["descriptif"].blank?
-        puts "#{proposition["descriptif"].split("\r\n").inspect}"
         proposition["descriptif"].split("\r\n").each do |text|
           model = Proposition.new
-          model.candidateId = candidates_ids[proposition["id_mot"]]
-          model.themeId = categories_ids[proposition["id_rubrique"]]
           model.election = election
+          model.candidate_id = candidates_ids[proposition["id_mot"]]
+          # tags
+          tag_category = Tag.first conditions: {name: category['titre']}
+          tag_section = Tag.first conditions: {name: section['titre']}
+          tag_theme = Tag.first conditions: {name: theme['titre']}
+          model.tags = [tag_category, tag_section, tag_theme]
+          # text
           model.text = text
           model.save!
         end
       end
     end
-    puts "propositions: #{propositions.count}"
+    puts "propositions: #{all_propositions.count}"
   end
   
 end

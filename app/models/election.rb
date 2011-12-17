@@ -13,7 +13,11 @@ class Election
   # validations
   before_validation :generate_namespace
   validates_presence_of :name, :namespace
-  validates_uniqueness_of :namespace
+  validates_uniqueness_of :name, :namespace
+  
+  def themes
+    ElectionTag.all(conditions: {election_id: self.id, parent_tag_id: nil})
+  end
 
   def serializable_hash options = {}
     options ||= {}

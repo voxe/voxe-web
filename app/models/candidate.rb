@@ -2,8 +2,8 @@ class Candidate
   include Mongoid::Document
 
   # attributes
-  field :firstName, type: String
-  field :lastName, type: String
+  field :first_name, type: String
+  field :last_name, type: String
   field :namespace, type: String
   
   # relations
@@ -13,14 +13,14 @@ class Candidate
 
   # validations
   before_validation :generate_namespace
-  validates_presence_of [:firstName, :lastName, :namespace]
+  validates_presence_of [:first_name, :last_name, :namespace]
   validates_associated :photos
   validates_uniqueness_of :namespace
   
   accepts_nested_attributes_for :photos, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
 
   def name
-    "#{firstName} #{lastName}"
+    "#{first_name} #{last_name}"
   end
   
   def photo?
@@ -42,7 +42,7 @@ class Candidate
   
   private
     def generate_namespace
-      self.namespace = "#{firstName}-#{lastName}".parameterize
+      self.namespace = "#{first_name}-#{last_name}".parameterize
     end
     
     def default_photo(size)

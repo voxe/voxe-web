@@ -10,9 +10,9 @@
       .input
         = proposition.tag_names.join(', ')
     .clearfix
-      = f.label :add_tag, "Add a new tag"
+      = f.label :tag, "Add a new tag"
       .input
-        = f.select :add_tag, Tag.all.collect(&:name)
+        = f.select :tag, Tag.all.collect(&:name)
     - if proposition.persisted?
       = f.fields_for :embeds do |embed_f|
         = render 'embed_fields', f: embed_f

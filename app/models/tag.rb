@@ -9,7 +9,7 @@ class Tag
 
   before_validation :generate_namespace
   validates_presence_of :name, :namespace
-  validates_uniqueness_of :namespace
+  validates_uniqueness_of :name, :namespace
 
   mount_uploader :icon, IconUploader
 
