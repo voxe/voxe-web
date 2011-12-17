@@ -20,7 +20,7 @@ class Theme
   # validation
   before_validation :generate_namespace
   validates_presence_of :name, :namespace
-  validates_uniqueness_of :namespace
+  # validates_uniqueness_of :namespace
 
   accepts_nested_attributes_for :themes, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
   
