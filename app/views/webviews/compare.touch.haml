@@ -1,19 +1,21 @@
 #compare-view
-  - @theme.themes.each do |categories|
+  - @election_tag.children_election_tags.each do |category|
     .category-container
-      .category-name= categories.name
-      - categories.themes.each do |section|
+      .category-name= category.tag.name
+      - category.children_election_tags.each do |section|
+        - tag_propositions = @tags_propositions[section.tag.id.to_s]
         .section-container
           .section-name
-            %span= section.name
+            %span= section.tag.name
           - @candidates.each do |candidate|
+            - candidate_propositions = tag_propositions.select { |p| p.candidate_id == candidate.id }
             .candidate-container
               .candidate-photo= image_tag candidate.photo_url(:small), size: "40x40"
               .propositions-container
-                - count = @propositions[candidate.id][section.id].count
-                - @propositions[candidate.id][section.id][0..1].each do |proposition|
-                  .proposition
-                    = link_to truncate(proposition.text, length: 140), proposition_webviews_url(propositionId: proposition.id)
-                - if count > 2
-                  .view-more
-                    %a View More
+                - unless candidate_propositions.blank?
+                  - candidate_propositions[0..1].each do |proposition|
+                    .proposition
+                      = link_to truncate(proposition.text, length: 140), proposition_webviews_url(propositionId: proposition.id)
+                  - if candidate_propositions.count > 2
+                    .view-more
+                      %a View More

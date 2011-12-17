@@ -12,7 +12,7 @@ child @election do
     end
   end
   node :tags do |election|
-    election.themes.collect do |election_tag|
+    election.root_election_tags.collect do |election_tag|
       partial("api/v1/elections/tag", :object => election_tag)
     end
   end

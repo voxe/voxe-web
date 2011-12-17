@@ -15,7 +15,7 @@ class ElectionTag
   validates_uniqueness_of :tag_id, :scope => :election_id
   validates_presence_of :election, :tag
   
-  def tags
+  def children_election_tags
     ElectionTag.all conditions: {parent_tag_id: tag.id}
   end
   
