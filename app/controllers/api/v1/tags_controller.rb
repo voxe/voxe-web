@@ -1,4 +1,5 @@
 class Api::V1::TagsController < ApplicationController
+  
   load_and_authorize_resource
 
   # POST /api/v1/tags

@@ -13,8 +13,8 @@ node :icon, :if => lambda { |election_tag| !election_tag.parent_tag } do |electi
     hash
   end}
 end
-node :tags, :if => lambda { |election_tag| !election_tag.tags.empty? } do |election_tag|
-  election_tag.tags.collect do |election_tag|
+node :tags, :if => lambda { |election_tag| !election_tag.children_election_tags.empty? } do |election_tag|
+  election_tag.children_election_tags.collect do |election_tag|
     partial("api/v1/elections/tag", :object => election_tag)
   end
 end

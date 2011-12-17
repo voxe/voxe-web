@@ -41,7 +41,10 @@ Joinplato::Application.routes.draw do
           post :addphoto
         end
       end
-
+      
+      resources :tags do
+      end
+      
       resources :propositions do
         collection do
           get :search

@@ -15,7 +15,7 @@ class Election
   validates_presence_of :name, :namespace
   validates_uniqueness_of :name, :namespace
   
-  def themes
+  def root_election_tags
     ElectionTag.all(conditions: {election_id: self.id, parent_tag_id: nil})
   end
 

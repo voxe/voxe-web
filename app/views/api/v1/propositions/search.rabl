@@ -7,10 +7,13 @@ child @candidates do
 end
 child @propositions do
   attributes :id, :text
-  node :tags
+  child :tags do
     attributes :id
   end
+  node(:election) do |proposition|
+    {id: proposition.election_id}
+  end
   node(:candidate) do |proposition|
-    {id: proposition.candidateId}
+    {id: proposition.candidate_id}
   end
 end
