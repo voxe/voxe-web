@@ -18,17 +18,6 @@ class Election
   def root_election_tags
     ElectionTag.all(conditions: {election_id: self.id, parent_tag_id: nil})
   end
-
-  def serializable_hash options = {}
-    options ||= {}
-    super({
-      only:    [:_id, :name],
-      include: {
-        candidates: {only: [:_id, :firstName, :lastName, :photos]},
-        propositions: {}
-      }
-    }.merge(options))
-  end
   
   def to_param
     namespace

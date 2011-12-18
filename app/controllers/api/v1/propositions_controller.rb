@@ -1,13 +1,14 @@
 class Api::V1::PropositionsController < ApplicationController
   
   load_and_authorize_resource
+  skip_before_filter :verify_authenticity_token
 
   # POST /api/v1/propositions
   def create
     if @proposition.save
-      render json: {proposition: @proposition}
+      render 'api/v1/propositions/show.rabl'
     else
-      render json: @proposition.errors, status: :unprocessable_entity
+      render json: {errors: @proposition.errors}, status: :unprocessable_entity
     end
   end
   
@@ -23,6 +24,10 @@ class Api::V1::PropositionsController < ApplicationController
     # pagination
     skip = params[:offset] || 0
     @propositions = Proposition.where(conditions).limit(500).skip(skip)
+  end
+  
+  # GET /api/v1/propositions
+  def show
   end
 
 end

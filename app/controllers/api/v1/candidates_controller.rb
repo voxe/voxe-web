@@ -1,12 +1,14 @@
 class Api::V1::CandidatesController < ApplicationController
+  
   load_and_authorize_resource
+  skip_before_filter :verify_authenticity_token
 
   # POST /api/v1/candidates
   def create
     if @candidate.save
-      render json: {candidate: @candidate}
+      render 'api/v1/candidates/show.rabl', status: :created
     else
-      render json: @candidate.errors, status: :unprocessable_entity
+      render json: {errors: @candidate.errors}, status: :unprocessable_entity
     end
   end
 
@@ -21,7 +23,7 @@ class Api::V1::CandidatesController < ApplicationController
     if photo.save
       render json: {photo: photo}
     else
-      render json: photo.errors, status: :unprocessable_entity
+      render json: {errors: photo.errors}, status: :unprocessable_entity
     end
   end
 

@@ -34,11 +34,6 @@ class Candidate
   def photo_url(size = nil)
     photo? ? ((size == nil) ? photo.image.url : photo.image.send(size).url) : default_photo(size)
   end
-
-  def serializable_hash options = {}
-    # super({methods: :elections}.merge(options))
-    super options
-  end
   
   private
     def generate_namespace
