@@ -1,0 +1,34 @@
+.page-header
+  %h2
+    %small GET
+    = "/propositions/search"
+    
+%p Search for propositions.
+    
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td limit
+      %td 10
+    %tr
+      %td offset
+      %td 50
+    %tr
+      %td tagIds
+      %td id1,id2
+    %tr
+      %td electionIds
+      %td id1,id2
+    %tr
+      %td candidateIds
+      %td id1,id2
+    
+%p
+  %span.label EXAMPLE
+    
+%pre
+  http://voxe.org/api/v1/propositions/search?electionId=
+  
+%p
+  %a.btn.small Try

@@ -73,6 +73,28 @@ Joinplato::Application.routes.draw do
       end
     end
   end
+  
+  # api doc
+  
+  match 'platform' => 'platform#index'
+  
+  namespace :platform do
+    resources :endpoints do
+      collection do
+        get :elections
+        get :candidates
+        get :propositions
+      end
+    end
+    resources :models do
+      collection do
+        get :election
+        get :candidate
+        get :proposition
+        get :tag
+      end
+    end
+  end
 
   devise_for :users
   

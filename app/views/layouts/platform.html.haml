@@ -1,0 +1,44 @@
+!!! HTML
+%html
+  %head
+    %title 
+    = stylesheet_link_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css"
+    = stylesheet_link_tag "platform"
+    = javascript_include_tag "platform"
+    = csrf_meta_tags
+    - if Rails.env.production?
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27488393-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+  %body{:id => "#{controller.controller_name}-#{controller.action_name}"}
+    .topbar
+      .topbar-inner
+        .container
+          = link_to "Voxe Platform", platform_path, :class => "brand"
+            
+    .container-fluid
+      .sidebar
+        .well
+          %h5= link_to "Endpoints", platform_endpoints_path
+          %ul
+            %li= link_to "Elections", elections_platform_endpoints_path
+            %li= link_to "Candidates", candidates_platform_endpoints_path
+            %li= link_to "Propositions", propositions_platform_endpoints_path
+            
+          %h5= link_to "Models", platform_models_path
+          %ul
+            %li= link_to "Election", election_platform_models_path
+            %li= link_to "Tag", tag_platform_models_path
+            %li= link_to "Candidate", candidate_platform_models_path
+            %li= link_to "Proposition", proposition_platform_models_path
+
+      .content
+        = yield

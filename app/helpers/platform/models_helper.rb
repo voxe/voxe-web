@@ -1,0 +1,2 @@
+module Platform::ModelsHelper
+end

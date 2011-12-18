@@ -1,0 +1,53 @@
+.page-header
+  %h2
+    %small GET
+    = "/elections/{id}"
+  
+%p Get information about an election.
+
+/ %table.bordered-table
+/   %tbody
+/     %tr
+/       %td {id}
+/       %td Election Id
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/elections/4ed1cb0203ad190006000001
+  
+%p
+  %a.btn.small Try
+
+.page-header
+  %h2
+    %small GET
+    = "/elections/search"
+    
+%p Search for elections.
+    
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td limit
+      %td 10
+    %tr
+      %td offset
+      %td 50
+    %tr
+      %td year
+      %td 2012
+    %tr
+      %td countryId
+      %td 
+    
+%p
+  %span.label EXAMPLE
+    
+%pre
+  http://voxe.org/api/v1/elections/search
+  
+%p
+  %a.btn.small Try

@@ -1,0 +1,21 @@
+.page-header
+  %h2 Tag
+  
+%p Tags are associated with propositions.
+
+%h3 Response
+%table.bordered-table
+  %tbody
+    %tr
+      %td id
+      %td A unique identifier for this tag.
+    %tr
+      %td name
+      %td Name of this tag.
+    %tr
+      %td tags
+      %td
+        %p
+          %i Optional
+          (only present in elections/id response)
+        %p A list of tags that are descendants of this tag for this election.
