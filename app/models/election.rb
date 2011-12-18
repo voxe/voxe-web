@@ -12,7 +12,7 @@ class Election
   
   # validations
   before_validation :generate_namespace
-  validates_presence_of :name, :namespace
+  validates_presence_of :name, :namespace, :country
   validates_uniqueness_of :name, :namespace
   
   def root_election_tags
