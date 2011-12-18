@@ -1,6 +1,22 @@
 .page-header
   %h2
     %small GET
+    = "/propositions/{id}"
+
+%p Get information about a proposition.
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/propositions/{id}
+
+%p
+  %a.btn.small Try
+
+.page-header
+  %h2
+    %small GET
     = "/propositions/search"
     
 %p Search for propositions.
