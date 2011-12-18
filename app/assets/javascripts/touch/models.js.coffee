@@ -1,25 +1,36 @@
 class window.PropositionModel extends Backbone.Model
   
+  # http://voxe.org/platform/models/proposition
+  
   candidate: ->
     @get "candidate"
   
-  theme: ->
-    @get "theme"
+  tags: ->
+    @get "tags"
 
-class window.ThemeModel extends Backbone.Model
+class window.TagModel extends Backbone.Model
   
-  themes: ->
-    @get "themes"
+  # http://voxe.org/platform/models/tag
+  
+  tags: ->
+    @get "tags"
   
   name: ->
     @get "name"
 
 class window.CandidateModel extends Backbone.Model
   
-  name: ->
-    @get "name"
+  # http://voxe.org/platform/models/candidate
+  
+  firstName: ->
+    @get "firstName"
+    
+  lastName: ->
+    @get "lastName"
 
 class window.ElectionModel extends Backbone.Model
+  
+  # http://voxe.org/platform/models/election
   
   initialize: ->
     #
@@ -30,8 +41,8 @@ class window.ElectionModel extends Backbone.Model
   candidates: ->
     @get "candidates"
     
-  themes: ->
-    @get "themes"
+  tags: ->
+    @get "tags"
   
   toJSON: ->
     object = _.clone(@attributes)

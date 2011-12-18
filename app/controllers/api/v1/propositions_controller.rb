@@ -18,7 +18,7 @@ class Api::V1::PropositionsController < ApplicationController
     conditions = {}
     conditions[:tag_ids.in] = params[:tagIds].split(',') unless params[:tagIds].blank?
     conditions[:election_id.in] = params[:electionIds].split(',') unless params[:electionIds].blank?
-    conditions[:candidate_id.in] = params[:candidatesIds].split(',') unless params[:candidatesIds].blank?
+    conditions[:candidate_id.in] = params[:candidateIds].split(',') unless params[:candidateIds].blank?
     
     # pagination
     skip = params[:offset] || 0

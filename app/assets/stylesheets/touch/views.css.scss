@@ -37,7 +37,7 @@
   
 }
 
-#themes {
+#tags {
   
   ul {
     margin: 10px;
@@ -53,6 +53,9 @@
     overflow: auto;
     .icon {
       float: left;
+      img {
+        border-radius: 3px;
+      }
     }
     .name {
       margin-left: 60px;
@@ -72,17 +75,44 @@
 #compare .table-view {
   
   .category, .section {
-    margin: 10px;
   }
   
-  .propositions {
-    padding: 10px;
-  }
-
-  .proposition {
+  .category-name {
     background-color: white;
     padding: 10px;
-    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    font-weight: bold;
+    border-top: 1px solid #878787;
+    border-bottom: 1px solid #878787;
+  }
+  
+  .section {
+    margin: 10px;
+    border: 1px solid #878787;
+    border-radius: 3px;
+    .section-name {
+      background-color: white;
+      border-bottom: 1px solid #878787;
+      padding: 5px;
+      font-size: 14px;
+    }
+    .candidate {
+      margin: 10px;
+      overflow: auto;
+      .photo {
+        float: left;
+        img {
+          border-radius: 3px;
+        }
+      }
+      .proposition {
+        margin-left: 54px;
+        background-color: white;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 13px;
+      }
+    }
   }
   
 }

@@ -1,7 +1,7 @@
 class window.PropositionsView extends Backbone.View
   
-  theme: ->
-    app.models.theme
+  tag: ->
+    app.models.tag
   
   candidates: ->
     app.collections.selectedCandidates.toJSON()
@@ -9,13 +9,13 @@ class window.PropositionsView extends Backbone.View
   categories: ->
     categories = []
     candidates = @candidates()
-    propositions = @propositions()
-    _.each @theme().themes(), (c) ->
+    tags_propositions = @tags_propositions()
+    _.each @tag().tags(), (c) ->
       category = {}
       category.id = c.id
       category.name = c.name
       sections = []
-      _.each c.themes, (s) ->
+      _.each c.tags, (s) ->
         section = {}
         section.id = s.id
         section.name = s.name
@@ -24,8 +24,8 @@ class window.PropositionsView extends Backbone.View
           candidate.id = c.id
           candidate.firstName = c.firstName
           candidate.photo = c.photo
-          if propositions[section.id] && propositions[section.id][candidate.id]
-            candidate.propositions = propositions[section.id][candidate.id]
+          if tags_propositions[section.id] && tags_propositions[section.id][candidate.id]
+            candidate.propositions = tags_propositions[section.id][candidate.id]
           else
             candidate.propositions = []
           candidate
@@ -34,26 +34,27 @@ class window.PropositionsView extends Backbone.View
       categories.push category
     categories
   
-  propositions: ->
+  tags_propositions: ->
     hash = {}
     _.each app.collections.propositions.models, (proposition) ->
-      theme = proposition.theme()
       candidate = proposition.candidate()
-      hash[theme.id] = {} unless hash[theme.id]
-      hash[theme.id][candidate.id] = [] unless hash[theme.id][candidate.id]
-      hash[theme.id][candidate.id].push proposition.toJSON()
+      _.each proposition.tags(), (tag) ->
+        hash[tag.id] = {} unless hash[tag.id]
+        hash[tag.id][candidate.id] = [] unless hash[tag.id][candidate.id]
+        hash[tag.id][candidate.id].push proposition.toJSON()
     hash
   
   initialize: ->
     app.collections.propositions.bind "reset", @render, @
-    app.collections.selectedCandidates.bind "change", @loadPropositions, @
-    app.models.theme.bind "change", @loadPropositions, @
+    app.collections.selectedCandidates.bind "reset", @loadPropositions, @
+    app.models.tag.bind "change", @loadPropositions, @
         
   loadPropositions: ->
-    app.collections.propositions.fetch()
+    if @candidates().length != 0 && @tag().id
+      app.collections.propositions.fetch()
     
   render: ->
-    $(@el).html Mustache.to_html($('#propositions-template').html(), theme: @theme(), categories: @categories())
+    $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
     unless @scrollView
       @scrollView = new iScroll $('#compare .table-view-container').get(0)
     setTimeout @refreshScroll, 0

@@ -1,10 +1,10 @@
 class window.CompareView extends Backbone.View
 
-  theme: ->
-    app.models.theme
+  tag: ->
+    app.models.tag
     
   initialize: ->
-    app.models.theme.bind "change", @changeTheme, @
+    app.models.tag.bind "change", @changeTag, @
     
   events:
     "click a.button": "themesClick"
@@ -12,8 +12,8 @@ class window.CompareView extends Backbone.View
   themesClick: ->
     app.router.themesList()
     
-  changeTheme: ->
-    $(".title", @el).html @theme().name()
+  changeTag: ->
+    $(".title", @el).html @tag().name()
     
   render: ->
-    $(@el).html Mustache.to_html($('#compare-template').html(), theme: @theme())
+    $(@el).html Mustache.to_html($('#compare-template').html(), tag: @tag())

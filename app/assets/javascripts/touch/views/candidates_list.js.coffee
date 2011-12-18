@@ -21,11 +21,12 @@ class window.CandidatesListView extends Backbone.View
     else
       app.collections.selectedCandidates.add candidate.toJSON()
     
-  compareClick: ->      
+  compareClick: ->
+    app.collections.selectedCandidates.trigger "reset"
     app.views.application.dissmissModalView()
     
     unless @scrollView
-      @scrollView = new iScroll $('#themes .table-view-container').get(0)
+      @scrollView = new iScroll $('#tags .table-view-container').get(0)
       
   render: ->
     $(@el).html Mustache.to_html($('#candidates-list-template').html(), election: @election())
