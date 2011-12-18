@@ -1,8 +1,7 @@
 .fields{id: "proposition-fields-#{proposition.id}"}
   = form_for [:admin, proposition], remote: true do |f|
-    = f.hidden_field :electionId
-    = f.hidden_field :candidateId
-    = f.hidden_field :themeId
+    = f.hidden_field :election_id
+    = f.hidden_field :candidate_id
     .clearfix
       = f.text_area :text, class: 'xxlarge', rows: 2
     .clearfix

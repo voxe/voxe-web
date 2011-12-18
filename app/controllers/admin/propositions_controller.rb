@@ -9,7 +9,7 @@ class Admin::PropositionsController < ApplicationController
   def manage
     @election = Election.find params[:electionId]
     @candidate = Candidate.find params[:candidateId]
-    @propositions = Proposition.where electionId: @election.id, candidateId: @candidate.id
+    @propositions = Proposition.where election_id: @election.id, candidate_id: @candidate.id
   end
 
   def create

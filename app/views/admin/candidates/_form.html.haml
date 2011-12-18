@@ -7,12 +7,12 @@
           %li= msg
 
   .clearfix
-    = f.label :firstName
-    .input= f.text_field :firstName
+    = f.label :first_name
+    .input= f.text_field :first_name
 
   .clearfix
-    = f.label :lastName
-    .input= f.text_field :lastName
+    = f.label :last_name
+    .input= f.text_field :last_name
 
   = f.fields_for :photos do |photo_f|
     = render 'photo_fields', f: photo_f
