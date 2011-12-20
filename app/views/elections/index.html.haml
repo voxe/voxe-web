@@ -3,4 +3,4 @@
     .page-header Elections
       
     - @elections.each do |election|
-      %h2= link_to election.name, election_path(election.country.namespace, election.namespace)
+      %h2= link_to election.name, election

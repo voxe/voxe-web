@@ -5,7 +5,7 @@ class ElectionsController < ApplicationController
   end
   
   def show
-    @election = Election.first conditions: {namespace: params[:election]}
+    @election = Election.first conditions: {namespace: params[:election_namespace]}
     # returns 404 if election does not exist
     return not_found unless @election
     
@@ -18,7 +18,7 @@ class ElectionsController < ApplicationController
   end
   
   def themes
-    @election   = Election.first conditions: {namespace: params[:election]}
+    @election   = Election.first conditions: {namespace: params[:election_namespace]}
     # returns 404 if election does not exist
     return not_found unless @election
     @candidates = Candidate.where(:namespace.in => params[:candidates].split(',')).all
@@ -27,27 +27,15 @@ class ElectionsController < ApplicationController
   end
   
   def compare
-    @election   = Election.first conditions: {namespace: params[:election]}
+    @election   = Election.first conditions: {namespace: params[:election_namespace]}
     # returns 404 if election does not exist
     return not_found unless @election
     @candidates = Candidate.where(:namespace.in => params[:candidates].split(',')).all
     # returns 404 if candidates is empty
     return not_found if @candidates.blank?
-    @themes     = [Theme.first]
-    # returns 404 if theme is not valid
-    return not_found if @candidates.blank?
-    
-    @propositions = {}
-    @candidates.each do |candidate|
-      @propositions[candidate.id] = {}
-      @themes.each do |theme|
-        theme.themes.each do |category|
-          category.themes.each do |section|
-            @propositions[candidate.id][section.id] = Proposition.where :candidateId => candidate.id, :electionId => @election.id, :themeId => section.id
-          end
-        end
-      end
-    end
+    @tag = Tag.first conditions: {namespace: params[:tag_namespace]}
+    # returns 404 if tag is not valid
+    return not_found if @tag.blank?
   end
   
 end

@@ -16,7 +16,7 @@ class ElectionTag
   validates_presence_of :election, :tag
   
   def children_election_tags
-    ElectionTag.all conditions: {parent_tag_id: tag.id}
+    ElectionTag.all conditions: {parent_tag_id: tag.id, election_id: election.id}
   end
   
 end

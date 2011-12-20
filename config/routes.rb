@@ -76,11 +76,10 @@ Joinplato::Application.routes.draw do
 
   devise_for :users
   
-  match ':country/:election/:candidates/propositions/:id' => 'propositions#show', :as => :proposition
-  match ':country/:election/:candidates/:themes' => 'elections#compare', :as => :election_compare
-  match ':country/:election/:candidates' => 'elections#themes', :as => :election_themes
-  match ':country/:election' => 'elections#show', :as => :election
-  match ':country' => 'countries#show'
+  match ':election_namespace/:candidates/propositions/:id' => 'propositions#show', :as => :proposition
+  match ':election_namespace/:candidates/:tag_namespace' => 'elections#compare', :as => :election_compare
+  match ':election_namespace/:candidates' => 'elections#themes', :as => :election_themes
+  match ':election_namespace' => 'elections#show', :as => :election
   
   root to: 'elections#index'
 

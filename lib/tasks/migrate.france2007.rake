@@ -1,12 +1,9 @@
 namespace :migrate do
   task "france2007" => :environment do
-    
-    # create country if needed
-    france = Country.find_or_create_by name: "France"
-    
     # create election
-    election = Election.create! name: "Election France 2007", country: france
-    
+    election = Election.create! name: "Election Presidentielle France 2007",
+                                namespace: "france-presidentielle-2007"
+                                    
     # themes
     all_themes = YAML.load_file "data/france2007/themes.yml"
     themes = {}
@@ -62,7 +59,9 @@ namespace :migrate do
     # create candidates
     candidates_ids = {}
     candidates.each do |candidate_id, candidate|
-      c = Candidate.create!(:first_name => candidate["descriptif"], :last_name => candidate["titre"])
+      c = Candidate.new(:first_name => candidate["descriptif"], :last_name => candidate["titre"])
+      c.namespace = "#{c.first_name}-#{c.last_name}".parameterize
+      c.save!
       c.elections << election
       candidates_ids[candidate_id] = c.id
     end
