@@ -1,4 +1,3 @@
-object false
 child @candidate do
   attributes :id
   attributes :first_name => :firstName, :last_name => :lastName
