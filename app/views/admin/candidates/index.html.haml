@@ -10,8 +10,8 @@
         %th Actions
       - for candidate in @candidates do
         %tr
-          %td= candidate.firstName
-          %td= candidate.lastName
+          %td= candidate.first_name
+          %td= candidate.last_name
           %td= candidate.elections.map(&:name).join(', ')
           %td
             = link_to "Edit", [:edit, :admin, candidate]

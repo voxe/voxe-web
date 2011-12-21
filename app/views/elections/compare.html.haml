@@ -3,24 +3,10 @@
     .page-header
       %h1= @election.name
       
-    - @themes.each do |theme|
-      %h2= theme.name
+      %h2= @tag.name
       
       %table.bordered-table
         %thead
           %th
           - @candidates.each do |candidate|
             %th= candidate.name
-      
-        %tbody
-          - theme.themes.each do |categories|
-            %tr
-              %td{:colspan => (@candidates.count + 1)}
-                %h3= categories.name
-            - categories.themes.each do |section|
-              %tr
-                %td= section.name
-                - @candidates.each do |candidate|
-                  %td
-                    - @propositions[candidate.id][section.id].each do |proposition|
-                      %p= link_to proposition.text, proposition_path(@election.country.namespace, @election.namespace, params[:candidates], proposition.id)

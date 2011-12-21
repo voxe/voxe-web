@@ -14,25 +14,25 @@
             </li>
           {{/election.candidates}}
         
-#themes-list-template
+#tags-list-template
   .nav-bar
     .title Themes
   
   .table-view-container
     .table-view
-      %ul.themes
+      %ul.tags
         :plain
-          {{#election.themes}}
-            <li theme-id="{{id}}">
-              <div class="icon"><img src="{{photo.sizes.small.url}}" width="44px" height="44px" /></div>
+          {{#election.tags}}
+            <li tag-id="{{id}}">
+              <div class="icon"><img src="{{icon.sizes.small.url}}" width="44px" height="44px" /></div>
               <div class="name">{{name}}</div>
             </li>
-          {{/election.themes}}
+          {{/election.tags}}
           
 #compare-template
   .nav-bar
     %a.button.left  ← Themes
-    .title {{#theme}}{{name}}{{/theme}}
+    .title {{#tag}}{{name}}{{/tag}}
     
   .table-view-container
     .table-view
@@ -46,11 +46,13 @@
           <div class="section">               
             <div class="section-name">{{name}}</div>
             {{#candidates}}
-              <div class="candidates">
-                <img src="{{photo.sizes.small.url}}" width="44px" height="44px" /> {{firstName}} {{lastName}}
+              <div class="candidate">
+                <div class="photo">
+                  <img src="{{photo.sizes.small.url}}" width="44px" height="44px" />
+                </div>
         
                 {{#propositions}}
-                  <div class="candidates">
+                  <div class="proposition">
                     {{text}}
                   </div>
                 {{/propositions}}

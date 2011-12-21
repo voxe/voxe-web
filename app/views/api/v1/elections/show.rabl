@@ -1,7 +1,13 @@
 object false
 child @election do
-  attributes :id, :name
-  child :candidates do
+  attributes :id, :name, :namespace, :path
+  child :parent_election => :parentElection do
+    attributes :id, :name
+  end
+  child :elections => :elections do
+    attributes :id, :name
+  end
+  child :candidates => :candidates do
     attributes :id
     attributes :first_name => :firstName, :last_name => :lastName
     node :photo do |candidate|

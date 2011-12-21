@@ -11,13 +11,13 @@ class window.PropositionsCollection extends Backbone.Collection
     app.models.election.bind 'change', (election) =>
       @electionId = election.id
       
-    app.models.theme.bind 'change', (theme) =>
-      @themeId = theme.id
+    app.models.tag.bind 'change', (tag) =>
+      @tagId = tag.id
   
   model: PropositionModel
   
   url: ->
-    "/api/v1/propositions/search?electionId=#{@electionId}&themeId=#{@themeId}&candidateIds=#{@candidateIds()}"
+    "/api/v1/propositions/search?electionIds=#{@electionId}&tagIds=#{@tagId}&candidateIds=#{@candidateIds()}"
     
   parse: (response) ->
     response.propositions

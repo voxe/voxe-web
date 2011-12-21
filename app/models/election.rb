@@ -6,37 +6,22 @@ class Election
   field :namespace, type: String
   
   # relations
-  belongs_to :country
+  belongs_to :parent_election, class_name: 'Election'
+  has_many :elections, foreign_key: 'parent_election_id'
+  
   has_and_belongs_to_many :candidates
   has_many :propositions
   
   # validations
-  before_validation :generate_namespace
   validates_presence_of :name, :namespace
-  validates_uniqueness_of :name, :namespace
+  validates_uniqueness_of :namespace
   
   def root_election_tags
-    ElectionTag.all(conditions: {election_id: self.id, parent_tag_id: nil})
-  end
-
-  def serializable_hash options = {}
-    options ||= {}
-    super({
-      only:    [:_id, :name],
-      include: {
-        candidates: {only: [:_id, :firstName, :lastName, :photos]},
-        propositions: {}
-      }
-    }.merge(options))
+    ElectionTag.all(conditions: {election_id: parent_election ? parent_election.id : self.id, parent_tag_id: nil})
   end
   
   def to_param
-    namespace
+    self.namespace
   end
-  
-  private
-    def generate_namespace
-      self.namespace = "#{name}".parameterize
-    end
 
 end

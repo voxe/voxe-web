@@ -4,8 +4,8 @@
       %h1= @election.name
       
     %h2 Themes
-    - @election.themes.in_groups_of(4).each do |themes|
+    - @election.root_election_tags.in_groups_of(4).each do |group|
       .row
-        - themes.each do |theme|
+        - group.each do |election_tag|
           .span4
-            = link_to theme.name, election_compare_path(@election.country.namespace, @election.namespace, params[:candidates], theme.namespace)
+            = link_to election_tag.tag.name, election_compare_path(@election, params[:candidates], election_tag.tag.namespace)

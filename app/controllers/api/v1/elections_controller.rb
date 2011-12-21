@@ -1,6 +1,7 @@
 class Api::V1::ElectionsController < ApplicationController
   
   load_and_authorize_resource
+  skip_before_filter :verify_authenticity_token
 
   # GET /api/v1/elections/1
   def show
@@ -14,9 +15,9 @@ class Api::V1::ElectionsController < ApplicationController
   # POST /api/v1/elections
   def create
     if @election.save
-      render json: { election: @election }, status: :created
+      render 'api/v1/elections/show.rabl', status: :created
     else
-      render json: @election.errors, status: :unprocessable_entity
+      render json: {errors: @election.errors}, status: :unprocessable_entity
     end
   end
 
@@ -27,9 +28,9 @@ class Api::V1::ElectionsController < ApplicationController
     @election.candidates << @candidate
 
     if @election.save
-      render json: {candidate: @candidate}
+      render json: 'api/v1/candidates/show.rabl'
     else
-      render json: @election.errors, status: :unprocessable_entity
+      render json: {errors: @election.errors}, status: :unprocessable_entity
     end
   end
 

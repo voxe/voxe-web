@@ -7,11 +7,8 @@ end
 code :position do |election_tag|
   election_tag.position
 end
-node :icon, :if => lambda { |election_tag| !election_tag.parent_tag } do |election_tag|
-  {sizes: (IconUploader.new).versions.inject({}) do |hash, (version, url)|
-    hash[version] = {url: election_tag.tag.icon_url(version).to_url}
-    hash
-  end}
+node :icon do
+  {prefix: "/images/icons/tag_".to_url, sizes: [32, 64, 256], name: ".png"}
 end
 node :tags, :if => lambda { |election_tag| !election_tag.children_election_tags.empty? } do |election_tag|
   election_tag.children_election_tags.collect do |election_tag|

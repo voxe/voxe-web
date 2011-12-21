@@ -16,7 +16,7 @@ class Tag
   private
 
   def generate_namespace
-    self.namespace = name.parameterize
+    self.namespace = name.parameterize unless name.blank?
   end
 
 end

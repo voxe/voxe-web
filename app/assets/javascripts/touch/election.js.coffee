@@ -4,7 +4,7 @@ class window.VoxeElection
     window.app = {models: {}, collections: {}, views:{}}
     
     app.models.election = new ElectionModel()
-    app.models.theme = new ThemeModel()
+    app.models.tag = new TagModel()
     
     app.collections.candidates = new CandidatesCollection()
     app.models.election.bind 'change', (election)=>
@@ -17,7 +17,7 @@ class window.VoxeElection
     app.views.navigation = new NavigationView(el: "#navigation-view")
 
     app.views.candidatesList = new CandidatesListView(el: "#candidates-list")
-    app.views.themesList = new ThemesListView(el: "#themes")
+    app.views.tagsList = new TagsListView(el: "#tags")
     
     app.views.compare = new CompareView(el: "#compare")
     app.views.compare.render()
@@ -25,6 +25,6 @@ class window.VoxeElection
 
     app.router = new AppRouter()
     app.router.candidatesList()
-    app.views.navigation.push 'themes'
+    app.views.navigation.push 'tags'
     
     app.models.election.set options.election
