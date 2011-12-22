@@ -8,10 +8,11 @@ child @election do
   #   attributes :id, :name
   # end
   child :candidacies do
-    child :organization do
+    attribute :id
+    child :organization, :if => lambda { |candidacy| !candidacy.organization.blank? } do
       attribute :id, :name
     end
-    child :candidates do
+    child :candidates, :if => lambda { |candidacy| !candidacy.candidates.blank? } do
       attributes :id
       attributes :first_name => :firstName, :last_name => :lastName
       node :photo do |candidate|
