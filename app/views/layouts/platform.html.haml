@@ -33,6 +33,7 @@
             %li= link_to "Tags", tags_platform_endpoints_path
             %li= link_to "Candidates", candidates_platform_endpoints_path
             %li= link_to "Propositions", propositions_platform_endpoints_path
+            %li= link_to "Candidacies", candidacies_platform_endpoints_path
             
           %h5= link_to "Models", platform_models_path
           %ul
@@ -40,6 +41,8 @@
             %li= link_to "Tag", tag_platform_models_path
             %li= link_to "Candidate", candidate_platform_models_path
             %li= link_to "Proposition", proposition_platform_models_path
+            %li= link_to "Candidacy", candidacy_platform_models_path
+            %li= link_to "Organization", organization_platform_models_path
 
       .content
         = yield
