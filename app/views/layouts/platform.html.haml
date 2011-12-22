@@ -27,7 +27,7 @@
     .container-fluid
       .sidebar
         .well
-          %h5= link_to "Endpoints", platform_endpoints_path
+          %h5= link_to "Endpoints", platform_path + '#endpoints'
           %ul
             %li= link_to "Elections", elections_platform_endpoints_path
             %li= link_to "Tags", tags_platform_endpoints_path
@@ -35,7 +35,7 @@
             %li= link_to "Propositions", propositions_platform_endpoints_path
             %li= link_to "Candidacies", candidacies_platform_endpoints_path
             
-          %h5= link_to "Models", platform_models_path
+          %h5= link_to "Models", platform_path + '#models'
           %ul
             %li= link_to "Election", election_platform_models_path
             %li= link_to "Tag", tag_platform_models_path
