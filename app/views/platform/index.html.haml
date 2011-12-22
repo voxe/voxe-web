@@ -1,0 +1,75 @@
+.page-header
+  %h1 Voxe API
+
+%p
+  This Restful API are only returning JSON results, and are read-only for public users.
+  All parameters and keys are in CamelCase. POST requests are only accessible to admin users.
+%p
+  API v1 is deployed on:
+  %pre http://voxe.org/api/v1
+
+.page-header
+  %h2 Questions ?
+
+%p Send an email to api@voxe.com.
+
+%section{id: "endpoints"}
+  .page-header
+    %h2 Endpoints
+
+  %p
+    Each endpoints is accessible on the following URL by replacing ENDPOINT_NAME:
+    %pre http://voxe.org/api/v1/ENDPOINT_NAME
+
+    An example to get an election:
+    %pre http://voxe.org/api/v1/elections/4ed1cb0203ad190006000001
+
+  %h3 Structure
+
+  %h4 Envelope
+
+  %p
+    Every response is contained by an envelope. This is how the envelope looks like:
+    %pre
+      :preserve
+        {
+          "meta": {
+            "code": 200
+          },
+          "response": {
+            ...
+          }
+        }
+
+  %h4 Dealing with errors
+
+  %p In case of error is raised, this is how the response will looks like:
+  %pre
+    :preserve
+      {
+        "meta": {
+          "code": 200,
+          "errorType": "param_error",
+          "errorDetail": "..."
+        },
+        "response": {}
+      }
+
+  %h3 JSONP
+
+  %p
+    In the case you want to use our response with a JS callback, you can pass your callback name.
+    %pre http://voxe.org/api/v1/.../?callback=callbackFunction
+    Would response with
+    %pre
+      :preserve
+        callbackFunction({
+          ...
+        });
+
+%section{id: "models"}
+  .page-header
+    %h2 Models
+
+  %p
+    Access to the description of each model on the left menu.
