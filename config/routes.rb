@@ -87,6 +87,7 @@ Joinplato::Application.routes.draw do
         get :candidates
         get :propositions
         get :tags
+        get :candidacies
       end
     end
     resources :models do
@@ -95,6 +96,8 @@ Joinplato::Application.routes.draw do
         get :candidate
         get :proposition
         get :tag
+        get :candidacy
+        get :organization
       end
     end
   end
