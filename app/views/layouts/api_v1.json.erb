@@ -1,4 +1,5 @@
-{
-  "meta": {"code": <%= response.status %>},
-  "response": <%= yield %>
-}
+<% if params[:callback].blank? %>
+  <%= render 'api/v1/response', response: response %>
+<% else %>
+  <%= params[:callback] %>(<%= render 'api/v1/response', response: response %>);
+<% end %>
