@@ -2,15 +2,13 @@ class Proposition
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :text,         type: String
-  field :candidate_id, type: String
-  field :election_id,  type: String
+  field :text, type: String
 
-  belongs_to :candidate
+  belongs_to :candidacy
   belongs_to :election
   has_and_belongs_to_many :tags
 
-  validates_presence_of :candidate, :tags, :election, :text
+  validates_presence_of :candidacy, :tags, :election, :text
 
   embeds_many :embeds, as: :embedable
   accepts_nested_attributes_for :embeds, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }

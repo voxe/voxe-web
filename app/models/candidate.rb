@@ -7,7 +7,7 @@ class Candidate
   field :namespace, type: String
   
   # relations
-  has_and_belongs_to_many :elections
+  has_and_belongs_to_many :candidacies
   has_many :propositions, dependent: :destroy
   has_many :photos, as: :photoable, dependent: :destroy, autosave: true
 
