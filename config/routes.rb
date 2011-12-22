@@ -51,6 +51,8 @@ Joinplato::Application.routes.draw do
         end
       end
 
+      resources :candidacies
+
     end
   end
   
