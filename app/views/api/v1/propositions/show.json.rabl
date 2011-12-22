@@ -4,10 +4,10 @@ child @proposition do
   child :tags do
     attributes :id
   end
-  node(:election) do |proposition|
-    {id: proposition.election_id}
+  child :election do
+    attributes :id
   end
-  node(:candidate) do |proposition|
-    {id: proposition.candidate_id}
+  child :candidacy do
+    attributes :id
   end
 end

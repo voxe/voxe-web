@@ -8,9 +8,8 @@ class Election
   # relations
   belongs_to :parent_election, class_name: 'Election'
   has_many :elections, foreign_key: 'parent_election_id'
-  
-  has_and_belongs_to_many :candidates
   has_many :propositions
+  has_many :candidacies
   
   # validations
   validates_presence_of :name, :namespace

@@ -7,14 +7,20 @@ child @election do
   # child :elections => :elections do
   #   attributes :id, :name
   # end
-  child :candidates => :candidates do
-    attributes :id
-    attributes :first_name => :firstName, :last_name => :lastName
-    node :photo do |candidate|
-      {sizes: (ImageUploader.new).versions.inject({}) do |hash, (version, url)|
-        hash[version] = {url: candidate.photo_url(version)}
-        hash
-      end}
+  child :candidacies do
+    attribute :id
+    child :organization, :if => lambda { |candidacy| !candidacy.organization.blank? } do
+      attribute :id, :name
+    end
+    child :candidates, :if => lambda { |candidacy| !candidacy.candidates.blank? } do
+      attributes :id
+      attributes :first_name => :firstName, :last_name => :lastName
+      node :photo do |candidate|
+        {sizes: (ImageUploader.new).versions.inject({}) do |hash, (version, url)|
+          hash[version] = {url: candidate.photo_url(version)}
+          hash
+        end}
+      end
     end
   end
   node :tags do |election|

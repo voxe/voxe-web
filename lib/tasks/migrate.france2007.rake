@@ -57,29 +57,29 @@ namespace :migrate do
     puts "#candidates: #{candidates.count}"
     
     # create candidates
-    candidates_ids = {}
+    candidacies_ids = {}
     candidates.each do |candidate_id, candidate|
       c = Candidate.new(:first_name => candidate["descriptif"], :last_name => candidate["titre"])
       c.namespace = "#{c.first_name}-#{c.last_name}".parameterize
       c.save!
-      c.elections << election
-      candidates_ids[candidate_id] = c.id
+      candidacy = election.candidacies.build
+      candidacy.candidates << c
+      candidacy.save!
+      candidacies_ids[candidate_id] = candidacy.id
     end
     
     # propositions
     all_propositions = YAML.load_file "data/france2007/propositions.yml"
     all_propositions.each do |proposition|
-      candidate = candidates[proposition["id_mot"]]
-      
       category = all_categories.select { |category| category["id_rubrique"] == proposition["id_rubrique"] }.first
       section = all_sections.select { |section| section["id_rubrique"] == category["id_parent"] }.first
       theme = all_themes.select { |theme| theme["id_rubrique"] == section["id_parent"] }.first
-      
+
       unless proposition["descriptif"].blank?
         proposition["descriptif"].split("\r\n").each do |text|
           model = Proposition.new
           model.election = election
-          model.candidate_id = candidates_ids[proposition["id_mot"]]
+          model.candidacy_id = candidacies_ids[proposition["id_mot"]]
           # tags
           tag_category = Tag.first conditions: {name: category['titre']}
           tag_section = Tag.first conditions: {name: section['titre']}
