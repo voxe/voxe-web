@@ -1,9 +1,4 @@
-class Api::V1::CandidatesController < ApplicationController
-  
-  layout "api_v1"
-  
-  load_and_authorize_resource
-  skip_before_filter :verify_authenticity_token
+class Api::V1::CandidatesController < Api::V1::ApplicationController
 
   # POST /api/v1/candidates
   def create

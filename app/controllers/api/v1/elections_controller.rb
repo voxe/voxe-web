@@ -1,9 +1,4 @@
-class Api::V1::ElectionsController < ApplicationController
-  
-  layout "api_v1"
-  
-  load_and_authorize_resource
-  skip_before_filter :verify_authenticity_token
+class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # GET /api/v1/elections/1
   def show

@@ -1,4 +1,4 @@
 {
-  "meta": {"code": <%= response.status %>},
+  "meta": <%= {"code" => response.status}.merge(@api_errors || {}).to_json.html_safe %>,
   "response": <%= yield %>
 }
