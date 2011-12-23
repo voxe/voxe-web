@@ -1,12 +1,12 @@
 == Getting started
 
-1. At the prompt command, install dependencies (more details bellow):
+Clone the git repository
+  git clone git@github.com:voxe/voxe-web.git
+
+At the prompt command, install dependencies (more details bellow):
   bundle install
 
-2. At the prompt command, migrate your database:
-  rake db:migrate
-
-3. At the prompt command, start your server:
+At the prompt command, start your server:
   rails server
 
 == Environment
@@ -30,18 +30,12 @@ run rake migrate:france2007 to get some data from 2007 French Presidential Elect
 Ensure your have the heroku gem. If not install it, at the command prompt:
   gem install heroku
 
-Prerequired, add two remote branches for heroku deployment.
-
-On for production mode:
-  git remote add heroku git@heroku.com:joinplato.git
+Prerequired, add staging branch for heroku deployment.
 
 One for staging mode:
   git remote add staging git@heroku.com:joinplato-staging.git
 
-Then you can deploy by pushing your branch on heroku.
-
-Deploying in production mode:
-  git push heroku master
+Then you can deploy to staging by pushing your branch on heroku.
 
 Deploying in staging mode:
   git push staging master
