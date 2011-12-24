@@ -6,6 +6,7 @@ class WebviewsController < ApplicationController
   def index
   end
   
+  # params electionId, candidacyIds, tagId
   def compare
     # election
     begin
@@ -16,9 +17,9 @@ class WebviewsController < ApplicationController
     
     # candidates
     begin
-      @candidates = Candidate.find params[:candidateIds].split(',')
+      @candidacies = Candidacy.find params[:candidacyIds].split(',')
     rescue
-      return render text: "invalid candidateIds"
+      return render text: "invalid candidacyIds"
     end
     
     # tag
@@ -33,8 +34,9 @@ class WebviewsController < ApplicationController
     return render text: "empty" unless @election_tag
     
     propositions = Proposition.where :election_id => @election.id,
-                                     :candidate_id.in => params[:candidateIds].split(','),
-                                     :tag_ids => params[:tagId]    
+                                     :candidacy_id.in => params[:candidacyIds].split(','),
+                                     :tag_ids => params[:tagId]
+                                     
     @tags_propositions = {}
     propositions.each do |proposition|
       proposition.tags.each do |tag|

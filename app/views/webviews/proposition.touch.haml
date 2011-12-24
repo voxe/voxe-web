@@ -1,9 +1,7 @@
 #proposition-view
   %ul.proposition-container
     %li.proposition-text= @proposition.text
-    %li.candidate
-      .candidate-photo= image_tag @proposition.candidate.photo_url(:small), size: "50x50"
-      .candidate-name= @proposition.candidate.name
-    %li.theme-name= @proposition.theme.theme.theme.name
-    %li.category-name= @proposition.theme.theme.name
-    %li.section-name= @proposition.theme.name
+    %li.candidacy
+      .candidate-photo= image_tag @proposition.candidacy.candidates.first.photo_url(:small), size: "50x50"
+      .candidate-name= @proposition.candidacy.candidates.first.name
+    %li.tags= @proposition.tags.map { |t| t.name }.join(',')

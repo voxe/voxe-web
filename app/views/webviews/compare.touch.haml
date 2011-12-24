@@ -7,15 +7,16 @@
         .section-container
           .section-name
             %span= section.tag.name
-          - @candidates.each do |candidate|
-            - candidate_propositions = tag_propositions.select { |p| p.candidate_id == candidate.id }
-            .candidate-container
-              .candidate-photo= image_tag candidate.photo_url(:small), size: "40x40"
-              .propositions-container
-                - unless candidate_propositions.blank?
-                  - candidate_propositions[0..1].each do |proposition|
-                    .proposition
-                      = link_to truncate(proposition.text, length: 140), proposition_webviews_url(propositionId: proposition.id)
-                  - if candidate_propositions.count > 2
-                    .view-more
-                      %a View More
+          - if tag_propositions
+            - @candidacies.each do |candidacy|
+              - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
+              .candidate-container
+                .candidate-photo= image_tag candidacy.candidates.first.photo_url(:small), size: "40x40"
+                .propositions-container
+                  - unless candidacy_propositions.blank?
+                    - candidacy_propositions[0..1].each do |proposition|
+                      .proposition
+                        = link_to truncate(proposition.text, length: 140), proposition_webviews_url(propositionId: proposition.id)
+                    - if candidacy_propositions.count > 2
+                      .view-more
+                        %a View More
