@@ -10,6 +10,9 @@ class Api::V1::ApplicationController < ApplicationController
 
   # Skip authenticity token is more easy for an API
   skip_before_filter :verify_authenticity_token
+  
+  # Skip touch version
+  skip_before_filter :set_touch_format
 
   private
 

@@ -10,7 +10,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
   end
   
   # GET /api/v1/propositions/search
-  # params electionId, tagIds, candidateIds
+  # params electionIds, tagIds, candidacyIds
   def search
     # query
     conditions = {}

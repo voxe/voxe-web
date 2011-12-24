@@ -12,7 +12,7 @@ class ElectionsController < ApplicationController
     respond_to do |format|
       format.html
       format.touch do
-        @json = render_to_string('api/v1/elections/show', layout: false)
+        @json = render_to_string('api/v1/elections/show.json', layout: false)
       end
     end
   end

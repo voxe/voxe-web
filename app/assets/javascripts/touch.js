@@ -6,8 +6,8 @@
 //= require libs/mustache-2011-10-11
 
 //= require 'touch/router'
-//= require 'touch/models'
-//= require 'touch/collections'
+//= require_tree './backbone/models'
+//= require_tree './backbone/collections'
 //= require_tree './touch/views/'
 
 //= require 'touch/application'

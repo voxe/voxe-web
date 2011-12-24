@@ -1,18 +1,20 @@
-#candidates-list-template
+#candidacies-list-template
   .nav-bar
     .title {{election.name}}
     %a.button.right Compare
   
   .table-view-container
     .table-view
-      %ul.candidates
+      %ul.candidacies
         :plain
-          {{#election.candidates}}
-            <li candidate-id="{{id}}">
-              <div class="image"><img src="{{photo.sizes.small.url}}" width="40px" height="40px" /></div>
-              <div class="name">{{firstName}} {{lastName}}</div>
+          {{#election.candidacies}}
+            <li candidacy-id="{{id}}">
+              {{#candidates}}
+                <div class="image"><img src="{{photo.sizes.small.url}}" width="40px" height="40px" /></div>
+                <div class="name">{{firstName}} {{lastName}}</div>
+              {{/candidates}}
             </li>
-          {{/election.candidates}}
+          {{/election.candidacies}}
         
 #tags-list-template
   .nav-bar
@@ -22,12 +24,12 @@
     .table-view
       %ul.tags
         :plain
-          {{#election.tags}}
+          {{#tags}}
             <li tag-id="{{id}}">
-              <div class="icon"><img src="{{icon.sizes.small.url}}" width="44px" height="44px" /></div>
+              <div class="icon"><img src="{{icon.prefix}}64{{icon.name}}" width="44px" height="44px" /></div>
               <div class="name">{{name}}</div>
             </li>
-          {{/election.tags}}
+          {{/tags}}
           
 #compare-template
   .nav-bar
@@ -45,11 +47,13 @@
         {{#sections}}
           <div class="section">               
             <div class="section-name">{{name}}</div>
-            {{#candidates}}
-              <div class="candidate">
-                <div class="photo">
-                  <img src="{{photo.sizes.small.url}}" width="44px" height="44px" />
-                </div>
+            {{#candidacies}}
+              <div class="candidacy">
+                {{#candidates}}
+                  <div class="photo">
+                    <img src="{{photo.sizes.small.url}}" width="44px" height="44px" />
+                  </div>
+                {{/candidates}}
         
                 {{#propositions}}
                   <div class="proposition">
@@ -57,7 +61,7 @@
                   </div>
                 {{/propositions}}
               </div>
-            {{/candidates}}
+            {{/candidacies}}
           </div>
         {{/sections}}
       </div>

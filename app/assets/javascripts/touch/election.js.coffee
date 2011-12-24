@@ -6,17 +6,21 @@ class window.VoxeElection
     app.models.election = new ElectionModel()
     app.models.tag = new TagModel()
     
-    app.collections.candidates = new CandidatesCollection()
+    app.collections.tags = new TagsCollection()
     app.models.election.bind 'change', (election)=>
-      app.collections.candidates.add election.get('candidates')
+      app.collections.tags.add election.tags()
     
-    app.collections.selectedCandidates = new CandidatesCollection()
+    app.collections.candidacies = new CandidaciesCollection()
+    app.models.election.bind 'change', (election)=>
+      app.collections.candidacies.add election.candidacies()
+    
+    app.collections.selectedCandidacies = new CandidaciesCollection()
     app.collections.propositions = new PropositionsCollection()
     
     app.views.application = new ApplicationView(el: "#application-view")
     app.views.navigation = new NavigationView(el: "#navigation-view")
 
-    app.views.candidatesList = new CandidatesListView(el: "#candidates-list")
+    app.views.candidaciesList = new CandidaciesListView(el: "#candidacies-list")
     app.views.tagsList = new TagsListView(el: "#tags")
     
     app.views.compare = new CompareView(el: "#compare")

@@ -1,5 +1,8 @@
 class window.TagsListView extends Backbone.View
   
+  tags: ->
+    app.collections.tags.toJSON()
+    
   election: ->
     app.models.election
   
@@ -19,5 +22,5 @@ class window.TagsListView extends Backbone.View
     app.router.compareView()
     
   render: ->
-    $(@el).html Mustache.to_html($('#tags-list-template').html(), election: @election())
+    $(@el).html Mustache.to_html($('#tags-list-template').html(), tags: @tags())
     # new iScroll $('.table-view-container', @el).get(0)
