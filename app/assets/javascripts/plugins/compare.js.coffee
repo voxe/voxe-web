@@ -124,9 +124,7 @@ class window.CandidatesListView extends Backbone.View
 class window.Plugin
   
   constructor: (options) ->
-    $ ->
-      $("#content").css "height", ($(window).height() - 65) + "px"
-  
+    $ ->  
       window.app = {models: {}, collections: {}, views:{}}
       
       app.models.election = new ElectionModel(id: options.electionId)
