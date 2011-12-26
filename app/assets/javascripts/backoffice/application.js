@@ -7,6 +7,4 @@
 //= require jquery
 //= require jquery_ujs
 
-//= require_tree ./../libs/bootstrap-1.3.0
-
-//= require_tree .
+//= require ./backoffice
