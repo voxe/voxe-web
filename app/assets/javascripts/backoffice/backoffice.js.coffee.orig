@@ -1,0 +1,90 @@
+#= require ../libs/underscore-1.2.0
+#= require ../libs/backbone-0.5.3
+#= require_tree ../libs/bootstrap-1.3.0
+<<<<<<< HEAD
+#= require hamlcoffee
+=======
+>>>>>>> setup backoffice js interface
+#= require_self
+#= require_tree ../backbone/models
+#= require_tree ../backbone/collections
+#= require_tree ./templates
+#= require_tree ./views
+
+window.Backoffice =
+<<<<<<< HEAD
+  Views:
+    Election: {}
+  ViewInstances:
+    Election: {}
+=======
+  Views: {}
+>>>>>>> setup backoffice js interface
+  Router: Backbone.Router.extend(
+    routes:
+      '': 'index'
+      'countries': 'countries'
+<<<<<<< HEAD
+      'elections': 'elections'
+      'elections/:id': 'election'
+      'elections/:election_id/tags/:id': 'tag'
+      'elections/:election_id/:menu_entry': 'election'
+
+    index: ->
+      @.navigate 'elections', true
+    countries: ->
+      new Backoffice.Views.CountriesView()
+    elections: ->
+      if Backoffice.ViewInstances.Elections
+        Backoffice.ViewInstances.Elections.render()
+      else
+        Backoffice.ViewInstances.Elections = new Backoffice.Views.ElectionsView()
+    election: (id, menu_entry) ->
+      if menu_entry
+        if Backoffice.ViewInstances.Election[id]
+          Backoffice.ViewInstances.Election[id].go_to(menu_entry: menu_entry)
+        else
+          Backoffice.ViewInstances.Election[id] = new Backoffice.Views.ElectionView(election_id: id, menu_entry: menu_entry)
+      else
+        console.error 'wrong route'
+    tag: (election_id, tag_id) ->
+      if Backoffice.ViewInstances.Election[election_id]
+        Backoffice.ViewInstances.Election[election_id].go_to menu_entry: 'tag', tag_id: tag_id
+      else
+        Backoffice.ViewInstances.Election[election_id] = new Backoffice.Views.ElectionView(election_id: election_id, menu_entry: 'tag', tag_id: tag_id)
+  )
+
+=======
+
+    index: ->
+      @.navigate 'countries', true
+    countries: ->
+      new Backoffice.Views.CountriesView()
+  )
+
+
+>>>>>>> setup backoffice js interface
+@remove_fields = (link) ->
+  $(link).prev("input[type=hidden]").val("1")
+  $(link).closest(".fields").hide()
+
+@add_fields = (link, association, content) ->
+  new_id = new Date().getTime()
+  regexp = new RegExp("new_" + association, "g")
+  $(link).parent().before(content.replace(regexp, new_id))
+
+$ ->
+  # $(".tabs").tabs()
+
+  # Setup Backbone !
+<<<<<<< HEAD
+  Backoffice.RouterInstance = new Backoffice.Router()
+=======
+  backoffice = new Backoffice.Router()
+>>>>>>> setup backoffice js interface
+
+  $('.backbone-link').live 'click', (e) ->
+    e.preventDefault()
+    backoffice.navigate $(@).attr('data-path'), true
+
+  Backbone.history.start()
