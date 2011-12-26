@@ -75,6 +75,7 @@ gem 'rabl'
 # templates
 gem 'haml'
 gem 'coffee-filter'
+gem 'eco'
 
 # http://voxe.airbrake.io/
 gem "airbrake"
