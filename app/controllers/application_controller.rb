@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     end
   
     def touch_device?
-      request.user_agent.to_s.downcase =~ /iphone|android/
+      request.user_agent.to_s.downcase =~ /iphone|android|ipad/
     end
     
     # returns 'android', 'iphone' or nil
