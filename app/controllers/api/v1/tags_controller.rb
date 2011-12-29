@@ -13,4 +13,9 @@ class Api::V1::TagsController < Api::V1::ApplicationController
   def show
   end
 
+  # GET /api/v1/tags/search
+  def search
+    @tags = Tag.all
+  end
+
 end

@@ -43,6 +43,9 @@ Joinplato::Application.routes.draw do
       end
       
       resources :tags do
+        collection do
+          get :search
+        end
       end
       
       resources :propositions do

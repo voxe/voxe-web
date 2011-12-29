@@ -33,7 +33,7 @@ class Ability
       can [:read, :search], Election
       can [:read, :elections], Candidate
       can :search, Proposition
-      can [:read, :propositions], Tag
+      can [:read, :propositions, :search], Tag
       can :read, Candidacy
     end
 
