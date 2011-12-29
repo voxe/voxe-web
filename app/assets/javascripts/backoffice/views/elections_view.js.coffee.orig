@@ -1,0 +1,19 @@
+class Backoffice.Views.ElectionsView extends Backbone.View
+  el: '.content'
+  template: JST['backoffice/templates/elections']
+
+  initialize: ->
+    @elections = new ElectionsCollection()
+<<<<<<< HEAD
+    @elections.bind 'reset', @render, @
+    @elections.fetch()
+
+  render: ->
+    $(@el).html @template @
+=======
+    @elections.bind 'change', @render, @
+    @elections.fetch(url: '/api/v1/elections')
+
+  render: ->
+    $(@el).html @template()
+>>>>>>> prepare election view
