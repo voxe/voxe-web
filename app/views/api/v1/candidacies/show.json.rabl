@@ -1,6 +1,5 @@
 child @candidacy do
-  attributes :id
-  attributes :name
+  attributes :id, :published
   child :candidates do
     attributes :id
     attributes :first_name => :firstName, :last_name => :lastName

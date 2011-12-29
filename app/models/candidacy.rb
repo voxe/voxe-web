@@ -2,6 +2,11 @@ class Candidacy
   include Mongoid::Document
 
   #
+  # Attributes
+  #
+  field :published, type: Boolean, default: false
+
+  #
   # Associations
   #
   belongs_to :election
@@ -13,5 +18,12 @@ class Candidacy
   # Validations
   #
   validates_presence_of :election
+
+  #
+  # Scopes
+  #
+  scope :published, where(published: true)
+
+
 
 end

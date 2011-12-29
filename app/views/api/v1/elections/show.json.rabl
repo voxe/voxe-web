@@ -1,6 +1,6 @@
 object false
 child @election do
-  attributes :id, :name, :namespace, :path
+  attributes :id, :name, :namespace, :path, :published
   # child :parent_election => :parentElection do
   #   attributes :id, :name
   # end
