@@ -22,7 +22,7 @@ Joinplato::Application.routes.draw do
 
       resources :elections, except: :index do
         member do
-          post :addtheme
+          post :addtag
           post :addcandidate
         end
         collection do

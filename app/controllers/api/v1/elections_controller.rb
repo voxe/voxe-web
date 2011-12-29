@@ -40,4 +40,20 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     end
   end
 
+  # POST /api/v1/elections/1/addtag
+  def addtag
+    tag = Tag.find params[:tagId]
+    if params[:parentTagId]
+      parent_tag = Tag.find params[:parentTagId]
+    end
+
+    @election_tag = ElectionTag.new election: @election, tag: tag, parent_tag: parent_tag
+
+    if @election_tag.save
+      render 'api/v1/elections/show.rabl', status: :created
+    else
+      render json: {errors: @election_tag.errors}, status: :unprocessable_entity
+    end
+  end
+
 end
