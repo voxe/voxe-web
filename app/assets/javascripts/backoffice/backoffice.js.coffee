@@ -13,11 +13,14 @@ window.Backoffice =
     routes:
       '': 'index'
       'countries': 'countries'
+      'elections': 'elections'
 
     index: ->
       @.navigate 'countries', true
     countries: ->
       new Backoffice.Views.CountriesView()
+    elections: ->
+      new Backoffice.Views.ElectionsView()
   )
 
 
