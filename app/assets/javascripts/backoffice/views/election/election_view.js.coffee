@@ -1,6 +1,7 @@
 class Backoffice.Views.ElectionView extends Backbone.View
   el: '.content'
   template: JST['backoffice/templates/election/layout']
+  content_el: '.election-content'
 
   initialize: (election_id, menu_entry) ->
     @election = new ElectionModel(id: election_id)
@@ -12,5 +13,5 @@ class Backoffice.Views.ElectionView extends Backbone.View
     $(@el).html @template @
     new Backoffice.Views.Election.ElectionMenuView(model: @election, menu_entry: @menu_entry)
     switch @menu_entry
-      when 'contributors' then new Backoffice.Views.Election.ContributorsView(model: @election)
+      when 'contributors' then new Backoffice.Views.Election.ContributorsView(el: @content_el, model: @election)
 
