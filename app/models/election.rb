@@ -17,6 +17,7 @@ class Election
   validates_uniqueness_of :namespace
 
   # Scopes
+  default_scope where(published: true)
   scope :published, where(published: true)
 
   def root_election_tags

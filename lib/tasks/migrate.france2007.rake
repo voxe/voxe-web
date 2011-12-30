@@ -2,8 +2,9 @@ namespace :migrate do
   task "france2007" => :environment do
     # create election
     election = Election.create! name: "Election Presidentielle France 2007",
-                                namespace: "france-presidentielle-2007"
-                                    
+                                namespace: "france-presidentielle-2007",
+                                published: true
+
     # themes
     all_themes = YAML.load_file "data/france2007/themes.yml"
     themes = {}
@@ -64,6 +65,7 @@ namespace :migrate do
       c.save!
       candidacy = election.candidacies.build
       candidacy.candidates << c
+      candidacy.published = true
       candidacy.save!
       candidacies_ids[candidate_id] = candidacy.id
     end

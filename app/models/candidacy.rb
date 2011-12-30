@@ -22,6 +22,7 @@ class Candidacy
   #
   # Scopes
   #
+  default_scope where(published: true)
   scope :published, where(published: true)
 
 
