@@ -75,11 +75,11 @@ gem 'rabl'
 # templates
 gem 'haml'
 gem 'coffee-filter'
-<<<<<<< HEAD
 gem 'haml_coffee_assets'
-=======
->>>>>>> template coffeescript with eco
+<<<<<<< HEAD
 gem 'eco'
+=======
+>>>>>>> list elections
 
 # http://voxe.airbrake.io/
 gem "airbrake"
