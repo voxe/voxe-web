@@ -1,0 +1,13 @@
+.page-header
+<<<<<<< HEAD
+  %h1
+    = @election.get 'name'
+    %small
+      %button.btn.info.change-election Change
+=======
+  %h1= @election.get 'name'
+>>>>>>> prepare menu and contibutors view
+
+.row.election
+  %ul.span4.menu
+  .span10.election-content

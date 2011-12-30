@@ -11,19 +11,23 @@
 window.Backoffice =
   Views:
     Election: {}
+<<<<<<< HEAD
   ViewInstances:
     Election: {}
+=======
+>>>>>>> prepare menu and contibutors view
   Router: Backbone.Router.extend(
     routes:
       '': 'index'
       'countries': 'countries'
       'elections': 'elections'
-<<<<<<< HEAD
       'elections/:id': 'election'
+<<<<<<< HEAD
       'elections/:election_id/tags/:id': 'tag'
       'elections/:election_id/:menu_entry': 'election'
 =======
->>>>>>> prepare election view
+      'elections/:election_id/contributors': 'contributors'
+>>>>>>> prepare menu and contibutors view
 
     index: ->
       @.navigate 'elections', true
@@ -50,7 +54,11 @@ window.Backoffice =
         Backoffice.ViewInstances.Election[election_id] = new Backoffice.Views.ElectionView(election_id: election_id, menu_entry: 'tag', tag_id: tag_id)
 =======
       new Backoffice.Views.ElectionsView()
->>>>>>> prepare election view
+    election: (id) ->
+      @.navigate "elections/#{id}/contributors", true
+    contributors: (election_id) ->
+      new Backoffice.Views.ElectionView(election_id, 'contributors')
+>>>>>>> prepare menu and contibutors view
   )
 
 @remove_fields = (link) ->

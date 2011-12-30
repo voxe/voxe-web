@@ -1,0 +1,12 @@
+class Backoffice.Views.Election.ContributorsView extends Backbone.View
+<<<<<<< HEAD
+=======
+  el: '.election-content'
+>>>>>>> prepare menu and contibutors view
+  template: JST['backoffice/templates/election/contributors']
+
+  initialize: ->
+    @render()
+
+  render: ->
+    $(@el).html @template @
