@@ -2,9 +2,6 @@ class window.ElectionModel extends Backbone.Model
   
   # http://voxe.org/platform/models/election
   
-  initialize: ->
-    #
-  
   name: ->
     @get "name"
   

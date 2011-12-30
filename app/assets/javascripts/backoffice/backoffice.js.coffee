@@ -1,6 +1,7 @@
 #= require ../libs/underscore-1.2.0
 #= require ../libs/backbone-0.5.3
 #= require_tree ../libs/bootstrap-1.3.0
+#= require hamlcoffee
 #= require_self
 #= require_tree ../backbone/models
 #= require_tree ../backbone/collections
@@ -16,7 +17,7 @@ window.Backoffice =
       'elections': 'elections'
 
     index: ->
-      @.navigate 'countries', true
+      @.navigate 'elections', true
     countries: ->
       new Backoffice.Views.CountriesView()
     elections: ->

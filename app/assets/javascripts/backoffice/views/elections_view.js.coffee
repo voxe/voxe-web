@@ -4,8 +4,8 @@ class Backoffice.Views.ElectionsView extends Backbone.View
 
   initialize: ->
     @elections = new ElectionsCollection()
-    @elections.bind 'change', @render, @
-    @elections.fetch(url: '/api/v1/elections')
+    @elections.bind 'reset', @render, @
+    @elections.fetch()
 
   render: ->
-    $(@el).html @template()
+    $(@el).html @template @
