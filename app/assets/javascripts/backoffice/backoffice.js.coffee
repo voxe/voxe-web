@@ -9,12 +9,15 @@
 #= require_tree ./views
 
 window.Backoffice =
-  Views: {}
+  Views:
+    Election: {}
   Router: Backbone.Router.extend(
     routes:
       '': 'index'
       'countries': 'countries'
       'elections': 'elections'
+      'elections/:id': 'election'
+      'elections/:election_id/contributors': 'contributors'
 
     index: ->
       @.navigate 'elections', true
@@ -22,6 +25,10 @@ window.Backoffice =
       new Backoffice.Views.CountriesView()
     elections: ->
       new Backoffice.Views.ElectionsView()
+    election: (id) ->
+      @.navigate "elections/#{id}/contributors", true
+    contributors: (election_id) ->
+      new Backoffice.Views.ElectionView(election_id, 'contributors')
   )
 
 
