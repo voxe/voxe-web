@@ -7,3 +7,6 @@ class window.CandidateModel extends Backbone.Model
     
   lastName: ->
     @get "lastName"
+
+  toString: ->
+    "#{@get 'firstName'} #{@get 'lastName'}"

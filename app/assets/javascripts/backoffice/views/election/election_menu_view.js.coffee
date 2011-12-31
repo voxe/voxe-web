@@ -4,9 +4,8 @@ class Backoffice.Views.Election.ElectionMenuView extends Backbone.View
 
   initialize: () ->
     @election = @model # readability++
-    @render()
+    @render @options.menu_entry
 
-  render: ->
+  render: (menu_entry) ->
     $(@el).html @template @
-    $(".#{@options.menu_entry}").addClass 'current'
-
+    $(".#{menu_entry}").addClass 'current'

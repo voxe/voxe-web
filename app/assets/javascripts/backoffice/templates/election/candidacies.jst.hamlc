@@ -1,0 +1,6 @@
+%h1 Candidacies
+
+%table
+  - for candidacy in @candidacies.models
+    %tr
+      %td= candidacy.candidates.models[0].toString()

@@ -11,24 +11,33 @@
 window.Backoffice =
   Views:
     Election: {}
+  ViewInstances:
+    Election: {}
   Router: Backbone.Router.extend(
     routes:
       '': 'index'
       'countries': 'countries'
       'elections': 'elections'
       'elections/:id': 'election'
-      'elections/:election_id/contributors': 'contributors'
+      'elections/:election_id/:menu_entry': 'election'
 
     index: ->
       @.navigate 'elections', true
     countries: ->
       new Backoffice.Views.CountriesView()
     elections: ->
-      new Backoffice.Views.ElectionsView()
-    election: (id) ->
-      @.navigate "elections/#{id}/contributors", true
-    contributors: (election_id) ->
-      new Backoffice.Views.ElectionView(election_id, 'contributors')
+      if Backoffice.ViewInstances.Elections
+        Backoffice.ViewInstances.Elections.render()
+      else
+        Backoffice.ViewInstances.Elections = new Backoffice.Views.ElectionsView()
+    election: (id, menu_entry) ->
+      if menu_entry
+        if Backoffice.ViewInstances.Election[id]
+          Backoffice.ViewInstances.Election[id].go_to(menu_entry)
+        else
+          Backoffice.ViewInstances.Election[id] = new Backoffice.Views.ElectionView(election_id: id, menu_entry: menu_entry)
+      else
+        @.navigate "elections/#{id}/contributors", true
   )
 
 
