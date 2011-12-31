@@ -1,0 +1,12 @@
+%h1 Tags
+
+%table
+  - for tag in @tags.models
+    %tr
+<<<<<<< HEAD
+      %td
+        %a{href: "#elections/#{@election.id}/tags/#{tag.id}"}= tag.get 'name'
+=======
+      %td= tag.get 'name'
+>>>>>>> display tag list
+
