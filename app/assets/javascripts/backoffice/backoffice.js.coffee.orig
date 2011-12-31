@@ -11,11 +11,8 @@
 window.Backoffice =
   Views:
     Election: {}
-<<<<<<< HEAD
   ViewInstances:
     Election: {}
-=======
->>>>>>> prepare menu and contibutors view
   Router: Backbone.Router.extend(
     routes:
       '': 'index'
@@ -24,17 +21,15 @@ window.Backoffice =
       'elections/:id': 'election'
 <<<<<<< HEAD
       'elections/:election_id/tags/:id': 'tag'
-      'elections/:election_id/:menu_entry': 'election'
 =======
-      'elections/:election_id/contributors': 'contributors'
->>>>>>> prepare menu and contibutors view
+>>>>>>> add candidacies view
+      'elections/:election_id/:menu_entry': 'election'
 
     index: ->
       @.navigate 'elections', true
     countries: ->
       new Backoffice.Views.CountriesView()
     elections: ->
-<<<<<<< HEAD
       if Backoffice.ViewInstances.Elections
         Backoffice.ViewInstances.Elections.render()
       else
@@ -42,6 +37,7 @@ window.Backoffice =
     election: (id, menu_entry) ->
       if menu_entry
         if Backoffice.ViewInstances.Election[id]
+<<<<<<< HEAD
           Backoffice.ViewInstances.Election[id].go_to(menu_entry: menu_entry)
         else
           Backoffice.ViewInstances.Election[id] = new Backoffice.Views.ElectionView(election_id: id, menu_entry: menu_entry)
@@ -53,12 +49,12 @@ window.Backoffice =
       else
         Backoffice.ViewInstances.Election[election_id] = new Backoffice.Views.ElectionView(election_id: election_id, menu_entry: 'tag', tag_id: tag_id)
 =======
-      new Backoffice.Views.ElectionsView()
-    election: (id) ->
-      @.navigate "elections/#{id}/contributors", true
-    contributors: (election_id) ->
-      new Backoffice.Views.ElectionView(election_id, 'contributors')
->>>>>>> prepare menu and contibutors view
+          Backoffice.ViewInstances.Election[id].go_to(menu_entry)
+        else
+          Backoffice.ViewInstances.Election[id] = new Backoffice.Views.ElectionView(election_id: id, menu_entry: menu_entry)
+      else
+        @.navigate "elections/#{id}/contributors", true
+>>>>>>> add candidacies view
   )
 
 @remove_fields = (link) ->
