@@ -17,6 +17,8 @@ class Backoffice.Views.ElectionView extends Backbone.View
         new Backoffice.Views.Election.ContributorsView(el: @content_el, model: @election)
       when 'candidacies'
         new Backoffice.Views.Election.CandidaciesView(el: @content_el, model: @election)
+      when 'tags'
+        new Backoffice.Views.Election.TagsView(el: @content_el, model: @election)
       else
         console.error 'wrong route'
     $('.change-election').click ->

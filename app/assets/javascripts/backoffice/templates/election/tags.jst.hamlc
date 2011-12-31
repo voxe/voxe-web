@@ -1,0 +1,7 @@
+%h1 Tags
+
+%table
+  - for tag in @tags.models
+    %tr
+      %td= tag.get 'name'
+

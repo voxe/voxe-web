@@ -20,6 +20,7 @@ class window.ElectionModel extends Backbone.Model
   
   parse: (response)->
     @candidacies = new CandidaciesCollection(response.response.election.candidacies)
+    @tags = new TagsCollection(response.response.election.tags)
     response.response.election
   
   url: ->
