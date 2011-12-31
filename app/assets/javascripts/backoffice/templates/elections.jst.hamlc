@@ -4,6 +4,6 @@
   - for election in @elections.models
     %tr
       %td
-        %a{href: "#elections/#{election.id}"}= election.get 'name'
+        %a{href: "#elections/#{election.id}/candidacies"}= election.get 'name'
 
 %button.btn.primary new

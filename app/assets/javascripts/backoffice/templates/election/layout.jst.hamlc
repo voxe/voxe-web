@@ -1,5 +1,8 @@
 .page-header
-  %h1= @election.get 'name'
+  %h1
+    = @election.get 'name'
+    %small
+      %button.btn.info.change-election Change
 
 .row.election
   %ul.span4.menu

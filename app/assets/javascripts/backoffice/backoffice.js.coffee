@@ -37,9 +37,8 @@ window.Backoffice =
         else
           Backoffice.ViewInstances.Election[id] = new Backoffice.Views.ElectionView(election_id: id, menu_entry: menu_entry)
       else
-        @.navigate "elections/#{id}/contributors", true
+        console.error 'wrong route'
   )
-
 
 @remove_fields = (link) ->
   $(link).prev("input[type=hidden]").val("1")
@@ -54,7 +53,7 @@ $ ->
   # $(".tabs").tabs()
 
   # Setup Backbone !
-  backoffice = new Backoffice.Router()
+  Backoffice.RouterInstance = new Backoffice.Router()
 
   $('.backbone-link').live 'click', (e) ->
     e.preventDefault()
