@@ -19,11 +19,14 @@ class Backoffice.Views.ElectionView extends Backbone.View
         new Backoffice.Views.Election.CandidaciesView(el: @content_el, model: @election)
       when 'tags'
         new Backoffice.Views.Election.TagsView(el: @content_el, model: @election)
+      when 'tag'
+        new Backoffice.Views.Election.TagView(el: @content_el, tag_id: @options.tag_id,election: @election)
       else
         console.error 'wrong route'
     $('.change-election').click ->
       Backoffice.RouterInstance.navigate 'elections', true
 
-  go_to: (menu_entry) ->
-    @options.menu_entry = menu_entry
+  go_to: (options) ->
+    @options= _.extend @options, options
+    console.log @
     @render()
