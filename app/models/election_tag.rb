@@ -19,4 +19,8 @@ class ElectionTag
     ElectionTag.all conditions: {parent_tag_id: tag.id, election_id: election.id}
   end
   
+  def position
+    rand 1000
+  end
+  
 end
