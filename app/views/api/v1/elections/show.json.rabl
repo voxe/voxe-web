@@ -8,7 +8,7 @@ child @election do
   #   attributes :id, :name
   # end
   child :candidacies do
-    attribute :id
+    attribute :id, :published
     child :organization, :if => lambda { |candidacy| !candidacy.organization.blank? } do
       attribute :id, :name
     end
