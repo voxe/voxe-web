@@ -1,4 +1,4 @@
-url = 'http://localhost:3000/plugins/compare?id=<%= @election.id %>';
+url = '<%= plugins_compare_index_url(id: @election.id) %>';
 
 e = document.createElement('script');
 e.setAttribute('type', 'text/javascript');
