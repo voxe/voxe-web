@@ -5,51 +5,42 @@
     = stylesheet_link_tag "plugins"
     = javascript_include_tag "plugins"
   %body
+    
+    :javascript
+      $(function() {
+        new VoxeElection({id: '#{@election.id}'});
+      });
     / .container
     /   #application-view
-    #header
-      .container
-        Election Presidentielle
-        %span 2012
-      
-    #content      
-      #candidacies.page
-        %ul
-          - 12.times do
-            %li
-              .icon= image_tag "http://a3.twimg.com/profile_images/210467556/NicolasSarkozy_normal.jpg", height: "32"
-              .name Nicolas Sarkozy
-    
-      #tags.page
-        %ul
-          - 12.times do
-            %li
-              .icon= image_tag "http://thepngproject.s3.amazonaws.com/64_000000/noun_project_705.png", height: "32"
-              .name Economie Et Emploi
-            
-      #propositions.page
+    #app
+      #header
         .container
-          %ul
-            - 6.times do |i|
-              %li
-                .name
-                  %h1 [+] Section #{i}
-                .text
-                  Sept manifestants ont été tués et des dizaines d'autres blessés samedi à Sanaa dans un regain de violences, survenu au moment où le gouvernement tente de pacifier le Yémen, meurtri par plus de 10 mois de crise.
-
-                  La situation restait très tendue samedi soir dans la capitale, où les forces de sécurité bloquaient la progression des dizaines de milliers de manifestants réclamant que M. Saleh soit poursuivi en justice pour la répression de la contestation de son régime depuis janvier.
-
-                  Les forces de sécurité et des partisans armés de M. Saleh ont ouvert le feu et utilisé des gaz lacrymogènes et des canons à eau contre les participants à la "La Marche de la Vie" à leur arrivée dans un quartier du sud de Sanaa après avoir parcouru à pied 270 km depuis Taëz (sud-ouest), selon des témoins.
-
-                  L'objectif de "La Marche de la Vie" était d'obtenir que M. Saleh et ses proches soient jugés pour la répression qui a fait des centaines de morts depuis janvier, et de mettre la pression sur le gouvernement d'entente nationale, récemment formé, pour faire aboutir leur requête, selon l'Union des jeunes de la révolution à Taëz, à l'origine de cette initiative.
-
-                  Plusieurs manifestations réclamant des poursuites contre M. Saleh ont eu lieu depuis la signature fin novembre d'un accord de sortie de crise à l'initiative des monarchies du Golfe, qui prévoit le départ en février du chef de l'Etat en échange d'une immunité pour lui-même et ses proches.
+          Election Presidentielle 2007
+      
+      #content
+        #candidacies-list.page
+        #tags-list.page
+            
+        #propositions.page
+          .container
+            / %ul
+            /               - 6.times do |i|
+            /                 %li
+            /                   .name
+            /                     %h1 [+] Section #{i}
+            /                   .text
+            /                     Sept manifestants ont été tués et des dizaines d'autres blessés samedi à Sanaa dans un regain de violences, survenu au moment où le gouvernement tente de pacifier le Yémen, meurtri par plus de 10 mois de crise.
+            /                 
+            /                     La situation restait très tendue samedi soir dans la capitale, où les forces de sécurité bloquaient la progression des dizaines de milliers de manifestants réclamant que M. Saleh soit poursuivi en justice pour la répression de la contestation de son régime depuis janvier.
+            /                 
+            /                     Les forces de sécurité et des partisans armés de M. Saleh ont ouvert le feu et utilisé des gaz lacrymogènes et des canons à eau contre les participants à la "La Marche de la Vie" à leur arrivée dans un quartier du sud de Sanaa après avoir parcouru à pied 270 km depuis Taëz (sud-ouest), selon des témoins.
+            /                 
+            /                     L'objectif de "La Marche de la Vie" était d'obtenir que M. Saleh et ses proches soient jugés pour la répression qui a fait des centaines de morts depuis janvier, et de mettre la pression sur le gouvernement d'entente nationale, récemment formé, pour faire aboutir leur requête, selon l'Union des jeunes de la révolution à Taëz, à l'origine de cette initiative.
+            /                 
+            /                     Plusieurs manifestations réclamant des poursuites contre M. Saleh ont eu lieu depuis la signature fin novembre d'un accord de sortie de crise à l'initiative des monarchies du Golfe, qui prévoit le départ en février du chef de l'Etat en échange d'une immunité pour lui-même et ses proches.
          
-    #footer
-      .container= link_to "Voxe.org", "http://voxe.org", target: "_blank"
+      #footer
+        .container= link_to "Voxe.org", root_url, target: "_blank"
       
     #templates
       = render 'templates.mustache'
-      
-    :javascript
-      new Plugin({electionId: "#{@election.id}"});

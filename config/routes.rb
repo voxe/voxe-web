@@ -69,7 +69,11 @@ Joinplato::Application.routes.draw do
   
   # web-app
   
-  resources :plugins, :only => :index
+  resources :plugins, :only => :index do
+    collection do
+      get :demo
+    end
+  end
   
   namespace :plugins do
     resources :compare, :only => :index do

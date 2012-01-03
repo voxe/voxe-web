@@ -1,29 +1,52 @@
-#candidates-list-template
-  #header
-    %a.button.compare-button Compare
-    .container= "{{#election}}{{name}}{{/election}}"
-    
-  #content
-    .container
-      %ul.candidates
-        {{#candidates}}
-        %li{"candidate-id" => "{{id}}", "class" => "pierre {{#selected}}selected{{/selected}}"}
-          .image
-            <img src="{{#photo}}{{#sizes}}{{#small}}{{url}}{{/small}}{{/sizes}}{{/photo}}" width="30px" height="30px" />
-          .name= "{{firstName}} {{lastName}}"
-        {{/candidates}}
+#candidacies-list-template
+  %ul
+    :plain
+      {{#candidacies}}
+        <li candidacy-id="{{id}}">
+          {{#candidates}}
+            <div class="icon"><img src="{{photo.sizes.small.url}}" width="32px" height="32px" /></div>
+            <div class="name">
+              <input type="checkbox" />
+              {{firstName}} {{lastName}}
+            </div>
+          {{/candidates}}
+        </li>
+      {{/candidacies}}
         
-#themes-list-template
-  #header
-    .container= "{{#election}}{{name}}{{/election}}"
-    
-  #content
-    .container
-      %ul.themes
-        {{#election}}
-        {{#themes}}
-        %li{"theme-id" => "{{id}}"}
-          .image= image_tag "http://flickholdr.com/100/100/paris", :size => "30x30"
-          .name= "{{name}}"
-        {{/themes}}
-        {{/election}}
+#tags-list-template
+  %ul
+    :plain
+      {{#tags}}
+        <li tag-id="{{id}}">
+          <div class="icon"><img src="{{icon.prefix}}64{{icon.name}}" width="32px" height="32px" /></div>
+          <div class="name">{{name}}</div>
+        </li>
+      {{/tags}}
+      
+#propositions-template
+  :plain
+    {{#categories}}
+      <div class="category">
+        <div class="category-name">{{name}}</div>
+        {{#sections}}
+          <div class="section">               
+            <div class="section-name">{{name}}</div>
+            {{#candidacies}}
+              <div class="candidacy">
+                {{#candidates}}
+                  <div class="photo">
+                    <img src="{{photo.sizes.small.url}}" width="44px" height="44px" />
+                  </div>
+                {{/candidates}}
+
+                {{#propositions}}
+                  <div class="proposition">
+                    {{text}}
+                  </div>
+                {{/propositions}}
+              </div>
+            {{/candidacies}}
+          </div>
+        {{/sections}}
+      </div>
+    {{/categories}}

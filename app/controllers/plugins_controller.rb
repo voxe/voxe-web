@@ -5,4 +5,8 @@ class PluginsController < ApplicationController
   def index
   end
   
+  def demo
+    @election = Election.first
+  end
+  
 end

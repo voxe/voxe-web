@@ -22,7 +22,7 @@ class window.ElectionModel extends Backbone.Model
     object
   
   parse: (response)->
-    response.election
+    response.response.election
   
   url: ->
     "/api/v1/elections/#{@id}"

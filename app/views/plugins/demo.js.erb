@@ -1,0 +1,14 @@
+url = 'http://localhost:3000/plugins/compare?id=<%= @election.id %>';
+
+e = document.createElement('script');
+e.setAttribute('type', 'text/javascript');
+e.setAttribute('charset', 'UTF-8');
+e.setAttribute('src', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+e.onload = function() {
+  $(".header-dossier h1").html("Comparer les candidats");
+  $(".entete h2").html("avec Voxe.org");
+  
+  html = "<iframe src='" + url + "' width='645px' height='480px' style='border: 0; margin: 0'></iframe>";
+  $('.contenu-article').html(html);
+};
+document.body.appendChild(e);
