@@ -3,11 +3,15 @@
 Clone the git repository
   git clone git@github.com:voxe/voxe-web.git
 
-At the prompt command, install dependencies (more details bellow):
+Ensure you have ImageMagick installed on your system. If not, check out chapter "Dependencies" below.
+
+At the prompt command, install gems:
   bundle install
 
 At the prompt command, start your server:
   rails server
+
+If you need some data, check out chapter "Import Data" below.
 
 == Environment
 
@@ -18,12 +22,28 @@ At the prompt command, start your server:
 
 == Dependencies
 
-brew install imagemagick
-bundle install
+We doing some image processing with ImageMagick (http://www.imagemagick.org).
+
+For MacOS X users, you can install Homebrew (http://mxcl.github.com/homebrew) a packet manager and then install ImageMagick.
+
+At the command prompt:
+  brew install imagemagick
+
+Then:
+  bundle install
 
 == Import Data
 
-run rake migrate:france2007 to get some data from 2007 French Presidential Election
+To get some data from 2007 French Presidential Election, at the command prompt type:
+
+  rake migrate:france2007 
+
+
+== Testing
+
+At the command prompt, launch tests:
+
+  rake test
 
 == Deployment
 
@@ -33,15 +53,9 @@ Ensure your have the heroku gem. If not install it, at the command prompt:
 Prerequired, add staging branch for heroku deployment.
 
 One for staging mode:
-  git remote add staging git@heroku.com:joinplato-staging.git
+  git remote add staging git@heroku.com:voxe-staging.git
 
 Then you can deploy to staging by pushing your branch on heroku.
 
 Deploying in staging mode:
   git push staging master
-
-== Testing
-
-At the command prompt, launch tests:
-
-  rake test
