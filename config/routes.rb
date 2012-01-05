@@ -17,13 +17,12 @@ Joinplato::Application.routes.draw do
   
   # API
 
-  namespace :api, defaults: { format: 'json' } do
+  namespace :api, format: :json do
     namespace :v1 do
 
       resources :elections, except: :index do
         member do
           post :addtag
-          post :addcandidate
         end
         collection do
           get :search

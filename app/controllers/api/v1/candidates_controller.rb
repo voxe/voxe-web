@@ -18,9 +18,9 @@ class Api::V1::CandidatesController < Api::V1::ApplicationController
     photo = @candidate.photos.build type: params[:type], image: params[:image]
 
     if photo.save
-      render json: {photo: photo}
+      render text: {photo: photo}.to_json, status: :created, layout: 'api_v1'
     else
-      render json: {errors: photo.errors}, status: :unprocessable_entity
+      render text: {errors: photo.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
 

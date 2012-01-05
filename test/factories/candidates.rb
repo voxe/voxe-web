@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :candidate do
-    sequence(:firstName) {|n| "John #{n}" }
-    sequence(:lastName) {|n| "Doe #{n}" }
+    sequence(:first_name) {|n| "John #{n}" }
+    sequence(:last_name) {|n| "Doe #{n}" }
+    sequence(:namespace) {|n| "johndoe#{n}" }
   end
 end

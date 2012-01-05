@@ -2,10 +2,16 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
 
   # POST /api/v1/propositions
   def create
+    @proposition = Proposition.new(
+      text:         params[:proposition][:text],
+      candidacy_id: params[:proposition][:candidacyId],
+      tag_names:    params[:proposition][:tagNames]
+    )
+
     if @proposition.save
       render 'api/v1/propositions/show.rabl'
     else
-      render json: {errors: @proposition.errors}, status: :unprocessable_entity
+      render text: {errors: @proposition.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
   
@@ -15,7 +21,6 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     # query
     conditions = {}
     conditions[:tag_ids.in] = params[:tagIds].split(',') unless params[:tagIds].blank?
-    conditions[:election_id.in] = params[:electionIds].split(',') unless params[:electionIds].blank?
     conditions[:candidacy_id.in] = params[:candidacyIds].split(',') unless params[:candidacyIds].blank?
     
     # pagination

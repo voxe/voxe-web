@@ -9,5 +9,10 @@ class Photo
 
   mount_uploader :image, ImageUploader
   alias_method :url, :image_url
-  
+
+  #
+  # Validation
+  #
+  validates_presence_of :image
+
 end
