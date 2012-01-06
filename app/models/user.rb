@@ -18,4 +18,11 @@ class User
   #
   validates_presence_of :name
 
+  #
+  # Associations
+  #
+  has_and_belongs_to_many :elections
+
+
+
 end

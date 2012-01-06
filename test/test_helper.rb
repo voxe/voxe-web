@@ -3,7 +3,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  include Devise::TestHelpers
 
   teardown :clean_mongodb
   def clean_mongodb
@@ -14,4 +13,8 @@ class ActiveSupport::TestCase
     end
   end
 
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
 end

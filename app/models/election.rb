@@ -10,6 +10,7 @@ class Election
   belongs_to :parent_election, class_name: 'Election'
   has_many :elections, foreign_key: 'parent_election_id'
   has_many :candidacies
+  has_and_belongs_to_many :contributors, class_name: 'User'
   
   # validations
   validates_presence_of :name, :namespace
