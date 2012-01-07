@@ -21,7 +21,7 @@ class Api::V1::ApplicationController < ApplicationController
       errorType: "param_error",
       errorDetail: exception.to_s
     }
-    render layout: "api_v1", status: 400
+    render json: nil, layout: "api_v1", status: 400
   end
 
 end

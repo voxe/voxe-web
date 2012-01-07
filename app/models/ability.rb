@@ -27,14 +27,26 @@ class Ability
 
     user ||= User.new
 
-    if user.admin?
-      can :manage, :all
+    # If usser is logged in
+    if user.persisted?
+      if user.admin?
+        can :manage, :all
+      else
+        can :manage, Election, contributor_ids: user.id
+        can :manage, Candidacy, election: { contributor_ids: user.id }
+        can :manage, Candidate, candidacy: { election: { contributor_ids: user.id } }
+        can :manage, Proposition, candidacy: { election: { contributor_ids: user.id } }
+        can :manage, Tag
+      end
     else
+      # Visitor
+
       can [:read, :search], Election
       can [:read, :elections], Candidate
       can :search, Proposition
       can [:read, :propositions, :search], Tag
       can :read, Candidacy
+      can :search, User
     end
 
   end

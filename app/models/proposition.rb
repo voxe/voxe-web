@@ -5,10 +5,9 @@ class Proposition
   field :text, type: String
 
   belongs_to :candidacy
-  belongs_to :election
   has_and_belongs_to_many :tags
 
-  validates_presence_of :candidacy, :tags, :election, :text
+  validates_presence_of :candidacy, :tags, :text
 
   embeds_many :embeds, as: :embedable
   accepts_nested_attributes_for :embeds, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }

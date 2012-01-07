@@ -1,6 +1,7 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :election_tag do
+  end
+
+  factory :election_tag_with_children do
   end
 end

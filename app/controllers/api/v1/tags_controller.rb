@@ -3,19 +3,19 @@ class Api::V1::TagsController < Api::V1::ApplicationController
   # POST /api/v1/tags
   def create
     if @tag.save
-      render 'api/v1/tags/show.rabl'
+      render 'api/v1/tags/show.rabl', status: :created
     else
-      render json: {errors: @tag.errors}, status: :unprocessable_entity
+      render text: {errors: @tag.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
-  
+
   # GET /api/v1/tags/{id}
   def show
   end
 
   # GET /api/v1/tags/search
   def search
-    @tags = Tag.all
+    @tags = Tag.where(name: /#{params[:name]}/i)
   end
 
 end

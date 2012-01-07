@@ -4,9 +4,6 @@ child @proposition do
   child :tags do
     attributes :id
   end
-  child :election do
-    attributes :id
-  end
   child :candidacy do
     attributes :id
   end
