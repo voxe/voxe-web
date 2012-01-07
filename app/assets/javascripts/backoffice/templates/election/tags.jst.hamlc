@@ -1,5 +1,14 @@
 %h1 Tags
 
+- if @tag
+  %a{href: "#elections/#{@election.id}/tags"} tags
+  - for parent_tag in @tag.parents()
+    = "/"
+    %a{href: "#elections/#{@election.id}/tags/#{parent_tag.id}"}= parent_tag.get 'name'
+  = "/ #{@tag.get 'name'}"
+- else
+  tags
+
 %table
   - for tag in @tags.models
     %tr

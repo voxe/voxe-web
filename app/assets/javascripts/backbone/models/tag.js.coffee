@@ -14,3 +14,10 @@ class window.TagModel extends Backbone.Model
   
   name: ->
     @get "name"
+
+  parents: ->
+    if @collection and @collection.parent_tag
+      parents = @collection.parent_tag.parents()
+      parents.push @collection.parent_tag
+      parents
+    else new Array()
