@@ -18,9 +18,7 @@ class Backoffice.Views.ElectionView extends Backbone.View
       when 'candidacies'
         new Backoffice.Views.Election.CandidaciesView(el: @content_el, model: @election)
       when 'tags'
-        new Backoffice.Views.Election.TagsView(el: @content_el, model: @election)
-      when 'tag'
-        new Backoffice.Views.Election.TagView(el: @content_el, tag_id: @options.tag_id,election: @election)
+        new Backoffice.Views.Election.TagsView(el: @content_el, election: @election, tag_id: @options.tag_id)
       when 'propositions'
         new Backoffice.Views.Election.PropositionsCandidaciesView(el: @content_el, model: @election)
       when 'propositions_candidacy_tags'
@@ -33,6 +31,8 @@ class Backoffice.Views.ElectionView extends Backbone.View
       Backoffice.RouterInstance.navigate 'elections', true
 
   go_to: (options) ->
-    @options= _.extend @options, options
-    console.log @
+    if options.reset
+      @options = options
+    else
+      @options= _.extend @options, options
     @render()
