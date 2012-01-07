@@ -4,3 +4,6 @@ class window.CandidacyModel extends Backbone.Model
   
   initialize: ->
     @candidates = new CandidatesCollection(@get 'candidates')
+
+  name: ->
+    @candidates.models[0]

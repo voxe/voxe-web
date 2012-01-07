@@ -1,0 +1,13 @@
+%h1= "Propositions #{@candidacy.name()}"
+
+- if @tags
+  %table
+    - for tag in @tags.models
+      %tr
+        %td
+          %a{href: "#elections/#{@election.id}/propositions/candidacies/#{@candidacy.id}/tags/#{tag.id}"}= tag.get 'name'
+- if @propositions
+  %table
+    - for proposition in @propositions.models
+      %tr
+        %td= proposition.get 'text'

@@ -1,0 +1,7 @@
+%h1 Propositions
+
+%table
+  - for candidacy in @candidacies.models
+    %tr
+      %td
+        %a{href: "#elections/#{@election.id}/propositions/candidacies/#{candidacy.id}"}= candidacy.name()
