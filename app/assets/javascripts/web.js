@@ -9,7 +9,10 @@
 //= require libs/underscore-1.2.0
 //= require libs/backbone-0.5.3
 //= require libs/mustache-2011-10-11
-//= require libs/bootstrap-1.3.0/bootstrap-modal
-//= require libs/bootstrap-1.3.0/bootstrap-tabs
+//= require libs/jquery.backstretch.min
+
+//= require_tree './backbone/models'
+//= require_tree './backbone/collections'
+//= require_tree './web/views/'
 
 //= require_tree './web/'

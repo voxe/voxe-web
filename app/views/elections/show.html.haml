@@ -1,11 +1,31 @@
-.container
-  .content
-    .page-header
-      %h1= @election.name
-  
-    %h2 Candidates
-    - @election.candidates.in_groups_of(4) do |candidates|
-      .row
-        - candidates.each do |candidate|
-          .span4            
-            = link_to candidate.name, election_themes_path(@election, candidate.namespace)
+:javascript
+  $(function() {
+    new VoxeElection(#{@json});
+  });
+
+#select-candidates
+  #speech
+    Comparez le programme des candidats de l'#{@election.name}
+  #selection
+  #next-step
+    %a Sélectionnez vos candidats
+
+#compare
+  #topbar
+    #menu
+      VOXE
+  #content
+    #sidebar
+    #corps
+      #no-selection
+        %h1 No theme selected
+        %small please choose one on your left
+      #selected-theme
+        %h1 No theme selected
+        #loader
+          = image_tag 'loader.gif'
+          please wait while we load the data
+        #propositions
+          
+#templates
+  = render 'web.mustache'

@@ -16,7 +16,7 @@ class window.TagsListView extends Backbone.View
     li = $(e.target).closest('li')
     tagId = li.attr("tag-id")
     tag = _.find app.models.election.tags(), (tag) ->
-      tag.id == tagId    
+      tag.id == tagId
     app.models.tag.set tag
     
     app.router.compareView()

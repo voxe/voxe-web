@@ -1,0 +1,54 @@
+#candidacies-list-template
+  :plain
+    <ul>
+    {{#election.candidacies}}
+    <li candidacy-id="{{id}}">
+      {{#candidates}}
+      <img src="{{photo.sizes.small.url}}" width="40px" height="40px" />
+      <h1>
+        {{firstName}} {{lastName}}
+        <small>Union pour un Mouvement Populaire</small>
+      </h1>
+      <span>Sélectionné</span>
+      {{/candidates}}
+    </li>
+    {{/election.candidacies}}
+    </ul>
+    
+#tags-list-template
+  :plain
+    <ul>
+    {{#tags}}
+      <li tag-id="{{id}}">
+        {{name}}
+        <div>{{> subtags}}</div>
+      </li>
+    {{/tags}}
+    </ul>
+    
+#subtags-list-template
+  :plain
+    {{#tags}}
+      <a tag-id="{{id}}">{{name}}</a>
+    {{/tags}}
+    
+#propositions-template
+  :plain
+    {{#categories}}
+    <h2>{{name}}</h2>
+      {{#sections}}
+      <h3>{{name}}</h3>
+        <ul>
+          {{#candidacies}}
+          <li>
+          {{#candidates}}
+            <img src="{{photo.sizes.small.url}}" width="44px" height="44px" />
+          {{/candidates}}
+          {{#propositions}}
+            <p>{{text}}</p>
+          {{/propositions}}
+          </li>
+          {{/candidacies}}
+        </ul>
+      {{/sections}}
+    {{/categories}}

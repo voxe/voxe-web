@@ -10,7 +10,9 @@ class ElectionsController < ApplicationController
     return not_found unless @election
     
     respond_to do |format|
-      format.html
+      format.html do
+        @json = render_to_string('api/v1/elections/show.json', layout: false)
+      end
       format.touch do
         @json = render_to_string('api/v1/elections/show.json', layout: false)
       end
