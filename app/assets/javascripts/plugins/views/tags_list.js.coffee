@@ -2,11 +2,15 @@ class window.TagsListView extends Backbone.View
   
   initialize: ->
     @collection.bind "reset", @render, @
+    $(@el).hover @mouseEnter, @mouseLeave
+    
+    $(@el).css 'left', "#{app.views.application.width - 250}px"
   
   events:
     "click ul li": "tagClick"
       
   tagClick: (e)->
+    @.$('li').removeClass 'selected'
     $li = $(e.target).closest('li')
     $li.addClass 'selected'
     
@@ -14,7 +18,23 @@ class window.TagsListView extends Backbone.View
     tag = _.find app.models.election.tags(), (tag) ->
       tag.id == tagId
     app.models.tag.set tag
-    # app.router.compareView()
+    
+  mouseEnter: =>
+    if $('#app').attr 'compare'
+      @hover = true
+      setTimeout @move, 200
+      
+  move: =>
+    if @hover
+      $('#tags-list').animate {left: "#{app.views.application.width - 250}px"}, 600
+      $('#propositions').animate {left: "-130px"}, 600
+    
+  mouseLeave: =>
+    @hover = false
+    if $('#app').attr 'compare'
+      $('#tags-list').animate {left: "#{app.views.application.width - 49}px"}, 600
+      $('#propositions').animate {left: "49px"}, 600
     
   render: ->
     $(@el).html Mustache.to_html($('#tags-list-template').html(), tags: @collection.toJSON())
+    @

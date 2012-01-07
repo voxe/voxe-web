@@ -35,7 +35,6 @@
 
 #tags-list {
   right: 0;
-  left: 250px;
   border-left: 1px solid #DDD;
   -webkit-box-shadow: 0 0 20px #ccc;
   z-index: 3;
@@ -48,10 +47,10 @@
   line-height: 22px;
   font-size: 12px;
   z-index: 2;
-  width: 402px;
   left: 250px;
   right: 0;
-  .container {
+  
+/*  .container {
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -59,6 +58,13 @@
       height: 100%;
       overflow-y: auto; 
     }
+  }*/
+  
+  .indicator {
+    display: none;
+    margin: 0 auto;
+    width: 16px;
+    margin-top: 30px;
   }
   
   .category-name {
@@ -96,7 +102,11 @@
       }
     }
   }
-  
+}
+#propositions.loading {
+  .indicator {
+    display: block;
+  }
 }
 
 .page {

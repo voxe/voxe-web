@@ -2,7 +2,7 @@ class window.VoxeElection
   
   constructor: (options)->
     window.app = {models: {}, collections: {}, views:{}}
-    
+        
     app.models.election = new ElectionModel()
     
     app.models.election.bind 'change:id', (election)=>
@@ -21,13 +21,12 @@ class window.VoxeElection
     app.collections.selectedCandidacies = new CandidaciesCollection()
     app.collections.propositions = new PropositionsCollection()
     
-    # app.views.application = new ApplicationView(model: app.models.election)
+    app.views.application = new ApplicationView(model: app.models.election)
+    $('#app').html app.views.application.render().el
+    
     app.views.candidaciesList = new CandidaciesListView(collection: app.collections.candidacies, el: "#candidacies-list")
     app.views.tagsList = new TagsListView(collection: app.collections.tags, el: "#tags-list")
     
-    # app.views.compare = new CompareView(el: "#compare")
-    # app.views.compare.render()
     app.views.propositions = new PropositionsView(el: "#propositions")
 
-    # app.router = new AppRouter()
     app.models.election.set options

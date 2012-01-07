@@ -3,21 +3,30 @@ class window.PropositionsView extends Backbone.View
   initialize: ->
     app.collections.selectedCandidacies.bind "reset", @loadPropositions, @
     app.models.tag.bind "change", @loadPropositions, @
-    
     app.collections.propositions.bind "reset", @render, @
     
-  loadPropositions: ->    
+    $(@el).css 'width', "#{app.views.application.width - 49*2}px"
+    
+  loadPropositions: ->
     if @candidacies().length != 0 && @tag().id
-      window.startCompare()
-      
+      # animation
+      unless $('#app').attr 'compare'
+        $('#app').attr 'compare', true
+        app.views.tagsList.mouseLeave()
+        
+      # loading
+      $(@el).addClass 'loading'
+      @.$('.container').html ''
+        
       candidacyIds = _.map app.collections.selectedCandidacies.models, (candidate) ->
            candidate.id
       candidacyIds = candidacyIds.join ','
-      app.collections.propositions.reset []
       app.collections.propositions.fetch data: {electionIds: app.models.election.id, tagIds: app.models.tag.id, candidacyIds: candidacyIds}
 
   render: ->
-    $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
+    $(@el).removeClass 'loading'
+    @.$('.container').html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
+    @
   
   tag: ->
     app.models.tag

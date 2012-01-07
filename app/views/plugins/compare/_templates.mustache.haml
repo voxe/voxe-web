@@ -1,17 +1,34 @@
+#application-template
+  #header
+    .container
+  
+  #content
+    #candidacies-list.page
+    #tags-list.page
+        
+    #propositions.page
+      .indicator= image_tag 'ajax-loader.gif'
+      .container
+      
+  #footer
+    .container
+      = image_tag 'icons/16.png', valign: 'middle'
+      = link_to "Voxe.org", root_url, target: "_blank"
+
+#candidacy-cell-template
+  :plain
+    <li candidacy-id="{{candidacy.id}}">
+      {{#candidacy.candidates}}
+        <div class="icon"><img src="{{photo.sizes.small.url}}" width="32px" height="32px" /></div>
+        <div class="name">
+          <input type="checkbox" />
+          {{firstName}} {{lastName}}
+        </div>
+      {{/candidacy.candidates}}
+    </li>
+
 #candidacies-list-template
   %ul
-    :plain
-      {{#candidacies}}
-        <li candidacy-id="{{id}}">
-          {{#candidates}}
-            <div class="icon"><img src="{{photo.sizes.small.url}}" width="32px" height="32px" /></div>
-            <div class="name">
-              <input type="checkbox" />
-              {{firstName}} {{lastName}}
-            </div>
-          {{/candidates}}
-        </li>
-      {{/candidacies}}
         
 #tags-list-template
   %ul
