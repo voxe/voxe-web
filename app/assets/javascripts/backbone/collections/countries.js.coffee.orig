@@ -1,7 +1,0 @@
-class window.CountriesCollection extends Backbone.Collection
-  model: CountryModel
-<<<<<<< HEAD
-  url: '/api/v1/countries'
-=======
-  url: '/api/vi/countries'
->>>>>>> create backbone country model and collection
