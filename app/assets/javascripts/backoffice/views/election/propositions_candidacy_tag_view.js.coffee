@@ -5,15 +5,25 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
     @election = @options.election
     @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == @options.candidacy_id), @
     @tag = @election.tags.search_tag @options.tag_id
-    if @tag.tags.isEmpty()
-      @propositions = new PropositionsCollection()
-      @propositions.bind 'reset', @render, @
-      @propositions.fetch({data: {electionId: @election.id, tagIds: @tag.id}})
-    else
-      @tags = @tag.tags
-      @render()
+    @tags = @tag.tags
+    @propositions = new PropositionsCollection()
+    @propositions.bind 'reset', @render, @
+    @propositions.fetch({data: {electionId: @election.id, candidacyIds: @candidacy.id, tagIds: @tag.id}})
 
   render: ->
+    @propositions_by_tag = @propositions.reduce(
+      (res, proposition) ->
+        _.each proposition.get('tags'), (tag) ->
+          res[tag.id] ||= new Array()
+          res[tag.id].push(proposition)
+        res
+      {}
+    )
     $(@el).html @template @
+    $('table.sub_tags h3', @el).click ->
+      parent_tag = $($(@).parent())
+      sub_tag_id = parent_tag.attr('data-tag-id')
+      $('.propositions', parent_tag).toggle()
+    $('.propositions', @el).hide()
 
 
