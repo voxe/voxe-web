@@ -74,18 +74,8 @@ Joinplato::Application.routes.draw do
   
   # web-app
   
-  resources :plugins, :only => :index do
-    collection do
-      get :demo
-    end
-  end
-  
   namespace :plugins do
-    resources :compare, :only => :index do
-      collection do
-        get :propositions
-      end
-    end
+    resources :compare, :only => :index
   end
   
   # api doc
@@ -110,6 +100,12 @@ Joinplato::Application.routes.draw do
         get :tag
         get :candidacy
         get :organization
+      end
+    end
+    resources :plugins, :only => :index do
+      collection do
+        get :button
+        get :bookmarklet
       end
     end
   end

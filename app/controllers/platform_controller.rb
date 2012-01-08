@@ -4,7 +4,6 @@ class PlatformController < ApplicationController
   end
   
   def endpoints
-    
   end
   
 end
