@@ -1,0 +1,25 @@
+:plain
+  <div id="fb-root"></div>
+  <script>
+    // https://developers.facebook.com/docs/reference/javascript/
+    
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '#{Settings.facebook.app_id}', // App ID
+        status     : false, // check login status
+        cookie     : false, // enable cookies to allow the server to access the session
+        xfbml      : false, // parse XFBML
+        channelUrl : '#{Settings.host}/channel.html'
+      });
+
+      // Additional initialization code here
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+       var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+       js = d.createElement('script'); js.id = id; js.async = true;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       d.getElementsByTagName('head')[0].appendChild(js);
+     }(document));
+  </script>

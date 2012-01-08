@@ -3,9 +3,18 @@ test:
 
 development:
   host: http://localhost:3000
+  facebook:
+    app_id: 341867925824593
+    app_secret: ea003ded7c30733dfb52996c4cedea7d
   
 production:
   host: http://voxe.org
+  facebook:
+    app_id: 166791223426274
+    app_secret: 008bba7f5ac39ad759af5dcce99fa647
   
 staging:
-  host: http://joinplato-staging.herokuapp.com
+  host: http://voxe-staging.herokuapp.com
+  facebook:
+    app_id: 339716929372553
+    app_secret: 34e6c9cb8ade129d5ddd3e4dadfeace1
