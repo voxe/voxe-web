@@ -80,7 +80,6 @@ namespace :migrate do
       unless proposition["descriptif"].blank?
         proposition["descriptif"].split("\r\n").each do |text|
           model = Proposition.new
-          model.election = election
           model.candidacy_id = candidacies_ids[proposition["id_mot"]]
           # tags
           tag_category = Tag.first conditions: {name: category['titre']}
