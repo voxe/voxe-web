@@ -9,6 +9,20 @@
 - else
   tags
 
+%form.add-tag{method: 'POST'}
+  %h2 new tag
+  %input.span8.tag-name{name: 'tagName'}
+  %input.tag-id{type: 'hidden', name: 'tagId'}
+  %input.btn.success.span2{type: 'submit', value: 'Add', 'data-loading-text': '...'}
+
+  - if @flash.error_messages
+    .alert-message.error
+      %p
+        != "Il y a <strong>#{@flash.error_messages.length}</strong> erreur#{if @flash.error_messages.length > 1 then 's' else ''}"
+        %ul
+          - for error_message in @flash.error_messages
+            %li= error_message
+
 %table
   - for tag in @tags.models
     %tr

@@ -1,7 +1,10 @@
 class window.TagModel extends Backbone.Model
   
   # http://voxe.org/platform/models/tag
-  
+
+  url: ->
+    "/api/v1/tags/#{@id}"
+
   initialize: ->
     @tags = new TagsCollection(@get 'tags', parent_tag: @)
     @tags.parent_tag = @
@@ -21,3 +24,6 @@ class window.TagModel extends Backbone.Model
       parents.push @collection.parent_tag
       parents
     else new Array()
+
+  parse: (response) ->
+    response.response.tag

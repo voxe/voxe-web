@@ -1,3 +1,4 @@
+#= require jquery-ui
 #= require ../libs/underscore-1.2.0
 #= require ../libs/backbone-0.5.3
 #= require_tree ../libs/bootstrap-1.3.0
