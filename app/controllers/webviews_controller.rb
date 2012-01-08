@@ -11,21 +11,21 @@ class WebviewsController < ApplicationController
     # election
     begin
       @election = Election.find params[:electionId]
-    rescue
+    rescue Mongoid::Errors::DocumentNotFound
       return render text: "invalid electionId"
     end
     
     # candidates
     begin
       @candidacies = Candidacy.find params[:candidacyIds].split(',')
-    rescue
+    rescue Mongoid::Errors::DocumentNotFound
       return render text: "invalid candidacyIds"
     end
     
     # tag
     begin
       @tag = Tag.find params[:tagId]
-    rescue
+    rescue Mongoid::Errors::DocumentNotFound
       return render text: "invalid tagId"
     end
     
@@ -47,7 +47,11 @@ class WebviewsController < ApplicationController
   end
   
   def proposition
-    @proposition = Proposition.find params[:propositionId]
+    begin
+      @proposition = Proposition.find params[:propositionId]
+    rescue Mongoid::Errors::DocumentNotFound
+      return render text: "invalid propositionId"
+    end
   end
   
   private
