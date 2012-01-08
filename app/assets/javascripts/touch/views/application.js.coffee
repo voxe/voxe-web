@@ -6,8 +6,8 @@ class window.ApplicationView extends Backbone.View
   candidatesClick: (e)->
     app.router.candidatesList()
     
-  presentModalView: ->
-    $('.modal-view').show()
+  presentModalView: (id)->
+    $("##{id}.modal-view").show()
     $('#navigation-view').hide()
     
   dissmissModalView: ->

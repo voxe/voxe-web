@@ -26,6 +26,9 @@ class window.VoxeElection
     app.views.compare = new CompareView(el: "#compare")
     app.views.compare.render()
     app.views.propositions = new PropositionsView(el: "#compare .table-view")
+    
+    app.views.share = new ShareView(el: "#share")
+    app.views.share.render()
 
     app.router = new AppRouter()
     app.router.candidatesList()

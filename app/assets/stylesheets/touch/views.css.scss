@@ -1,5 +1,7 @@
 #candidacies-list {
   
+  display: block;
+  
   ul {
     margin: 10px;
     border: 1px solid #eee;
@@ -62,9 +64,9 @@
     }
   }
   
-  li:active {
+/*  li:active {
     background-color: #eee;
-  }
+  }*/
   
   li:last-child {
     border-bottom: 0px solid #eee;
@@ -115,4 +117,39 @@
     }
   }
   
+}
+
+#share {
+  
+  p {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  
+  ul {
+    margin: 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    background-color: #fff;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  
+  ul li {
+    cursor: pointer;
+    padding: 10px;
+    overflow: auto;
+    border-bottom: 1px solid #eee;
+    .image {
+      float: left;
+      img {
+        border-radius: 3px;
+      }
+    }
+    .name {
+      margin-left: 58px;
+    }
+  }
 }

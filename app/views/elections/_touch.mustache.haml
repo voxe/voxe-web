@@ -1,3 +1,24 @@
+#share-template
+  .nav-bar
+    %a.button.left.close Close
+    .title Share
+
+  .table-view-container
+    .table-view
+      
+      %p You will be able to edit what you share before posting.
+      
+      %ul
+        %li.facebook
+          .image= image_tag 'share/facebook48.png'
+          .name Facebook
+  
+        = link_to twitter_intent_url, target: "_blank" do
+          %li.twitter
+            .image= image_tag 'share/twitter48.png'
+            .name Twitter
+        
+
 #candidacies-list-template
   .nav-bar
     .title {{election.name}}
@@ -34,7 +55,7 @@
 #compare-template
   .nav-bar
     %a.button.left.nav  ← Themes
-    %a.button.right.share Partager
+    %a.button.right.share Share
     .title {{#tag}}{{name}}{{/tag}}
     
   .table-view-container

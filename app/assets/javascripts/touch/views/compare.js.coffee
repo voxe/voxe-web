@@ -8,24 +8,13 @@ class window.CompareView extends Backbone.View
     
   events:
     "click a.nav": "themesClick"
-    "click a.share": "facebook"
+    "click a.share": "share"
     
   themesClick: ->
     app.router.themesList()
     
-  facebook: ->
-    obj = {
-      method: 'feed',
-      link: 'http://voxe.org',
-      picture: 'http://voxe.org/assets/iOS/114ios.png',
-      name: "Voxe",
-      caption: 'Voxe.org',
-      description: 'Comparer les candidats avant de voter.'
-    }
-
-    FB.ui obj, (response)->
-      if response['post_id']
-        alert 'Envoye!'
+  share: ->
+    app.router.share()
     
   changeTag: ->
     $(".title", @el).html @tag().name()

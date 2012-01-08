@@ -23,4 +23,5 @@ class window.TagsListView extends Backbone.View
     
   render: ->
     $(@el).html Mustache.to_html($('#tags-list-template').html(), tags: @tags())
+    @
     # new iScroll $('.table-view-container', @el).get(0)
