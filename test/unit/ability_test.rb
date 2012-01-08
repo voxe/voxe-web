@@ -22,7 +22,7 @@ class AbilityTest < ActiveSupport::TestCase
     ability = Ability.new(@contributor)
     assert ability.cannot?(:update, @unauthorize_election)
     assert ability.cannot?(:create, Proposition.new(candidacy: @unauthorize_election.candidacies.first))
-    assert ability.cannot?(:update, @election.candidacies.first)
+    assert ability.cannot?(:update, @unauthorize_election.candidacies.first)
   end
 
 end
