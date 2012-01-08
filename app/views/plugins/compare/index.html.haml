@@ -5,6 +5,7 @@
     = stylesheet_link_tag "plugins"
     = javascript_include_tag "plugins"
   %body
+    = render 'layouts/partials/facebook.html'
     :javascript
       $(function() {
         new VoxeElection({id: '#{@election.id}'});
@@ -13,3 +14,5 @@
       
     #templates
       = render 'templates.mustache'
+      
+    = render 'layouts/partials/twitter.html'
