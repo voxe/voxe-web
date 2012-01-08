@@ -40,15 +40,26 @@
       <h3>{{name}}</h3>
         <ul>
           {{#candidacies}}
-          <li>
-          {{#candidates}}
-            <img src="{{photo.sizes.small.url}}" width="44px" height="44px" />
-          {{/candidates}}
-          {{#propositions}}
-            <p>{{text}}</p>
-          {{/propositions}}
-          </li>
+            <li>
+            {{#candidates}}
+              <img src="{{photo.sizes.small.url}}" width="44px" height="44px" />
+            {{/candidates}}
+            {{#propositions}}
+              <p proposition-id="{{id}}">{{text}}</p>
+            {{/propositions}}
+            </li>
           {{/candidacies}}
         </ul>
       {{/sections}}
     {{/categories}}
+    
+#proposition-template
+  :plain
+    {{#proposition}}
+    <h3>Nicolas Sarkozy</h3>
+    <ul>
+      <li>
+        <p>{{text}}</p>
+      </li>
+    </ul>
+    {{/proposition}}

@@ -56,6 +56,13 @@ class window.PropositionsView extends Backbone.View
       candidacyIds = candidacyIds.join ','
       app.collections.propositions.fetch data: {electionIds: app.models.election.id, tagIds: app.models.tag.id, candidacyIds: candidacyIds}
   
+  events:
+    "click p": "selectProposition"
+  
+  selectProposition:(e) ->
+    proposition = {id: $(e.currentTarget).attr("proposition-id")}
+    app.models.proposition.set proposition
+  
   render: ->
     loadHtml = -> $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
     loadHtml = _.bind(loadHtml, @)

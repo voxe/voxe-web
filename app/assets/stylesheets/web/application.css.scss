@@ -59,7 +59,7 @@ a {
 	cursor:pointer;
 }
 
-#select-candidates {
+#select-candidates, #specific {
 	margin:0 0 0 -175px;
 	top:30%;
 	left:50%;
@@ -425,7 +425,15 @@ a {
 #propositions h2 {
 	padding: 5px 0px;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 20px;
+	padding-left: 60px;
+}
+
+#propositions h3 {
+    font-size: 15px;
+    padding-left: 60px;
+    padding-bottom:10px;
+    color: #888;
 }
 
 #propositions ul li {
@@ -441,7 +449,7 @@ a {
 	position:relative;
 	border: 1px solid #CCC;
 	border-bottom: 3px solid #ccc;
-	margin-left: 70px;
+	margin-left: 60px;
 	border-radius: 5px;
 	padding: 10px;
 	margin-bottom:10px;
@@ -456,4 +464,86 @@ a {
 
 #propositions ul li p a:hover {
 	text-decoration:underline;
+}
+
+
+#specific {
+	display:none;
+	z-index:7;
+}
+
+#modal {
+	opacity:0.3;
+	display:none;
+	z-index:5;
+	position:fixed;
+	width:100%;
+	height:100%;
+	background-color:black;
+	top:0;
+	left:0;
+}
+
+#specific {
+	margin: 0 0 0 -300px;
+	left:50%;
+	width:600px;
+	text-align:left;
+	padding-bottom:20px;
+}
+
+#specific a.close {
+	position:absolute;
+	right:0px;
+	font-size: 13px;
+	font-weight: bold;
+	padding-right: 10px;
+}
+
+#specific #quote {
+	padding:20px;
+}
+
+#specific #quote h3 {
+	padding-bottom: 10px;
+	font-size: 20px;
+	padding-left: 75px;
+	font-weight: bold;
+}
+
+#specific #quote img {
+	width: 60px;
+	padding: 1px;
+	border: 1px solid #CCC;
+	float:left;
+}
+
+#specific #les-medias {
+	padding:10px 20px 5px;
+	background:#eee;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+
+#specific #les-medias img {
+	width:120px;
+	border:1px solid #ccc;
+	padding:1px;
+	cursor:pointer;
+}
+
+#specific #les-medias img:hover {
+	border-color:#AAA;
+}
+
+#specific #quote li p {
+	font-style:italic;
+	margin-left: 70px;
+	width: 467px;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 22px;
+	border-bottom: 3px solid #CCC;
 }

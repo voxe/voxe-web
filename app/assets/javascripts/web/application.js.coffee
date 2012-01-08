@@ -5,6 +5,7 @@ class window.VoxeElection
     
     app.models.election = new ElectionModel()
     app.models.tag = new TagModel()
+    app.models.proposition = new PropositionModel()
     
     app.collections.tags = new TagsCollection()
     app.models.election.bind 'change', (election)=>
@@ -27,3 +28,4 @@ class window.VoxeElection
     app.views.propositions = new PropositionsView(el: "#selected-theme #propositions")
     
     app.models.election.set options.election
+    app.views.modal = new PropositionView(el: "#specific")

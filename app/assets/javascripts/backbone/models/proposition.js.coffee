@@ -7,3 +7,9 @@ class window.PropositionModel extends Backbone.Model
   
   tags: ->
     @get "tags"
+    
+  id: ->
+    @get "id"
+    
+  text: ->
+    @get "text"
