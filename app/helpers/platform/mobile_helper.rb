@@ -1,0 +1,2 @@
+module Platform::MobileHelper
+end

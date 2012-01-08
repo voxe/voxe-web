@@ -108,6 +108,7 @@ Joinplato::Application.routes.draw do
         get :bookmarklet
       end
     end
+    resources :mobile, :only => :index
   end
 
   devise_for :users
