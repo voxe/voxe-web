@@ -18,7 +18,17 @@ class ElectionTag
   def children_election_tags
     ElectionTag.all conditions: {parent_tag_id: tag.id, election_id: election.id}
   end
-  
+  # 
+  # def ancestors_tags
+  #   ancestors = []
+  #   current_election_tag = self
+  #   while current_election_tag.parent_tag.present?
+  #     ancestors << current_election_tag.parent_tag
+  #     current_election_tag = self.class.where(tag_id: current_election_tag.parent_tag.id)
+  #   end
+  #   ancestors
+  # end
+
   def position
     rand 1000
   end

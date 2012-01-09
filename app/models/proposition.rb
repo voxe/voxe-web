@@ -11,7 +11,9 @@ class Proposition
 
   embeds_many :embeds, as: :embedable
   accepts_nested_attributes_for :embeds, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
-  
+
+  before_save :add_parent_tags
+
   attr_reader :tag
   
   def tag= name
@@ -35,5 +37,19 @@ class Proposition
       tag = Tag.create name: name
     end
     self.tags << tag
+  end
+
+  private
+
+  def add_parent_tags
+    return false unless candidacy and candidacy.election
+    for tag in self.tags do
+      election_tag = candidacy.election.election_tags.where(tag_id: tag.id).first
+      parent_tag = election_tag.try(:parent_tag)
+      if parent_tag and not tags.include?(parent_tag)
+        self.tags << parent_tag
+      end
+    end
+    self.tags
   end
 end

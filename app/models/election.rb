@@ -22,7 +22,11 @@ class Election
   def root_election_tags
     ElectionTag.all(conditions: {election_id: parent_election ? parent_election.id : self.id, parent_tag_id: nil})
   end
-  
+
+  def election_tags
+    ElectionTag.where election_id: (parent_election ? parent_election.id : self.id)
+  end
+
   def to_param
     self.namespace
   end

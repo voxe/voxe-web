@@ -2,10 +2,12 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
 
   # POST /api/v1/propositions
   def create
+    params[:proposition] ||= {}
+    tags = Tag.any_in(_id: params[:proposition][:tagIds].split(',')) if params[:proposition][:tagIds]
     @proposition = Proposition.new(
       text:         params[:proposition][:text],
       candidacy_id: params[:proposition][:candidacyId],
-      tag_names:    params[:proposition][:tagNames]
+      tags:          tags
     )
 
     if @proposition.save

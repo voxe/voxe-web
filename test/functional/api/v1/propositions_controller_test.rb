@@ -28,13 +28,15 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
   test "should create a proposition" do
     proposition_attributes                = {}
     proposition_attributes['text']        = "Something"
-    proposition_attributes['tagNames']      = [Tag.first.name, Tag.last.name]
+    proposition_attributes['tagIds']      = Tag.first.id.to_s
     proposition_attributes['candidacyId'] = @election.candidacies.last.to_param
 
     assert_difference('Proposition.count') do
       post :create, proposition: proposition_attributes, format: 'json'
     end
     assert_response :success
+
+    assert assigns(:proposition).tags.size >= 1
   end
 
 end
