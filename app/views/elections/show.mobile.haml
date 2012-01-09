@@ -1,0 +1,13 @@
+= @election.name
+
+= form_tag election_tags_path(@election), method: 'get' do
+
+  = hidden_field_tag 'tagId', params[:tagId]
+
+  - @election.candidacies.each do |candidacy|
+    %li
+      = check_box_tag 'candidacies[]', candidacy.id, (params[:candidacyIds] || []).split(',').include?(candidacy.id.to_s)
+      = image_tag candidacy.candidates.first.photo_url(:small), size: "32x32", valign: "middle"
+      = candidacy.candidates.first.name
+    
+  = submit_tag 'Compare'

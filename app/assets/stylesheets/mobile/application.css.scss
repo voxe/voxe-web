@@ -1,0 +1,47 @@
+html, body, ul, li, p {
+  margin: 0;
+}
+
+body {
+  font-family: 100% normal "Helvetica Neue",Helvetica,sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #3B5998;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#logo {
+  background-color: #eee;
+  padding: 5px 10px;
+  a {
+    color: black;
+  }
+}
+
+#page {
+  padding: 5px 10px;
+}
+
+#elections-show {
+  img {
+    border-radius: 2px;
+  }
+  li {
+    padding: 5px 0;
+  }
+}
+
+#elections-tags {
+  img {
+    border-radius: 2px;
+  }
+  p {
+    margin: 5px 0;
+  }
+}

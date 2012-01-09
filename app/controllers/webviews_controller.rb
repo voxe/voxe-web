@@ -33,9 +33,11 @@ class WebviewsController < ApplicationController
     @election_tag = ElectionTag.first conditions: {election_id: @election.id, tag_id: @tag.id}
     return render text: "empty" unless @election_tag
     
-    propositions = Proposition.where :election_id => @election.id,
-                                     :candidacy_id.in => params[:candidacyIds].split(','),
-                                     :tag_ids => params[:tagId]
+    conditions = {}
+    conditions[:tag_ids.in] = params[:tagIds].split(',') unless params[:tagIds].blank?
+    conditions[:candidacy_id.in] = params[:candidacyIds].split(',') unless params[:candidacyIds].blank?
+    
+    propositions = Proposition.where conditions
                                      
     @tags_propositions = {}
     propositions.each do |proposition|

@@ -113,9 +113,14 @@ Joinplato::Application.routes.draw do
 
   devise_for :users
   
+  # mobile
+  match ':election_namespace/tags' => 'elections#tags', :as => :election_tags
+  match ':election_namespace/compare' => 'elections#compare', :as => :election_compare
+  
   match ':election_namespace/:candidates/propositions/:id' => 'propositions#show', :as => :proposition
-  match ':election_namespace/:candidates/:tag_namespace' => 'elections#compare', :as => :election_compare
-  match ':election_namespace/:candidates' => 'elections#themes', :as => :election_themes
+  match ':election_namespace/:candidates/:tag_namespace' => 'elections#compare'
+  match ':election_namespace/:candidates' => 'elections#tags'
+  
   match ':election_namespace' => 'elections#show', :as => :election
   
   root to: 'elections#index'

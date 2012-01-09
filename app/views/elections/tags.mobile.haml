@@ -1,0 +1,6 @@
+= @election.name
+      
+- @election.root_election_tags.each do |election_tag|
+  %p
+    = image_tag "/images/icons/tag_32.png", size: "32x32", valign: "middle"
+    = link_to election_tag.tag.name, election_compare_path(@election, tagId: election_tag.tag.id, candidacyIds: params[:candidacies].join(','))
