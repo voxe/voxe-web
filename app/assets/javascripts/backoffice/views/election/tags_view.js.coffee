@@ -8,7 +8,7 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     @flash = {}
     @election = @options.election #readability++
     if @options.tag_id
-      @tag = @options.election.tags.search_tag @options.tag_id
+      @tag = @options.election.tags.depthTagSearch @options.tag_id
       @tags = @tag.tags
     else
       @tags = @election.tags

@@ -5,14 +5,13 @@ class window.TagsCollection extends Backbone.Collection
   search: (name) ->
     @fetch {url: "/api/v1/tags/search", data: {name: name}}
 
-  search_tag: (tag_id) ->
+  depthTagSearch: (tag_id) ->
     res = null
     res ||= @.find (tag) ->
       tag.id == tag_id
     res ||= @.reduce(
       (memo, tag) ->
-        console.log 'dep'
-        memo || tag.tags.search_tag tag_id
+        memo || tag.tags.depthTagSearch tag_id
       null
     )
 
