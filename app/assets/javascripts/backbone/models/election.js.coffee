@@ -2,6 +2,11 @@ class window.ElectionModel extends Backbone.Model
   
   # http://voxe.org/platform/models/election
   
+  urlRoot: "/api/v1/elections"
+
+  initialize: ->
+    @.bind 'error', @processErrors
+
   name: ->
     @get "name"
   
@@ -24,6 +29,16 @@ class window.ElectionModel extends Backbone.Model
     @tags.election = @
     response.response.election
 
+  # {namespace: ["is already taken"]}
+  processErrors: (election, response) ->
+    errors = ($.parseJSON response.responseText).response.errors
+    @.error_messages = _.reduce errors,
+      (memo, messages, attribute) ->
+        _.each messages,
+          (message) -> memo.push("#{attribute} #{message}")
+        memo
+      []
+
   addTag: (options) ->
     tag_id = options.tag_id
     parent_tag_id = options.parent_tag_id
@@ -40,7 +55,3 @@ class window.ElectionModel extends Backbone.Model
         options.success(response) if options.success
       error: (response, error) ->
         options.error($.parseJSON(response.responseText).response.errors) if options.error
-
-
-  url: ->
-    "/api/v1/elections/#{@id}"

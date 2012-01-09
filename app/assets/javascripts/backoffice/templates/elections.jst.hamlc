@@ -6,4 +6,11 @@
       %td
         %a{href: "#elections/#{election.id}/candidacies"}= election.get 'name'
 
-%button.btn.primary new
+%form.new-election{method: 'POST'}
+  - if @flash.error_messages
+    .alert-message.block-message.error
+      %ul
+        - for error_message in @flash.error_messages
+          %li= error_message
+  %input.span8{name: 'electionName'}
+  %input.btn.primary{type: 'submit'} new
