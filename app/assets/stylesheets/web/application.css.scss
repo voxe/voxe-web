@@ -135,7 +135,7 @@ a {
 #selection {
 	text-align:left;
 	display:none;
-	overflow:hidden;
+	overflow:auto;
 	height:189px;
 }
 
@@ -507,12 +507,11 @@ a {
 #specific #quote h3 {
 	padding-bottom: 10px;
 	font-size: 20px;
-	padding-left: 75px;
+	padding-left: 65px;
 	font-weight: bold;
 }
 
 #specific #quote img {
-	width: 60px;
 	padding: 1px;
 	border: 1px solid #CCC;
 	float:left;
@@ -538,7 +537,7 @@ a {
 
 #specific #quote li p {
 	font-style:italic;
-	margin-left: 70px;
+	margin-left: 60px;
 	width: 467px;
 	border: 1px solid #CCC;
 	border-radius: 5px;
@@ -546,4 +545,16 @@ a {
 	font-size: 14px;
 	line-height: 22px;
 	border-bottom: 3px solid #CCC;
+}
+
+#topbar a {
+	float: right;
+	font-size: 13px;
+	color: white;
+	padding-right: 20px;
+	font-weight: bold;
+}
+
+#topbar a:hover {
+	text-decoration:underline;
 }

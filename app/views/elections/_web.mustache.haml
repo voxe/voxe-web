@@ -56,10 +56,24 @@
 #proposition-template
   :plain
     {{#proposition}}
-    <h3>Nicolas Sarkozy</h3>
-    <ul>
-      <li>
-        <p>{{text}}</p>
-      </li>
-    </ul>
+      {{#candidacies}}
+        {{#candidates}}
+          <h3>{{firstName}} {{lastName}}</h3>
+        {{/candidates}}
+      {{/candidacies}}
+      <ul>
+        <li>
+          {{#candidacies}}
+            {{#candidates}}
+              <img src="{{photo.sizes.small.url}}" width="44px" height="44px" />
+            {{/candidates}}
+          {{/candidacies}}
+          <p>{{text}}</p>
+        </li>
+      </ul>
     {{/proposition}}
+    
+#topbar-template
+  :plain
+    VOXE
+    <a>{{candidates.length}} candidat{{candidates.s}}</a>

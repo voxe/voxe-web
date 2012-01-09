@@ -5,6 +5,9 @@ class window.PropositionModel extends Backbone.Model
   candidacy: ->
     @get "candidacy"
   
+  candidacies: ->
+    @get "candidacies"
+  
   tags: ->
     @get "tags"
     

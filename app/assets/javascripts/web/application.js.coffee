@@ -29,3 +29,4 @@ class window.VoxeElection
     
     app.models.election.set options.election
     app.views.modal = new PropositionView(el: "#specific")
+    app.views.topbar = new TopbarView(el: "#topbar #menu")

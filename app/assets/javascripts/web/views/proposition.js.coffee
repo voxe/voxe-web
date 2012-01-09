@@ -7,11 +7,18 @@ class window.PropositionView extends Backbone.View
   
   close: ->
     $('.modal').fadeOut(200)
+    
+  candidacies:(proposition) ->
+    _.map proposition.candidacy(), (c) ->
+      app.collections.selectedCandidacies.get c
   
   proposition: ->
-    app.collections.propositions.get app.models.proposition.id
+    proposition = app.collections.propositions.get app.models.proposition.id
+    proposition.set {candidacies: @candidacies(proposition)}
+    proposition
   
   render: ->
-    console.log @proposition()
-    $("#quote", @el).html Mustache.to_html($('#proposition-template').html(), proposition: @proposition())
+    proposition = @proposition()
+    console.log proposition
+    $("#quote", @el).html Mustache.to_html($('#proposition-template').html(), proposition: proposition)
     $('.modal').fadeIn(200)
