@@ -13,10 +13,17 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     else
       @tags = @election.tags
     @tags.bind 'add', @render, @
+    @election.bind 'error',
+      (election) ->
+        @flash.error_messages = election.error_messages
+        @render()
+      , @
     @render()
 
   render: ->
     $(@el).html @template @
+
+    # autocomplete
     $('form.add-tag .tag-name', @el).autocomplete
       source: (request, response) ->
         tags = new TagsCollection()
@@ -37,9 +44,11 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     if tag_id
       $('.btn', form).button('loading')
       tag = new TagModel(id: tag_id)
-      self = @
-      tag.bind 'change', ->
-        self.tags.validateAndAdd tag, (error_messages) ->
-          self.flash.error_messages = error_messages
-          self.render()
+      tag.bind 'change',
+        (tag) ->
+          if @tag #parent_tag
+            @election.addTag tag, @tag
+          else
+            @election.addTag tag
+        @
       tag.fetch()

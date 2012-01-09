@@ -6,6 +6,9 @@ class window.ElectionModel extends Backbone.Model
 
   initialize: ->
     @.bind 'error', @processErrors
+    @candidacies = new CandidaciesCollection(@get 'candidacies')
+    @tags = new TagsCollection(@get 'tags')
+    @tags.election = @
 
   name: ->
     @get "name"
@@ -24,9 +27,8 @@ class window.ElectionModel extends Backbone.Model
     object
   
   parse: (response)->
-    @candidacies = new CandidaciesCollection(response.response.election.candidacies)
-    @tags = new TagsCollection(response.response.election.tags)
-    @tags.election = @
+    @candidacies.reset response.response.election.candidacies
+    @tags.reset response.response.election.tags
     response.response.election
 
   # {namespace: ["is already taken"]}
@@ -39,19 +41,18 @@ class window.ElectionModel extends Backbone.Model
         memo
       []
 
-  addTag: (options) ->
-    tag_id = options.tag_id
-    parent_tag_id = options.parent_tag_id
-    url = "http://voxe-web.dev#{@url()}/addtag"
-    if parent_tag_id
-      data = "tagId=#{tag_id}&parentTagId=#{parent_tag_id}"
-    else
-      data = "tagId=#{tag_id}"
+  addTag: (tag, parent_tag) ->
+    election = @
+    data = {tagId: tag.id}
+    data['parentTagId'] = parent_tag.id if parent_tag
     $.ajax
       type: 'POST'
-      url: url
-      data: data
+      url: "#{@url()}/addtag"
+      data: $.param(data)
       success: (response) ->
-        options.success(response) if options.success
-      error: (response, error) ->
-        options.error($.parseJSON(response.responseText).response.errors) if options.error
+        if parent_tag
+          parent_tag.tags.add tag
+        else
+          election.tags.add tag
+      error: (response) ->
+        election.trigger 'error', election, response
