@@ -1,4 +1,4 @@
-%h1 Candidacies
+%h1 Candidatures
 
 %table
   - for candidacy in @candidacies.models
