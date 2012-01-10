@@ -44,4 +44,4 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
     params = text: event.target.text.value
     params['tagIds'] = $(event.target).parent().data().tagId
     params['candidacyId'] = @candidacy.id
-    @propositions.create params, url: '/api/v1/propositions'
+    @propositions.create params, url: '/api/v1/propositions', type: 'POST'
