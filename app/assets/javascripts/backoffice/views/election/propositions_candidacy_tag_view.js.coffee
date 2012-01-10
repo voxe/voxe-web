@@ -4,7 +4,7 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
   initialize: ->
     @election = @options.election
     @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == @options.candidacy_id), @
-    @tag = @election.tags.search_tag @options.tag_id
+    @tag = @election.tags.depthTagSearch @options.tag_id
     @tags = @tag.tags
     @propositions = new PropositionsCollection()
     @propositions.bind 'reset', @render, @
