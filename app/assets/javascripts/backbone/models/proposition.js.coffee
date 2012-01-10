@@ -15,7 +15,7 @@ class window.PropositionModel extends Backbone.Model
     @get "id"
     
   text: ->
-    @get "text"    @get "tags"
+    @get "text"
 
   parse: (response) ->
     response.response.proposition
