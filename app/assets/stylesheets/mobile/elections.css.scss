@@ -1,0 +1,57 @@
+// Place all the styles related to the mobile::elections controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#elections-show, #tags-index {
+  img {
+    border-radius: 2px;
+  }
+  li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+  }
+  input[type=submit] {
+    margin: 10px;
+    font-size: 120%;
+  }
+  p.submit {
+    text-align: center;
+  }
+}
+
+#elections-tags {
+  img {
+    border-radius: 2px;
+  }
+  p {
+    margin: 5px 0;
+  }
+}
+
+#elections-compare {
+  .category {
+    font-size: 120%;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .section {
+    border-bottom: 1px solid #eee;
+    padding: 0 0 5px 0;
+  }
+  td {
+    padding: 5px;
+    vertical-align: top;
+    img {
+      border-radius: 2px;
+    }
+  }
+  td.proposition {
+    font-size: 80%;
+    .name {
+      font-weight: bold;
+    }
+    p {
+      margin-top: 5px;
+    }
+  }
+}

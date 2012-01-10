@@ -1,0 +1,2 @@
+module Touch::ElectionsHelper
+end

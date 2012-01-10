@@ -1,9 +1,11 @@
 html, body, ul, li, p {
   margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: 100% normal "Helvetica Neue",Helvetica,sans-serif;
+  font: 100% normal "Helvetica Neue",Helvetica,sans-serif;
+  background-color: #E5EAF1;
 }
 
 li {
@@ -16,6 +18,11 @@ a {
   font-weight: bold;
 }
 
+.title {
+  font-size: 120%;
+  margin-bottom: 5px;
+}
+
 #logo {
   background-color: #eee;
   padding: 5px 10px;
@@ -25,23 +32,10 @@ a {
 }
 
 #page {
-  padding: 5px 10px;
-}
-
-#elections-show {
-  img {
-    border-radius: 2px;
-  }
-  li {
-    padding: 5px 0;
-  }
-}
-
-#elections-tags {
-  img {
-    border-radius: 2px;
-  }
-  p {
-    margin: 5px 0;
+  padding: 10px;
+  #page-container {
+    background-color: white;
+    padding: 10px;
+    border-radius: 3px;
   }
 }

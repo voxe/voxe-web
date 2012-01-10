@@ -3,10 +3,13 @@
   %head
     %title Voxe.org
     = stylesheet_link_tag "mobile"
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
   %body{id: "#{controller.controller_name}-#{controller.action_name}"}
     #logo
       = link_to root_path do
         = image_tag('icons/32.png', valign: "middle")
         Voxe
-    #page= yield
+    #page
+      #page-container= yield

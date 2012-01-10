@@ -1,0 +1,7 @@
+.title= @election.name    
+
+%ul
+  - @election.root_election_tags.each do |election_tag|
+    %li
+      = image_tag "/images/icons/tag_32.png", size: "32x32", valign: "middle"
+      = link_to election_tag.tag.name, compare_path(@election, params[:candidacies], election_tag.tag.namespace)

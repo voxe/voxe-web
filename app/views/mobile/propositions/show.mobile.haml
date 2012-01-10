@@ -1,0 +1,4 @@
+%p= @proposition.text
+%p= image_tag @proposition.candidacy.candidates.first.photo_url(:small), size: "50x50"
+%p= @proposition.candidacy.candidates.first.name
+%p= @proposition.tags.map { |t| t.name }.join(',')

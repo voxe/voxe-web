@@ -1,0 +1,2 @@
+module Touch::ApplicationHelper
+end

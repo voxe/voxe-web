@@ -1,0 +1,22 @@
+.title= @election.name
+
+/ = link_to "candidates", election_path(@election, candidacyIds: params[:candidacyIds], tagId: params[:tagId])
+/ = link_to "themes", election_tags_path(@election, candidacies: params[:candidacyIds].split(','))
+
+- @election_tag.children_election_tags.each do |category|
+  .category= category.tag.name
+  - category.children_election_tags.each do |section|
+    - tag_propositions = @tags_propositions[section.tag.id.to_s]
+    .section= section.tag.name
+    - if tag_propositions
+      - @candidacies.each do |candidacy|
+        - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
+        %table
+          %tr
+            %td= image_tag candidacy.candidates.first.photo_url(:small), size: "40x40"
+            %td.proposition
+              .name= candidacy.candidates.first.name
+              - unless candidacy_propositions.blank?
+                - candidacy_propositions.each do |proposition|
+                  %p= proposition.text
+                  / proposition_path(@election, proposition.candidacy.candidates.first.namespace, proposition.id)

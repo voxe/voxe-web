@@ -1,3 +1,21 @@
+class MobileConstraint
+  
+  def matches? request
+    # TODO: add more UserAgents
+    request.user_agent.to_s.downcase =~ /blackberry/
+  end
+  
+end
+
+class TouchConstraint
+  
+  def matches? request
+    # TODO: add more UserAgents
+    request.user_agent.to_s.downcase =~ /iphone|android|ipad/
+  end
+  
+end
+
 Joinplato::Application.routes.draw do
   
   # admin
@@ -113,16 +131,34 @@ Joinplato::Application.routes.draw do
 
   devise_for :users
   
+  # touch
+  scope :module => "touch", format: "touch", constraints: TouchConstraint.new do
+    match ':namespace' => 'elections#show', :as => :election
+    
+    root to: 'elections#index'
+  end
+  
   # mobile
-  match ':election_namespace/tags' => 'elections#tags', :as => :election_tags
-  match ':election_namespace/compare' => 'elections#compare', :as => :election_compare
+  scope :module => "mobile", format: "mobile", constraints: MobileConstraint.new do
+    match ':namespace/:candidacies/:tag' => 'elections#compare', :as => :compare
+    
+    match ':namespace/:candidacy/propositions/:id' => 'propositions#show', :as => :proposition
+    
+    match ':namespace/candidacies' => 'candidacies#create', :as => :candidacies
+    match ':namespace/:candidacies' => 'tags#index', :as => :tags
+    match ':namespace' => 'elections#show', :as => :election
+    
+    root to: 'elections#index'
+  end
   
-  match ':election_namespace/:candidates/propositions/:id' => 'propositions#show', :as => :proposition
-  match ':election_namespace/:candidates/:tag_namespace' => 'elections#compare'
-  match ':election_namespace/:candidates' => 'elections#tags'
+  # web
+  scope :module => "web", format: "html" do
+    match ':namespace/:candidacies/:tag' => 'elections#compare', :as => :compare
+    
+    match ':namespace/:candidacies' => 'tags#index', :as => :tags
+    match ':namespace' => 'elections#show', :as => :election
+    
+    root to: 'elections#index'
+  end
   
-  match ':election_namespace' => 'elections#show', :as => :election
-  
-  root to: 'elections#index'
-
 end
