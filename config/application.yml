@@ -1,5 +1,7 @@
 defaults: &defaults
   twitter: VoxeProject
+  google_analytics:
+    id: UA-28225427-1
 
 test:
   <<: *defaults
