@@ -1,16 +1,13 @@
-task "setup" => :environment do
+namespace :setup do
+  task "admin" => :environment do
   
-  # drop existing DB
-  Rake::Task["db:mongoid:drop"].execute
+    # create admin@voxe.org user
+    user = User.new
+    user.email = 'admin@voxe.org'
+    user.name = 'Voxe Admin'
+    user.password = 'GZ8dDkx'
+    user.admin = true
+    user.save!
   
-  # create admin@admin.com user
-  user = User.new
-  user.email = 'admin@voxe.org'
-  user.password = 'password'
-  user.admin = true
-  user.save!
-  
-  # launch france 2007 migration
-  Rake::Task["migrate:france2007"].execute
-  
+  end
 end
