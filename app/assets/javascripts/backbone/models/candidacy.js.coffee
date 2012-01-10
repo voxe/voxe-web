@@ -7,3 +7,8 @@ class window.CandidacyModel extends Backbone.Model
 
   name: ->
     @candidates.models[0]
+
+  urlRoot: "/api/v1/candidacies"
+
+  parse: (response) ->
+    response.response.candidacy

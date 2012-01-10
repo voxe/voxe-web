@@ -2,5 +2,10 @@
 
 %table
   - for candidacy in @candidacies.models
-    %tr
-      %td= candidacy.candidates.models[0].toString()
+    %tr{'data-candidacy-id': candidacy.id}
+      %td= candidacy.name()
+      %td
+        - if candidacy.get 'published'
+          %button.span2.toggle-publish.btn.success Publié
+        - else
+          %button.span2.toggle-publish.btn.error Non publié
