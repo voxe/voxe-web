@@ -12,6 +12,18 @@ class Tag
   validates_uniqueness_of :name, :namespace
 
   mount_uploader :icon, IconUploader
+  
+  def icon_prefix
+    "/images/tags/#{namespace}_".to_url
+  end
+  
+  def icon_sizes
+    [32, 64, 256]
+  end
+  
+  def icon_name
+    ".jpg"
+  end
 
   private
 
