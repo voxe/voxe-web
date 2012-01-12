@@ -10,8 +10,8 @@ end
 code :position do |election_tag|
   election_tag.position
 end
-node :icon do
-  {prefix: "/images/icons/tag_".to_url, sizes: [32, 64, 256], name: ".png"}
+node :icon do |election_tag|
+  {prefix: "/images/tags/#{election_tag.tag.namespace}_".to_url, sizes: [32, 64, 256], name: ".jpg"}
 end
 node :tags, :if => lambda { |election_tag| !election_tag.children_election_tags.empty? } do |election_tag|
   election_tag.children_election_tags.collect do |election_tag|
