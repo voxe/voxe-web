@@ -1,3 +1,3 @@
 object false
 collection @elections => :elections
-attributes :id, :name, :published
+attributes :id, :name, :namespace, :published

@@ -11,7 +11,7 @@ class window.CompareView extends Backbone.View
     "click a.share": "share"
     
   themesClick: ->
-    app.router.themesList()
+    app.router.navigate "#{app.models.election.namespace()}/#{app.collections.selectedCandidacies.toParam()}", true
     
   share: ->
     app.router.share()

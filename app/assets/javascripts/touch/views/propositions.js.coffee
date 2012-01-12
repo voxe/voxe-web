@@ -9,8 +9,8 @@ class window.PropositionsView extends Backbone.View
   categories: ->
     categories = []
     candidacies = @candidacies()
-    tags_propositions = @tags_propositions()
-    _.each @tag().tags(), (c) ->
+    tags_propositions = @tags_propositions()    
+    _.each @tag().tags.toJSON(), (c) ->      
       category = {}
       category.id = c.id
       category.name = c.name

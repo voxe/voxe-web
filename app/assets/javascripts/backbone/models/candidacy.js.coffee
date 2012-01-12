@@ -7,6 +7,9 @@ class window.CandidacyModel extends Backbone.Model
 
   name: ->
     @candidates.models[0]
+  
+  namespace: ->
+    @get 'namespace'
 
   urlRoot: "/api/v1/candidacies"
 

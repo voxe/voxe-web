@@ -3,22 +3,27 @@ class window.VoxeElection
   constructor: (options)->    
     window.app = {models: {}, collections: {}, views:{}}
     
-    app.models.election = new ElectionModel()
+    app.router = new AppRouter()
+    
+    app.collections.elections = new ElectionsCollection()
+    
+    app.models.election = new ElectionModel
+    app.models.election.bind "change:id", (election)->
+      app.models.election.fetch()
+      
     app.models.tag = new TagModel()
     
-    app.collections.tags = new TagsCollection()
-    app.models.election.bind 'change', (election)=>
-      app.collections.tags.add election.tags()
-    
-    app.collections.candidacies = new CandidaciesCollection()
-    app.models.election.bind 'change', (election)=>
-      app.collections.candidacies.add election.candidacies()
+    app.collections.tags = app.models.election.tags
+    app.collections.candidacies = app.models.election.candidacies
     
     app.collections.selectedCandidacies = new CandidaciesCollection()
+      
     app.collections.propositions = new PropositionsCollection()
     
     app.views.application = new ApplicationView(el: "#application-view")
     app.views.navigation = new NavigationView(el: "#navigation-view")
+    
+    app.views.electionsList = new ElectionsListView(el: "#elections-list", collection: app.collections.elections, model: app.models.election)
 
     app.views.candidaciesList = new CandidaciesListView(el: "#candidacies-list")
     app.views.tagsList = new TagsListView(el: "#tags")
@@ -30,8 +35,7 @@ class window.VoxeElection
     app.views.share = new ShareView(el: "#share")
     app.views.share.render()
 
-    app.router = new AppRouter()
-    app.router.candidatesList()
-    app.views.navigation.push 'tags'
+    Backbone.history.start pushState: true
     
-    app.models.election.set options.election
+    if options.electionId
+      app.models.election.set id: options.electionId

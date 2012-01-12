@@ -1,3 +1,17 @@
+#elections-list-template
+  .nav-bar
+    .title voxe
+
+  .table-view-container
+    .table-view
+      %ul.elections
+        :plain
+          {{#elections}}
+            <li election-id="{{id}}">
+              <div class="name">{{name}}</div>
+            </li>
+          {{/elections}}
+
 #share-template
   .nav-bar
     %a.button.left.close Close
@@ -21,8 +35,9 @@
 
 #candidacies-list-template
   .nav-bar
+    %a.button.left.nav  ← Elections
     .title {{election.name}}
-    %a.button.right Compare
+    %a.button.right.compare Compare
   
   .table-view-container
     .table-view
@@ -39,6 +54,7 @@
         
 #tags-list-template
   .nav-bar
+    %a.button.left.nav  ← Candidates
     .title Themes
   
   .table-view-container

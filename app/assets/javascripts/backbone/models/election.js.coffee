@@ -12,12 +12,9 @@ class window.ElectionModel extends Backbone.Model
 
   name: ->
     @get "name"
-  
-  candidacies: ->
-    @get "candidacies"
     
-  tags: ->
-    @get "tags"
+  namespace: ->
+    @get "namespace"
   
   toJSON: ->
     object = _.clone(@attributes)

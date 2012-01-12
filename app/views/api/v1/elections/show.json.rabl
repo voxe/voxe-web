@@ -9,6 +9,9 @@ child @election do
   # end
   child :candidacies do
     attribute :id, :published
+    node :namespace do |candidacy|
+      candidacy.candidates[0].namespace
+    end
     child :organization, :if => lambda { |candidacy| !candidacy.organization.blank? } do
       attribute :id, :name
     end

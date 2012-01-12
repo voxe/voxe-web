@@ -8,15 +8,18 @@ class window.TagModel extends Backbone.Model
   initialize: ->
     @tags = new TagsCollection(@get 'tags', parent_tag: @)
     @tags.parent_tag = @
+    @bind "change:tags", (tag) =>
+      console.log tag.get('tags')
+      @tags.reset tag.get 'tags'
 
   iconUrl: (size) ->
     "pierre"
   
-  tags: ->
-    @get "tags"
-  
   name: ->
     @get "name"
+    
+  namespace: ->
+    @get "namespace"
 
   parents: ->
     if @collection and @collection.parent_tag

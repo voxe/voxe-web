@@ -4,6 +4,9 @@ end
 code :name do |election_tag|
   election_tag.tag.name
 end
+code :namespace do |election_tag|
+  election_tag.tag.namespace
+end
 code :position do |election_tag|
   election_tag.position
 end

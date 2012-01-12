@@ -1,3 +1,31 @@
+#elections-list {
+    
+  ul {
+    margin: 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+  
+  ul li {
+    cursor: pointer;
+    padding: 10px;
+    overflow: auto;
+    border-bottom: 1px solid #eee;
+    .name {
+    }
+  }
+  
+  li.selected:first-child {
+    border-radius: 3px 3px 0 0;
+  }
+  
+  ul li:last-child {
+    border-bottom: 0px solid #eee;
+  }
+  
+}
+
 #candidacies-list {
   
   display: block;
