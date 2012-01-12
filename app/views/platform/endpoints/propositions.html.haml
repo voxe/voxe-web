@@ -48,3 +48,36 @@
   
 %p
   %a.btn.small Try
+
+
+.page-header
+  %h1 Admin
+
+.page-header
+  %h2
+    %small POST
+    \/propositions
+
+%p Create a proposition.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td proposition[text]
+      %td More taxes for poor people
+    %tr
+      %td proposition[candidacyId]
+      %td 4f0a16e556cc600ad6000263
+    %tr
+      %td proposition[tagIds]
+      %td 4f0a16e456cc600ad6000168,4f0a16e456cc600ad60001b0
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/propositions
+
+%p
+  %a.btn.small Try

@@ -108,6 +108,7 @@ Joinplato::Application.routes.draw do
         get :propositions
         get :tags
         get :candidacies
+        get :users
       end
     end
     resources :models do

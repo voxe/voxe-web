@@ -13,3 +13,61 @@
   
 %p
   %a.btn.small Try
+
+.page-header
+  %h2
+    %small GET
+    \/tags/search
+
+%p Search tags.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td name
+      %td Economie
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/tags/search
+
+%p
+  %a.btn.small Try
+
+
+.page-header
+  %h1 Admin
+
+.page-header
+  %h2
+    %small POST
+    \/tags
+
+%p Create a tag.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td tag[name]
+      %td Les agents publics
+    %tr
+      %td tag[namespace]
+      %td les-agents-publics
+    %tr
+      %td tag[icon]
+      %td (Image binary file)
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/tags
+
+%p
+  %a.btn.small Try
+
+

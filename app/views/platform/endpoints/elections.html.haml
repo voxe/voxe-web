@@ -51,3 +51,93 @@
   
 %p
   %a.btn.small Try
+
+.page-header
+  %h1
+    Admin
+
+.page-header
+  %h2
+    %small POST
+    \/elections
+
+%p Create an election.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td election[name]
+      %td Election Présidentielle 2012
+    %tr
+      %td election[namespace]
+      %td electionpresidentielle2012
+    %tr
+      %td election[published]
+      %td false (default)
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/elections
+
+%p
+  %a.btn.small Try
+
+
+.page-header
+  %h2
+    %small PUT
+    \/elections/{id}
+
+%p Update an election.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td election[name]
+      %td Election Présidentielle 2012
+    %tr
+      %td election[namespace]
+      %td electionpresidentielle2012
+    %tr
+      %td election[published]
+      %td false
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/elections/4ed1cb0203ad190006000001
+
+%p
+  %a.btn.small Try
+
+
+.page-header
+  %h2
+    %small POST
+    \/elections/{id}/addtag
+
+%p Add a tag on an election
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td tagId
+      %td 4f0a16e356cc600ad6000002
+    %tr
+      %td parentTagId (optional)
+      %td 4f0a16e556cc600ad6000248
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/elections/4ed1cb0203ad190006000001/addtag
+
+%p
+  %a.btn.small Try

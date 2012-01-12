@@ -37,6 +37,7 @@ class Ability
         can :manage, Candidate, candidacy: { election: { contributor_ids: user.id } }
         can :manage, Proposition, candidacy: { election: { contributor_ids: user.id } }
         can :manage, Tag
+        can :search, User
       end
     else
       # Visitor
@@ -46,7 +47,6 @@ class Ability
       can :search, Proposition
       can [:read, :propositions, :search], Tag
       can :read, Candidacy
-      can :search, User
     end
 
   end

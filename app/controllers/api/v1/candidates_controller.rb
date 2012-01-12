@@ -15,7 +15,7 @@ class Api::V1::CandidatesController < Api::V1::ApplicationController
 
   # POST /api/v1/candidates/1/addphoto
   def addphoto
-    photo = @candidate.photos.build type: params[:type], image: params[:image]
+    photo = @candidate.photos.build image: params[:image]
 
     if photo.save
       render text: {photo: photo}.to_json, status: :created, layout: 'api_v1'

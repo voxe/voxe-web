@@ -13,3 +13,29 @@
   
 %p
   %a.btn.small Try
+
+.page-header
+  %h1 Admin
+
+.page-header
+  %h2
+    %small PUT
+    \/candidacies/{id}
+
+%p Update a candidacy.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td candidacy[published]
+      %td true
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/candidacies/4ed1cb0203ad190006000132
+
+%p
+  %a.btn.small Try

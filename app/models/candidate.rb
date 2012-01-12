@@ -5,6 +5,8 @@ class Candidate
   field :first_name, type: String
   field :last_name, type: String
   field :namespace, type: String
+  alias :firstName :first_name
+  alias :lastName :last_name
   
   # relations
   has_and_belongs_to_many :candidacies
