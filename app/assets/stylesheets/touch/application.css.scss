@@ -19,10 +19,17 @@ ul, li {
   list-style: none;
 }
 
+#application-view {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 .table-view-container {
   background-color: #eee;
   position: absolute;
   top: 44px;
+  bottom: 0;
   width: 100%;
   z-index: 1;
   .table-view {
@@ -32,12 +39,12 @@ ul, li {
   }
 }
 
-.iphone .table-view-container {
-  bottom: -16px;
+.iphone #application-view {
+  bottom: -60px;
 }
 
-.android .table-view-container {
-  bottom: 44px;
+.android #application-view {
+  bottom: 0;
 }
 
 .page-view {
