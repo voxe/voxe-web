@@ -15,7 +15,7 @@ class window.TagsListView extends Backbone.View
     $li.addClass 'selected'
     
     tagId = $li.attr("tag-id")
-    tag = _.find app.models.election.tags(), (tag) ->
+    tag = _.find app.models.election.tags.toJSON(), (tag) ->
       tag.id == tagId
     app.models.tag.set tag
     

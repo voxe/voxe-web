@@ -12,11 +12,11 @@ class window.VoxeElection
     
     app.collections.tags = new TagsCollection()
     app.models.election.bind 'change:tags', (election)=>
-      app.collections.tags.reset election.tags()
+      app.collections.tags.reset election.tags.toJSON()
     
     app.collections.candidacies = new CandidaciesCollection()
     app.models.election.bind 'change:candidacies', (election)=>
-      app.collections.candidacies.reset election.candidacies()
+      app.collections.candidacies.reset election.candidacies.toJSON()
     
     app.collections.selectedCandidacies = new CandidaciesCollection()
     app.collections.propositions = new PropositionsCollection()
