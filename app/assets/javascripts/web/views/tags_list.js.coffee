@@ -16,9 +16,10 @@ class window.TagsListView extends Backbone.View
   themeClick: (e)->
     tagId = $(e.currentTarget).attr("tag-id")
     if (tagId != @last)
-      $('li div', @el).slideUp()
+      $('#propositions').hide()
+      $('li div', @el).slideUp(200)
       @last = tagId
-      $('div', e.currentTarget).slideToggle()
+      $('div', e.currentTarget).slideToggle(200)
       tag = _.find app.models.election.tags.models, (tag) ->
         tag.id == tagId
       app.models.tag.set tag

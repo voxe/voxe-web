@@ -64,6 +64,8 @@ class window.PropositionsView extends Backbone.View
     app.models.proposition.set proposition
   
   render: ->
-    loadHtml = -> $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
+    loadHtml = ->
+      $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
+      $('#propositions').fadeIn()
     loadHtml = _.bind(loadHtml, @)
     $("#selected-theme #loader").fadeOut(loadHtml)

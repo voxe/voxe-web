@@ -9,7 +9,6 @@ class window.TagModel extends Backbone.Model
     @tags = new TagsCollection(@get 'tags', parent_tag: @)
     @tags.parent_tag = @
     @bind "change:tags", (tag) =>
-      console.log tag.get('tags')
       @tags.reset tag.get 'tags'
 
   iconUrl: (size) ->
