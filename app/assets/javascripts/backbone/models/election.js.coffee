@@ -9,6 +9,12 @@ class window.ElectionModel extends Backbone.Model
     @candidacies = new CandidaciesCollection(@get 'candidacies')
     @tags = new TagsCollection(@get 'tags')
     @tags.election = @
+    
+    @bind "change:candidacies", (election) =>
+      @candidacies.reset election.get "candidacies"
+      
+    @bind "change:tags", (election) =>
+      @tags.reset election.get "tags"
 
   name: ->
     @get "name"

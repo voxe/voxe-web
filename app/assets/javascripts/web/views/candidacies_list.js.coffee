@@ -28,5 +28,5 @@ class window.CandidaciesListView extends Backbone.View
       app.collections.selectedCandidacies.add candidacy.toJSON()
     
   render: ->
-    $(@el).html Mustache.to_html($('#candidacies-list-template').html(), election: @election())
+    $(@el).html Mustache.to_html($('#candidacies-list-template').html(), election: @election().toJSON())
     $(@el).delay(300).slideToggle()

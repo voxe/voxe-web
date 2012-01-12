@@ -19,7 +19,7 @@ class window.TagsListView extends Backbone.View
       $('li div', @el).slideUp()
       @last = tagId
       $('div', e.currentTarget).slideToggle()
-      tag = _.find app.models.election.tags(), (tag) ->
+      tag = _.find app.models.election.tags.models, (tag) ->
         tag.id == tagId
       app.models.tag.set tag
     
