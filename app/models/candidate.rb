@@ -31,7 +31,8 @@ class Candidate
   end
   
   def photo_url(size = nil)
-    photo? ? ((size == nil) ? photo.image.url : photo.image.send(size).url) : default_photo(size)
+    #photo? ? ((size == nil) ? photo.image.url : photo.image.send(size).url) : default_photo(size)
+    "/images/candidates/#{namespace}.png".to_url
   end
   
   private
