@@ -2,9 +2,7 @@ class window.CandidacyCellView extends Backbone.View
   
   initialize: ->
     # @selected = false
-  
-  tagName: "li"
-      
+          
   events:
     "click": "candidacyClick"
     
