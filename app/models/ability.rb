@@ -43,7 +43,7 @@ class Ability
       # Visitor
 
       can [:read, :search], Election
-      can [:read, :elections], Candidate
+      can [:read, :search, :elections], Candidate
       can :search, Proposition
       can [:read, :propositions, :search], Tag
       can :read, Candidacy

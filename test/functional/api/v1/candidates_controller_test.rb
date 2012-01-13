@@ -49,4 +49,9 @@ class Api::V1::CandidatesControllerTest < ActionController::TestCase
     json = JSON.parse(@response.body)
     assert_equal 422, json['meta']['code']
   end
+
+  test "should search for candidates" do
+    get :search, name: 'Nico', format: 'json'
+    assert_response :success
+  end
 end
