@@ -1,4 +1,4 @@
-#elections-list-template
+%script#elections-list-template{type: "text/html"}
   .nav-bar
     .title voxe
 
@@ -12,7 +12,7 @@
             </li>
           {{/elections}}
 
-#share-template
+%script#share-template{type: "text/html"}
   .nav-bar
     %a.button.left.close Close
     .title Share
@@ -33,7 +33,7 @@
             .name Twitter
         
 
-#candidacies-list-template
+%script#candidacies-list-template{type: "text/html"}
   .nav-bar
     %a.button.left.nav  ← Elections
     .title {{election.name}}
@@ -52,7 +52,7 @@
             </li>
           {{/election.candidacies}}
         
-#tags-list-template
+%script#tags-list-template{type: "text/html"}
   .nav-bar
     %a.button.left.nav  ← Candidates
     .title Themes
@@ -68,7 +68,7 @@
             </li>
           {{/tags}}
           
-#compare-template
+%script#compare-template{type: "text/html"}
   .nav-bar
     %a.button.left.nav  ← Themes
     %a.button.right.share Share
@@ -77,7 +77,7 @@
   .table-view-container
     .table-view
 
-#propositions-template
+%script#propositions-template{type: "text/html"}
   :plain
     {{#categories}}
       <div class="category">
