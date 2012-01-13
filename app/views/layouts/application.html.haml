@@ -1,16 +1,13 @@
-!!! HTML
+!!!
 %html
   %head
     %title Voxe
-    %description Comparer les programmes avant de voter.
-    
-    <meta name="google-site-verification" content="dXr_wFt6WKG3hpwKnDSBz0FA_21NqGnaKRmAQ-1G8Rc" />
-    
+    %meta{name: "description", content: "Comparer les programmes avant de voter."}
+    %meta{name: "google-site-verification", content: "dXr_wFt6WKG3hpwKnDSBz0FA_21NqGnaKRmAQ-1G8Rc"}
     = stylesheet_link_tag "web"
     = javascript_include_tag "web"
     = csrf_meta_tags
     = render "layouts/partials/google_analytics"
-
   %body
     = yield
 
