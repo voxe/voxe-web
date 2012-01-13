@@ -58,6 +58,7 @@ class window.AppRouter extends Backbone.Router
       @compareView = new CompareView(el: "#compare")
       @compareView.render()
       view = new PropositionsView(el: "#compare .table-view")
+      view.loadPropositions()
       view.render()
       
     # set candidacies, tag using url
