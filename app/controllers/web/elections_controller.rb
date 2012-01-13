@@ -4,6 +4,7 @@ class Web::ElectionsController < Web::ApplicationController
   
   def index 
     @elections = Election.all
+    redirect_to @elections.first
   end
   
   def show
