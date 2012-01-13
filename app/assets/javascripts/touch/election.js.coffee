@@ -7,9 +7,7 @@ class window.VoxeElection
     
     app.collections.elections = new ElectionsCollection()
     
-    app.models.election = new ElectionModel
-    app.models.election.bind "change:id", (election)->
-      app.models.election.fetch()
+    app.models.election = new ElectionModel()
       
     app.models.tag = new TagModel()
     
@@ -25,7 +23,7 @@ class window.VoxeElection
     
     app.views.electionsList = new ElectionsListView(el: "#elections-list", collection: app.collections.elections, model: app.models.election)
 
-    app.views.candidaciesList = new CandidaciesListView(el: "#candidacies-list")
+    app.views.candidaciesList = new CandidaciesListView(el: "#candidacies-list", model: app.models.election)
     app.views.tagsList = new TagsListView(el: "#tags")
     
     app.views.compare = new CompareView(el: "#compare")
@@ -34,8 +32,11 @@ class window.VoxeElection
     
     app.views.share = new ShareView(el: "#share")
     app.views.share.render()
-
-    Backbone.history.start pushState: true
+    
+    app.models.election.bind "change:id", (election)->
+      app.models.election.fetch()
     
     if options.electionId
       app.models.election.set id: options.electionId
+
+    Backbone.history.start pushState: true
