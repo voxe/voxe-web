@@ -2,7 +2,7 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
   template: JST['backoffice/templates/election/tags']
 
   events:
-    'submit form.add-tag': 'addTag'
+    'submit form.add-tag': 'addOrCreateTag'
 
   initialize: ->
     @flash = {}
@@ -24,7 +24,11 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     $(@el).html @template @
 
     # autocomplete
-    $('form.add-tag .tag-name', @el).autocomplete
+    form = $('form.add-tag', @el)
+    $('.tag-name', form).keyup ->
+      $('.tag-id', form).val('')
+      $('input[type=submit]', form).val('Créer')
+    $('.tag-name', form).autocomplete
       source: (request, response) ->
         tags = new TagsCollection()
         tags.bind 'reset', ->
@@ -34,14 +38,15 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
       select: (event, ui) ->
         $('.tag-name').val ui.item.label
         $('.tag-id').val ui.item.value
+        $('input[type=submit]', form).val('Ajouter')
         return false
     @flash = {}
 
-  addTag: (event) ->
+  addOrCreateTag: (event) ->
     event.preventDefault()
     form = $(event.target)
     tag_id = $('.tag-id', form).val()
-    if tag_id
+    if tag_id # add
       $('.btn', form).button('loading')
       tag = new TagModel(id: tag_id)
       tag.bind 'change',
@@ -52,3 +57,19 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
             @election.addTag tag
         @
       tag.fetch()
+    else # create
+      tag_name = tag_id = $('.tag-name', form).val()
+      tag = new TagModel()
+      tag.bind 'error',
+        (tag, response) ->
+          @flash.error_messages = tag.error_messages
+          @render()
+        @
+      election = @election
+      parent_tag = @tag if @tag
+      tag.save {name: tag_name},
+        success: (tag) -> # link tag to election
+          if parent_tag?
+            election.addTag tag, parent_tag
+          else
+            election.addTag tag

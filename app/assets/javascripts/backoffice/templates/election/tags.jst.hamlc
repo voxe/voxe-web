@@ -20,7 +20,7 @@
         %a{href: "#elections/#{@election.id}/tags/#{tag.id}"}= tag.get 'name'
 
 %form.add-tag{method: 'POST'}
-  %h2 Ajouter un thème
+  %h2 Ajouter/Créer un thème
 
   - if @flash.error_messages
     .alert-message.block-message.error
@@ -37,4 +37,4 @@
         %input.tag-id{type: 'hidden', name: 'tagId'}
     .clearfix
       .input
-        %input.btn.success.span2{type: 'submit', value: 'Add', 'data-loading-text': '...'}
+        %input.btn.success.span2{type: 'submit', value: 'Créer', 'data-loading-text': '...'}
