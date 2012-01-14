@@ -1,6 +1,9 @@
 class window.TagModel extends Backbone.Model
   
   # http://voxe.org/platform/models/tag
+  
+  defaults:
+    "selected": false
 
   url: ->
     "/api/v1/tags/#{@id}"
@@ -19,6 +22,9 @@ class window.TagModel extends Backbone.Model
     
   namespace: ->
     @get "namespace"
+    
+  isSelected: ->
+    @get('selected') == true
 
   parents: ->
     if @collection and @collection.parent_tag

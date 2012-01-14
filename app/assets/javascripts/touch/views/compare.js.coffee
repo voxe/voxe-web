@@ -1,10 +1,7 @@
 class window.CompareView extends Backbone.View
-
-  tag: ->
-    app.models.tag
     
   initialize: ->
-    app.models.tag.bind "change", @changeTag, @
+    @collection.bind "change:selected", @changeTag, @
     
   events:
     "click a.nav": "themesClick"
@@ -17,7 +14,12 @@ class window.CompareView extends Backbone.View
     app.router.share()
     
   changeTag: ->
-    $(".title", @el).html @tag().name()
+    return unless @collection.selected()
+    $(".title", @el).html @collection.selected().name()
     
   render: ->
-    $(@el).html Mustache.to_html($('#compare-template').html(), tag: @tag())
+    if @collection.selected()
+      tag = @collection.selected().toJSON()
+    else
+      tag = null
+    $(@el).html Mustache.to_html($('#compare-template').html(), tag: tag)

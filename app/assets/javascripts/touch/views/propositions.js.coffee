@@ -1,15 +1,20 @@
 class window.PropositionsView extends Backbone.View
   
   tag: ->
-    app.models.tag
+    if app.models.election.tags.selected()
+      tag = app.models.election.tags.selected()
+    else
+      tag = null
   
   candidacies: ->
     app.models.election.candidacies.selected().toJSON()
   
   categories: ->
+    return [] unless @tag()
+    
     categories = []
     candidacies = @candidacies()
-    tags_propositions = @tags_propositions()    
+    tags_propositions = @tags_propositions() 
     _.each @tag().tags.toJSON(), (c) ->      
       category = {}
       category.id = c.id
@@ -45,15 +50,15 @@ class window.PropositionsView extends Backbone.View
   
   initialize: ->
     app.collections.propositions.bind "reset", @render, @
-    app.models.election.candidacies.bind "bind:selected", @loadPropositions, @
-    app.models.tag.bind "change", @loadPropositions, @
+    app.models.election.candidacies.bind "change:selected", @loadPropositions, @
+    app.models.election.tags.bind "change:selected", @loadPropositions, @
         
   loadPropositions: ->
-    if @candidacies().length != 0 && @tag().id
+    if @candidacies().length != 0 && @tag()?
       candidacyIds = _.map app.models.election.candidacies.selected().models, (candidate) ->
            candidate.id
       candidacyIds = candidacyIds.join ','
-      app.collections.propositions.fetch data: {electionIds: app.models.election.id, tagIds: app.models.tag.id, candidacyIds: candidacyIds}
+      app.collections.propositions.fetch data: {electionIds: app.models.election.id, tagIds: @tag().id, candidacyIds: candidacyIds}
     
   render: ->
     $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())

@@ -41,3 +41,15 @@ class window.TagsCollection extends Backbone.Collection
 
   errorMessage: (attribute, message) ->
     "#{attribute} #{message}"
+    
+  setSelected: (tagId) ->
+    _.each @models, (tag) ->
+      tag.set selected: (tag.id == tagId)
+
+  selected: ->
+    tag = _.find @models, (tag) ->
+      tag.isSelected() == true
+    if _.isEmpty(tag)
+      null
+    else
+      tag

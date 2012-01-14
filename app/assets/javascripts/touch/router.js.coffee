@@ -54,7 +54,7 @@ class window.AppRouter extends Backbone.Router
       return @navigate "#{namespace}/#{candidacies}", true
       
     unless @compareView
-      @compareView = new CompareView(el: "#compare")
+      @compareView = new CompareView(el: "#compare", collection: app.models.election.tags)
       @compareView.render()
       view = new PropositionsView(el: "#compare .table-view")
       view.loadPropositions()
@@ -67,9 +67,8 @@ class window.AppRouter extends Backbone.Router
       _.each election.candidacies.models, (candidacy)->
         candidacy.set selected: true if _.include namespaces, candidacy.namespace()
       # tag
-      tag = _.find election.tags.models, (_tag) ->
-        _tag.namespace() == tagNamespace
-      app.models.tag.set tag.toJSON()
+      _.each election.tags.models, (tag)->
+        tag.set selected: true if tag.namespace() == tagNamespace
     
     app.views.navigation.push 'compare'
     
