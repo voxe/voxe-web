@@ -54,7 +54,7 @@ class window.AppRouter extends Backbone.Router
       return @navigate "#{namespace}/#{candidacies}", true
       
     unless @compareView
-      @compareView = new CompareView(el: "#compare", collection: app.models.election.tags)
+      @compareView = new CompareView(el: "#compare", collection: app.models.election.tags, model: app.models.election)
       @compareView.render()
       view = new PropositionsView(el: "#compare .table-view")
       view.loadPropositions()
