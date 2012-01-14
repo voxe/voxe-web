@@ -56,7 +56,7 @@ class window.AppRouter extends Backbone.Router
     unless @compareView
       @compareView = new CompareView(el: "#compare", collection: app.models.election.tags, model: app.models.election)
       @compareView.render()
-      view = new PropositionsView(el: "#compare .table-view")
+      view = new PropositionsView(el: "#compare .table-view", model: app.models.election, collection: app.collections.propositions)
       view.loadPropositions()
       view.render()
       

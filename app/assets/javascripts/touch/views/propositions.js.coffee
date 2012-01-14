@@ -1,13 +1,10 @@
 class window.PropositionsView extends Backbone.View
   
   tag: ->
-    if app.models.election.tags.selected()
-      tag = app.models.election.tags.selected()
-    else
-      tag = null
+    @model.tags.selected()
   
   candidacies: ->
-    app.models.election.candidacies.selected().toJSON()
+    @model.candidacies.selected().toJSON()
   
   categories: ->
     return [] unless @tag()
@@ -40,7 +37,7 @@ class window.PropositionsView extends Backbone.View
   
   tags_propositions: ->
     hash = {}
-    _.each app.collections.propositions.models, (proposition) ->
+    _.each @collection.models, (proposition) ->
       candidacy = proposition.candidacy()
       _.each proposition.tags(), (tag) ->
         hash[tag.id] = {} unless hash[tag.id]
@@ -49,16 +46,16 @@ class window.PropositionsView extends Backbone.View
     hash
   
   initialize: ->
-    app.collections.propositions.bind "reset", @render, @
-    app.models.election.candidacies.bind "change:selected", @loadPropositions, @
-    app.models.election.tags.bind "change:selected", @loadPropositions, @
+    @collection.bind "reset", @render, @
+    @model.candidacies.bind "change:selected", @loadPropositions, @
+    @model.tags.bind "change:selected", @loadPropositions, @
         
   loadPropositions: ->
     if @candidacies().length != 0 && @tag()?
-      candidacyIds = _.map app.models.election.candidacies.selected().models, (candidate) ->
+      candidacyIds = _.map @model.candidacies.selected().models, (candidate) ->
            candidate.id
       candidacyIds = candidacyIds.join ','
-      app.collections.propositions.fetch data: {electionIds: app.models.election.id, tagIds: @tag().id, candidacyIds: candidacyIds}
+      @collection.fetch data: {electionIds: @model.id, tagIds: @tag().id, candidacyIds: candidacyIds}
     
   render: ->
     $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
