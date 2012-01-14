@@ -39,7 +39,7 @@ class window.AppRouter extends Backbone.Router
     app.views.navigation.push 'tags'
     
     unless @tagsListView
-      @tagsListView = new TagsListView(el: "#tags")
+      @tagsListView = new TagsListView(el: "#tags", model: app.models.election)
       @tagsListView.render()
       
     # set candidacies using url

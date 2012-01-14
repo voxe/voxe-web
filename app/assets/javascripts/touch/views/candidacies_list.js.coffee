@@ -2,7 +2,6 @@ class window.CandidaciesListView extends Backbone.View
   
   initialize: ->
     @model.bind "change", @render, @
-    @candidacyNamespaces = []
       
   events:
     "click a.nav": "backClick"

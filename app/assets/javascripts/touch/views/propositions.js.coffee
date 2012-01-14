@@ -59,6 +59,7 @@ class window.PropositionsView extends Backbone.View
     $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
     unless @scrollView
       @scrollView = new iScroll $('#compare .table-view-container').get(0)
+    setTimeout hideURLbar, 0
     setTimeout @refreshScroll, 0
     
   refreshScroll: =>
