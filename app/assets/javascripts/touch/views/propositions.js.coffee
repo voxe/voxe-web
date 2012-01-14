@@ -4,7 +4,7 @@ class window.PropositionsView extends Backbone.View
     app.models.tag
   
   candidacies: ->
-    app.collections.selectedCandidacies.toJSON()
+    app.models.election.candidacies.selected().toJSON()
   
   categories: ->
     categories = []
@@ -45,12 +45,12 @@ class window.PropositionsView extends Backbone.View
   
   initialize: ->
     app.collections.propositions.bind "reset", @render, @
-    app.collections.selectedCandidacies.bind "reset", @loadPropositions, @
+    app.models.election.candidacies.bind "bind:selected", @loadPropositions, @
     app.models.tag.bind "change", @loadPropositions, @
         
   loadPropositions: ->
     if @candidacies().length != 0 && @tag().id
-      candidacyIds = _.map app.collections.selectedCandidacies.models, (candidate) ->
+      candidacyIds = _.map app.models.election.candidacies.selected().models, (candidate) ->
            candidate.id
       candidacyIds = candidacyIds.join ','
       app.collections.propositions.fetch data: {electionIds: app.models.election.id, tagIds: app.models.tag.id, candidacyIds: candidacyIds}

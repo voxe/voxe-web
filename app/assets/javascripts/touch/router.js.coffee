@@ -20,6 +20,8 @@ class window.AppRouter extends Backbone.Router
     app.views.navigation.push 'elections-list'
   
   candidatesList: (namespace)->
+    app.views.navigation.push 'candidacies-list'
+    
     unless @candidaciesListView
       @candidaciesListView = new CandidaciesListView(el: "#candidacies-list", model: app.models.election)
       @candidaciesListView.render()
@@ -29,12 +31,12 @@ class window.AppRouter extends Backbone.Router
         election.namespace() == namespace
       app.models.election.set id: election.id
     
-    app.views.navigation.push 'candidacies-list'
-    
   tagsList: (namespace, names)->
     # redirect if /
     unless names
       return @navigate namespace, true
+      
+    app.views.navigation.push 'tags'
     
     unless @tagsListView
       @tagsListView = new TagsListView(el: "#tags")
@@ -43,11 +45,8 @@ class window.AppRouter extends Backbone.Router
     # set candidacies using url
     app.models.election.bind 'change', (election)=>
       namespaces = names.split ','
-      candidacies = _.filter election.candidacies.models, (candidacy)->
-        _.include namespaces, candidacy.namespace()
-      app.collections.selectedCandidacies.reset candidacies
-    
-    app.views.navigation.push 'tags'
+      _.each election.candidacies.models, (candidacy)->
+        candidacy.set selected: true if _.include namespaces, candidacy.namespace()
     
   compare: (namespace, candidacies, tagNamespace)->
     # redirect if /
@@ -65,9 +64,8 @@ class window.AppRouter extends Backbone.Router
     app.models.election.bind 'change', (election)=>
       # candidacies
       namespaces = candidacies.split ','
-      candidacies = _.filter election.candidacies.models, (candidacy)->
-        _.include namespaces, candidacy.namespace()
-      app.collections.selectedCandidacies.reset candidacies
+      _.each election.candidacies.models, (candidacy)->
+        candidacy.set selected: true if _.include namespaces, candidacy.namespace()
       # tag
       tag = _.find election.tags.models, (_tag) ->
         _tag.namespace() == tagNamespace

@@ -13,7 +13,6 @@ class window.VoxeElection
     app.collections.tags = app.models.election.tags
     app.collections.candidacies = app.models.election.candidacies
     
-    app.collections.selectedCandidacies = new CandidaciesCollection()
     app.collections.propositions = new PropositionsCollection()
     
     app.views.application = new ApplicationView(el: "#application-view")

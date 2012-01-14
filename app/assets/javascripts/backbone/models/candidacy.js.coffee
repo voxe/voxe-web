@@ -2,6 +2,9 @@ class window.CandidacyModel extends Backbone.Model
   
   # http://voxe.org/platform/models/candidacy
   
+  defaults:
+    "selected": false
+  
   initialize: ->
     @candidates = new CandidatesCollection(@get 'candidates')
 
@@ -10,6 +13,9 @@ class window.CandidacyModel extends Backbone.Model
   
   namespace: ->
     @get 'namespace'
+    
+  isSelected: ->
+    @get('selected') == true
 
   urlRoot: "/api/v1/candidacies"
 

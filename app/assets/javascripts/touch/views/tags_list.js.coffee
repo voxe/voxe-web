@@ -23,9 +23,9 @@ class window.TagsListView extends Backbone.View
       tag.id == tagId
     app.models.tag.set tag.toJSON()
     
-    app.router.navigate "#{app.models.election.namespace()}/#{app.collections.selectedCandidacies.toParam()}/#{tag.namespace()}", true
+    app.router.navigate "#{app.models.election.namespace()}/#{app.models.election.candidacies.toParam()}/#{tag.namespace()}", true
     
   render: ->
     $(@el).html Mustache.to_html($('#tags-list-template').html(), tags: @tags())
+    new iScroll $('.table-view-container', @el).get(0)
     @
-    # new iScroll $('.table-view-container', @el).get(0)

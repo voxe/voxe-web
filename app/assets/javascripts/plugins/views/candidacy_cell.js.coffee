@@ -23,4 +23,3 @@ class window.CandidacyCellView extends Backbone.View
   render: ->
     $(@el).html Mustache.to_html($('#candidacy-cell-template').html(), candidacy: @model.toJSON())
     @
-    
