@@ -1,4 +1,3 @@
 object false
-child @candidates do
-  attributes :id, :firstName, :lastName
-end
+collection @candidates
+attributes :id, :firstName, :lastName
