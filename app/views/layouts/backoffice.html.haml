@@ -10,17 +10,6 @@
       .fill
         .container
           = link_to "The Voxe Office", admin_path, class: "brand"
-          %ul.nav
-            %li{class: active_menu('users')}
-              = link_to "Users", admin_users_path, :class => 'backbone-link', 'data-path' => 'countries'
-            %li{class: active_menu('elections')}
-              = link_to "Elections", admin_elections_path
-            %li{class: active_menu('candidates')}
-              = link_to "Candidates", admin_candidates_path
-            %li{class: active_menu('tags')}
-              = link_to "Tags", admin_tags_path
-            %li{class: active_menu('propositions')}
-              = link_to "Propositions", admin_propositions_path
           %ul.nav.secondary-nav
             %li
               = link_to "Logged as #{current_user.email}", '#'

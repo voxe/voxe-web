@@ -1,5 +1,3 @@
-%li.contributors
-  %a{href: "#elections/#{@election.id}/contributors"} Contributors
 %li.candidacies
   %a{href: "#elections/#{@election.id}/candidacies"} Candidacies
 %li.tags
