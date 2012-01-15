@@ -1,0 +1,22 @@
+.page-header
+  %h1 Embed
+
+%p Add Voxe to your website. Only one line of code.
+
+.page-header
+  %h2
+    Get the code
+    
+%p We recommend a minimum width of 500 pixels and a minimum height of 480px.
+    
+%p
+  %pre
+    :escaped
+      <iframe frameborder='0' width='600px' height='480px' src='http://voxe.org/embed/elections/#{Election.first.id}'></iframe>
+
+.page-header    
+  %h2
+    Preview
+    
+%p
+  %iframe{src: embed_election_url(Election.first.id), width: '600px', height: '550px', frameborder: '0'}

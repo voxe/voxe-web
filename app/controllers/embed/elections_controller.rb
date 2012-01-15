@@ -1,8 +1,6 @@
-class Plugins::CompareController < ApplicationController
+class Embed::ElectionsController < ApplicationController
   
-  layout false
-  
-  def index
+  def show
     begin
       @election = Election.find params[:id]
     rescue Mongoid::Errors::DocumentNotFound

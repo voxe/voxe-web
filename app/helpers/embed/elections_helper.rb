@@ -1,0 +1,2 @@
+module Embed::ElectionsHelper
+end

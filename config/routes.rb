@@ -98,9 +98,8 @@ Joinplato::Application.routes.draw do
   # end
   
   # web-app
-  
-  namespace :plugins do
-    resources :compare, :only => :index
+  namespace :embed do
+    resources :elections, only: :show
   end
   
   # api doc
@@ -128,7 +127,7 @@ Joinplato::Application.routes.draw do
         get :organization
       end
     end
-    resources :plugins, :only => :index do
+    resources :embed, :only => :index do
       collection do
         get :button
         get :bookmarklet

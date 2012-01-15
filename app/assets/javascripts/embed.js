@@ -7,6 +7,6 @@
 
 //= require_tree './backbone/models'
 //= require_tree './backbone/collections'
-//= require_tree './plugins/views/'
+//= require_tree './embed/views/'
 
-//= require 'plugins/election'
+//= require 'embed/election'

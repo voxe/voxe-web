@@ -1,4 +1,4 @@
-class Platform::PluginsController < ApplicationController
+class Platform::EmbedController < ApplicationController
   
   layout 'platform'
   
