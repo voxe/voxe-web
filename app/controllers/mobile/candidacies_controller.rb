@@ -5,7 +5,7 @@ class Mobile::CandidaciesController < Mobile::ApplicationController
   def create
     @candidacies = Candidacy.find params[:candidacies]
     
-    redirect_to tags_path @election.namespace, @candidacies.collect { |c| c.id }.join(',')
+    redirect_to tags_path @election.namespace, @candidacies.collect { |c| c.namespace }.join(',')
   end
   
 end

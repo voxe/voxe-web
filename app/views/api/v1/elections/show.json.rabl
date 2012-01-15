@@ -8,10 +8,7 @@ child @election do
   #   attributes :id, :name
   # end
   child :candidacies do
-    attribute :id, :published
-    node :namespace do |candidacy|
-      candidacy.candidates[0].namespace
-    end
+    attribute :id, :published, :namespace
     child :organization, :if => lambda { |candidacy| !candidacy.organization.blank? } do
       attribute :id, :name
     end

@@ -12,7 +12,9 @@ class Mobile::ElectionsController < Mobile::ApplicationController
   def compare
     # candidacies
     begin
-      @candidacies = Candidacy.find params[:candidacies].split(',')
+      @candidacies = @election.candidacies.select do |candidacy|
+        params[:candidacies].split(',').include? candidacy.namespace
+      end
     rescue
       return render text: "invalid candidacies"
     end
