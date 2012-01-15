@@ -86,12 +86,16 @@ Joinplato::Application.routes.draw do
   end
   
   # webviews
-  resources :webviews, :only => :index do
-    collection do
-      get :compare
-      get :proposition
-    end
+  namespace :webviews, format: "touch" do
+    resources :comparisons, only: :index
+    resources :propositions, only: :show
   end
+  # resources :webviews, :only => :index do
+  #   collection do
+  #     get :compare
+  #     get :proposition
+  #   end
+  # end
   
   # web-app
   

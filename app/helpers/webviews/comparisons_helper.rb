@@ -1,0 +1,2 @@
+module Webviews::ComparisonsHelper
+end

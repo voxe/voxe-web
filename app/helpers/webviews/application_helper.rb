@@ -1,0 +1,2 @@
+module Webviews::ApplicationHelper
+end

@@ -1,14 +1,10 @@
-class WebviewsController < ApplicationController
-  
-  # touch
-  before_filter :set_format
+class Webviews::ComparisonsController < Webviews::ApplicationController
   
   def index
-  end
-  
-  # params electionId, candidacyIds, tagId
-  def compare
     # election
+    if params[:electionId].blank?
+      return render text: "params electionId can't be blank"
+    end
     begin
       @election = Election.find params[:electionId]
     rescue Mongoid::Errors::DocumentNotFound
@@ -16,6 +12,9 @@ class WebviewsController < ApplicationController
     end
     
     # candidates
+    if params[:candidacyIds].blank?
+      return render text: "params candidacyIds can't be blank"
+    end
     begin
       @candidacies = Candidacy.find params[:candidacyIds].split(',')
     rescue Mongoid::Errors::DocumentNotFound
@@ -23,6 +22,9 @@ class WebviewsController < ApplicationController
     end
     
     # tag
+    if params[:tagId].blank?
+      return render text: "params tagId can't be blank"
+    end
     begin
       @tag = Tag.find params[:tagId]
     rescue Mongoid::Errors::DocumentNotFound
@@ -47,18 +49,5 @@ class WebviewsController < ApplicationController
       end
     end
   end
-  
-  def proposition
-    begin
-      @proposition = Proposition.find params[:propositionId]
-    rescue Mongoid::Errors::DocumentNotFound
-      return render text: "invalid propositionId"
-    end
-  end
-  
-  private
-    def set_format
-      request.format = :touch
-    end
   
 end

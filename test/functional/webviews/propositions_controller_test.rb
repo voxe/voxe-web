@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WebviewsControllerTest < ActionController::TestCase
+class Webviews::PropositionsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

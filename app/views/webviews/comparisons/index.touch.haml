@@ -16,7 +16,7 @@
                   - unless candidacy_propositions.blank?
                     - candidacy_propositions[0..1].each do |proposition|
                       .proposition
-                        = link_to truncate(proposition.text, length: 140), proposition_webviews_url(propositionId: proposition.id)
+                        = link_to truncate(proposition.text, length: 140), webviews_proposition_path(proposition.id)
                     - if candidacy_propositions.count > 2
                       .view-more
                         %a View More

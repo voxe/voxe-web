@@ -1,0 +1,2 @@
+module Webviews::ElectionsHelper
+end
