@@ -59,3 +59,15 @@ class window.ElectionModel extends Backbone.Model
           election.tags.add tag
       error: (response) ->
         election.trigger 'error', election, response
+
+  addCandidate: (candidate) ->
+    election = @
+    data = {candidateIds: candidate.id}
+    $.ajax
+      type: 'POST'
+      url: "#{@url()}/addcandidacy"
+      data: $.param(data)
+      success: (response) ->
+        election.fetch()
+      error: (response) ->
+        election.trigger 'error', election, response

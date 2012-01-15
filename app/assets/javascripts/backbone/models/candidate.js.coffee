@@ -10,3 +10,9 @@ class window.CandidateModel extends Backbone.Model
 
   toString: ->
     "#{@get 'firstName'} #{@get 'lastName'}"
+
+  urlRoot:
+    "/api/v1/candidates/"
+
+  parse: (response) ->
+    response.response.candidate
