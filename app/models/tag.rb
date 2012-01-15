@@ -22,7 +22,7 @@ class Tag
   end
   
   def icon_name
-    ".jpg"
+    ".png"
   end
 
   private
