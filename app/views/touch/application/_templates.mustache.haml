@@ -82,6 +82,8 @@
 
 %script#propositions-template{type: "text/html"}
   :plain
+    {{#loading}}<div class="ajax-loader">#{image_tag('touch/ajax-loader.gif')}</div>{{/loading}}
+    
     {{#categories}}
       <div class="category">
         <div class="category-name">{{name}}</div>

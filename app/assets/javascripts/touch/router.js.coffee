@@ -56,10 +56,10 @@ class window.AppRouter extends Backbone.Router
     unless @compareView
       @compareView = new CompareView(el: "#compare", collection: app.models.election.tags, model: app.models.election)
       @compareView.render()
-      view = new PropositionsView(el: "#compare .table-view", model: app.models.election, collection: app.collections.propositions)
-      view.loadPropositions()
-      view.render()
-      
+      # propositions
+      @propositionsView = new PropositionsView(el: "#compare .table-view", model: app.models.election, collection: app.collections.propositions)
+      @propositionsView.render()
+            
     # set candidacies, tag using url
     app.models.election.bind 'change', (election)=>
       # candidacies
@@ -70,6 +70,9 @@ class window.AppRouter extends Backbone.Router
       _.each election.tags.models, (tag)->
         tag.set selected: true if tag.namespace() == tagNamespace
     
+      @propositionsView.loadPropositions()
+      
+    @propositionsView.loadPropositions()
     app.views.navigation.push 'compare'
     
   share: ->

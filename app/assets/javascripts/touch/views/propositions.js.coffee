@@ -5,9 +5,13 @@ class window.PropositionsView extends Backbone.View
   
   candidacies: ->
     @model.candidacies.selected().toJSON()
-  
+    
+  loading: ->
+    return true if @collection.length == 0
+    false
+      
   categories: ->
-    return [] unless @tag()
+    return [] if !@tag() || @collection.length == 0
     
     categories = []
     candidacies = @candidacies()
@@ -47,18 +51,19 @@ class window.PropositionsView extends Backbone.View
   
   initialize: ->
     @collection.bind "reset", @render, @
-    @model.candidacies.bind "change:selected", @loadPropositions, @
-    @model.tags.bind "change:selected", @loadPropositions, @
+    # @model.candidacies.bind "change:selected", @loadPropositions, @
+    # @model.tags.bind "change:selected", @loadPropositions, @
         
   loadPropositions: ->
     if @candidacies().length != 0 && @tag()?
+      @collection.reset ''
       candidacyIds = _.map @model.candidacies.selected().models, (candidate) ->
            candidate.id
       candidacyIds = candidacyIds.join ','
       @collection.fetch data: {electionIds: @model.id, tagIds: @tag().id, candidacyIds: candidacyIds}
     
   render: ->
-    $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
+    $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories(), loading: @loading())
     unless @scrollView
       @scrollView = new iScroll $('#compare .table-view-container').get(0)
     setTimeout hideURLbar, 0
