@@ -1,13 +1,5 @@
 class window.PropositionsCollection extends Backbone.Collection
   
-  initialize: ->
-    # if app?
-    #   app.models.election.bind 'change', (election) =>
-    #    @electionId = election.id
-    # 
-    #   app.models.tag.bind 'change', (tag) =>
-    #     @tagId = tag.id
-  
   model: PropositionModel
   
   url: ->
