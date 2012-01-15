@@ -1,5 +1,9 @@
 class Web::ApplicationController < ApplicationController
   
+  def ux
+    render layout: false
+  end
+  
   private
     def set_election
       @election = Election.first conditions: {namespace: params[:namespace]}

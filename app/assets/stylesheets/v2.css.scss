@@ -1,0 +1,93 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #E7EBF2;
+}
+
+#header {
+  position: fixed;
+  z-index: 100;
+  padding: 5px 0 8px 0;
+  background-color: #eee;
+  width: 100%;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .52);
+  font-weight: bold;
+  text-align: center;
+  #icon {
+    float: left;
+  }
+}
+
+.page-container {
+  width: 860px;
+  margin: 0 auto;
+}
+
+#page {
+  padding-top: 50px;
+  .container {
+    clear: both;
+    overflow: auto;
+  }
+  .theme {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    div {
+      width: 300px;
+      background-color: white;
+      padding: 10px;
+      height: 80px;
+    }
+  }
+  .west-side, .east-side {
+    width: 420px;
+  }
+  .west-side {
+    text-align: right;
+    float: left;
+  }
+  .east-side {
+    float: right;
+    text-align: left;
+  }
+  .section {
+    position: relative;
+    z-index: 2;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+    clear: both;
+    span {
+      background-color: #A9B5D3;
+      padding: 5px 10px;
+      border-radius: 2px;
+      font-weight: bold;
+      color: white;
+    }
+  }
+  .candidacy {
+    img {
+      border-radius: 2px;
+      border: 1px solid #C4CDE0;
+    }
+  }
+  .proposition {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #C4CDE0;
+    margin: 5px 0;
+    background-color: white;
+  }
+}
+
+#ring {
+  border-right: 2px dashed #C3CCDF;
+  position: fixed;
+  margin-left: 50%;
+  height: 100%;
+}

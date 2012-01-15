@@ -163,10 +163,13 @@ Joinplato::Application.routes.draw do
   
   # web
   scope :module => "web", format: "html" do
+    match 'ux' => 'application#ux'
+    
     match ':namespace/:candidacies/:tag' => 'elections#compare', :as => :compare
     
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election
+    
     
     root to: 'elections#index'
   end

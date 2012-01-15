@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %title Voxe
+    = stylesheet_link_tag "v2"
+    = javascript_include_tag "v2"
+  %body
+    #header
+      .page-container
+        = image_tag 'icons/32.png', valign: "middle"
+        voxe
+        
+    #page
+      #ring
+            
+      .page-container
+        - 3.times do
+          .container
+            .section
+              = image_tag "http://localhost:3000/images/tags/10-culture-et-medias_64.png"
+              
+            .section
+              %span Justice, Sécurité et Défense
+          
+            .west-side
+              - 3.times do
+                .proposition Réformer la carte judiciaire autour d’une cour d’appel par région et d’un tribunal de grande instance par département. Moins de tribunaux d’instance, mais des tribunaux plus importants.
+          
+            .east-side
+              - 3.times do
+                .proposition Réformer la carte judiciaire autour d’une cour d’appel par région et d’un tribunal de grande instance par département. Moins de tribunaux d’instance, mais des tribunaux plus importants.
