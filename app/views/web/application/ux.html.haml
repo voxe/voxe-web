@@ -5,27 +5,73 @@
     = stylesheet_link_tag "v2"
     = javascript_include_tag "v2"
   %body
+    #footer
+      .footer-container
+        #logo
+          = image_tag 'icons/32.png', valign: "middle"
+          voxe
+        #links
+          about - project
+          
     #header
-      .page-container
-        = image_tag 'icons/32.png', valign: "middle"
-        voxe
+      elections - candidats - themes - comparer
         
     #page
       #ring
+      
             
       .page-container
-        - 3.times do
+        .section
+          %span Quelle election ?
+          
+        .elections
+          - 2.times do
+            .election
+              .year= link_to '2007'
+              .facepile
+                - 12.times do
+                  = image_tag "http://localhost:3000/images/candidates/segolene-royal.png", size: "30x30"
+          
+        #candidacies
+          .section
+            %span Quels candidats ?
+            
+          .candidacies
+            .title 2012
+            - 12.times do
+              .item
+                .image= image_tag "http://localhost:3000/images/candidates/segolene-royal.png", size: "50x50"
+                .name
+                  Segolene Royal
+          
+        #themes
+          .section
+            %span Themes
+          
+          .themes
+            - 12.times do
+              .theme
+                .icon
+                  = image_tag "http://localhost:3000/images/tags/10-culture-et-medias_64.png", size: "30x30"
+                .name
+                  Justice, Sécurité et Défense
+      
+        
+        - 3.times do  
           .container
-            .section
-              = image_tag "http://localhost:3000/images/tags/10-culture-et-medias_64.png"
-              
+            .section.image
+              = image_tag "http://localhost:3000/images/tags/10-culture-et-medias_64.png", size: "40x40"
+            
             .section
               %span Justice, Sécurité et Défense
-          
+              
+          .container
             .west-side
               - 3.times do
-                .proposition Réformer la carte judiciaire autour d’une cour d’appel par région et d’un tribunal de grande instance par département. Moins de tribunaux d’instance, mais des tribunaux plus importants.
-          
+                .proposition
+                  .text Réformer la carte judiciaire autour d’une cour d’appel par région et d’un tribunal de grande instance par département. Moins de tribunaux d’instance, mais des tribunaux plus importants.
+        
             .east-side
               - 3.times do
-                .proposition Réformer la carte judiciaire autour d’une cour d’appel par région et d’un tribunal de grande instance par département. Moins de tribunaux d’instance, mais des tribunaux plus importants.
+                .proposition
+                  .text Réformer la carte judiciaire autour d’une cour d’appel par région et d’un tribunal de grande instance par département. Moins de tribunaux d’instance, mais des tribunaux plus importants.

@@ -5,7 +5,37 @@ html, body {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #F0F1F2;
   background-color: #E7EBF2;
+  background: whiteSmoke;
+  /*background-color: #FEFBF3;*/
+  height: 3000px;
+}
+
+#candidacies, #themes {
+  display: none;
+  clear: both;
+}
+
+#footer {
+  background-color: #eee;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .52);
+  font-weight: 300;
+  color: #292929;
+  #logo {
+    float: left;
+  }
+  #links {
+    float: right;
+  }
+  .footer-container {
+    padding: 10px;
+    overflow: auto;
+  }
 }
 
 #header {
@@ -15,10 +45,30 @@ body {
   background-color: #eee;
   width: 100%;
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .52);
-  font-weight: bold;
+  font-weight: 300;
+  color: #292929;
   text-align: center;
   #icon {
     float: left;
+  }
+}
+
+.container {
+  display: none;
+}
+
+.select {
+  width: 580px;
+  margin: 20px auto;
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  .container {
+    padding: 10px;
+    img {
+      border-radius: 1px;
+      margin: 1px 5px;
+    }
   }
 }
 
@@ -33,15 +83,30 @@ body {
     clear: both;
     overflow: auto;
   }
-  .theme {
-    text-align: center;
+  .themes {
     position: relative;
     z-index: 2;
-    div {
-      width: 300px;
-      background-color: white;
+    cursor: pointer;
+    width: 440px;
+    margin: 20px auto;
+    border: 1px solid #C4CDE0;
+    padding: 10px;
+    background-color: white;
+    overflow: auto;
+    .theme {
+      width: 200px;
+      float: left;
+      overflow: auto;
       padding: 10px;
-      height: 80px;
+      .icon {
+        float: left;
+      }
+      .name {
+        font-weight: 300;
+        margin-left: 44px;
+        border-bottom: 2px solid #E5E5E5;
+        padding: 0 0 5px 0;
+      }
     }
   }
   .west-side, .east-side {
@@ -50,15 +115,105 @@ body {
   .west-side {
     text-align: right;
     float: left;
+    .candidacy {
+      float: right;
+      .image {
+        float: right;
+      }
+      .name {
+        margin: 15px 60px 0 0;
+      }
+    }
   }
   .east-side {
     float: right;
     text-align: left;
+    .candidacy {
+      float: left;
+    }
+  }
+  .elections {
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 0;
+    .election {
+      cursor: pointer;
+      width: 282px;
+      margin: 10px auto 0 auto;
+      border: 1px solid #C4CDE0;
+      padding: 10px;
+      background-color: white;
+      .year {
+        border-bottom: 2px solid #E5E5E5;
+        padding: 0 0 3px 0;
+      }
+      .facepile {
+        margin: 8px 0 0 0;
+        opacity: 0.8;
+        img {
+          border-radius: 2px; 
+        }
+      }
+      a {
+        color: #3B5998;
+        text-decoration: none;
+      }
+
+    }
+    .election:hover {
+      border-color: #97A4C4;
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+  .candidacies {
+    position: relative;
+    z-index: 2;
+    width: 640px;
+    font-size: 14px;
+    border: 1px solid #C4CDE0;
+    margin: 20px auto;
+    background-color: white;
+    overflow: auto;
+    padding: 5px 0;
+    .title {
+      font-size: 54px;
+      font-weight: bold;
+      letter-spacing: +2px;
+      text-align: center;
+      margin: 5px 0;
+      color: #3B5998;
+    }
+    .item {
+      cursor: pointer;
+      width: 180px;
+      float: left;
+      margin: 5px;
+      padding: 5px 10px;
+      background-color: #F6F7F9;
+      border: 1px solid #F6F7F9;
+      .image {
+        float: left;
+        img {
+          border-radius: 1px;
+        }
+      }
+      .name {
+        margin: 5px 0 0 60px;
+        font-weight: 300;
+      }
+    }
+    .item:hover {
+      border: 1px solid #D3DAE8;
+    }
   }
   .section {
     position: relative;
     z-index: 2;
-    margin: 10px 0;
+    margin: 30px 0 25px 0;
     width: 100%;
     text-align: center;
     clear: both;
@@ -68,6 +223,17 @@ body {
       border-radius: 2px;
       font-weight: bold;
       color: white;
+      font-size: 18px;      
+    }
+  }
+  .section.image {
+    position: relative;
+    width: 60px;
+    margin: 0 auto;
+    background-color: whiteSmoke;
+    border-radius: 30px;
+    img {
+      padding: 10px 0;
     }
   }
   .candidacy {
@@ -76,12 +242,22 @@ body {
       border: 1px solid #C4CDE0;
     }
   }
+  .candidacy {
+    border-radius: 2px;
+    border: 1px solid #C4CDE0;
+    background-color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin: 2px 0;
+    width: 200px;
+  }
   .proposition {
     font-size: 14px;
     padding: 10px;
     border: 1px solid #C4CDE0;
     margin: 5px 0;
     background-color: white;
+    line-height: 1.466;
   }
 }
 
