@@ -55,4 +55,13 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
     json = JSON.parse(@response.body)
     assert json['response']['elections'].present?
   end
+
+  test "should add a candidacy" do
+    candidate = FactoryGirl.create(:candidate)
+    assert_difference("Candidacy.count") do
+      post :addcandidacy, id: @election.id.to_s, candidateIds: candidate.id.to_s, format: 'json'
+    end
+
+    assert_response :success
+  end
 end

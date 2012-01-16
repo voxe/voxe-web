@@ -41,6 +41,7 @@ Joinplato::Application.routes.draw do
       resources :elections, except: :index do
         member do
           post :addtag
+          post :addcandidacy
         end
         collection do
           get :search

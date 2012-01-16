@@ -141,3 +141,28 @@
 
 %p
   %a.btn.small Try
+
+
+.page-header
+  %h2
+    %small POST
+    \/elections/{id}/addcandidacy
+
+%p Add a candidacy on an election
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td candidateIds
+      %td 4f0a16e356cc600ad6000002,4f0a16e356cc600ad6000003
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/elections/4ed1cb0203ad190006000001/addcandidacy
+
+%p
+  %a.btn.small Try
+

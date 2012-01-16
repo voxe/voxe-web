@@ -43,4 +43,15 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     end
   end
 
+  # POST /api/v1/elections/1/addcandidacy
+  def addcandidacy
+    candidates = params[:candidateIds].split(',').collect {|id| Candidate.find(id) }
+    @election.candidacies.build candidates: candidates
+
+    if @election.save
+        render 'api/v1/elections/show.rabl', status: :created
+      else
+        render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
 end
