@@ -5,6 +5,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     sign_in FactoryGirl.create(:admin)
 
     @election = FactoryGirl.create(:election)
+    @proposition = @election.candidacies.first.propositions.first
   end
 
   test "should search some propositions" do
@@ -37,6 +38,22 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     assert_response :success
 
     assert assigns(:proposition).tags.size >= 1
+  end
+
+  test "should update text and tags of a proposition" do
+    new_tag_id = Tag.last.id.to_s
+    new_text = "Here we are: a new proposition !"
+    assert_no_difference('Proposition.count') do
+      put :update, id: @proposition.id.to_s, format: 'json', proposition: {
+        tagIds: new_tag_id,
+        text: new_text
+      }
+    end
+
+    assert_response :success
+    assert_equal 1, assigns(:proposition).tags.count
+    assert_equal new_tag_id, assigns(:proposition).tags.first.id.to_s
+    assert_equal new_text, assigns(:proposition).text
   end
 
 end
