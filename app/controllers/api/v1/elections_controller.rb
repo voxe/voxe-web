@@ -6,7 +6,10 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # GET /api/v1/elections/search
   def search
-    @elections = Election.where(name: /#{params[:name]}/i)
+    unless params[:published] == 'all'
+      @elections = @elections.where(published: true)
+    end
+    @elections = @elections.where(name: /#{params[:name]}/i)
   end
 
   # POST /api/v1/elections
