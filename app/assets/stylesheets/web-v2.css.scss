@@ -1,0 +1,261 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: whiteSmoke;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+#empire-state-building {
+  top: 0;
+  position: fixed;
+  z-index: 100;
+  background-color: #eee;
+  width: 100%;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .52);
+  font-weight: 300;
+  color: #292929;
+  text-align: center;
+  height: 50px;
+  #top {
+    margin: 5px 0 0 0;
+  }
+}
+
+#high-line {
+  border-right: 2px dashed #C3CCDF;
+  position: fixed;
+  margin-left: 50%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+#menu-container {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  #menu {
+    width: 200px;
+    position: relative;
+    z-index: 3;
+    margin: 30px 0 0 50px;
+    li {
+      display: none;
+      cursor: pointer;
+      border-left: #C8D1E2 5px solid;
+      padding: 5px 10px;
+      font-weight: bold;
+      color: #627AAD;
+      font-size: 14px;
+      margin: 3px 0;
+    }
+    li.active {
+      border-left: #A9B5D3 5px solid;
+    }
+    li:hover {
+      border-left: #A9B5D3 5px solid;
+    }
+    li.election {
+      font-weight: lighter;
+      font-size: 24px;
+    }
+    li.candidacies {
+      img {
+        border-radius: 2px;
+      }
+    }
+    li.theme {
+      font-size: 18px;
+    }
+    li.section {
+      font-size: 16px;
+    }
+  }
+}
+
+.page-container {
+  width: 980px;
+  margin: 30px auto 0 auto;
+}
+
+#pages-container {
+  padding-top: 50px;
+  position: relative;
+  width: 100%;
+  
+  #pages {
+    overflow: hidden;
+    position: relative;
+    .page {
+      /*display: none;*/
+    }
+  }
+}
+
+#elections {
+  .election {
+    cursor: pointer;
+    width: 302px;
+    margin: 10px auto 0 auto;
+    border: 1px solid #C4CDE0;
+    padding: 10px;
+    background-color: white;
+    .name {
+      border-bottom: 2px solid #E5E5E5;
+      padding: 0 0 3px 0;
+      font-weight: 300;
+      font-size: 18px;
+    }
+    .facepile {
+      margin: 8px 0 0 0;
+      img {
+      }
+    }
+    a {
+      color: #3B5998;
+      text-decoration: none;
+    }
+
+  }
+  .election:hover {
+    border-color: #97A4C4;
+  }
+}
+
+#candidacies-list-container {
+  width: 640px;
+  margin: 20px auto;
+  #candidacies-list {
+    position: relative;
+    border: 1px solid #C4CDE0;
+    /*top: -500px;*/
+    background-color: white;
+    overflow: auto;
+    padding: 5px 0;
+  }
+  .candidacy {
+    cursor: pointer;
+    width: 180px;
+    float: left;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #F6F7F9;
+    border: 1px solid #F6F7F9;
+    .image {
+      float: left;
+      img {
+        border-radius: 1px;
+      }
+    }
+    .name {
+      margin: 5px 0 0 60px;
+      font-weight: 300;
+    }
+  }
+  .candidacy:hover {
+    border: 1px solid #D3DAE8;
+  }
+  .candidacy.selected {
+    .name {
+      font-weight: bold;
+    }
+  }
+}
+
+#tags-list {
+  border: 1px solid #C4CDE0;
+  background-color: white;
+  overflow: auto;
+  width: 564px;
+  margin: 20px auto;
+  li {
+    cursor: pointer;
+    margin: 5px;
+    padding: 8px 10px 0 10px;
+    width: 250px;
+    height: 40px;
+    float: left;
+    border: 1px solid #F6F7F9;
+    background-color: #F6F7F9;
+    .icon {
+      float: left;
+    }
+    .name {
+      font-weight: 300;
+      margin-left: 44px;
+      padding: 0 0 5px 0;
+    }
+  }
+  li:hover {
+    border: 1px solid #D3DAE8;
+  }
+}
+
+#propositions-container {
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 4;
+  .tag-image {
+    clear: both;
+    width: 90px;
+    margin: 0 auto;
+    background-color: whiteSmoke;
+    border-radius: 30px;
+    text-align: center;
+    img {
+      padding: 0 0;
+    }
+  }
+  .tag {
+    position: relative;
+    z-index: 2;
+    margin: 30px 0;
+    width: 100%;
+    text-align: center;
+    clear: both;
+    span {
+      background-color: #A9B5D3;
+      padding: 5px 10px;
+      border-radius: 2px;
+      font-weight: bold;
+      color: white;
+    }
+  }
+  .propositions {
+    overflow: auto;
+  }
+  .propositions > div:first-of-type {
+    text-align: right;
+    float: left;
+  }
+  .propositions > div {
+    width: 280px;
+    float: right;
+    text-align: left;
+  }
+  .proposition {
+    font-size: 13px;
+    padding: 10px;
+    border: 1px solid #C4CDE0;
+    margin: 5px 0;
+    background-color: white;
+    line-height: 1.466;
+  }
+}

@@ -171,7 +171,7 @@ Joinplato::Application.routes.draw do
     match ':namespace' => 'elections#show', :as => :election
     
     
-    root to: 'elections#index'
+    root to: 'application#index'
   end
   
 end

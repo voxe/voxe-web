@@ -30,8 +30,9 @@ class window.ElectionModel extends Backbone.Model
     object
   
   parse: (response)->
-    @candidacies.reset response.response.election.candidacies
-    @tags.reset response.response.election.tags
+    # deleted because the bind "change:candidacies" should take care of this
+    # @candidacies.reset response.response.election.candidacies
+    # @tags.reset response.response.election.tags
     response.response.election
 
   # {namespace: ["is already taken"]}

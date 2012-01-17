@@ -1,6 +1,6 @@
 class Web::ApplicationController < ApplicationController
   
-  def ux
+  def index
     render layout: false
   end
   

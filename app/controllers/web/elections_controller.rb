@@ -3,8 +3,9 @@ class Web::ElectionsController < Web::ApplicationController
   before_filter :set_election, except: :index
   
   def index 
-    @elections = Election.all
-    redirect_to @elections.first
+    # @elections = Election.all
+    # redirect_to @elections.first
+    render 'v2'
   end
   
   def show
