@@ -43,7 +43,7 @@ Joinplato::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( embed.css embed.js touch.css touch.js webviews.css webviews.js web.css web.js platform.css mobile.css )
+  config.assets.precompile += %w( web-v2.js web-v2.css embed.css embed.js touch.css touch.js webviews.css webviews.js web.css web.js platform.css mobile.css )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
