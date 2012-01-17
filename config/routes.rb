@@ -10,7 +10,7 @@ class TouchConstraint
   
   def matches? request
     # TODO: add more UserAgents
-    request.user_agent.to_s.downcase =~ /iphone|android|ipad/
+    request.user_agent.to_s.downcase =~ /iphone|android/
   end
   
 end
