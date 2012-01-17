@@ -9,6 +9,7 @@ class Web::ElectionsController < Web::ApplicationController
   end
   
   def show
+    return redirect_to root_path
     respond_to do |format|
       format.html do
         @json = render_to_string('/api/v1/elections/show.json', layout: false)
