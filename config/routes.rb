@@ -1,8 +1,7 @@
 class MobileConstraint
   
   def matches? request
-    # TODO: add more UserAgents
-    request.user_agent.to_s.downcase =~ /blackberry/
+    request.user_agent.to_s.downcase =~ /blackberry|nokia|ericsson|webos/
   end
   
 end
