@@ -13,18 +13,8 @@
     = stylesheet_link_tag "touch"
     = javascript_include_tag "touch"
     = csrf_meta_tags
-    - if Rails.env.production?
-      :javascript
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-27488393-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-
+    = render "layouts/partials/google_analytics"
+    
   %body{:class => "#{touch_device}"}
     = render 'layouts/partials/facebook.html'
     = yield
