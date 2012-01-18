@@ -18,7 +18,7 @@ class Tag
   end
   
   def icon_sizes
-    [32, 64, 256]
+    [32, 64]
   end
   
   def icon_name
