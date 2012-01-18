@@ -3,7 +3,7 @@ class Mobile::ElectionsController < Mobile::ApplicationController
   before_filter :set_election, except: :index
   
   def index
-    @elections = Election.all
+    @elections = Election.where published: true
   end
   
   def show
