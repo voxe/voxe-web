@@ -9,7 +9,7 @@ class Backoffice.Views.ElectionsView extends Backbone.View
     @elections = new ElectionsCollection()
     @elections.bind 'reset', @render, @
     @elections.bind 'add', @render, @
-    @elections.fetch()
+    @elections.fetch({data: published: 'all'})
     @flash = {}
 
   render: ->
