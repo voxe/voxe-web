@@ -28,6 +28,24 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
     $(@el).html @template @
     $('form.add-proposition', @el).hide()
     $(@el).button()
+
+    view = @
+    $('.proposition-text').editable(
+      (value, setting) ->
+        console.log @
+        console.log value
+        console.log setting
+
+        propositionId = $(@).parent().data().propositionId
+        proposition = view.propositions.find (proposition) -> proposition.id == propositionId
+        console.log proposition
+        console.log proposition.save {}, data: $.param(proposition: {text: value})
+
+        return value
+      type: 'textarea'
+      submit: 'OK'
+    )
+
     @falsh = {}
 
   showPropositionForm: (event) ->

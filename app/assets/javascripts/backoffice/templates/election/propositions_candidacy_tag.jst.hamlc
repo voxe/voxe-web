@@ -17,6 +17,7 @@
             %table.propositions
               - for proposition in propositions
                 %tr
-                  %td= proposition.get 'text'
+                  %td{'data-proposition-id': proposition.id}
+                    .proposition-text= proposition.get 'text'
           - else
             %p Pas encore de propositions dans cette section

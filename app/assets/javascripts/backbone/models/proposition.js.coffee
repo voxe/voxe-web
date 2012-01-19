@@ -17,5 +17,8 @@ class window.PropositionModel extends Backbone.Model
   text: ->
     @get "text"
 
+  url: ->
+    "/api/v1/propositions/#{@id}"
+
   parse: (response) ->
     response.response.proposition
