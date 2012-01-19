@@ -56,4 +56,11 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     assert_equal new_text, assigns(:proposition).text
   end
 
+  test "should delete a proposition" do
+    assert_difference('Proposition.count', -1) do
+      delete :destroy, id: @proposition.id.to_s
+    end
+    assert_response :success
+  end
+
 end

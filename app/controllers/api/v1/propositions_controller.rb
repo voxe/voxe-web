@@ -51,4 +51,10 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     end
   end
 
+  # DELETE /api/v1/propositions/1
+  def destroy
+    @proposition.destroy
+    head :ok
+  end
+
 end
