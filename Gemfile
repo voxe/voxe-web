@@ -90,3 +90,6 @@ gem "settingslogic"
 
 # New relic to track our performances
 gem 'newrelic_rpm'
+
+# Caching with Memcache
+gem 'dalli'

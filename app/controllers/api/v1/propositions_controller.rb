@@ -27,7 +27,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     
     # pagination
     skip = params[:offset] || 0
-    @propositions = Proposition.where(conditions).limit(500).skip(skip)
+    @propositions = Proposition.includes(:candidacy).where(conditions).limit(500).skip(skip)
   end
   
   # GET /api/v1/propositions
