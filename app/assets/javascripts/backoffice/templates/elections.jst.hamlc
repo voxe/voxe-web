@@ -2,9 +2,15 @@
 
 %table.elections
   - for election in @elections.models
-    %tr
+    %tr{'data-election-id': election.id}
       %td
         %a{href: "#elections/#{election.id}/candidacies"}= election.get 'name'
+      %td
+        - if election.get 'published'
+          %button.span2.toggle-publish.btn.success Publié
+        - else
+          %button.span2.toggle-publish.btn.error Non publié
+
 
 %form.new-election{method: 'POST'}
   %h2 Ajouter une Election

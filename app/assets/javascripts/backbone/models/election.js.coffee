@@ -4,6 +4,12 @@ class window.ElectionModel extends Backbone.Model
   
   urlRoot: "/api/v1/elections"
 
+  url: ->
+    if @id
+      "/api/v1/elections/#{@id}"
+    else
+      "/api/v1/elections/"
+
   initialize: ->
     @.bind 'error', @processErrors
     @candidacies = new CandidaciesCollection(@get 'candidacies')
