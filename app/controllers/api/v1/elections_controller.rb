@@ -16,6 +16,8 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # POST /api/v1/elections
   def create
+    @election.contributors << current_user
+
     if @election.save
       render 'api/v1/elections/show.rabl', status: :created
     else

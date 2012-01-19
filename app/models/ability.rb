@@ -32,10 +32,12 @@ class Ability
       if user.admin?
         can :manage, :all
       else
-        can :manage, Election, contributor_ids: user.id
-        can :manage, Candidacy, election: { contributor_ids: user.id }
-        can :manage, Candidate, candidacy: { election: { contributor_ids: user.id } }
-        can :manage, Proposition, candidacy: { election: { contributor_ids: user.id } }
+        can :index, :dashboard
+        can :manage, Election, contributor_ids: [user.id]
+        can :create, Election
+        can :manage, Candidacy, election: { contributor_ids: [user.id] }
+        can :manage, Candidate, candidacy: { election: { contributor_ids: [user.id] } }
+        can :manage, Proposition, candidacy: { election: { contributor_ids: [user.id] } }
         can :manage, Tag
         can :search, User
       end
