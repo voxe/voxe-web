@@ -18,4 +18,13 @@ class Api::V1::TagsController < Api::V1::ApplicationController
     @tags = Tag.where(name: /#{params[:name]}/i)
   end
 
+  # PUT /api/v1/tags/{id}
+  def update
+    if @tag.update_attributes params[:tag]
+      render 'api/v1/tags/show.rabl'
+    else
+      render text: {errors: @tag.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
+
 end

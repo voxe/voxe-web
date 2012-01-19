@@ -71,3 +71,32 @@
   %a.btn.small Try
 
 
+.page-header
+  %h2
+    %small PUT
+    \/tags/{id}
+
+%p Update a tag.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td tag[name]
+      %td Les agents publics
+    %tr
+      %td tag[namespace]
+      %td les-agents-publics
+    %tr
+      %td tag[icon]
+      %td (Image binary file)
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/tags/{id}
+
+%p
+  %a.btn.small Try
+

@@ -40,4 +40,12 @@ class Api::V1::TagsControllerTest < ActionController::TestCase
     assert_equal @tag.namespace, json['response']['tag']['namespace']
   end
 
+  test "should update a tag" do
+    new_name = "New name of tag"
+    put :update, id: @tag.id.to_s, tag: {name: new_name}, format: 'json'
+
+    assert_response :success
+    assert_equal new_name, assigns(:tag).name
+  end
+
 end
