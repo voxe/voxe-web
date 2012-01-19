@@ -87,3 +87,6 @@ gem 'ruby-oembed'
 
 # configuration for different env.
 gem "settingslogic"
+
+# New relic to track our performances
+gem 'newrelic_rpm'
