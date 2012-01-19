@@ -7,7 +7,7 @@ class Proposition
   belongs_to :candidacy
   has_and_belongs_to_many :tags
 
-  validates_presence_of :candidacy, :tags, :text
+  validates_presence_of :candidacy, :text
 
   embeds_many :embeds, as: :embedable
   accepts_nested_attributes_for :embeds, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
