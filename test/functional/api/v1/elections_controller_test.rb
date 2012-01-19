@@ -64,4 +64,15 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
 
     assert_response :success
   end
+
+  test "should remove a tag on election" do
+    tag = Tag.first
+    election_tag = ElectionTag.create!(election: @election, tag: tag)
+
+    assert @election.election_tags.where(tag_id: tag.id).present?
+    delete :removetag, id: @election.id.to_s, tagId: tag.id.to_s, format: 'json'
+
+    assert_response :success
+    assert assigns(:election).election_tags.where(tag_id: tag.id).empty?
+  end
 end

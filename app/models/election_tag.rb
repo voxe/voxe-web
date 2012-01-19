@@ -14,7 +14,10 @@ class ElectionTag
   # validations
   validates_uniqueness_of :tag_id, :scope => :election_id
   validates_presence_of :election, :tag
-  
+
+  # Callbacks
+  after_destroy :destroy_children
+
   def children_election_tags
     ElectionTag.all conditions: {parent_tag_id: tag.id, election_id: election.id}
   end
@@ -32,5 +35,10 @@ class ElectionTag
   def position
     rand 1000
   end
-  
+
+  private
+
+  def destroy_children
+    children_election_tags.destroy_all
+  end
 end

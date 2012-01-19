@@ -57,4 +57,11 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
         render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
+
+  # DELETE /api/v1/elections/1/removetag
+  def removetag
+    @election.election_tags.where(tag_id: params[:tagId]).destroy_all
+    head :ok
+  end
+  
 end
