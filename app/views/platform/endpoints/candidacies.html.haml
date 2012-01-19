@@ -39,3 +39,26 @@
 
 %p
   %a.btn.small Try
+
+.page-header
+  %h2
+    %small POST
+    \/candidacies/{id}/addorganization
+
+%p Bind an organization to this candidacy.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td organizationId
+      %td 4ed1cb0203ad190006000130
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/candidacies/4ed1cb0203ad190006000132/addorganization
+
+%p
+  %a.btn.small Try

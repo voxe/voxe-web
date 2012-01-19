@@ -34,4 +34,12 @@ class Api::V1::CandidaciesControllerTest < ActionController::TestCase
 
     assert_equal true, json['response']['candidacy']['published']
   end
+
+  test "should bind an organization to this candidacy" do
+    organization = FactoryGirl.create(:organization)
+
+    post :addorganization, id: @candidacy.id.to_s, organizationId: organization.id.to_s, format: 'json'
+
+    assert_equal organization, assigns(:candidacy).organization
+  end
 end

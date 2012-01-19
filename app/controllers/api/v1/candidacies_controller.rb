@@ -11,4 +11,16 @@ class Api::V1::CandidaciesController < Api::V1::ApplicationController
       render json: {errors: @candidacy.errors}, status: :unprocessable_entity
     end
   end
+
+  # POST /api/v1/candidacies/1/addorganization
+  def addorganization
+    organization = Organization.find params[:organizationId]
+    @candidacy.organization = organization
+
+    if @candidacy.save
+      render 'api/v1/candidacies/show.rabl', status: :ok
+    else
+      render json: {errors: @candidacy.errors}, status: :unprocessable_entity
+    end
+  end
 end

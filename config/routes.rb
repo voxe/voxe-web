@@ -75,7 +75,11 @@ Joinplato::Application.routes.draw do
         end
       end
 
-      resources :candidacies
+      resources :candidacies do
+        member do
+          post :addorganization
+        end
+      end
 
       resources :users do
         collection do
