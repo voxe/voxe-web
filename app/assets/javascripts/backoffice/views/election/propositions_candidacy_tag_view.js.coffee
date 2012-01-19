@@ -36,7 +36,7 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
         console.log value
         console.log setting
 
-        propositionId = $(@).parent().data().propositionId
+        propositionId = $(@).parent().parent().data().propositionId
         proposition = view.propositions.find (proposition) -> proposition.id == propositionId
         console.log proposition
         console.log proposition.save {}, data: $.param(proposition: {text: value})

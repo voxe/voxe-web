@@ -16,8 +16,8 @@
           - if propositions = @propositions_by_tag[sub_tag.id]
             %table.propositions
               - for proposition in propositions
-                %tr
-                  %td{'data-proposition-id': proposition.id}
+                %tr{'data-proposition-id': proposition.id}
+                  %td
                     .proposition-text= proposition.get 'text'
           - else
             %p Pas encore de propositions dans cette section
