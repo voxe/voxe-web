@@ -17,7 +17,7 @@ class window.AppRouter extends Backbone.Router
     if _.isEmpty app.collections.elections.models
       app.collections.elections.fetch()
       
-    $('body').animate scrollTop: ($('#elections').offset().top - 80), 1000  
+    app.views.application.scrollTo $('#elections').offset().top
       
   candidatesList: (namespace)->
     app.models.election.candidacies.unselect()
@@ -31,7 +31,7 @@ class window.AppRouter extends Backbone.Router
         election.namespace() == namespace
       app.models.election.set election.toJSON()
       
-    $('body').animate scrollTop: ($('#candidacies').offset().top - 80), 1000  
+    app.views.application.scrollTo $('#candidacies').offset().top
     
   tagsList: (namespace, names)->
     # redirect if /
@@ -48,7 +48,7 @@ class window.AppRouter extends Backbone.Router
       _.each election.candidacies.models, (candidacy)->
         candidacy.set selected: true if _.include namespaces, candidacy.namespace()
         
-    $('body').animate scrollTop: ($('#tags').offset().top - 80), 1000
+    app.views.application.scrollTo $('#tags').offset().top
     
   compare: (namespace, candidacies, tagNamespace)->
     # redirect if /
@@ -75,7 +75,7 @@ class window.AppRouter extends Backbone.Router
       @propositionsView.loadPropositions()
       
     @propositionsView.loadPropositions()
-    $('body').animate scrollTop: ($('#propositions').offset().top - 80), 1000
+    app.views.application.scrollTo $('#propositions').offset().top
     
   share: ->
     unless @shareView
