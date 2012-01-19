@@ -4,6 +4,7 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
   events:
     'click button.show-proposition-form': 'showPropositionForm'
     'submit .add-proposition': 'addProposition'
+    'click .delete-proposition': 'deleteProposition'
 
   initialize: ->
     @flash = {}
@@ -13,6 +14,7 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
     @tags = @tag.tags
     @propositions = new PropositionsCollection()
     @propositions.bind 'reset', @render, @
+    @propositions.bind 'remove', @render, @
     @propositions.bind 'add', @render, @
     @propositions.fetch({data: {electionId: @election.id, candidacyIds: @candidacy.id, tagIds: @tag.id}})
 
@@ -63,3 +65,11 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
     params['tagIds'] = $(event.target).parent().data().tagId
     params['candidacyId'] = @candidacy.id
     @propositions.create params, url: '/api/v1/propositions', type: 'POST'
+
+  deleteProposition: (event) ->
+    if(confirm('Êtes vous sur de vouloir supprimer cette proposition ?'))
+      propositionId = $(event.target).parent().parent().data().propositionId
+      proposition = @propositions.find (proposition) -> proposition.id == propositionId
+      view = @
+      proposition.destroy complete: (response) ->
+        view.propositions.remove proposition if response.status == 200

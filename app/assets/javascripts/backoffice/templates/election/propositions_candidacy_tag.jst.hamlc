@@ -19,5 +19,7 @@
                 %tr{'data-proposition-id': proposition.id}
                   %td
                     .proposition-text= proposition.get 'text'
+                  %td
+                    %button.btn.error.delete-proposition X
           - else
             %p Pas encore de propositions dans cette section
