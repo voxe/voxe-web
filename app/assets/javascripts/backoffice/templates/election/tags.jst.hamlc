@@ -13,6 +13,15 @@
   - else
     Thèmes
 
+
+- if error_messages = @flash.rename_error_messages
+  .alert-message.block-message.error
+    %p
+      != "Il y a <strong>#{error_messages.length}</strong> erreur#{if error_messages.length > 1 then 's' else ''}"
+      %ul
+        - for error_message in error_messages
+          %li= error_message
+
 %table
   - for tag in @tags.models
     %tr{'data-tag-id': tag.id}

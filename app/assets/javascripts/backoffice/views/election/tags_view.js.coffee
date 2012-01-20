@@ -85,14 +85,13 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     else # create
       tagName = tag_id = $('.tag-name', form).val()
       tag = new TagModel()
-      tag.bind 'error',
-        (tag, response) ->
-          @flash.error_messages = tag.error_messages
-          @render()
-        @
       election = @election
       parent_tag = @tag if @tag
       tagNamespace = tagName.replace /\s+/g, '-'
+      view = @
+      tag.bind 'error', (tag, response) ->
+        view.flash.error_messages = tag.error_messages
+        view.render()
       tag.save {name: tagName, namespace: tagNamespace},
         success: (tag) -> # link tag to election
           if parent_tag?
@@ -127,7 +126,12 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     tag = @tags.find (t) -> t.id == tagId
 
     tagName = $('.tag-name input', tableLine).val()
-    tag.save {}, data: $.param(tag: name: tagName)
+    tagNamespace = tagName.replace /\s+/g, '-'
+    view = @
+    tag.bind 'error', (tag, response) ->
+      view.flash.rename_error_messages = tag.error_messages
+      view.render()
+    tag.save {}, data: $.param(tag: {name: tagName, namespace: tagNamespace})
 
   cancelRenameTag: (event) ->
     tableLine = $(event.target).parent().parent()

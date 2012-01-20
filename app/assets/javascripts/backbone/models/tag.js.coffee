@@ -12,6 +12,7 @@ class window.TagModel extends Backbone.Model
       "/api/v1/tags/"
 
   initialize: ->
+    @.bind 'error', @processErrors
     @tags = new TagsCollection(@get 'tags', parent_tag: @)
     @tags.parent_tag = @
     @bind "change:tags", (tag) =>
@@ -38,3 +39,12 @@ class window.TagModel extends Backbone.Model
 
   parse: (response) ->
     response.response.tag
+
+  processErrors: (tag, response) ->
+    errors = ($.parseJSON response.responseText).response.errors
+    @.error_messages = _.reduce errors,
+      (memo, messages, attribute) ->
+        _.each messages,
+          (message) -> memo.push("#{attribute} #{message}")
+        memo
+      []
