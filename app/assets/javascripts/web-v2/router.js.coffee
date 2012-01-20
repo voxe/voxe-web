@@ -20,12 +20,9 @@ class window.AppRouter extends Backbone.Router
     app.views.application.scrollTo $('#elections').offset().top
       
   candidatesList: (namespace)->
-    app.models.election.candidacies.unselect()
+    app.models.election.candidacies.unselect()      
     
-    unless @candidaciesListView
-      @candidaciesListView = new CandidaciesListView(el: "#candidacies-list", model: app.models.election)
-      @candidaciesListView.render()
-    
+    # set election using url
     unless _.isEmpty app.collections.elections.models
       election = _.find app.collections.elections.models, (election) ->
         election.namespace() == namespace
@@ -37,16 +34,11 @@ class window.AppRouter extends Backbone.Router
     # redirect if /
     unless names
       return @navigate namespace, true
-          
-    unless @tagsListView
-      @tagsListView = new TagsListView(el: "#tags-list", model: app.models.election)
-      @tagsListView.render()
       
     # set candidacies using url
-    app.models.election.bind 'change', (election)=>
-      namespaces = names.split ','
-      _.each election.candidacies.models, (candidacy)->
-        candidacy.set selected: true if _.include namespaces, candidacy.namespace()
+    namespaces = names.split ','
+    _.each app.models.election.candidacies.models, (candidacy)->
+      candidacy.set selected: true if _.include namespaces, candidacy.namespace()
         
     app.views.application.scrollTo $('#tags').offset().top
     
@@ -63,16 +55,13 @@ class window.AppRouter extends Backbone.Router
       @propositionsView.render()
             
     # set candidacies, tag using url
-    app.models.election.bind 'change', (election)=>
-      # candidacies
-      namespaces = candidacies.split ','
-      _.each election.candidacies.models, (candidacy)->
-        candidacy.set selected: true if _.include namespaces, candidacy.namespace()
-      # tag
-      _.each election.tags.models, (tag)->
-        tag.set selected: true if tag.namespace() == tagNamespace
-    
-      @propositionsView.loadPropositions()
+    # candidacies
+    namespaces = candidacies.split ','    
+    _.each app.models.election.candidacies.models, (candidacy)->
+      candidacy.set {selected: true}, {silent: true} if _.include namespaces, candidacy.namespace()
+    # tag
+    _.each app.models.election.tags.models, (tag)->      
+      tag.set selected: true if tag.namespace() == tagNamespace
       
     @propositionsView.loadPropositions()
     app.views.application.scrollTo $('#propositions').offset().top

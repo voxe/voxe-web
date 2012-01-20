@@ -8,10 +8,10 @@
   %body
     :javascript
       $(function() {
-        new VoxeWeb({});
+        new VoxeWeb(#{@options});
       });
       
-    = render 'templates.mustache'
+    = render '/web/application/templates.mustache'
       
     #empire-state-building
       #top= image_tag 'icons/32.png', valign: "middle"

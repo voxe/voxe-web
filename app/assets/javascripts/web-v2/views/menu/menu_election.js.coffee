@@ -10,6 +10,7 @@ class window.MenuElectionView extends Backbone.View
     "click": "goToPage"
     
   goToPage: ->
+    # app.views.application.scrollTo $('#elections').offset().top
     app.router.navigate "", true
     
   render: ->

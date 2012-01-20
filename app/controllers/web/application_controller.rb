@@ -1,6 +1,7 @@
 class Web::ApplicationController < ApplicationController
   
   def index
+    @options = {}
     render layout: false
   end
   
