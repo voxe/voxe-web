@@ -2,7 +2,7 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
   template: JST['backoffice/templates/election/tags']
 
   events:
-    'submit form.add-tag': 'addOrCreateTag'
+    'submit .add-tag': 'addOrCreateTag'
     'click .remove-tag': 'removeTag'
     'click .start-rename-tag': 'startRenameTag'
     'submit .rename-tag-form': 'submitRenameTag'
@@ -32,22 +32,38 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     $('.cancel-rename-tag').hide()
     $('.finish-rename-tag').hide()
 
-    # autocomplete
     form = $('form.add-tag', @el)
-    $('.tag-name', form).keyup ->
-      $('.tag-id', form).val('')
-      $('input[type=submit]', form).val('Créer')
+
+    # define helper
+    setTagId = (id) ->
+      $('.tag-id').val(id)
+      if $('.tag-id').val() == ""
+        $('input[type=submit]', form).val('Créer')
+      else
+        $('input[type=submit]', form).val('Ajouter')
+
+    # unset tag id if field is empty
+    $('.tag-name', form).keyup (event) -> setTagId '' if event.target.value == ''
+
+    # autocomplete
     $('.tag-name', form).autocomplete
       source: (request, response) ->
         tags = new TagsCollection()
         tags.bind 'reset', ->
+          exactTag = (@find (t) -> t.get('name') == request.term)
+          if exactTag
+            setTagId exactTag.id
+          else
+            setTagId ''
           response @map (tag) ->
             {label: tag.get('name'), value: tag.id}
         tags.search request.term
       select: (event, ui) ->
         $('.tag-name').val ui.item.label
-        $('.tag-id').val ui.item.value
-        $('input[type=submit]', form).val('Ajouter')
+        setTagId ui.item.value
+        return false
+      focus: (event, ui) ->
+        $('.tag-name').val ui.item.label
         return false
     @flash = {}
 
@@ -101,7 +117,7 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     $('.start-rename-tag', tableLine).hide()
     $('.cancel-rename-tag', tableLine).show()
     $('.tag-name input', tableLine).show()
-    $('.finish-rename-tag').show()
+    $('.finish-rename-tag', tableLine).show()
 
   submitRenameTag: (event) ->
     event.preventDefault()
@@ -117,6 +133,6 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
     tableLine = $(event.target).parent().parent()
     $('.cancel-rename-tag', tableLine).hide()
     $('.tag-name input', tableLine).hide()
-    $('.finish-rename-tag').hide()
+    $('.finish-rename-tag', tableLine).hide()
     $('.tag-name a', tableLine).show()
     $('.start-rename-tag', tableLine).show()
