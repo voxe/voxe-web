@@ -25,7 +25,7 @@
           %input.btn.success.finish-rename-tag{type: 'submit', value: 'Valider'}
           %button.btn.error.cancel-rename-tag{type: 'button'} annuler
         %td
-          %button.btn.error.remove-tag -
+          %button.btn.error.remove-tag{type: 'button'} -
 
 %form.add-tag{method: 'POST'}
   %h2 Ajouter/Créer un thème
