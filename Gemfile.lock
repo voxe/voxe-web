@@ -41,6 +41,9 @@ GEM
       builder
     ansi (1.4.1)
     arel (2.2.1)
+    asset_sync (0.2.5)
+      activemodel
+      fog
     bcrypt-ruby (3.0.1)
     bson (1.5.1)
     bson_ext (1.5.1)
@@ -216,6 +219,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_list_mongoid
   airbrake
+  asset_sync
   bson_ext
   cancan
   carrierwave

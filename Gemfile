@@ -51,6 +51,9 @@ gem 'carrierwave'
 # S3 gem for carrierwave
 gem 'fog'
 
+# Send assets to S3
+gem 'asset_sync'
+
 # Mongoid for carrierwave
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 

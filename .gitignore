@@ -6,3 +6,4 @@ tmp/
 .DS_Store
 public/photos
 public/uploads
+public/assets
