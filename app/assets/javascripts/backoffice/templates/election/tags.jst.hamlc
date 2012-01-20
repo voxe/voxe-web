@@ -30,7 +30,7 @@
           %a{href: "#elections/#{@election.id}/tags/#{tag.id}"}= tag.get 'name'
           %input{type: 'text'}
         %td.rename-cell
-          %button.btn.primary.start-rename-tag{type: 'button'} renomer
+          %button.btn.primary.start-rename-tag{type: 'button'} renommer
           %input.btn.success.finish-rename-tag{type: 'submit', value: 'Valider'}
           %button.btn.error.cancel-rename-tag{type: 'button'} annuler
         %td
