@@ -16,10 +16,16 @@
 %table
   - for tag in @tags.models
     %tr{'data-tag-id': tag.id}
-      %td
-        %a{href: "#elections/#{@election.id}/tags/#{tag.id}"}= tag.get 'name'
-      %td
-        %button.btn.error.remove-tag -
+      %form.rename-tag-form
+        %td.tag-name
+          %a{href: "#elections/#{@election.id}/tags/#{tag.id}"}= tag.get 'name'
+          %input{type: 'text'}
+        %td.rename-cell
+          %button.btn.primary.start-rename-tag{type: 'button'} renomer
+          %input.btn.success.finish-rename-tag{type: 'submit', value: 'Valider'}
+          %button.btn.error.cancel-rename-tag{type: 'button'} annuler
+        %td
+          %button.btn.error.remove-tag -
 
 %form.add-tag{method: 'POST'}
   %h2 Ajouter/Créer un thème
