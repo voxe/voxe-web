@@ -67,7 +67,7 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
         @
       tag.fetch()
     else # create
-      tag_name = tag_id = $('.tag-name', form).val()
+      tagName = tag_id = $('.tag-name', form).val()
       tag = new TagModel()
       tag.bind 'error',
         (tag, response) ->
@@ -76,7 +76,8 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
         @
       election = @election
       parent_tag = @tag if @tag
-      tag.save {name: tag_name},
+      tagNamespace = tagName.replace /\s+/g, '-'
+      tag.save {name: tagName, namespace: tagNamespace},
         success: (tag) -> # link tag to election
           if parent_tag?
             election.addTag tag, parent_tag
