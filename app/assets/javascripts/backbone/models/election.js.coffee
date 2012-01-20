@@ -78,3 +78,13 @@ class window.ElectionModel extends Backbone.Model
         election.fetch()
       error: (response) ->
         election.trigger 'error', election, response
+
+  removeTag: (tag) ->
+    election = @
+    $.ajax
+      type: 'DELETE'
+      url: "#{@url()}/removetag"
+      data: {tagId: tag.id}
+      complete: (response) ->
+        if response.status == 200
+          election.fetch()

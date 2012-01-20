@@ -3,6 +3,7 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
 
   events:
     'submit form.add-tag': 'addOrCreateTag'
+    'click .remove-tag': 'removeTag'
 
   initialize: ->
     @flash = {}
@@ -73,3 +74,8 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
             election.addTag tag, parent_tag
           else
             election.addTag tag
+
+  removeTag: (event) ->
+    tagId = $(event.target).parent().parent().data().tagId
+    tag = @tags.find (t) -> t.id == tagId
+    @election.removeTag tag

@@ -15,9 +15,11 @@
 
 %table
   - for tag in @tags.models
-    %tr
+    %tr{'data-tag-id': tag.id}
       %td
         %a{href: "#elections/#{@election.id}/tags/#{tag.id}"}= tag.get 'name'
+      %td
+        %button.btn.error.remove-tag -
 
 %form.add-tag{method: 'POST'}
   %h2 Ajouter/Créer un thème
