@@ -1,7 +1,16 @@
 class MobileConstraint
   
   def matches? request
+    wap_device?(request) || search_bot?(request)
+  end
+  
+  def wap_device? request
     request.user_agent.to_s.downcase =~ /blackberry|nokia|ericsson|webos/
+  end
+  
+  def search_bot? request
+    user_agent = request.user_agent.downcase
+    [ 'msnbot', 'yahoo! slurp','googlebot' ].detect { |bot| user_agent.include? bot }
   end
   
 end
