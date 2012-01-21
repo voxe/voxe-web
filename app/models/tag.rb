@@ -7,8 +7,15 @@ class Tag
 
   has_and_belongs_to_many :propositions
 
-  validates_presence_of :name, :namespace
+  validates_presence_of :name
+  
+  before_validation :on => :create do
+    generate_namespace
+  end
+  
   validates_uniqueness_of :name, :namespace
+  
+  attr_protected :namespace
 
   mount_uploader :icon, IconUploader
   
@@ -28,5 +35,10 @@ class Tag
   def elections
     ElectionTag.where tag: id
   end
+  
+  private
+    def generate_namespace
+      self.namespace = name.parameterize
+    end
 
 end
