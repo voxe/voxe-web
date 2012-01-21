@@ -28,7 +28,6 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
   # PUT /api/v1/elections/1
   def update
     if @election.update_attributes params[:election]
-      expire_action action: :index
       expire_action action: "show", id: @election.id
       
       render 'api/v1/elections/show.rabl', status: :ok
@@ -60,7 +59,6 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     @election.candidacies.build candidates: candidates
 
     if @election.save
-      expire_action action: :index
       expire_action action: "show", id: @election.id
       render 'api/v1/elections/show.rabl', status: :created
     else
