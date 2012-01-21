@@ -23,5 +23,10 @@ class Tag
   def icon_name
     ".png"
   end
+  
+  # returns all the elections this tag has been mentioned
+  def elections
+    ElectionTag.where tag: id
+  end
 
 end

@@ -19,8 +19,12 @@ class Api::V1::TagsController < Api::V1::ApplicationController
   end
 
   # PUT /api/v1/tags/{id}
-  def update
+  def update    
     if @tag.update_attributes params[:tag]
+      @tag.elections.each do |election|
+        expire_action controller: "api/v1/elections", action: "show", id: @tag.election
+      end
+      
       render 'api/v1/tags/show.rabl'
     else
       render text: {errors: @tag.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
