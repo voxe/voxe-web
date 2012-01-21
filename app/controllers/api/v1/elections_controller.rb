@@ -27,7 +27,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # PUT /api/v1/elections/1
   def update
-    expire_action action: :index
+    expire_action action: :show
 
     if @election.update_attributes params[:election]
       render 'api/v1/elections/show.rabl', status: :ok
@@ -38,7 +38,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # POST /api/v1/elections/1/addtag
   def addtag
-    expire_action action: :index
+    expire_action action: :show
 
     tag = Tag.find params[:tagId]
     if params[:parentTagId]
@@ -56,7 +56,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # POST /api/v1/elections/1/addcandidacy
   def addcandidacy
-    expire_action action: :index
+    expire_action action: :show
 
     candidates = params[:candidateIds].split(',').collect {|id| Candidate.find(id) }
     @election.candidacies.build candidates: candidates
