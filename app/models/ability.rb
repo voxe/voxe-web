@@ -33,12 +33,7 @@ class Ability
         can :manage, :all
       else
         can :index, :dashboard
-        can :manage, Election, contributor_ids: [user.id]
-        can :manage, Candidacy, election: { contributor_ids: [user.id] }
-        can :manage, Candidate, candidacy: { election: { contributor_ids: [user.id] } }
         can :manage, Proposition, candidacy: { election: { contributor_ids: [user.id] } }
-        can :manage, Tag
-        can :search, User
       end
     end
     
