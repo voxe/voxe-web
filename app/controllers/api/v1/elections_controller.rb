@@ -27,9 +27,10 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # PUT /api/v1/elections/1
   def update
-    expire_action action: :show
-
     if @election.update_attributes params[:election]
+      expire_action action: :index
+      expire_action action: "show", id: @election.id
+      
       render 'api/v1/elections/show.rabl', status: :ok
     else
       render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
@@ -38,8 +39,6 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # POST /api/v1/elections/1/addtag
   def addtag
-    expire_action action: :show
-
     tag = Tag.find params[:tagId]
     if params[:parentTagId]
       parent_tag = Tag.find params[:parentTagId]
@@ -48,6 +47,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     @election_tag = ElectionTag.new election: @election, tag: tag, parent_tag: parent_tag
 
     if @election_tag.save
+      expire_action action: "show", id: @election.id
       render 'api/v1/elections/show.rabl', status: :created
     else
       render text: {errors: @election_tag.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
@@ -56,21 +56,22 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # POST /api/v1/elections/1/addcandidacy
   def addcandidacy
-    expire_action action: :show
-
     candidates = params[:candidateIds].split(',').collect {|id| Candidate.find(id) }
     @election.candidacies.build candidates: candidates
 
     if @election.save
-        render 'api/v1/elections/show.rabl', status: :created
-      else
-        render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+      expire_action action: :index
+      expire_action action: "show", id: @election.id
+      render 'api/v1/elections/show.rabl', status: :created
+    else
+      render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
 
   # DELETE /api/v1/elections/1/removetag
   def removetag
     @election.election_tags.where(tag_id: params[:tagId]).destroy_all
+    expire_action action: "show", id: @election.id
     head :ok
   end
   
