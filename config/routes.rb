@@ -186,6 +186,11 @@ Joinplato::Application.routes.draw do
   
   # web
   scope :module => "web", format: "html" do
+    match 'about/' => 'static#about', :as => :about
+    match 'about/team' => 'static#team', :as => :team
+    match 'about/press' => 'static#press', :as => :press
+    match 'about/terms' => 'static#terms', :as => :terms
+    
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election
