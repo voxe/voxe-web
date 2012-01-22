@@ -16,4 +16,7 @@ class Web::StaticController < ApplicationController
   def join
   end
   
+  def apps
+  end
+  
 end

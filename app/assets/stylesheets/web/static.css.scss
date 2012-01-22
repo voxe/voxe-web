@@ -70,3 +70,33 @@
     }
   }
 }
+
+.static.apps {
+  .title {
+    font-size: 32px;
+    font-weight: 300;
+    text-align: center;
+  }
+  .page-content {
+    padding: 20px 0 0 0;
+  }
+  .platforms {
+    margin: 20px 0 0 0;
+  }
+  .platform {
+    float: left;
+    width: 320px;
+    text-align: center;
+    .name {
+      font-size: 18px;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+  }
+  .platform.ios {
+    margin: 0 10px 0 0;
+  }
+  .platform.android {
+    margin: 0 10px 0 0;
+  }
+}

@@ -55,12 +55,13 @@ h1, h2, h3, h4 {
     width: 980px; 
     margin: 0 auto;
   }
-  #about {
+  #nav {
     float: right;
     margin: 15px 0 0 0;
     font-size: 13px;
     a {
       color: #211922;
+      margin-left: 8px;
     }
   }
 }

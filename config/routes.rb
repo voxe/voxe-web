@@ -191,6 +191,7 @@ Joinplato::Application.routes.draw do
     match 'about/press' => 'static#press', :as => :press
     match 'about/terms' => 'static#terms', :as => :terms
     match 'join' => 'static#join', :as => :join
+    match 'apps' => 'static#apps', :as => :apps
     
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
