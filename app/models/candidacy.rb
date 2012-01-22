@@ -25,6 +25,11 @@ class Candidacy
   scope :published, where(published: true)
   
   # TODO: remove temp hack
+  def name
+    candidates[0].name
+  end
+  
+  # TODO: remove temp hack
   def namespace
     candidates[0].namespace
   end

@@ -6,10 +6,13 @@ class Mobile::TagsController < Mobile::ApplicationController
     if params[:candidacies].blank?
       redirect_to @election
     end
-    # 
-    # unless params[:tagId].blank?
-    #   redirect_to election_compare_path(@election, tagId: params[:tagId], candidacyIds: params[:candidacies].join(','))
-    # end
+    
+    # title
+    candidacies = @election.candidacies.select do |candidacy|
+      params[:candidacies].split(',').include? candidacy.namespace
+    end
+    @title = candidacies.collect { |candidacy| candidacy.name }.join(', ')
+    @title += " | #{@election.name}"
   end
   
 end

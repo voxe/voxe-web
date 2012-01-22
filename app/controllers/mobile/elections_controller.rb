@@ -7,6 +7,7 @@ class Mobile::ElectionsController < Mobile::ApplicationController
   end
   
   def show
+    @title = "#{@election.name}"
   end
   
   def compare
@@ -25,6 +26,11 @@ class Mobile::ElectionsController < Mobile::ApplicationController
     rescue
       return render text: "invalid tag"
     end
+    
+    # title
+    @title = @candidacies.collect { |candidacy| candidacy.name }.join(', ')
+    @title += " - #{@tag.name}"
+    @title += " | #{@election.name}"
     
     # election tag
     @election_tag = ElectionTag.first conditions: {election_id: @election.id, tag_id: @tag.id}
