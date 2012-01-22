@@ -35,6 +35,22 @@ h1, h2, h3, h4 {
   padding: 0;
 }
 
+.help {
+  position: relative;
+  z-index: 2;
+  margin: 30px 0;
+  width: 100%;
+  text-align: center;
+  clear: both;
+  span {
+    background-color: #A9B5D3;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    color: white;
+  }
+}
+
 #empire-state-building {
   top: 0;
   position: fixed;
