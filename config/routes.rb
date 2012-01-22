@@ -1,7 +1,7 @@
 class MobileConstraint
   
   def matches? request
-    wap_device?(request) || search_bot?(request)
+    wap_device?(request) || search_bot?(request) || facebook_bot?(request)
   end
   
   def wap_device? request
@@ -10,7 +10,11 @@ class MobileConstraint
   
   def search_bot? request
     user_agent = request.user_agent.downcase
-    [ 'msnbot', 'yahoo! slurp','googlebot', 'facebookexternalhit/*' ].detect { |bot| user_agent.include? bot }
+    [ 'msnbot', 'yahoo! slurp','googlebot'].detect { |bot| user_agent.include? bot }
+  end
+  
+  def facebook_bot? request
+    request.user_agent.to_s.downcase =~ /facebookexternalhit/
   end
   
 end
