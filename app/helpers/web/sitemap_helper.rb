@@ -1,0 +1,2 @@
+module Web::SitemapHelper
+end

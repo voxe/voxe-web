@@ -26,6 +26,9 @@ end
 
 Joinplato::Application.routes.draw do
   
+  # sitemap
+  match 'sitemap.xml' => 'web/sitemap#index', format: 'xml'
+  
   # admin
 
   namespace :admin do
@@ -178,7 +181,7 @@ Joinplato::Application.routes.draw do
   end
   
   # web
-  scope :module => "web", format: "html" do    
+  scope :module => "web", format: "html" do
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election

@@ -1,0 +1,8 @@
+!!! XML
+%urlset{xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  - @urls.each do |url|
+    %url
+      %loc= url[:loc]
+      %priority= url[:priority] || 0.5
+  
+  
