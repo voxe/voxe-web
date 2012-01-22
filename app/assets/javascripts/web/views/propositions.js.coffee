@@ -1,16 +1,22 @@
 class window.PropositionsView extends Backbone.View
   
   tag: ->
-    app.models.tag
+    @model.tags.selected()
   
   candidacies: ->
-    app.collections.selectedCandidacies.toJSON()
-
+    @model.candidacies.selected().toJSON()
+    
+  loading: ->
+    return true if @collection.length == 0
+    false
+      
   categories: ->
+    return [] if !@tag() || @collection.length == 0
+    
     categories = []
     candidacies = @candidacies()
-    tags_propositions = @tags_propositions()
-    _.each @tag().tags.toJSON(), (c) ->
+    tags_propositions = @tags_propositions() 
+    _.each @tag().tags.toJSON(), (c) ->      
       category = {}
       category.id = c.id
       category.name = c.name
@@ -35,37 +41,27 @@ class window.PropositionsView extends Backbone.View
   
   tags_propositions: ->
     hash = {}
-    _.each app.collections.propositions.models, (proposition) ->
+    _.each @collection.models, (proposition) ->
       candidacy = proposition.candidacy()
       _.each proposition.tags(), (tag) ->
         hash[tag.id] = {} unless hash[tag.id]
         hash[tag.id][candidacy.id] = [] unless hash[tag.id][candidacy.id]
         hash[tag.id][candidacy.id].push proposition.toJSON()
     hash
-      
-  initialize: ->
-    app.collections.propositions.bind "reset", @render, @
-    app.collections.selectedCandidacies.bind "reset", @loadPropositions, @
-    app.models.tag.bind "change", @loadPropositions, @
   
+  initialize: ->
+    @collection.bind "reset", @render, @
+    # @model.candidacies.bind "change:selected", @loadPropositions, @
+    # @model.tags.bind "change:selected", @loadPropositions, @
+        
   loadPropositions: ->
-    if @candidacies().length != 0 && @tag().id
-      $("#selected-theme #loader").fadeIn()
-      candidacyIds = _.map app.collections.selectedCandidacies.models, (candidate) ->
+    if @candidacies().length != 0 && @tag()?
+      @collection.reset ''
+      candidacyIds = _.map @model.candidacies.selected().models, (candidate) ->
            candidate.id
       candidacyIds = candidacyIds.join ','
-      app.collections.propositions.fetch data: {electionIds: app.models.election.id, tagIds: app.models.tag.id, candidacyIds: candidacyIds}
-  
-  events:
-    "click p": "selectProposition"
-  
-  selectProposition:(e) ->
-    proposition = {id: $(e.currentTarget).attr("proposition-id")}
-    app.models.proposition.set proposition
-  
+      @collection.fetch data: {electionIds: @model.id, tagIds: @tag().id, candidacyIds: candidacyIds}
+    
   render: ->
-    loadHtml = ->
-      $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
-      $('#propositions').fadeIn()
-    loadHtml = _.bind(loadHtml, @)
-    $("#selected-theme #loader").fadeOut(loadHtml)
+    $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories(), loading: @loading())
+    @

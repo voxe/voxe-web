@@ -1,44 +1,33 @@
-!!!
-%html
-  %head
-    %title Voxe
-    = stylesheet_link_tag "web-v2"
-    = javascript_include_tag "web-v2"
+:javascript
+  $(function() {
+    new VoxeWeb(#{@options});
+  });
+  
+= render '/web/application/templates.mustache'
     
-  %body
-    :javascript
-      $(function() {
-        new VoxeWeb(#{@options});
-      });
-      
-    = render '/web/application/templates.mustache'
-      
-    #empire-state-building
-      #top= image_tag 'icons/32.png', valign: "middle"
-        
-    #high-line
-    
-    #menu-container
-      #menu
-        
-    #pages-container
-      #pages
-        .page#elections
-          .page-container
-            #elections-list
-                        
-        .page#candidacies
-          .page-container
-            #candidacies-list-container
-              #candidacies-list
+#high-line
 
-        .page#tags
-          .page-container
-            %ul#tags-list
-              / .section
-              /   %span Themes
-                      
-        .page#propositions
-          #propositions-container
-            #propositions-header
-            #propositions-list
+#menu-container
+  #menu
+    
+#pages-container
+  #pages
+    .page#elections
+      .page-container
+        #elections-list
+                    
+    .page#candidacies
+      .page-container
+        #candidacies-list-container
+          #candidacies-list
+
+    .page#tags
+      .page-container
+        %ul#tags-list
+          / .section
+          /   %span Themes
+                  
+    .page#propositions
+      #propositions-container
+        #propositions-header
+        #propositions-list

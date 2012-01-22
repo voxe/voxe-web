@@ -1,32 +1,39 @@
-class window.VoxeElection
+class window.VoxeWeb
   
   constructor: (options)->    
     window.app = {models: {}, collections: {}, views:{}}
     
+    app.router = new AppRouter()
+    
+    app.collections.elections = new ElectionsCollection()
+    
     app.models.election = new ElectionModel()
-    app.models.tag = new TagModel()
-    app.models.proposition = new PropositionModel()
     
-    app.collections.tags = new TagsCollection()
-    app.models.election.bind 'change', (election)=>
-      app.collections.tags.add election.tags.toJSON()
+    app.collections.tags = app.models.election.tags
+    app.collections.candidacies = app.models.election.candidacies
     
-    app.collections.candidacies = new CandidaciesCollection()
-    app.models.election.bind 'change', (election)=>
-      app.collections.candidacies.add election.candidacies.toJSON()
-    
-    app.collections.selectedCandidacies = new CandidaciesCollection()
     app.collections.propositions = new PropositionsCollection()
     
-    app.views.candidaciesList = new CandidaciesListView(el: "#selection")
-    app.views.selector = new SelectorView(el: "#select-candidates")
-    app.collections.selectedCandidacies.bind 'all', =>
-      app.views.selector.switchButton()
-      
-    app.views.tagsList = new TagsListView(el: "#sidebar")
-    app.views.compare = new CompareView(el: "#selected-theme")
-    app.views.propositions = new PropositionsView(el: "#selected-theme #propositions")
+    app.views.application = new ApplicationView(el: "#application-view")
+    app.views.menu = new MenuView(el: "#menu", model: app.models.election)
+    app.views.menu.render()
     
-    app.models.election.set options.election
-    app.views.modal = new PropositionView(el: "#specific")
-    app.views.topbar = new TopbarView(el: "#topbar #menu")
+    # views
+    @candidaciesListView = new CandidaciesListView(el: "#candidacies-list", model: app.models.election)
+    @candidaciesListView.render()
+    
+    @tagsListView = new TagsListView(el: "#tags-list", model: app.models.election)
+    @tagsListView.render()
+    
+    if options.election
+      app.models.election.set options.election
+        
+    app.models.election.bind "change:id", (election)->
+      app.models.election.fetch()
+    
+    Backbone.history.start pushState: true
+
+$ ->
+  height = $(window).height()
+  # $('body').animate scrollTop: "1px", 0
+  $('.page').css 'min-height', height - 50
