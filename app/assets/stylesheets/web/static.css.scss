@@ -1,3 +1,71 @@
 // Place all the styles related to the web::static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.static-page-container {
+  margin: 70px auto 0 auto;
+  width: 980px;
+  
+  .static-nav {
+    float: left; 
+    width: 200px;
+    li {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      font-weight: 300;
+    }
+  }
+  
+  .static-page {
+    margin-left: 200px;
+    border-left: 2px dashed #C3CCDF;
+    padding: 0 0 0 30px;
+    overflow: auto;
+    width: 650px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  
+}
+
+.static.team {
+  .people {
+    margin: 10px 0 20px 0;
+  }
+  
+  .person {
+    clear: both;
+    margin: 10px 0;
+    overflow: auto;
+    .picture {
+      float: left;
+      img {
+        border-radius: 2px;
+      }
+    }
+    .content {
+      margin-left: 90px;
+    }
+    .name {
+      margin-bottom: 3px;
+      font-weight: bold;
+      font-size: 18px;
+      span {
+        background: #A9B5D3;
+        padding: 2px 5px;
+        color: white;
+        border-radius: 2px;
+        font-size: 12px;
+      }
+    }
+    .description {
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+}

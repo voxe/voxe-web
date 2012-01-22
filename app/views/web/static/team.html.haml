@@ -1,1 +1,16 @@
-%h1 Team
+.static-page-container
+  = render "web/static/nav"
+    
+  .static-page
+    %h1 Team
+        
+    - @people.each do |person|
+      .person
+        - unless person['namespace'].blank?
+          .picture= image_tag "web/about/team/#{person['namespace']}.jpg", width: "80px"
+        .content
+          .name
+            = person['name']
+            %span= person['info']
+          - if person['description']
+            .description= person['description'].html_safe

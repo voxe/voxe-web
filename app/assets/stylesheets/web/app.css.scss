@@ -22,6 +22,19 @@ li {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
 #empire-state-building {
   top: 0;
   position: fixed;
@@ -31,10 +44,24 @@ li {
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .52);
   font-weight: 300;
   color: #292929;
-  text-align: center;
   height: 50px;
   #top {
     margin: 5px 0 0 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -16px;
+  }
+  .top-container {
+    width: 980px; 
+    margin: 0 auto;
+  }
+  #about {
+    float: right;
+    margin: 15px 0 0 0;
+    font-size: 13px;
+    a {
+      color: #211922;
+    }
   }
 }
 
