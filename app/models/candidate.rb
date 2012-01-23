@@ -34,7 +34,7 @@ class Candidate
   
   def photo_url(size = nil)
     #photo? ? ((size == nil) ? photo.image.url : photo.image.send(size).url) : default_photo(size)
-    "/images/candidates/#{namespace}.png".to_url
+    "http://voxe.s3.amazonaws.com/candidates/#{namespace}.jpg"
   end
   
   private
