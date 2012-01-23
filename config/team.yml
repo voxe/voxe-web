@@ -28,33 +28,33 @@
   name: Paul Chobert
   info: front-end
   description:
-# -
-#   namespace: pierreyvesr
-#   name: Pierre-Yves Ricaud
-#   info: android
-#   description: "Pierre-Yves, notre mage d’Android, ne peut coder sans la Chaîne Parlementaire en fond sonore. Pour le rendre heureux : nourrissez-le de pâtes au Kiri et de Open Source software. Piwaï est diplômé de KTH Royal Institute of Technology (Suède) et de l’Insa Rouen."
-# -
-#   namespace: katb
-#   name: Kat Borlongan
-#   info: international
-#   description:
-# -
-#   namespace:
-#   name: Thibault Geffroy
-#   info: design
-#   description:
-# -
-#   namespace:
-#   name: Antoine Maillard
-#   info: iOS
-#   description:
-# -
-#   namespace:
-#   name: Anatole Royer
-#   info: design
-#   description:
-# -
-#   namespace: benjaminn
-#   name: Benjamin Netter
-#   info: web
-#   description:
+-
+  namespace: pierreyvesr
+  name: Pierre-Yves Ricaud
+  info: android
+  description: "Pierre-Yves, notre mage d’Android, ne peut coder sans la Chaîne Parlementaire en fond sonore. Pour le rendre heureux : nourrissez-le de pâtes au Kiri et de Open Source software. Piwaï est diplômé de KTH Royal Institute of Technology (Suède) et de l’Insa Rouen."
+-
+  namespace: katb
+  name: Kat Borlongan
+  info: international
+  description: ''
+-
+  namespace:
+  name: Thibault Geffroy
+  info: design
+  description: ''
+-
+  namespace:
+  name: Antoine Maillard
+  info: iOS
+  description: ''
+-
+  namespace:
+  name: Anatole Royer
+  info: design
+  description: ''
+-
+  namespace: benjaminn
+  name: Benjamin Netter
+  info: web
+  description: ''
