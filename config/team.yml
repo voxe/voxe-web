@@ -17,7 +17,7 @@
   namespace: charlotter
   name: Charlotte Richard
   info: presse
-  description: 
+  description: ''
 -
   namespace: juliab
   name: Julia Bijaoui
@@ -27,7 +27,7 @@
   namespace:
   name: Paul Chobert
   info: front-end
-  description:
+  description: ''
 -
   namespace: pierreyvesr
   name: Pierre-Yves Ricaud
