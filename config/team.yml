@@ -8,26 +8,26 @@
   name: Edouard Schlumberger
   info: co-fondateur
   description: "Edouard est co-fondateur de Voxe.org, porte-parole et animateur des équipes. <br /> Et ce n’est pas un “full time Job”." 
-# -
-#   namespace: benjaminlsl
-#   name: Benjamin Lan Sun Luk
-#   info: "back-end & api"
-#   description:
-# -
-#   namespace: charlotter
-#   name: Charlotte Richard
-#   info: presse
-#   description: 
-# -
-#   namespace: juliab
-#   name: Julia Bijaoui
-#   info: partenariats
-#   description: "En charge des partenariats et des évènements. Julia a fondé le Prix Littéraire des Grandes Ecoles à 21 ans (avant même de savoir repasser une chemise). Etudiante à HEC et elle vit une torride  histoire  avec les médias sociaux, les start-up et la littérature. Julia est actrice dans une autre vie et fan de karaoké à ses heures perdues."
-# -
-#   namespace:
-#   name: Paul Chobert
-#   info: front-end
-#   description:
+-
+  namespace: benjaminlsl
+  name: Benjamin Lan Sun Luk
+  info: "back-end & api"
+  description:
+-
+  namespace: charlotter
+  name: Charlotte Richard
+  info: presse
+  description: 
+-
+  namespace: juliab
+  name: Julia Bijaoui
+  info: partenariats
+  description: "En charge des partenariats et des évènements. Julia a fondé le Prix Littéraire des Grandes Ecoles à 21 ans (avant même de savoir repasser une chemise). Etudiante à HEC et elle vit une torride  histoire  avec les médias sociaux, les start-up et la littérature. Julia est actrice dans une autre vie et fan de karaoké à ses heures perdues."
+-
+  namespace:
+  name: Paul Chobert
+  info: front-end
+  description:
 # -
 #   namespace: pierreyvesr
 #   name: Pierre-Yves Ricaud
