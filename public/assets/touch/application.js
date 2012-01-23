@@ -1,0 +1,1 @@
+window.hideURLbar=function(){return window.scrollTo(0,.9)},document.addEventListener("touchstart",hideURLbar,!1)
