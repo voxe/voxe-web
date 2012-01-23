@@ -70,6 +70,8 @@ class window.ElectionModel extends Backbone.Model
   addCandidate: (candidate) ->
     election = @
     data = {candidateIds: candidate.id}
+    unless candidate.id
+      return 0
     $.ajax
       type: 'POST'
       url: "#{@url()}/addcandidacy"
