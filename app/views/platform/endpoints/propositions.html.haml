@@ -1,4 +1,7 @@
 .page-header
+  %h1 Everyone
+  
+.page-header
   %h2
     %small GET
     = "/propositions/{id}"
@@ -9,10 +12,10 @@
   %span.label EXAMPLE
 
 %pre
-  http://voxe.org/api/v1/propositions/{id}
+  http://voxe.org/api/v1/propositions/#{Proposition.first.id}
 
 %p
-  %a.btn.small Try
+  %a.btn.small{href: "/api/v1/propositions/#{Proposition.first.id}".to_url} Try
 
 .page-header
   %h2
@@ -34,24 +37,21 @@
       %td tagIds
       %td id1,id2
     %tr
-      %td electionIds
-      %td id1,id2
-    %tr
-      %td candidateIds
+      %td candidacyIds
       %td id1,id2
     
 %p
   %span.label EXAMPLE
     
 %pre
-  http://voxe.org/api/v1/propositions/search?electionId=
+  http://voxe.org/api/v1/propositions/search?candidacyIds=#{Candidacy.first.id}
   
 %p
-  %a.btn.small Try
+  %a.btn.small{href: "/api/v1/propositions/search?candidacyIds=#{Candidacy.first.id}".to_url} Try
 
 
 .page-header
-  %h1 Admin
+  %h1 Protected
 
 .page-header
   %h2

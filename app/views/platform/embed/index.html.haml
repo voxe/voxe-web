@@ -5,18 +5,36 @@
 
 .page-header
   %h2
-    Get the code
+    Find your election Id
+
+%table.bordered-table
+  - Election.where(published: true).each do |election|
+    %tbody
+      %tr
+        %td= election.name
+        %td= election.id
+
+.page-header
+  %h2
+    Get the code and change {id} by your election Id
     
 %p We recommend a minimum width of 500 pixels and a minimum height of 480px.
     
 %p
   %pre
     :escaped
-      <iframe frameborder='0' width='600px' height='480px' src='http://voxe.org/embed/elections/#{Election.first.id}'></iframe>
+      <iframe frameborder='0' width='600px' height='480px'
+      src='http://voxe.org/embed/elections/{id}'></iframe>
 
 .page-header    
   %h2
     Preview
     
+%pre
+  :escaped
+    <iframe frameborder='0' width='600px' height='480px'
+    src='http://voxe.org/embed/elections/#{Election.first.id}'>
+    </iframe>
+    
 %p
-  %iframe{src: embed_election_url(Election.first.id), width: '600px', height: '550px', frameborder: '0'}
+  %iframe{src: embed_election_url(Election.first.id), width: '550px', height: '550px', frameborder: '0'}

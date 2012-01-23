@@ -3,6 +3,15 @@
 
 %p Add Voxe to your mobile app.
 
-%h2 Simple
+.page-header
+  %h2 Simple
 
-%p Use a WebView that hosts a voxe.org page.
+%p Use a WebView that hosts a voxe.org page. We automatically render an optimized version for mobile devices.
+
+.page-header
+  %h2 Demo
+  
+.mobile{style: "background-image: url(#{asset_path("platform/iPhone4S.png")});"}
+  .app
+    %iframe{width: '320px', height: '460px', src: "http://touch.voxe-dev.org:3000/", frameborder: 0}
+    

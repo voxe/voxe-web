@@ -1,4 +1,7 @@
 .page-header
+  %h1 Everyone
+
+.page-header
   %h2
     %small GET
     = "/candidates/{id}"
@@ -9,10 +12,10 @@
   %span.label EXAMPLE
 
 %pre
-  http://voxe.org/api/v1/candidates/4ed1cb0203ad190006000132
+  http://voxe.org/api/v1/candidates/#{Candidate.first.id}
   
 %p
-  %a.btn.small Try
+  %a.btn.small{href: "/api/v1/candidates/#{Candidate.first.id}".to_url} Try
 
 .page-header
   %h2
@@ -35,10 +38,10 @@
   http://voxe.org/api/v1/candidates/search?name=Nico
 
 %p
-  %a.btn.small Try
+  %a.btn.small{href: "/api/v1/candidates/search?name=Sarkozy".to_url} Try
 
 .page-header
-  %h1 Admin
+  %h1 Protected
 
 .page-header
   %h2
@@ -66,9 +69,6 @@
 %pre
   http://voxe.org/api/v1/candidates
 
-%p
-  %a.btn.small Try
-
 .page-header
   %h2
     %small POST
@@ -88,6 +88,3 @@
 
 %pre
   http://voxe.org/api/v1/candidates/4ed1cb0203ad190006000132/addphoto
-
-%p
-  %a.btn.small Try

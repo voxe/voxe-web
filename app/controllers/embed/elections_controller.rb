@@ -1,5 +1,7 @@
 class Embed::ElectionsController < ApplicationController
   
+  layout false
+  
   def show
     begin
       @election = Election.find params[:id]

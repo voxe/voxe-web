@@ -1,4 +1,7 @@
 .page-header
+  %h1 Everyone
+  
+.page-header
   %h2
     %small GET
     = "/tags/{id}"
@@ -9,10 +12,10 @@
   %span.label EXAMPLE
 
 %pre
-  http://voxe.org/api/v1/tags/{id}
+  http://voxe.org/api/v1/tags/#{Tag.first.id}
   
 %p
-  %a.btn.small Try
+  %a.btn.small{href: "/api/v1/tags/#{Tag.first.id}".to_url} Try
 
 .page-header
   %h2
@@ -35,11 +38,10 @@
   http://voxe.org/api/v1/tags/search
 
 %p
-  %a.btn.small Try
-
+  %a.btn.small{href: "/api/v1/tags/search".to_url} Try
 
 .page-header
-  %h1 Admin
+  %h1 Protected
 
 .page-header
   %h2
@@ -67,10 +69,6 @@
 %pre
   http://voxe.org/api/v1/tags
 
-%p
-  %a.btn.small Try
-
-
 .page-header
   %h2
     %small PUT
@@ -96,7 +94,3 @@
 
 %pre
   http://voxe.org/api/v1/tags/{id}
-
-%p
-  %a.btn.small Try
-

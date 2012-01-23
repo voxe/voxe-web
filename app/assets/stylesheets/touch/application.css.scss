@@ -22,6 +22,7 @@ ul, li {
 #application-view {
   position: absolute;
   top: 0;
+  bottom: 0;
   width: 100%;
 }
 
@@ -41,10 +42,6 @@ ul, li {
 
 .iphone #application-view {
   bottom: -60px;
-}
-
-.android #application-view {
-  bottom: 0;
 }
 
 .page-view {
