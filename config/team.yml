@@ -12,49 +12,54 @@
   namespace: benjaminlsl
   name: Benjamin Lan Sun Luk
   info: "back-end & api"
-  description:
+  description: "Benjamin a créé l’API de Voxe.org et travaille sur notre back-office. Il est aussi connu pour développer plus vite que son ombre."
 -
   namespace: charlotter
   name: Charlotte Richard
   info: presse
-  description: ''
+  description: "Charlotte est la pro de la com’. Grâce à un carnet d’adresse long comme le bras, tout le monde connaît Voxe.org. Et Charlotte."
 -
   namespace: juliab
   name: Julia Bijaoui
   info: partenariats
-  description: "En charge des partenariats et des évènements. Julia a fondé le Prix Littéraire des Grandes Ecoles à 21 ans (avant même de savoir repasser une chemise). Etudiante à HEC et elle vit une torride  histoire  avec les médias sociaux, les start-up et la littérature. Julia est actrice dans une autre vie et fan de karaoké à ses heures perdues."
+  description: "Julia signe les partenariats et organise les événements de Voxe.org. Elle adore recevoir."
 -
   namespace:
   name: Paul Chobert
   info: front-end
-  description: ''
+  description: "Paul développe notre back-office et plein d'autres choses, et aime déployer son code vers 6 heures du matin, pas avant."
 -
   namespace: pierreyvesr
   name: Pierre-Yves Ricaud
   info: android
-  description: "Pierre-Yves, notre mage d’Android, ne peut coder sans la Chaîne Parlementaire en fond sonore. Pour le rendre heureux : nourrissez-le de pâtes au Kiri et de Open Source software. Piwaï est diplômé de KTH Royal Institute of Technology (Suède) et de l’Insa Rouen."
+  description: "Il développe l'application Androïd du comparateur avec la chaîne parlementaire en fond sonore. Si si."
 -
   namespace: katb
   name: Kat Borlongan
   info: international
-  description: ''
+  description: "Kat, polyglotte et née en Philippine, promeut la plateforme à l’international. Pas le choix, elle ne vote pas en France ;-)"
 -
   namespace:
   name: Thibault Geffroy
   info: design
-  description: ''
+  description: "Thibault dessine les visuels et icônes de Voxe.org. Il paraît qu’il est pictogramophile."
 -
   namespace:
   name: Antoine Maillard
   info: iOS
-  description: ''
+  description: "Antoine a créé notre application iPhone/iPad. Oui, en effet, c’est impressionnant."
 -
   namespace:
   name: Anatole Royer
   info: design
-  description: ''
+  description: "Anatole est notre artiste. L’inspiration et le logo, c’est lui!"
 -
   namespace: benjaminn
   name: Benjamin Netter
   info: web
-  description: ''
+  description: "Benjamin est un de nos UX designers front-end. Vous trouvez que Voxe.org, c’est joli ? C’est normal."
+-
+  namespace:
+  name: Romain Lalanne
+  info: media sociaux
+  description: "Romain travaille notre présence sur les medias participatifs. C’est le dernier arrivé!"
