@@ -34,14 +34,10 @@ class Backoffice.Views.Election.PropositionsCandidacyTagView extends Backbone.Vi
     view = @
     $('.proposition-text').editable(
       (value, setting) ->
-        console.log @
-        console.log value
-        console.log setting
-
+        propositionTagId = $(@).parent().parent().parent().parent().parent().data().tagId
         propositionId = $(@).parent().parent().data().propositionId
         proposition = view.propositions.find (proposition) -> proposition.id == propositionId
-        console.log proposition
-        console.log proposition.save {}, data: $.param(proposition: {text: value})
+        console.log proposition.save {}, data: $.param(proposition: {text: value, tagIds: propositionTagId})
 
         return value
       type: 'textarea'
