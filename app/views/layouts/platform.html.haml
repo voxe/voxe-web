@@ -6,6 +6,7 @@
     %meta{charset: "UTF-8"}
     = stylesheet_link_tag "platform"
     = render "layouts/partials/google_analytics"
+    %link{rel: "shortcut icon", href: "#{asset_path('web/favicon.ico')}"}
   %body{:class => "#{controller_name} #{action_name}"}
     .page-container
       #nav
