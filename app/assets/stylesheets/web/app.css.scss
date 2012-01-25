@@ -72,10 +72,18 @@ h1, h2, h3, h4 {
     width: 980px; 
     margin: 0 auto;
   }
+  #app {
+    float: left;
+    font-size: 18px;
+    margin: 13px 0 0 0;
+    a {
+      color: #211922;
+    }
+  }
   #nav {
     float: right;
-    margin: 15px 0 0 0;
     font-size: 13px;
+    margin: 15px 0 0 0;
     a {
       color: #211922;
       margin-left: 8px;
