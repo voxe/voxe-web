@@ -1,7 +1,7 @@
 class MobileConstraint
   
   def matches? request
-    wap_device?(request) || search_bot?(request) || facebook_bot?(request)
+    wap_device?(request) || search_bot?(request) || facebook_bot?(request) || ie_6?(request)
   end
   
   def wap_device? request
@@ -15,6 +15,10 @@ class MobileConstraint
   
   def facebook_bot? request
     request.user_agent.to_s.downcase =~ /facebookexternalhit/
+  end
+  
+  def ie_6? request
+    request.user_agent.to_s.downcase =~ /msie 6/
   end
   
 end
