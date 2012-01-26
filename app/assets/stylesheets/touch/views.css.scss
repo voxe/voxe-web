@@ -15,10 +15,6 @@
     text-align: center;
   }
   
-  li.selected:first-child {
-    border-radius: 3px 3px 0 0;
-  }
-  
   ul li:last-child {
     border-bottom: 0px solid #eee;
   }
@@ -36,17 +32,17 @@
   
   ul li {
     cursor: pointer;
-    padding: 10px;
+    padding: 5px 10px;
     overflow: auto;
     border-bottom: 1px solid #eee;
     .image {
       float: left;
       img {
-        border-radius: 3px;
+        border-radius: 2px;
       }
     }
     .name {
-      margin-left: 50px;
+      margin: 10px 0 0 60px;
     }
   }
   
@@ -55,11 +51,9 @@
   }
   
   li.selected {
-    background-color: #ddd;
-  }
-  
-  ul li:last-child {
-    border-bottom: 0px solid #eee;
+    font-weight: bold;
+    background: url('#{asset_path('touch/selected-bullet.png', 'images')}') no-repeat 95% 7px;
+    background-size: 30px 30px;
   }
   
 }
@@ -85,7 +79,7 @@
       }
     }
     .name {
-      margin-left: 60px;
+      margin: 4px 0 0 42px;
     }
   }
   
