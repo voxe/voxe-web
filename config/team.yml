@@ -39,7 +39,7 @@
   info: international
   description: "Kat, polyglotte et née aux Philippines, promeut la plateforme à l’international. Pas le choix, elle ne vote pas en France ;-)"
 -
-  namespace:
+  namespace: thibaultg
   name: Thibault Geffroy
   info: design
   description: "Thibault réalise les visuels et icônes de Voxe.org. Il paraît qu’il est pictogramophile."
@@ -62,4 +62,4 @@
   namespace: romainl
   name: Romain Lalanne
   info: media sociaux
-  description: "Romain travaille la présence de Voxe.org sur les medias sociaux. C’est le dernier arrivé !""
+  description: "Romain travaille la présence de Voxe.org sur les medias sociaux. C’est le dernier arrivé !"
