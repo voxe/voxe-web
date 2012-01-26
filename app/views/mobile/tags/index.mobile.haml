@@ -4,5 +4,5 @@
   - @election.root_election_tags.each do |election_tag|
     %li
       = link_to compare_path(@election, params[:candidacies], election_tag.tag.namespace) do
-        = image_tag election_tag.tag.icon_prefix + "64" + election_tag.tag.icon_name, size: "32x32", valign: "middle"
+        = image_tag election_tag.tag.icon_prefix + "64" + election_tag.tag.icon_name, size: "32x32", valign: "middle", border: 0
         = election_tag.tag.name
