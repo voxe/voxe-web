@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, sans-serif;
+  background-color: whiteSmoke;
 }
 
 /* http://rakaz.nl/2009/09/iphone-webapps-101-getting-safari-out-of-the-way.html */
@@ -27,7 +28,6 @@ ul, li {
 }
 
 .table-view-container {
-  background-color: #eee;
   position: absolute;
   top: 44px;
   bottom: 0;

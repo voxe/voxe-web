@@ -1,26 +1,19 @@
 .button {
   position: absolute;
   z-index: 2;
-  top: 6px;
+  top: 5px;
   cursor: pointer;
-  color: white;
+  color: #333;
   text-align: center;
-  padding: 9px 12px;
+  padding: 8px 12px;
   font-size: 12px;
   font-weight: bold;
-  text-shadow: 0 -1px 0 #167894;
-  border: 1px solid #175876;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  border: 1px solid #CCC;
+  border-bottom-color: #BBB;
   border-radius: 5px;
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#53b0ca), to(#2392b7));
-  background-image: -webkit-linear-gradient(top, #53b0ca, #2392b7);
-  background-image: -moz-linear-gradient(top, #53b0ca, #2392b7);
-  background-image: -o-linear-gradient(top, #53b0ca, #2392b7);
-  background-image: -ms-linear-gradient(top, #53b0ca, #2392b7);
-  background-image: linear-gradient(top, #53b0ca, #2392b7);
-  -webkit-box-shadow: 0 1px 0 0px rgba(255,255,255,0.3);
-  -moz-box-shadow: 0 1px 0 0px rgba(255,255,255,0.3);
-  box-shadow: 0 1px 0 0px rgba(255,255,255,0.3);
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  background-color: #E6E6E6;
+  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
 }
 
 .button:active {

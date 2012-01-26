@@ -1,6 +1,5 @@
 %script#elections-list-template{type: "text/html"}
   .nav-bar
-    .title voxe
 
   .table-view-container
     .table-view
@@ -8,14 +7,13 @@
         :plain
           {{#elections}}
             <li election-id="{{id}}">
-              <div class="name">{{name}}</div>
+              <img src="http://voxe.s3.amazonaws.com/elections/{{namespace}}-556.png" width="278px" />
             </li>
           {{/elections}}
 
 %script#share-template{type: "text/html"}
   .nav-bar
     %a.button.left.close Close
-    .title Share
 
   .table-view-container
     .table-view
@@ -44,21 +42,15 @@
 %script#candidacies-list-template{type: "text/html"}
   .nav-bar
     %a.button.left.nav  ← Elections
-    .title {{election.name}}
-    %a.button.right.compare Compare
+    %a.button.right.compare Comparer
   
   .table-view-container
     .table-view
       %ul.candidacies
-        :plain
-          {{#election.candidacies}}
-
-          {{/election.candidacies}}
         
 %script#tags-list-template{type: "text/html"}
   .nav-bar
-    %a.button.left.nav  ← Candidates
-    .title Themes
+    %a.button.left.nav  ← Candidats
   
   .table-view-container
     .table-view
@@ -75,7 +67,6 @@
   .nav-bar
     %a.button.left.nav  ← Themes
     %a.button.right.share Share
-    .title {{#tag}}{{name}}{{/tag}}
     
   .table-view-container
     .table-view
