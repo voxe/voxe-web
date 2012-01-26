@@ -26,6 +26,6 @@ class Api::V1::CandidatesController < Api::V1::ApplicationController
 
   # GET /api/v1/candidates/search
   def search
-    @candidates = Candidate.any_of({first_name: /#{params[:name]}/i}, {last_name: /#{params[:name]}/i})
+    @candidates = Candidate.any_of({first_name: /#{params[:name]}/i}, {last_name: /#{params[:name]}/i}).order_by([[:first_name, :asc], [:last_name, :desc]])
   end
 end
