@@ -4,6 +4,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # GET /api/v1/elections/1
   def show
+    @all_tags = (params[:tags] == 'all')
   end
 
   # GET /api/v1/elections/search
@@ -11,7 +12,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     unless params[:published] == 'all'
       @elections = @elections.where(published: true)
     end
-    @elections = @elections.where(name: /#{params[:name]}/i)
+    @elections = @elections.where(name: /#{params[:name]}/i).includes(:candidacies)
   end
 
   # POST /api/v1/elections

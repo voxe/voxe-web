@@ -23,9 +23,18 @@ child @election do
       end
     end
   end
+  # node :tags do |election|
+  #   election.root_election_tags.collect do |election_tag|
+  #     partial("api/v1/elections/tag", :object => election_tag)
+  #   end
+  # end
   node :tags do |election|
-    election.root_election_tags.collect do |election_tag|
-      partial("api/v1/elections/tag", :object => election_tag)
+    if @all_tags
+      # include all tags
+      Api::V1::Formatters::ElectionTags.new(election).all_tags_json
+    else
+      # only root_tag (default)
+      Api::V1::Formatters::ElectionTags.new(election).root_tags_json
     end
   end
 end

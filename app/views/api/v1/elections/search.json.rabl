@@ -17,3 +17,8 @@ child :candidacies do
     end
   end
 end
+node :tags do |election|
+  election.root_election_tags.collect do |election_tag|
+    {id: election_tag.tag_id, name: election_tag.tag.name, namespace: election_tag.tag.namespace, position: election_tag.position, icon: {prefix: election_tag.tag.icon_prefix, sizes: election_tag.tag.icon_sizes, name: election_tag.tag.icon_name}}
+  end
+end

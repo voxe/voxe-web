@@ -24,7 +24,7 @@ class ElectionTag
   def children_election_tags
     ElectionTag.all conditions: {parent_tag_id: tag.id, election_id: election.id}
   end
-  # 
+  
   # def ancestors_tags
   #   ancestors = []
   #   current_election_tag = self
@@ -37,6 +37,10 @@ class ElectionTag
 
   def position
     rand 1000
+  end
+  
+  def root?
+    parent_tag == nil
   end
 
   private

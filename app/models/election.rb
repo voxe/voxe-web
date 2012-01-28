@@ -20,11 +20,11 @@ class Election
   scope :published, where(published: true)
 
   def root_election_tags
-    ElectionTag.all(conditions: {election_id: parent_election ? parent_election.id : self.id, parent_tag_id: nil})
+    ElectionTag.all(conditions: {election_id: parent_election ? parent_election.id : self.id, parent_tag_id: nil}).includes(:tag)
   end
 
   def election_tags
-    ElectionTag.where election_id: (parent_election ? parent_election.id : self.id)
+    ElectionTag.where(election_id:(parent_election ? parent_election.id : self.id)).includes(:tag)
   end
 
   def to_param

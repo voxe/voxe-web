@@ -1,8 +1,10 @@
 object false
 child @propositions do
   attributes :id, :text
-  child :tags do
-    attributes :id
+  node :tags do |propositions|
+    propositions.tag_ids.collect do |tag_id|
+      {id: tag_id}
+    end
   end
   child :candidacy do
     attributes :id
