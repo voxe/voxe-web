@@ -19,6 +19,7 @@ class Candidate
   validates_uniqueness_of :namespace
   
   accepts_nested_attributes_for :photos, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
+  default_scope order_by([[:first_name, :asc], [:last_name, :desc]])
 
   def name
     "#{first_name} #{last_name}"
