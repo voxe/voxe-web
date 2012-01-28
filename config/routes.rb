@@ -42,6 +42,7 @@ end
 Joinplato::Application.routes.draw do
   
   # redirect www to .
+  match "/" => redirect {|params| "http://voxe.org" }, :constraints => {:subdomain => "www"}
   match "/*path" => redirect {|params| "http://voxe.org/#{params[:path]}" }, :constraints => {:subdomain => "www"}
   
   # sitemap
