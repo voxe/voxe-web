@@ -47,15 +47,9 @@ At the command prompt, launch tests:
 
 == Deployment
 
-Ensure your have the heroku gem. If not install it, at the command prompt:
-  gem install heroku
-
-Prerequired, add staging branch for heroku deployment.
-
-One for staging mode:
-  git remote add staging git@heroku.com:voxe-staging.git
-
-Then you can deploy to staging by pushing your branch on heroku.
-
 Deploying in staging mode:
-  git push staging master
+  rake deploy:staging
+
+Or in production mode:
+  rake deploy:production
+
