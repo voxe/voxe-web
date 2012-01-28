@@ -40,13 +40,13 @@ web/ajax-loader.gif: web/ajax-loader-c040c0cd9239e33cec1d07bfc22d61f6.gif
 web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
 web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
 web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
-backoffice/application.js: backoffice/application-56f99d3ca4e45d01cbdf0032fc8abab4.js
-embed.js: embed-5358208166b7ffd0271a511f4a6aa4cc.js
+backoffice/application.js: backoffice/application-57d4a5df98eb8b72e3cbf7e6da34b082.js
+embed.js: embed-dff616039b438e25d9d0a9829f38ea72.js
 embed/views/application.js: embed/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
-touch.js: touch-df735e75c5e2d6305eaa4ba0abc93529.js
+touch.js: touch-c3215e92804c4fc779bc13bb42a5edf2.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
 touch/views/application.js: touch/views/application-ac94443119a72c6fb6608bb5d7a3a2e7.js
-web.js: web-370a8e45c3e7aa6589c14ddb189e888d.js
+web.js: web-2598fbd07bb95e7fde84f4225ec1910c.js
 web/application.js: web/application-09a3b52d96158b41ba3014cc41948e4a.js
 web/views/application.js: web/views/application-e13811e8aab187a1028658eaae371f7c.js
 webviews.js: webviews-cff3aebe65933a081a688c713e52c3a3.js
