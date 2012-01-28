@@ -5,6 +5,10 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     sign_in FactoryGirl.create(:admin)
 
     @election = FactoryGirl.create(:election)
+    @parent_tag = Tag.first
+    ElectionTag.create! election: @election, tag: @parent_tag
+    @tag = Tag.last
+    ElectionTag.create! election: @election, tag: @tag, parent_tag: @parent_tag
     @proposition = @election.candidacies.first.propositions.first
   end
 
@@ -29,7 +33,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
   test "should create a proposition" do
     proposition_attributes                = {}
     proposition_attributes['text']        = "Something"
-    proposition_attributes['tagIds']      = Tag.first.id.to_s
+    proposition_attributes['tagIds']      = @tag
     proposition_attributes['candidacyId'] = @election.candidacies.last.to_param
 
     assert_difference('Proposition.count') do
@@ -37,11 +41,11 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     end
     assert_response :success
 
-    assert assigns(:proposition).tags.size >= 1
+    assert assigns(:proposition).tags.size > 1
   end
 
   test "should update text and tags of a proposition" do
-    new_tag_id = Tag.last.id.to_s
+    new_tag_id = @parent_tag.id.to_s
     new_text = "Here we are: a new proposition !"
     assert_no_difference('Proposition.count') do
       put :update, id: @proposition.id.to_s, format: 'json', proposition: {
