@@ -11,6 +11,9 @@ class ElectionTag
   belongs_to :tag
   belongs_to :parent_tag, class_name: 'Tag'
   
+  # indexes
+  index [[:parent_tag_id, Mongo::ASCENDING], [:election_id, Mongo::ASCENDING]]
+  
   # validations
   validates_uniqueness_of :tag_id, :scope => :election_id
   validates_presence_of :election, :tag

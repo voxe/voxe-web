@@ -36,18 +36,18 @@ class Webviews::ComparisonsController < Webviews::ApplicationController
     return render text: "empty" unless @election_tag
     
     conditions = {}
-    conditions[:tag_ids.in] = params[:tagIds].split(',') unless params[:tagIds].blank?
+    conditions[:tag_ids.in] = params[:tagId].split(',') unless params[:tagId].blank?
     conditions[:candidacy_id.in] = params[:candidacyIds].split(',') unless params[:candidacyIds].blank?
     
-    propositions = Proposition.where conditions
-                                     
+    propositions = Proposition.where(conditions)
+    
     @tags_propositions = {}
     propositions.each do |proposition|
-      proposition.tags.each do |tag|
-        @tags_propositions[tag.id.to_s] = [] unless @tags_propositions[tag.id.to_s]
-        @tags_propositions[tag.id.to_s] << proposition
+      proposition.tag_ids.each do |tag_id|
+        @tags_propositions[tag_id.to_s] = [] unless @tags_propositions[tag_id.to_s]
+        @tags_propositions[tag_id.to_s] << proposition
       end
-    end
+    end    
   end
   
 end

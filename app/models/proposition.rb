@@ -6,6 +6,9 @@ class Proposition
 
   belongs_to :candidacy
   has_and_belongs_to_many :tags
+  
+  # indexes
+  index [[:candidacy_id, Mongo::ASCENDING], [:tag_ids, Mongo::ASCENDING]]
 
   validates_presence_of :candidacy, :tags, :text
 
