@@ -35,7 +35,8 @@ class Candidate
   
   def photo_url(size = nil)
     #photo? ? ((size == nil) ? photo.image.url : photo.image.send(size).url) : default_photo(size)
-    "http://voxe.s3.amazonaws.com/candidates/#{namespace}.jpg"
+    width = {:small => 50, :medium => 100, :large => 100}[size]
+    "http://voxe.s3.amazonaws.com/candidates/#{namespace}-#{width}.jpg"
   end
   
   private
