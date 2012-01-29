@@ -13,6 +13,19 @@ namespace :deploy do
     Rake::Task['assets:precompile'].invoke
     puts "== Adding manifest.yml to your last commit"
     puts `git commit public/assets/manifest.yml -m "Add manifest.yml for deployment"`
+
+    puts "== Removing assets"
+    directory = 'public/assets'
+    Dir.open(directory).each do |filename|
+      next if filename.start_with?('.') or filename == 'manifest.yml'
+      path = File.join(directory, filename)
+      if File.directory?(path)
+        FileUtils.rm_rf path
+      else
+        File.unlink path
+      end
+    end
+
   end
   
   task :staging => [:setup, :precompile_assets] do
