@@ -1,2 +1,4 @@
 #compare-view
+  .tag= image_tag @tag.icon_prefix + "64" + @tag.icon_name, size: "32x32"
+  
   = render "tag", election_tag: @election_tag

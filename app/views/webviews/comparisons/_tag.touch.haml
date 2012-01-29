@@ -1,27 +1,24 @@
 - if election_tag.children_election_tags.empty?
-  .section-container
-    .section-name
-      %span= election_tag.tag.name
-      - tag_propositions = @tags_propositions[election_tag.tag.id.to_s]
-      - if tag_propositions
-        - @candidacies.each do |candidacy|
-          - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
-          .candidate-container
-            .candidate-photo= image_tag candidacy.candidates.first.photo_url(:small), size: "40x40"
-            .propositions-container
-              - candidacy_propositions.each do |proposition|
-                .proposition
-                  = link_to proposition.text, webviews_proposition_path(proposition.id)
-              / - unless candidacy_propositions.blank?
-              /   - candidacy_propositions[0..1].each do |proposition|
-              /     .proposition
-              /       = link_to truncate(proposition.text, length: 140), webviews_proposition_path(proposition.id)
-              /   - if candidacy_propositions.count > 2
-              /     .view-more
-              /       %a View More
+  .help
+    %span= election_tag.tag.name
+    
+  - tag_propositions = @tags_propositions[election_tag.tag.id.to_s]
+  - if tag_propositions
+    - @candidacies.each do |candidacy|
+      .propositions
+        / candidate
+        .candidate
+          = image_tag candidacy.candidates.first.photo_url(:small), size: "40x40"
+          
+        / propositions
+        - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
+        - candidacy_propositions.each do |proposition|
+          .proposition
+            = link_to proposition.text, webviews_proposition_path(proposition.id)
+            
 - else
-  .section-container
-    .section-name
-      %span= election_tag.tag.name
-      - election_tag.children_election_tags.each do |children_tag|
-        = render "tag", election_tag: children_tag
+  .help
+    %span= election_tag.tag.name
+    
+  - election_tag.children_election_tags.each do |children_tag|
+    = render "tag", election_tag: children_tag
