@@ -5,12 +5,15 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
   # GET /api/v1/elections/1
   def show
     @all_tags = (params[:tags] == 'all')
+    @only_published_candidacies = (params[:published] == 'all')
   end
 
   # GET /api/v1/elections/search
   def search
+    @only_published_candidacies = false
     unless params[:published] == 'all'
       @elections = @elections.where(published: true)
+      @only_published_candidacies = true
     end
     @elections = @elections.where(name: /#{params[:name]}/i).includes(:candidacies)
   end

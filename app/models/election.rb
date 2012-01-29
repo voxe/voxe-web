@@ -36,4 +36,9 @@ class Election
     array.sort_by! { |candidacy| candidacy.candidates[0].last_name }
   end
 
+  def published_candidacies_sorted
+    array = candidacies.published
+    array.sort_by! { |candidacy| candidacy.candidates[0].last_name }
+  end
+
 end

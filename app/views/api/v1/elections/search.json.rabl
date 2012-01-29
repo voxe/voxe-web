@@ -1,7 +1,7 @@
 object false
 collection @elections => :elections
 attributes :id, :name, :namespace, :published
-child :candidacies_sorted do
+child (@only_published_candidacies ? :published_candidacies_sorted : :candidacies_sorted) do
   attribute :id, :published, :namespace
   child :organization, :if => lambda { |candidacy| !candidacy.organization.blank? } do
     attribute :id, :name

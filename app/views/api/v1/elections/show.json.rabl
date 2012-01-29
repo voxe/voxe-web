@@ -7,7 +7,7 @@ child @election do
   # child :elections => :elections do
   #   attributes :id, :name
   # end
-  child :candidacies_sorted do
+  child (@only_published_candidacies ? :published_candidacies_sorted : :candidacies_sorted) do
     attribute :id, :published, :namespace
     child :organization, :if => lambda { |candidacy| !candidacy.organization.blank? } do
       attribute :id, :name
