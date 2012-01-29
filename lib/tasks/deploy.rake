@@ -5,11 +5,14 @@ namespace :deploy do
     if ENV['MONGOHQ_URL'].blank?
       ENV['MONGOHQ_URL'] = "mongodb://localhost/joinplato_development"
     end
+    puts `git checkout master`
   end
   
   task :precompile_assets do
     puts "== Precompiling assets"
     Rake::Task['assets:precompile'].invoke
+    puts "== Adding manifest.yml to your last commit"
+    puts `git commit public/assets/manifest.yml -m "Add manifest.yml for deployment"`
   end
   
   task :staging => [:setup, :precompile_assets] do
