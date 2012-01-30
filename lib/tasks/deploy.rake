@@ -5,6 +5,12 @@ namespace :deploy do
     if ENV['MONGOHQ_URL'].blank?
       ENV['MONGOHQ_URL'] = "mongodb://localhost/joinplato_development"
     end
+    if ENV['AWS_ACCESS_KEY_ID'].blank? || ENV['AWS_SECRET_ACCESS_KEY'].blank?
+      raise "ENV: AWS_ACCESS_KEY_ID or/and AWS_SECRET_ACCESS_KEY can't be blank"
+    end
+    if ENV['FOG_DIRECTORY'].blank?
+      raise "ENV: FOG_DIRECTORY can't be blank"
+    end
     puts `git checkout master`
   end
   
