@@ -5,3 +5,7 @@
 *= require_tree './platform'
 *= require_self
 */
+
+#page {
+  margin-bottom: 16px;
+}
