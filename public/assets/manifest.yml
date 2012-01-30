@@ -57,8 +57,8 @@ backoffice/application.css: backoffice/application-590187e95df68f0618c68e6b48d58
 embed.css: embed-bbaaa355f09afc059d78a2a3a9dc6c65.css
 mobile.css: mobile-ceeaca883190b8466a58f644ca6680e0.css
 mobile/application.css: mobile/application-c8f31b5563b715a35a19835b8347b57b.css
-platform.css: platform-6f971ac8692f558a7bb1d60149fbd4d5.css
-touch.css: touch-55d06354bdf2b3e0a85deb8f05c10bf7.css
+platform.css: platform-b5c1304499f131ff2cee2dad4f5e508e.css
+touch.css: touch-f1f70e4a87eb9f09babb326ee54b6f2b.css
 touch/application.css: touch/application-fe3274063560caa2ea101a200aaca136.css
 web.css: web-68d57c180800dffccacb5d9c3b5dec49.css
 webviews.css: webviews-259d12a9a5e36c03d27b22ad143cd3bd.css
