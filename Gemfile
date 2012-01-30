@@ -70,6 +70,9 @@ gem 'cancan'
 # http://michaelvanrooijen.com/articles/2011/06/01-more-concurrency-on-a-single-heroku-dyno-with-the-new-celadon-cedar-stack/
 gem 'unicorn'
 
+# scaling
+gem 'hirefireapp'
+
 # Lists for Mongoid
 gem 'acts_as_list_mongoid'
 
