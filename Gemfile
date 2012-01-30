@@ -67,7 +67,8 @@ gem 'devise'
 gem 'cancan'
 
 # Webserver
-gem 'thin'
+# http://michaelvanrooijen.com/articles/2011/06/01-more-concurrency-on-a-single-heroku-dyno-with-the-new-celadon-cedar-stack/
+gem 'unicorn'
 
 # Lists for Mongoid
 gem 'acts_as_list_mongoid'
