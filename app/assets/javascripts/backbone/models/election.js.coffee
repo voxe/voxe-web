@@ -6,7 +6,7 @@ class window.ElectionModel extends Backbone.Model
 
   url: ->
     if @id
-      "/api/v1/elections/#{@id}?tags=all"
+      "/api/v1/elections/#{@id}?tags=all&published=all"
     else
       "/api/v1/elections/"
 
