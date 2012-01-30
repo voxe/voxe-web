@@ -20,7 +20,7 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
   end
 
   test "should show an election" do
-    get :show, id: @election.id.to_s, format: 'json'
+    get :show, id: @election.id.to_s, published: 'all', format: 'json'
 
     assert_response :success
     json = JSON.parse @response.body
