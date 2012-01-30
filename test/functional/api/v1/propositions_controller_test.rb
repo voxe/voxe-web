@@ -73,4 +73,15 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     end
     assert_response :success
   end
+
+  test "should get the list of comments" do
+    @proposition.comments.create user: User.first, text: "Bla bla bla ... a lot !"
+    get :comments, id: @proposition.id.to_s, format: 'json'
+    assert_response :success
+    json = JSON.parse(@response.body)
+    assert_equal Array, json['response'].class
+    assert_equal 1, json['response'].size
+    assert json['response'].first['text'].present?
+    assert json['response'].first['user']['id'].present?
+  end
 end

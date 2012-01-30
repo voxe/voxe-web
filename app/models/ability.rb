@@ -40,7 +40,7 @@ class Ability
     # public
     can [:read, :search], Election
     can [:read, :search, :elections], Candidate
-    can :search, Proposition
+    can [:read, :search, :comments], Proposition
     can [:read, :propositions, :search], Tag
     can :read, Candidacy
     can :create, User

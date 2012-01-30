@@ -57,7 +57,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     head :ok
   end
 
-  # POST /api/v1/proposition/1/addcomment
+  # POST /api/v1/propositions/1/addcomment
   def addcomment
     @comment = @proposition.comments.build params[:comment]
     @comment.user = current_user
@@ -67,5 +67,10 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     else
       render text: {errors: @comment.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
+  end
+
+  # GET /api/v1/propositions/1/comments
+  def comments
+    @comments = @proposition.comments.includes(:user)
   end
 end

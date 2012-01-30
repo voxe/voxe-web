@@ -105,6 +105,9 @@ Joinplato::Application.routes.draw do
           get :search
           post :addcomment
         end
+        member do
+          get :comments
+        end
       end
 
       resources :candidacies do
