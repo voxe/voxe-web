@@ -5,7 +5,7 @@ namespace :setup do
     user = User.new
     user.email = 'admin@voxe.org'
     user.name = 'Voxe Admin'
-    user.password = 'GZ8dDkx'
+    user.password = 'password'
     user.admin = true
     user.save!
   
