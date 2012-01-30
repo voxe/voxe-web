@@ -20,3 +20,33 @@
 
 %pre
   http://voxe.org/api/v1/users/search?name=benjamin
+
+.page-header
+  %h2
+    %small POST
+    \/users
+
+%p Create an user.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td user[name]
+      %td John Doe
+    %tr
+      %td user[email]
+      %td john@doe.org
+    %tr
+      %td user[password]
+      %td something
+    %tr
+      %td user[password_confirmation]
+      %td something
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/users
+

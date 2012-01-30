@@ -43,5 +43,6 @@ class Ability
     can :search, Proposition
     can [:read, :propositions, :search], Tag
     can :read, Candidacy
+    can :create, User
   end
 end

@@ -18,4 +18,11 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
       assert reg.match(json_user['name'])
     end
   end
+
+  test "should create an user" do
+    assert_difference 'User.count' do
+      post :create, user: FactoryGirl.attributes_for(:user), format: 'json'
+    end
+    assert_response :created
+  end
 end
