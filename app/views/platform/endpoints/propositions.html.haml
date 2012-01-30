@@ -98,3 +98,22 @@
 %p
   %a.btn.small Try
 
+.page-header
+  %h2
+    %small POST
+    \/propositions/:id/addcomment
+
+%p Add a comment on a proposition. User have to be signed in.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td comment[text]
+      %td Life is beautiful
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/propositions/{id}/addcomment

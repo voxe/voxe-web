@@ -13,6 +13,7 @@ class Proposition
   validates_presence_of :candidacy, :tags, :text
 
   embeds_many :embeds, as: :embedable
+  embeds_many :comments
   accepts_nested_attributes_for :embeds, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
 
   before_save :add_parent_tags

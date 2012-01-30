@@ -103,6 +103,7 @@ Joinplato::Application.routes.draw do
       resources :propositions do
         collection do
           get :search
+          post :addcomment
         end
       end
 

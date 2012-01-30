@@ -57,4 +57,15 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     head :ok
   end
 
+  # POST /api/v1/proposition/1/addcomment
+  def addcomment
+    @comment = @proposition.comments.build params[:comment]
+    @comment.user = current_user
+
+    if @comment.save
+      head :ok
+    else
+      render text: {errors: @comment.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
 end
