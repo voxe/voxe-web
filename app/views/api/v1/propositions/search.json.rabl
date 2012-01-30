@@ -9,4 +9,7 @@ child @propositions do
   child :candidacy do
     attributes :id
   end
+  node :comments_count do |proposition|
+    proposition.comments.count
+  end
 end
