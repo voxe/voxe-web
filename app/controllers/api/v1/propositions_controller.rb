@@ -73,4 +73,24 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
   def comments
     @comments = @proposition.comments.includes(:user)
   end
+
+  # POST /api/v1/propositions/1/addembed
+  def addembed
+    embed = @proposition.embeds.build url: params[:url]
+    if embed.save
+      render 'api/v1/propositions/show.rabl'
+    else
+      render text: {errors: embed.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
+
+  # DELETE /api/v1/propositions/1/removeembed
+  def removeembed
+    embed = @proposition.embeds.find params[:embedId]
+    if embed.destroy
+      head :ok
+    else
+      render text: {errors: embed.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
 end

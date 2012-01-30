@@ -84,4 +84,21 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     assert json['response'].first['text'].present?
     assert json['response'].first['user']['id'].present?
   end
+
+  test "should add an embed" do
+    assert_difference('@proposition.embeds.count') do
+      post :addembed, id: @proposition.id.to_s, url: "http://www.youtube.com/watch?v=XGQewDiDN_E", format: 'json'
+    end
+    assert_response :success
+    json = JSON.parse(@response.body)
+    assert json['response']['proposition'].present?
+  end
+
+  test "should remove an embed" do
+    embed = @proposition.embeds.create! url: "http://www.youtube.com/watch?v=XGQewDiDN_E"
+    # assert_difference('@proposition.embeds.count') do
+      delete :removeembed, id: @proposition.id.to_s, embedId: embed.id.to_s, format: 'json'
+    # end
+    assert_response :success
+  end
 end

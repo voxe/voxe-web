@@ -10,4 +10,7 @@ child @proposition do
   node :comments_count do |proposition|
     proposition.comments.count
   end
+  child :embeds do
+    attributes :id, :title, :url, :provider_name, :type, :html
+  end
 end

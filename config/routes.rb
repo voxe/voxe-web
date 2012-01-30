@@ -107,6 +107,8 @@ Joinplato::Application.routes.draw do
         end
         member do
           get :comments
+          post :addembed
+          delete :removeembed
         end
       end
 

@@ -129,3 +129,44 @@
 
 %pre
   http://voxe.org/api/v1/propositions/{id}/addcomment
+
+.page-header
+  %h2
+    %small POST
+    \/propositions/:id/addembed
+
+%p Add an embed content on a proposition. It can be videos, links, articles, etc...
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td url
+      %td http://www.youtube.com/watch?v=XGQewDiDN_E
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/propositions/{id}/addembed
+
+.page-header
+  %h2
+    %small DELETE
+    \/propositions/:id/removeembed
+
+%p Remove an embed from a proposition.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td embedId
+      %td 4f2716dd56cc6002fa000001
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/propositions/{id}/removeembed
+
