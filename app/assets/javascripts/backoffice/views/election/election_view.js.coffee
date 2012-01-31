@@ -6,7 +6,7 @@ class Backoffice.Views.ElectionView extends Backbone.View
   initialize: ->
     @election = new ElectionModel(id: @options.election_id)
     @election.bind 'change', @render, @
-    @election.fetch()
+    @election.fetch(data: {tags: 'all', published: 'all'})
 
   render: () ->
     menu_entry = @options.menu_entry

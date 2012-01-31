@@ -4,12 +4,6 @@ class window.ElectionModel extends Backbone.Model
   
   urlRoot: "/api/v1/elections"
 
-  url: ->
-    if @id
-      "/api/v1/elections/#{@id}?tags=all&published=all"
-    else
-      "/api/v1/elections/"
-
   initialize: ->
     @.bind 'error', @processErrors
     @candidacies = new CandidaciesCollection(@get 'candidacies')
@@ -77,7 +71,7 @@ class window.ElectionModel extends Backbone.Model
       url: "#{@url()}/addcandidacy"
       data: $.param(data)
       success: (response) ->
-        election.fetch()
+        election.fetch(data: {tags: 'all', published: 'all'})
       error: (response) ->
         election.trigger 'error', election, response
 
@@ -89,4 +83,4 @@ class window.ElectionModel extends Backbone.Model
       data: {tagId: tag.id}
       complete: (response) ->
         if response.status == 200
-          election.fetch()
+          election.fetch(data: {tags: 'all', published: 'all'})
