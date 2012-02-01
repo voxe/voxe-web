@@ -19,6 +19,17 @@
                 %tr{'data-proposition-id': proposition.id}
                   %td
                     .proposition-text= proposition.get 'text'
+                    %hr
+                    %h4 Liens/videos
+                    - if proposition.get 'embeds'
+                      %ul
+                        - for embed in proposition.get 'embeds'
+                          %li{'data-embed-id': embed.id}
+                            = embed.title
+                            %button.btn.error.delete-embed x
+                    %form.add-embed{method: 'POST'}
+                      %input{name: 'url'}
+                      %input.btn.success{type: 'submit', value: 'Ajouter'}
                   %td
                     %button.btn.error.delete-proposition X
           - else

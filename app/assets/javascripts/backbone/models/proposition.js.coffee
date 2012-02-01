@@ -22,3 +22,24 @@ class window.PropositionModel extends Backbone.Model
 
   parse: (response) ->
     response.response.proposition
+
+  addEmbed: (url) ->
+    model = @
+    $.ajax
+      type: 'POST'
+      url: "#{@url()}/addembed"
+      data: {url: url}
+      success: (response) ->
+        model.set embeds: response.response.proposition.embeds
+
+  removeEmbed: (embedId) ->
+    model = @
+    $.ajax
+      type: 'DELETE'
+      url: "#{@url()}/removeembed"
+      data: {embedId: embedId}
+      complete: (response) ->
+        if response.status == 200
+          # sync collection with server
+          embeds = model.get 'embeds'
+          model.set embeds: _.reject(embeds, (e) -> e.id == embedId)
