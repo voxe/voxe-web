@@ -4,19 +4,23 @@ class Backoffice.Views.ElectionsView extends Backbone.View
 
   events:
     'submit form.new-election': 'newElection'
-    'click .toggle-publish': 'togglePublish'
 
   initialize: ->
-    @elections = new ElectionsCollection()
+    @elections = @collection
     @elections.bind 'reset', @render, @
-    @elections.bind 'change', @render, @
     @elections.bind 'add', @render, @
-    @elections.fetch({data: published: 'all'})
     @flash = {}
 
   render: ->
     $(@el).html @template @
+    @elections.each @addElection
     @flash = {}
+    @
+
+  addElection: (election) ->
+    view = new Backoffice.Views.Elections.ElectionItemView(model: election)
+    viewEl = view.render().el
+    $('table.elections').append(viewEl)
 
   newElection: (event) ->
     event.preventDefault()
@@ -31,8 +35,3 @@ class Backoffice.Views.ElectionsView extends Backbone.View
       @
 
     @elections.create(election, url: '/api/v1/elections/')
-
-  togglePublish: ->
-    electionId = $(event.target).parent().parent().data().electionId
-    election = @elections.find (e) -> e.id == electionId
-    election.save {}, data: $.param(election: {published: (not election.get 'published')})

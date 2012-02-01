@@ -1,0 +1,7 @@
+%td
+  %a{href: "#elections/#{@election.id}/candidacies"}= @election.get 'name'
+%td
+  - if @election.get 'published'
+    %button.span2.toggle-publish.btn.success Publié
+  - else
+    %button.span2.toggle-publish.btn.error Non publié

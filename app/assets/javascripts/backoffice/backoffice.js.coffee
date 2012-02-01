@@ -12,13 +12,14 @@
 
 window.Backoffice =
   Views:
+    Elections: {}
     Election: {}
   ViewInstances:
     Election: {}
+  Cache: {}
   Router: Backbone.Router.extend(
     routes:
       '': 'index'
-      'countries': 'countries'
       'elections': 'elections'
       'elections/:id': 'election'
       'elections/:election_id/:menu_entry': 'election'
@@ -28,13 +29,14 @@ window.Backoffice =
 
     index: ->
       @.navigate 'elections', true
-    countries: ->
-      new Backoffice.Views.CountriesView()
     elections: ->
-      if Backoffice.ViewInstances.Elections
-        Backoffice.ViewInstances.Elections.render()
+      if elections = Backoffice.Cache.elections
+        new Backoffice.Views.ElectionsView(collection: elections).render()
       else
-        Backoffice.ViewInstances.Elections = new Backoffice.Views.ElectionsView()
+        elections = new ElectionsCollection()
+        Backoffice.Cache.elections = elections
+        new Backoffice.Views.ElectionsView(collection: elections)
+        elections.fetch({data: published: 'all'})
     election: (id, menu_entry) ->
       if menu_entry
         if Backoffice.ViewInstances.Election[id]
@@ -60,23 +62,6 @@ window.Backoffice =
         Backoffice.ViewInstances.Election[election_id] = new Backoffice.Views.ElectionView(election_id: election_id, menu_entry: 'propositions_candidacy_tag', candidacy_id: candidacy_id, tag_id: tag_id)
   )
 
-@remove_fields = (link) ->
-  $(link).prev("input[type=hidden]").val("1")
-  $(link).closest(".fields").hide()
-
-@add_fields = (link, association, content) ->
-  new_id = new Date().getTime()
-  regexp = new RegExp("new_" + association, "g")
-  $(link).parent().before(content.replace(regexp, new_id))
-
 $ ->
-  # $(".tabs").tabs()
-
-  # Setup Backbone !
   Backoffice.RouterInstance = new Backoffice.Router()
-
-  $('.backbone-link').live 'click', (e) ->
-    e.preventDefault()
-    backoffice.navigate $(@).attr('data-path'), true
-
   Backbone.history.start()

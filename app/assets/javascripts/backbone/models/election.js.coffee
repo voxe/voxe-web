@@ -90,3 +90,9 @@ class window.ElectionModel extends Backbone.Model
       complete: (response) ->
         if response.status == 200
           election.fetch(data: {tags: 'all', published: 'all'})
+
+  togglePublish: ->
+    if @get 'published'
+      @save {}, data: $.param(election: {published: false})
+    else
+      @save {}, data: $.param(election: {published: true})
