@@ -50,3 +50,30 @@
 %pre
   http://voxe.org/api/v1/users
 
+.page-header
+  %h2
+    %small POST
+    \/users/signin
+
+%p
+  Sign in with an user. It will return an access token for the user.
+  Just send it on every request as parameter
+  %code auth_token
+  \.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td email
+      %td john@doe.org
+    %tr
+      %td password
+      %td something
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/users/signin
+

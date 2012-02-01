@@ -121,6 +121,7 @@ Joinplato::Application.routes.draw do
       resources :users do
         collection do
           get :search
+          post :signin
         end
       end
 
