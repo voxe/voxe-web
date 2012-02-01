@@ -24,7 +24,7 @@
   info: partenariats
   description: "Julia signe les partenariats et organise les événements de Voxe.org. Hackathon kesako ? Elle vous explique tout."
 -
-  namespace:
+  namespace: paulc
   name: Paul Chobert
   info: front-end
   description: "Paul développe notre back-office et plein d'autres choses, et aime déployer son code vers 6 heures du matin, pas avant."
