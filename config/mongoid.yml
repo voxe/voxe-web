@@ -1,6 +1,6 @@
 development:
   host: localhost
-  database: joinplato_development
+  database: voxe-staging
   identity_map_enabled: true
 
 test:
