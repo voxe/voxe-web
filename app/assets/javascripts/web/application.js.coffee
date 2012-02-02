@@ -29,7 +29,7 @@ class window.VoxeWeb
       app.models.election.set options.election
         
     app.models.election.bind "change:id", (election)->
-      app.models.election.fetch()
+      app.models.election.fetch data: {tags: "all"}
     
     Backbone.history.start pushState: true
 
