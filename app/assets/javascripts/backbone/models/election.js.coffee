@@ -8,7 +8,7 @@ class window.ElectionModel extends Backbone.Model
     if @id
       "#{@urlRoot}/#{@id}"
     else
-      @urlRoot()
+      @urlRoot
 
   initialize: ->
     @.bind 'error', @processErrors
