@@ -39,9 +39,7 @@
         {{/election.candidacies}}
       </div>
     </div>
-    
-%script#candidacies-list-template{type: "text/html"}
-  
+      
 %script#candidacy-cell-template{type: "text/html"}
   :plain
     {{#candidacy.candidates}}
@@ -58,7 +56,7 @@
       </li>
     {{/tags}}
   
-%script#compare-template{type: "text/html"}
+%script#comparison-template{type: "text/html"}
   :plain
     {{#tag}}
       <div class="tag-image">
@@ -67,34 +65,55 @@
       <div class="tag">
         <span>{{name}}</span>
       </div>
+      
+      <div class="indicator"><div class="tag-image">#{image_tag('web/ajax-loader.gif')}</div></div>
     {{/tag}}
     
-%script#propositions-template{type: "text/html"}  
+%script#comparison-tag-template{type: "text/html"}
   :plain
-    {{#loading}}<div class="tag-image">#{image_tag('web/ajax-loader.gif')}</div>{{/loading}}
-    
-    {{#categories}}
-      <div class="tag">
+    {{#tag}}
+      <div class="tag" id="tag-{{id}}">
         <span>{{name}}</span>
       </div>
-      {{#sections}}
-        <div class="tag">
-          <span>{{name}}</span>
-        </div>
-        <div class="propositions">
-          {{#candidacies}}
-            <div>
-              {{#candidates}}
-                <img src="{{photo.sizes.medium.url}}" width="60px" height="60px" />
-              {{/candidates}}
+    {{/tag}}
     
-              {{#propositions}}
-                <div class="proposition">
-                  {{text}}
-                </div>
-              {{/propositions}}
-            </div>
-          {{/candidacies}}
-        </div>
-      {{/sections}}
-    {{/categories}}
+%script#comparison-candidacy-template{type: "text/html"}
+  :plain
+    {{#candidacy}}
+      {{#candidates}}
+        <img src="{{photo.sizes.medium.url}}" width="60px" height="60px" />
+      {{/candidates}}
+    {{/candidacy}}
+    
+%script#comparison-proposition-template{type: "text/html"}
+  :plain
+    {{#proposition}}
+      {{text}}
+    {{/proposition}}
+    
+%script#users-new-template{type: "text/html"}
+  :plain
+    <form>
+      <label for='name'>Name</label>
+      <input type='text' name='name' />
+      
+      <label for='name'>Email</label>
+      <input type='text' name='email' />
+      
+      <label for='name'>Password</label>
+      <input type='password' name='password' />
+      
+      <a>OK</a>
+    </form>
+    
+%script#users-signin-template{type: "text/html"}
+  :plain
+    <form>
+      <label for='name'>Email</label>
+      <input type='text' name='email' />
+
+      <label for='name'>Password</label>
+      <input type='password' name='password' />
+
+      <a>OK</a>
+    </form>
