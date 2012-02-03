@@ -19,4 +19,4 @@
         %input.xxlarge{name: 'electionName'}
     .clearfix
       .input
-        %input.btn.primary{type: 'submit'} new
+        %input.btn.primary{type: 'submit', value: 'Ajouter'} new

@@ -21,3 +21,7 @@ Then /^The election shoud be published$/ do
   @election.reload
   @election.published.should be true
 end
+
+Then /^An election with the name "([^"]*)" should be registred$/ do |name|
+  Election.where(name: name).count.should >= 1
+end
