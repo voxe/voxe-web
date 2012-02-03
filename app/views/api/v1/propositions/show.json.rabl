@@ -7,8 +7,8 @@ child @proposition do
   child :candidacy do
     attributes :id
   end
-  node :comments_count do |proposition|
-    proposition.comments.count
+  node :comments do |proposition|
+    {count: proposition.comments.count}
   end
   child :embeds do
     attributes :id, :title, :url, :provider_name, :type, :html
