@@ -6,7 +6,7 @@ class window.VoxeElection
     app.models.election = new ElectionModel()
     
     app.models.election.bind 'change:id', (election)=>
-      election.fetch()
+      election.fetch data: {tags: 'all'}
       
     app.models.tag = new TagModel()
     
