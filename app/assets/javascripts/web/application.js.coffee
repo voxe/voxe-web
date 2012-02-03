@@ -5,15 +5,15 @@ class window.VoxeWeb
     
     app.router = new AppRouter()
     
+    app.models.user = new UserModel()
+    
     app.collections.elections = new ElectionsCollection()
     
     app.models.election = new ElectionModel()
     
     app.collections.tags = app.models.election.tags
     app.collections.candidacies = app.models.election.candidacies
-    
-    app.collections.propositions = new PropositionsCollection()
-    
+        
     app.views.application = new ApplicationView(el: "#application-view")
     app.views.menu = new MenuView(el: "#menu", model: app.models.election)
     app.views.menu.render()

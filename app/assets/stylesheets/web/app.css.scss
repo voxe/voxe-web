@@ -261,7 +261,7 @@ h1, h2, h3, h4 {
   }
 }
 
-#propositions-container {
+#comparison-container {
   width: 600px;
   margin: 0 auto;
   position: relative;
@@ -292,17 +292,18 @@ h1, h2, h3, h4 {
       color: white;
     }
   }
-  .propositions {
+  .candidacies {
     overflow: auto;
   }
-  .propositions > div:first-of-type {
+  .candidacy.left {
+    width: 280px;
     text-align: right;
     float: left;
   }
-  .propositions > div {
+  .candidacy.right {
     width: 280px;
-    float: right;
     text-align: left;
+    float: right;
   }
   .proposition {
     font-size: 13px;

@@ -58,7 +58,7 @@ class window.AppRouter extends Backbone.Router
       @compareView.render()
       # propositions
       @propositionsView = new PropositionsView(el: "#compare .table-view", model: app.models.election, collection: app.collections.propositions)
-      @propositionsView.render()
+      # @propositionsView.render()
             
     # set candidacies, tag using url
     app.models.election.bind 'change', (election)=>
