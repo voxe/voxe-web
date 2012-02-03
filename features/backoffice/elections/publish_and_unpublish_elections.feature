@@ -1,4 +1,4 @@
-Feature: Election
+Feature: BACKOFFICE Publish and unpublish elections
 
   Background:
     Given I am a logged admin
