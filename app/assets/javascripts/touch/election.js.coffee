@@ -18,7 +18,7 @@ class window.VoxeElection
     app.views.navigation = new NavigationView(el: "#navigation-view")
         
     app.models.election.bind "change:id", (election)->
-      app.models.election.fetch()
+      app.models.election.fetch data: {tags: "all"}
     
     if options.electionId
       app.models.election.set id: options.electionId
