@@ -6,6 +6,9 @@ defaults: &defaults
 test:
   <<: *defaults
   host: localhost:3000
+  facebook:
+    app_id: 0 #TODO create test fb app
+    app_secret: 0
 
 development:
   <<: *defaults
