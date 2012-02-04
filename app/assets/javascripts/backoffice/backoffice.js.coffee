@@ -4,6 +4,7 @@
 #= require_tree ../libs/bootstrap-1.3.0
 #= require jquery.jeditable.min
 #= require hamlcoffee
+#= require jquery.tablednd
 #= require_self
 #= require_tree ../backbone/models
 #= require_tree ../backbone/collections

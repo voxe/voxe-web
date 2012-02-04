@@ -22,7 +22,7 @@
         - for error_message in error_messages
           %li= error_message
 
-%table
+%table.tags
   - for tag in @tags.models
     %tr{'data-tag-id': tag.id}
       %form.rename-tag-form

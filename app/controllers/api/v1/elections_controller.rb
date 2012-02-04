@@ -76,5 +76,14 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     #expire_action action: "show", id: @election.id
     head :ok
   end
+
+  def movetags
+    params[:tagIds].each_with_index do |tag_id, index|
+      tag = Tag.find tag_id
+      et = ElectionTag.where(election_id: @election.id, tag_id: tag.id).first
+      et.update_attribute :position, index+1
+    end
+    render 'api/v1/elections/show.rabl', status: :ok
+  end
   
 end

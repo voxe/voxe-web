@@ -96,3 +96,11 @@ class window.ElectionModel extends Backbone.Model
       @save {}, data: $.param(election: {published: false})
     else
       @save {}, data: $.param(election: {published: true})
+
+  moveTags: (tagIds) ->
+    election = @
+    $.ajax
+      type: 'POST'
+      url: "#{@url()}/movetags"
+      data: tagIds: tagIds
+      # TODO add callback

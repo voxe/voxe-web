@@ -73,6 +73,7 @@ Joinplato::Application.routes.draw do
           post :addtag
           delete :removetag
           post :addcandidacy
+          post :movetags
         end
         collection do
           get :search
