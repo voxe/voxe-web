@@ -9,8 +9,10 @@ class MobileConstraint
   end
   
   def search_bot? request
-    user_agent = request.user_agent.downcase
-    [ 'msnbot', 'yahoo! slurp','googlebot'].detect { |bot| user_agent.include? bot }
+    if request.user_agent.present?
+      user_agent = request.user_agent.downcase
+      [ 'msnbot', 'yahoo! slurp','googlebot'].detect { |bot| user_agent.include? bot }
+    end
   end
   
   def facebook_bot? request

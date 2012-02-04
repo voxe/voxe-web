@@ -28,6 +28,14 @@ group :test do
   gem 'minitest'
 end
 
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'capybara-webkit'
+end
+
 group :development do
   gem "haml-rails"
   gem 'factory_girl_rails'
