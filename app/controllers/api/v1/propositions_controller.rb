@@ -76,6 +76,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
 
   # POST /api/v1/propositions/1/addembed
   def addembed
+    transform_youtube_url_shortner_links
     embed = @proposition.embeds.build url: params[:url]
     if embed.save
       render 'api/v1/propositions/show.rabl'
@@ -93,4 +94,9 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
       render text: {errors: embed.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
+
+  protected
+    def transform_youtube_url_shortner_links
+      params[:url] = params[:url].gsub /^http:\/\/youtu.be\/(\w+)$/, 'http://www.youtube.com/watch?v=\\1'
+    end
 end
