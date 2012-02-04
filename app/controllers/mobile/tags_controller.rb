@@ -11,8 +11,8 @@ class Mobile::TagsController < Mobile::ApplicationController
     candidacies = @election.candidacies.select do |candidacy|
       params[:candidacies].split(',').include? candidacy.namespace
     end
-    @title = candidacies.collect { |candidacy| candidacy.name }.join(', ')
-    @title += " | #{@election.name}"
+    @page_title = candidacies.collect { |candidacy| candidacy.name }.join(', ')
+    @page_title += " | #{@election.name}"
   end
   
 end
