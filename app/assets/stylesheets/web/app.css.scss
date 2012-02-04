@@ -306,11 +306,18 @@ h1, h2, h3, h4 {
     float: right;
   }
   .proposition {
+    text-align: left;
     font-size: 13px;
-    padding: 10px;
     border: 1px solid #C4CDE0;
     margin: 5px 0;
     background-color: white;
     line-height: 1.466;
+    .text {
+      padding: 10px;
+    }
+    .actions {
+      padding: 8px 10px 2px 10px;
+      background: #EDEFF4;
+    }
   }
 }

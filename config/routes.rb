@@ -197,7 +197,7 @@ Joinplato::Application.routes.draw do
   scope :module => "mobile", format: "mobile", constraints: MobileConstraint.new do
     match ':namespace/:candidacies/:tag' => 'elections#compare', :as => :compare
     
-    match ':namespace/:candidacy/propositions/:id' => 'propositions#show', :as => :proposition
+    match 'propositions/:id' => 'propositions#show', :as => :proposition
     
     match ':namespace/candidacies' => 'candidacies#create', :as => :candidacies
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
@@ -214,6 +214,8 @@ Joinplato::Application.routes.draw do
     match 'about/terms' => 'static#terms', :as => :terms
     match 'join' => 'static#join', :as => :join
     match 'apps' => 'static#apps', :as => :apps
+    
+    match 'propositions/:id' => 'propositions#show', :as => :proposition
     
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags

@@ -39,12 +39,14 @@ class window.ComparisonView extends Backbone.View
   render: ->
     @.$(".indicator").fadeOut()
     
-    console.log @tag().tags
-    console.log @candidacies()
-    console.log @groupedPropositions()
+    # console.log @tag().tags
+    # console.log @candidacies()
+    # console.log @groupedPropositions()
     # tags
     _.each @tag().tags.models, (tag) =>
       view = new ComparisonTagView(tag: tag, candidacies: @candidacies(), propositions: @groupedPropositions())
       $(@el).append view.render().el
+    
+    FB.XFBML.parse()
     
     @
