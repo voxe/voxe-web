@@ -29,6 +29,13 @@ For MacOS X users, you can install Homebrew (http://mxcl.github.com/homebrew) a 
 At the command prompt:
   brew install imagemagick
 
+If you want to launch acceptance tests, you should install the qt development libraries.
+
+MacOS X with homebrew:
+  brew install qt
+
+An installation guide for qt libs is available here : https://github.com/thoughtbot/capybara-webkit/wiki/Installing-QT
+
 Then:
   bundle install
 
