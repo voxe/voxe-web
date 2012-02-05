@@ -1,5 +1,11 @@
 %td
-  %a{href: "#elections/#{@election.id}/candidacies"}= @election.get 'name'
+  %form.rename-election-form
+    %a{href: "#elections/#{@election.id}/candidacies"}= @election.get 'name'
+    %input{type: 'text'}
+    %input.btn.success.submit-rename-form{type: 'submit', value: 'Renommer !'}
+%td
+  %button.btn.primary.display-rename-form Renommer
+  %button.btn.error.cancel-rename-form Annuler
 %td
   - if @election.get 'published'
     %button.span2.toggle-publish.btn.success Publié
