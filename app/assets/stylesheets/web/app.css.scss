@@ -318,6 +318,13 @@ h1, h2, h3, h4 {
     .actions {
       padding: 8px 10px 2px 10px;
       background: #EDEFF4;
+      .comments {
+        float: right;
+        a {
+          color: #3B5998;
+          font-size: 12px;
+        }
+      }
     }
   }
 }
