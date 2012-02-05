@@ -41,7 +41,7 @@ web/ajax-loader.gif: web/ajax-loader-c040c0cd9239e33cec1d07bfc22d61f6.gif
 web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
 web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
 web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
-backoffice/application.js: backoffice/application-089eb933b2d71411c1f293b67b610dfd.js
+backoffice/application.js: backoffice/application-fcbfe9d92aff9fe9e862267f200de30d.js
 embed.js: embed-dc464c665cbf9fb4b9f34e192676eae9.js
 embed/views/application.js: embed/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
 touch.js: touch-bcb88e5eb416bc9af413ecbd9f08ff09.js
