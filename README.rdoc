@@ -56,6 +56,9 @@ At the command prompt, launch tests:
 
   rake test
 
+There are also acceptance tests which can be run with this command:
+  rake cucumber
+
 == Deployment
 
 Deploying in staging mode:
