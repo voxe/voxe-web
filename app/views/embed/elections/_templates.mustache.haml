@@ -1,4 +1,4 @@
-#application-template
+%script#application-template{type: 'text/html'}
   #header
     .twitter= link_to image_tag('share/twitter16.png'), twitter_intent_url, target: "_blank"
     .facebook= image_tag 'share/facebook16.png'
@@ -17,7 +17,7 @@
       = image_tag 'icons/16.png', valign: 'middle'
       = link_to "Voxe.org", root_url, target: "_blank"
 
-#candidacy-cell-template
+%script#candidacy-cell-template{type: 'text/html'}
   :plain
     <li candidacy-id="{{candidacy.id}}">
       {{#candidacy.candidates}}
@@ -32,7 +32,7 @@
 #candidacies-list-template
   %ul
         
-#tags-list-template
+%script#tags-list-template{type: 'text/html'}
   %ul
     :plain
       {{#tags}}
@@ -42,7 +42,7 @@
         </li>
       {{/tags}}
       
-#propositions-template
+%script#propositions-template{type: 'text/html'}
   :plain
     {{#categories}}
       <div class="category">
