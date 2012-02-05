@@ -21,6 +21,8 @@ class ElectionTag
   # Callbacks
   after_destroy :destroy_children
 
+  default_scope order_by [[:position, :asc]]
+
   def children_election_tags
     ElectionTag.all conditions: {parent_tag_id: tag.id, election_id: election.id}
   end

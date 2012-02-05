@@ -65,6 +65,14 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
       focus: (event, ui) ->
         $('.tag-name').val ui.item.label
         return false
+
+    election = @election
+    $('.tags', @el).tableDnD
+      onDrop: (table, row) ->
+        ids = _.map $('tr', table), (ro) ->
+          $(ro).data().tagId
+        election.moveTags(ids)
+
     @flash = {}
 
   addOrCreateTag: (event) ->
