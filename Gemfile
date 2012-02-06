@@ -41,6 +41,11 @@ group :test do
   gem 'factory_girl_rails'
 end
 
+# debugging tools
+group :development, :test do
+  gem 'pry-rails'
+end
+
 gem 'jquery-rails'
 
 # MongoDB adapter and an optimizer for MongoDB
