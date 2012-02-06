@@ -18,11 +18,7 @@ class window.ComparisonPropositionView extends Backbone.View
       @showComments = true
       view = new CommentsView(model: @model)
       if @model.commentsCount() == 0
-        if app.models.user.loggedIn()
-          view.render()
-        else
-          sessionView = new SessionView(model: app.models.user)
-          sessionView.render()
+        view.render()
       else
         # indicator
         @.$('.comments-count a').addClass "indicator"
