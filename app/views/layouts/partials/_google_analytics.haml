@@ -5,6 +5,8 @@
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', '#{Settings.google_analytics.id}']);
       _gaq.push(['_trackPageview']);
+      window._gaq = _gaq;
+      lastStaticPageviewTracked = {path: window.location.pathname, isLastPageview: true};
 
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;

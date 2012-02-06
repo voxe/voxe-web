@@ -11,15 +11,18 @@ class window.AppRouter extends Backbone.Router
     ":namespace": "candidatesList"
     
   signinUser: ->
+    @trackPageview()
     view = new UsersSigninView(model: app.models.user)
     $('body').html view.render().el
     
   newUser: ->
+    @trackPageview()
     user = new UserModel()
     view = new UsersNewView(model: user)
     $('body').html view.render().el
   
   electionsList: ->
+    @trackPageview()
     unless @electionsListView
       @electionsListView = new ElectionsListView(el: "#elections-list", collection: app.collections.elections, model: app.models.election)
       @electionsListView.render()
@@ -31,6 +34,7 @@ class window.AppRouter extends Backbone.Router
     app.views.application.scrollTo $('#elections').offset().top
       
   candidatesList: (namespace)->
+    @trackPageview()
     app.models.election.candidacies.unselect()
     
     # set election using url
@@ -42,6 +46,7 @@ class window.AppRouter extends Backbone.Router
     app.views.application.scrollTo $('#candidacies').offset().top
     
   tagsList: (namespace, names)->
+    @trackPageview()
     # redirect if /
     unless names
       return @navigate namespace, true
@@ -54,6 +59,7 @@ class window.AppRouter extends Backbone.Router
     app.views.application.scrollTo $('#tags').offset().top
     
   comparison: (namespace, candidacies, tagNamespace)->
+    @trackPageview()
     # redirect if /
     unless tagNamespace
       return @navigate "#{namespace}/#{candidacies}", true
@@ -79,3 +85,13 @@ class window.AppRouter extends Backbone.Router
       @shareView = new ShareView(el: "#share")
       @shareView.render()
     app.views.application.presentModalView 'share'
+
+  trackPageview: ->
+    # don't track first router call
+    if _gaq?
+      if lastStaticPageviewTracked['isLastPageview']
+        if lastStaticPageviewTracked['path'] != window.location.pathname
+          _gaq.push(['_trackPageview'])
+        lastStaticPageviewTracked['isLastPageview'] = false
+      else
+        _gaq.push(['_trackPageview'])
