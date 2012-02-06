@@ -13,8 +13,11 @@
     = javascript_include_tag "touch"
     = csrf_meta_tags
     = render "layouts/partials/google_analytics"
+    = render "layouts/partials/chartbeat_header"
     
   %body{:class => "#{touch_device}"}
     = render 'layouts/partials/facebook.html'
     = yield
     = render 'layouts/partials/twitter.html'
+    = render "layouts/partials/chartbeat_body"
+    
