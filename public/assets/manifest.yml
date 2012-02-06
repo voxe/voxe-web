@@ -41,7 +41,9 @@ web/about/team/pierreyvesr.jpg: web/about/team/pierreyvesr-2be56d63c81d24f06b75a
 web/about/team/romainl.jpg: web/about/team/romainl-ede0c868431b5f890e9cb91a2c1b5dd1.jpg
 web/about/team/thibaultg.jpg: web/about/team/thibaultg-9e4b60651208509a33febf2cd0030ae4.jpg
 web/ajax-loader.gif: web/ajax-loader-c040c0cd9239e33cec1d07bfc22d61f6.gif
+web/android-market-small.png: web/android-market-small-61735b4bd51a4cec1398dff0482561f6.png
 web/android.png: web/android-f4f6924178824b617092790d23aee397.png
+web/app-store-fr-small.png: web/app-store-fr-small-a978a0bf45dec4aebdf18ceae2adad8d.png
 web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
 web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
 web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
@@ -66,6 +68,6 @@ mobile/application.css: mobile/application-c8f31b5563b715a35a19835b8347b57b.css
 platform.css: platform-b5c1304499f131ff2cee2dad4f5e508e.css
 touch.css: touch-55d06354bdf2b3e0a85deb8f05c10bf7.css
 touch/application.css: touch/application-fe3274063560caa2ea101a200aaca136.css
-web.css: web-f4c449435959960e41a3656d6d72095e.css
+web.css: web-0689b8caad7d89c70cffee07da8edf17.css
 webviews.css: webviews-259d12a9a5e36c03d27b22ad143cd3bd.css
 webviews/application.css: webviews/application-259d12a9a5e36c03d27b22ad143cd3bd.css
