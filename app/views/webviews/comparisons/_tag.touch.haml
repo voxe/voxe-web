@@ -8,13 +8,16 @@
       .propositions
         / candidate
         .candidate
-          = image_tag candidacy.candidates.first.photo_url(:small), size: "40x40"
+          = image_tag candidacy.candidates.first.photo_url(:medium), size: "40x40"
           
         / propositions
         - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
         - candidacy_propositions.each do |proposition|
           .proposition
             = link_to proposition.text, webviews_proposition_path(proposition.id)
+            - proposition.embeds.each do |embed|
+              .embed
+                = embed.video_player.html_safe
             
 - else
   .help
