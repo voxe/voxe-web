@@ -59,11 +59,11 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
 
   # POST /api/v1/propositions/1/addcomment
   def addcomment
-    @comment = @proposition.comments.build params[:comment]
+    @comment = @proposition.comments.build text: params[:text]
     @comment.user = current_user
-
+    
     if @comment.save
-      head :ok
+      render 'api/v1/comments/show.rabl'
     else
       render text: {errors: @comment.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end

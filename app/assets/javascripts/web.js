@@ -1,4 +1,5 @@
 //= require jquery
+//= require libs/jquery/jquery.cookie.js
 
 //= require libs/underscore-1.2.0
 //= require libs/backbone-0.5.3

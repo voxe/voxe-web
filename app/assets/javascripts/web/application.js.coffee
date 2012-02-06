@@ -1,11 +1,20 @@
 class window.VoxeWeb
   
-  constructor: (options)->    
+  constructor: (options)->
     window.app = {models: {}, collections: {}, views:{}}
     
     app.router = new AppRouter()
     
     app.models.user = new UserModel()
+    if $.cookie 'user_token'
+      app.models.user.set token: $.cookie 'user_token'
+      app.models.user.fetch()
+      
+    app.models.user.bind "change:token", (user)->
+      $.cookie 'user_token', user.token(), {expires: 30}
+            
+    profile = new UserProfileView(model: app.models.user)
+    $("#nav").prepend profile.render().el
     
     app.collections.elections = new ElectionsCollection()
     

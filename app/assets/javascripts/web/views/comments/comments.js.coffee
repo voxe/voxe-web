@@ -1,18 +1,35 @@
 class window.CommentsView extends Backbone.View
   
+  initialize: ->
+    @model.comments.bind "add", @addComment, @
+    @model.comments.bind "reset", @addComments, @
+  
   events:
-    "click a.button": "addComment"
+    "click a.session": "newSession"
     
-  addComment: (e)->
-    e.preventDefault()
-    # model
-    comment = new CommentModel text: @.$('textarea').val()
+  newSession: (event)->
+    event.preventDefault()
+    # session
+    view = new SessionView(model: app.models.user)
+    view.render()
     
+  addComments: (comments) ->
+    @render()
+    
+    _.each comments.models, (comment) =>
+      @addComment comment
+    
+  addComment: (comment) ->
     view = new CommentView model: comment
-    $(@el).append view.render().el
-    
-    @.$('textarea').val ''
+    @.$('.comments').append view.render().el
     
   render: ->
-    $(@el).html Mustache.to_html($('#comments-template').html())
+    $(@el).append Mustache.to_html($('#comments-template').html(), session: app.models.user.loggedIn())
+    # comment form
+    view = new CommentFormView user: app.models.user, model: @model
+    $(@el).append view.render().el
+    
+    # focus
+    @.$("textarea").focus()
+    
     @

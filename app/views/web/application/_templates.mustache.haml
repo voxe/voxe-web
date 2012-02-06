@@ -1,3 +1,8 @@
+%script#theater-template{type: "text/html"}
+  .theater-curtain
+  .theater-container
+    .theater-movie pierre
+
 %script#menu-election-template{type: "text/html"}
   {{election.name}}
   
@@ -90,48 +95,70 @@
     {{#proposition}}
       <div class="text">{{text}}</div>
       
-      <div class="actions">
-        <div class="comments"><a href="#">Commenter</a></div>
-        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F#{Settings.host}%2Fpropositions%2F{{id}}&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=#{Settings.facebook.app_id}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
+      <div class="actions ribbon">
+        <div class="comments-count"><a href="#"><span>#{image_tag('ajax-loader-ribbon.gif', valign: "middle")}</span></a></div>
+        <!-- <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F#{Settings.host}%2Fpropositions%2F{{id}}&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=#{Settings.facebook.app_id}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe> -->
       </div>
     {{/proposition}}
     
+%script#comment-form-template{type: "text/html"}
+  :plain
+    {{#user.token}}
+      <form>
+        <textarea />
+        <a href="#" class="button">Commenter</a>
+      </form>
+    {{/user.token}}
+    
+    {{^user.token}}
+      <a href="#" class="session">Connectez-vous ou créez un compte pour ajouter un commentaire</a>
+    {{/user.token}}
+    
 %script#comments-template{type: "text/html"}
   :plain
-    <form>
-      <textarea />
-      <a href="#" class="button">Commenter</a>
-    </form>
+    <div class="comments"></div>
+    <div class="comment-form"></div>
   
 %script#comment-template{type: "text/html"}
   :plain
     {{#comment}}
-      {{text}}
+      <span>{{user.name}}</span> {{text}}
     {{/comment}}
     
-%script#users-new-template{type: "text/html"}
+%script#user-profile-template{type: "text/html"}
   :plain
-    <form>
-      <label for='name'>Name</label>
-      <input type='text' name='name' />
-      
-      <label for='name'>Email</label>
-      <input type='text' name='email' />
-      
-      <label for='name'>Password</label>
-      <input type='password' name='password' />
-      
-      <a>OK</a>
-    </form>
+    {{#user.name}}
+      {{user.name}}
+    {{/user.name}}
+
+    {{^user.name}}
+      <a href="#" class="connect">Se Connecter</a>
+    {{/user.name}}
+    
+%script#users-new-template{type: "text/html"}
+  :plain  
+    <div class="logo">#{image_tag "icons/64.png"}</div>
+    
+    <div class="ribbon">Pas encore sur Voxe? S'inscrire.</div>
+    <div class="fields">
+      <div class="field"><input type='text' name='name' placeholder='Nom complet' /></div>
+      <div class="field"><input type='text' name='email' placeholder='Adresse e-mail' /></div>
+      <div class="field"><input type='password' name='password' placeholder='Mot de passe' /></div>
+        
+      <div class="button"><a href="#" class="button">S'inscrire</a></div>
+      <ul class="errors"></ul>
+    </div>
     
 %script#users-signin-template{type: "text/html"}
   :plain
-    <form>
-      <label for='name'>Email</label>
-      <input type='text' name='email' />
-
-      <label for='name'>Password</label>
-      <input type='password' name='password' />
-
-      <a>OK</a>
-    </form>
+    <div class="ribbon">Déjà sur Voxe? Se connecter.</div>
+    <div class="fields">
+      <div class="field"><input type='text' name='email' placeholder='Adresse e-mail' /></div>
+      <div class="field"><input type='password' name='password' placeholder='Mot de passe' /></div>
+      <div class="button"><a href="#" class="button">Se connecter</a></div>
+      <ul class="errors"></ul>
+    </div>
+    
+    <div class="facepile">
+      <iframe src="//www.facebook.com/plugins/facepile.php?href=https%3A%2F%2Fwww.facebook.com%2Fjoinvoxe&amp;&amp;action&amp;size=small&amp;max_rows=1&amp;width=300&amp;colorscheme=light&amp;appId=339716929372553" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px;" width="400px" height="60px" allowTransparency="true"></iframe>
+    </div>

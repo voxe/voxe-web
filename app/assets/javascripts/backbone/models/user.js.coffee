@@ -1,14 +1,24 @@
 class window.UserModel extends Backbone.Model
   
   initialize: ->
-    # set session
-    @session = new SessionModel(user: @)
+    @session = new SessionModel()
+    @session.bind "change", @sessionChanged, @
+    
+  sessionChanged: ->
+    @set @session.toJSON()
   
   url: ->
-    if @id
-      "/api/v1/users/#{@id}"
-    else
-      "/api/v1/users"
+    if @token()
+      return "/api/v1/users/self?auth_token=#{@token()}"
+    "/api/v1/users"
   
   parse: (response) ->
     response.response.user
+    
+  token: ->
+    @get "token"
+    
+  loggedIn: ->
+    if @token()
+      return true
+    false

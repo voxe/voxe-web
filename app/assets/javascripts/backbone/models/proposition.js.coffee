@@ -2,6 +2,12 @@ class window.PropositionModel extends Backbone.Model
   
   # http://voxe.org/platform/models/proposition
   
+  initialize: ->
+    @comments = new CommentsCollection(proposition: @)
+    
+  commentsCount: ->
+    @get("comments").count
+  
   candidacy: ->
     @get "candidacy"
   

@@ -34,6 +34,7 @@ class Ability
       else
         can :index, :dashboard
         can :manage, Proposition, candidacy: { election: { contributor_ids: [user.id] } }
+        can [:addcomment], Proposition
       end
     end
     
@@ -43,6 +44,6 @@ class Ability
     can [:read, :search, :comments], Proposition
     can [:read, :propositions, :search], Tag
     can :read, Candidacy
-    can [:create, :signin], User
+    can [:create, :verify, :self], User
   end
 end
