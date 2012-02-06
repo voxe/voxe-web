@@ -1,5 +1,7 @@
 class Web::ApplicationController < ApplicationController
   
+  caches_page :index
+
   def index
     @options = {}
   end
