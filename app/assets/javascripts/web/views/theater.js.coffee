@@ -1,5 +1,8 @@
 class window.TheaterView extends Backbone.View
   
+  initialize: (options = {}) ->
+    @width = options.width || 450
+  
   events:
     "click .theater-curtain": "close"
     
@@ -10,7 +13,8 @@ class window.TheaterView extends Backbone.View
     # structure
     $('body').append @render().el
     # width
-    @.$('.theater-container').css 'left', ($(window).width() - 450) / 2
+    @.$('.theater-container').css 'width', @width
+    @.$('.theater-container').css 'left', ($(window).width() - @width) / 2
     # movie
     @.$('.theater-movie').html view
     # delegate

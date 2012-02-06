@@ -90,6 +90,12 @@
       {{/candidates}}
     {{/candidacy}}
     
+%script#proposition-embed-template{type: "text/html"}
+  :plain
+    {{#embed}}
+      <img src="{{imageUrl}}" width="255px" />
+    {{/embed}}
+    
 %script#comparison-proposition-template{type: "text/html"}
   :plain
     {{#proposition}}

@@ -3,7 +3,13 @@ class window.PropositionModel extends Backbone.Model
   # http://voxe.org/platform/models/proposition
   
   initialize: ->
+    # comments
     @comments = new CommentsCollection(proposition: @)
+    
+    # embeds
+    @embeds = new EmbedsCollection(@get 'embeds')
+    @bind "change:embeds", (proposition) =>
+      @embeds.reset proposition.get "embeds"
     
   commentsCount: ->
     @get("comments").count

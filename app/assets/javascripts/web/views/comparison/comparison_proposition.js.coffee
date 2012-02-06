@@ -33,6 +33,11 @@ class window.ComparisonPropositionView extends Backbone.View
   
   render: ->
     $(@el).html Mustache.to_html($('#comparison-proposition-template').html(), proposition: @model.toJSON())
+    # videos
+    _.each @model.embeds.models, (embed) =>
+      view = new PropositionEmbedView model: embed
+      $(@el).prepend view.render().el
+    
     # comments-count
     if @model.commentsCount() == 0
       text = "Commenter"

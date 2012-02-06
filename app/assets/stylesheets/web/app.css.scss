@@ -326,6 +326,11 @@ a.button {
     background-color: white;
     line-height: 1.466;
     
+    .proposition-embed {
+      margin: 5px 10px 0 10px;
+      cursor: pointer;
+    }
+    
     .text {
       padding: 10px 10px 8px 10px;
     }
@@ -419,7 +424,6 @@ a.button {
 }
 
 .theater-container {
-  width: 450px;
   background-color: white;
   z-index: 20;
   position: fixed;
