@@ -13,4 +13,13 @@ module ApplicationHelper
     @page_image || asset_path('icons/128.png')
   end
   
+  # apps
+  def link_to_app_store text
+    link_to text, "http://itunes.apple.com/fr/app/voxe.org-election-presidentielle/id497900258?mt=8", target: "_blank"
+  end
+  
+  def link_to_android_market text
+    link_to text, "https://market.android.com/details?id=org.voxe.android", target: "_blank"
+  end
+  
 end

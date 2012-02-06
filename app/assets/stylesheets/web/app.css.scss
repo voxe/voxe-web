@@ -454,3 +454,10 @@ a.button {
 #facebook-button {
   float: left;
 }
+
+#appstores {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  z-index: 2;
+}
