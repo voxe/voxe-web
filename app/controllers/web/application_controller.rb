@@ -6,6 +6,7 @@ class Web::ApplicationController < ApplicationController
   
   private
     def set_election
+      @only_published_candidacies = true
       @election = Election.first conditions: {namespace: params[:namespace]}
       # returns 404 if election does not exist
       return not_found unless @election
