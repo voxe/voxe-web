@@ -4,22 +4,9 @@ class window.AppRouter extends Backbone.Router
   
   routes:
     "": "electionsList"
-    "users/signin": "signinUser"
-    "users/new": "newUser"
     ":namespace/:candidacies/:tag": "comparison"
     ":namespace/:candidacies": "tagsList"
     ":namespace": "candidatesList"
-    
-  signinUser: ->
-    @trackPageview()
-    view = new UsersSigninView(model: app.models.user)
-    $('body').html view.render().el
-    
-  newUser: ->
-    @trackPageview()
-    user = new UserModel()
-    view = new UsersNewView(model: user)
-    $('body').html view.render().el
   
   electionsList: ->
     @trackPageview()
