@@ -41,9 +41,11 @@ web/about/team/pierreyvesr.jpg: web/about/team/pierreyvesr-2be56d63c81d24f06b75a
 web/about/team/romainl.jpg: web/about/team/romainl-ede0c868431b5f890e9cb91a2c1b5dd1.jpg
 web/about/team/thibaultg.jpg: web/about/team/thibaultg-9e4b60651208509a33febf2cd0030ae4.jpg
 web/ajax-loader.gif: web/ajax-loader-c040c0cd9239e33cec1d07bfc22d61f6.gif
+web/android.png: web/android-f4f6924178824b617092790d23aee397.png
 web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
 web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
 web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
+web/iphone.png: web/iphone-bc996ebea68dbe20a0eecf08aea516d6.png
 backoffice/application.js: backoffice/application-76c50ddc85899dbcca002f1caf8fdec3.js
 embed.js: embed-c97b931cc2c089267a90c3901b70cb5f.js
 embed/views/application.js: embed/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
