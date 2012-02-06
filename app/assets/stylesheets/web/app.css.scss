@@ -88,6 +88,8 @@ a.button {
     margin: 13px 0 0 0;
     a {
       color: #211922;
+      display: block;
+      float: left;
     }
   }
   #nav {
@@ -442,4 +444,9 @@ a.button {
     margin: 15px 0 5px 0;
     text-align: center;
   }
+}
+
+#tweet-button {
+  margin: 1px 0 0 10px;
+  float: left;
 }

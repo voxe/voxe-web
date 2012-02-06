@@ -1,6 +1,6 @@
 class Web::ApplicationController < ApplicationController
   
-  caches_action :index
+  # caches_action :index
 
   def index
     @options = {}
