@@ -5,7 +5,12 @@
     .platforms
       .platform.ios
         .name iPhone, iPad, iTouch
+        = link_to image_tag('web/iphone.png'), "http://itunes.apple.com/fr/app/voxe.org-election-presidentielle/id497900258?mt=8", target: "_blank"
+        
       .platform.android
         .name Android
-      .platform
-        .name BlackBerry
+        = link_to image_tag('web/android.png'), "https://market.android.com/details?id=org.voxe.android", target: "_blank"
+        
+      / .platform
+      /   .name BlackBerry
+      /   Go to voxe.org via your BB.
