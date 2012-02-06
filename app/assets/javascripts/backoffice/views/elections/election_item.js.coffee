@@ -37,7 +37,7 @@ class Backoffice.Views.Elections.ElectionItemView extends Backbone.View
 
   submitRenameForm: (event) ->
     event.preventDefault()
-    electionName = $('input[type=text]').val()
+    electionName = $('input[name=electionName]', @el).val()
     @election.save {}, data: $.param
       election:
         name: electionName

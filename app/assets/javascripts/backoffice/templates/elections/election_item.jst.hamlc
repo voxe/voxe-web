@@ -1,7 +1,7 @@
 %td
   %form.rename-election-form
     %a{href: "#elections/#{@election.id}/candidacies"}= @election.get 'name'
-    %input{type: 'text'}
+    %input{type: 'text', name: 'electionName'}
     %input.btn.success.submit-rename-form{type: 'submit', value: 'Renommer !'}
 %td
   %button.btn.primary.display-rename-form Renommer
