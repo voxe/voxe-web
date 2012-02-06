@@ -52,12 +52,12 @@
 
 .page-header
   %h2
-    %small POST
-    \/users/signin
+    %small GET
+    \/users/verify
 
 %p
-  Sign in with an user. It will return an access token for the user.
-  Just send it on every request as parameter
+  Sign in with an user. It will return a user object with token.
+  Just send it on every request as parameter named
   %code auth_token
   \.
 
@@ -75,5 +75,15 @@
   %span.label EXAMPLE
 
 %pre
-  http://voxe.org/api/v1/users/signin
+  http://voxe.org/api/v1/users/verify
 
+.page-header
+  %h2
+    %small GET
+    \/users/self
+
+%p
+  Returns current user.
+
+%pre
+  http://voxe.org/api/v1/users/self

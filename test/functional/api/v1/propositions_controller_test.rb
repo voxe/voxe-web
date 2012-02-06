@@ -69,7 +69,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
 
   test "should post a comment on proposition" do
     assert_difference "@proposition.comments.count" do
-      post :addcomment, id: @proposition.id.to_s, comment: {text: "I disagree because blablabla ..."}, format: 'json'
+      post :addcomment, id: @proposition.id.to_s, text: "I disagree because blablabla ...", format: 'json'
     end
     assert_response :success
   end

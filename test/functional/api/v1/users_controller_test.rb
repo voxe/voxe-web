@@ -27,14 +27,14 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
   end
 
   test "should sign in and success" do
-    post :signin, email: @user.email, password: 'password', format: 'json'
+    get :verify, email: @user.email, password: 'password', format: 'json'
     assert_response :success
     json = JSON.parse(@response.body)
-    assert_equal @user.authentication_token, json['response']['auth_token']
+    assert_equal @user.authentication_token, json['response']['user']['token']
   end
 
   test "should try to sign in and failed" do
-    post :signin, email: @user.email, password: 'wrong-password', format: 'json'
+    get :verify, email: @user.email, password: 'wrong-password', format: 'json'
     assert_response :unprocessable_entity
     json = JSON.parse(@response.body)
     assert json['response']['errors']['user'].present?
