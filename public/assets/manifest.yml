@@ -1,6 +1,8 @@
 ---
+ajax-loader-ribbon.gif: ajax-loader-ribbon-69460b4f5e9019c9fcb41597db3c3418.gif
 ajax-loader.gif: ajax-loader-df580994e9f12989e87d12543607b8ff.gif
 background.jpg: background-ce027591791d2e8a7413eee60ad5811e.jpg
+fb-ajax-loader.gif: fb-ajax-loader-c90a40bf81d754d8dcb66741b56a9ebc.gif
 iOS/114ios.png: iOS/114ios-9f9142a04593a3bbb96cacecb5f59eb4.png
 iOS/29ios.png: iOS/29ios-828b6ada5cb8e09d38a727cbfc28ef4f.png
 iOS/50ios.png: iOS/50ios-f527f781071aba838b75c7225a0ab996.png
@@ -8,6 +10,7 @@ iOS/512ios.png: iOS/512ios-07cc71d029cb7c975a0f5da2ee2f1c56.png
 iOS/57ios.png: iOS/57ios-74ec83b1d5281dca8e018fe2b1d46dd8.png
 iOS/58ios.png: iOS/58ios-5d1f7efe482715a49fcb20206b0b910c.png
 iOS/72ios.png: iOS/72ios-ce61ef5b95c814950c6940585548a144.png
+icon-comment.png: icon-comment-13f63a9f3721d0a37ce7df8bae0390b2.png
 icons/128.png: icons/128-3ecbd5481dab81be596c3031e110a4f3.png
 icons/16.png: icons/16-b42425595c1843952dd03403961c50fa.png
 icons/256.png: icons/256-60a15f2625a11e18bd7748658d4d916d.png
@@ -41,14 +44,14 @@ web/ajax-loader.gif: web/ajax-loader-c040c0cd9239e33cec1d07bfc22d61f6.gif
 web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
 web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
 web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
-backoffice/application.js: backoffice/application-cf1ecd64e8473998c9c999c635a95064.js
-embed.js: embed-a55df83a42ffbd7eebfd924474a28d6b.js
+backoffice/application.js: backoffice/application-97317e499837274306c8b1c1261b4d58.js
+embed.js: embed-83428ee0bc8b99537860ad7ee2282a09.js
 embed/views/application.js: embed/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
-touch.js: touch-1b353115ffbb9eba1310cb48928c48ed.js
+touch.js: touch-9485b049801079767c7857f27a0fe71d.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
 touch/views/application.js: touch/views/application-ac94443119a72c6fb6608bb5d7a3a2e7.js
-web.js: web-cf17253836655b1bf06ca66d84816882.js
-web/application.js: web/application-b723e840f0f0b940e17409ef40cf49b1.js
+web.js: web-623147a58a6a80fff885205ac9c122cb.js
+web/application.js: web/application-95fb3f6244d688bae8094f494d3bd3ad.js
 web/views/application.js: web/views/application-e13811e8aab187a1028658eaae371f7c.js
 webviews.js: webviews-cff3aebe65933a081a688c713e52c3a3.js
 webviews/application.js: webviews/application-3a7418e3060da6d2741a69d095452e06.js
@@ -61,6 +64,6 @@ mobile/application.css: mobile/application-c8f31b5563b715a35a19835b8347b57b.css
 platform.css: platform-b5c1304499f131ff2cee2dad4f5e508e.css
 touch.css: touch-55d06354bdf2b3e0a85deb8f05c10bf7.css
 touch/application.css: touch/application-fe3274063560caa2ea101a200aaca136.css
-web.css: web-123064215545e8056b213c9f3e25e0b3.css
+web.css: web-b8bb2edd737f5457a09be2028027d66b.css
 webviews.css: webviews-259d12a9a5e36c03d27b22ad143cd3bd.css
 webviews/application.css: webviews/application-259d12a9a5e36c03d27b22ad143cd3bd.css
