@@ -109,3 +109,5 @@ gem 'newrelic_rpm'
 
 # Caching with Memcache
 gem 'dalli'
+
+gem 'rdiscount'

@@ -23,6 +23,17 @@
     padding: 10px 0 0 30px;
     overflow: auto;
     width: 650px;
+
+    p {
+      margin: 1em 0 1em 0;
+      line-height: 1.3em;
+    }
+
+    li {
+      margin: 10px 0 0 20px;
+      list-style-type: disc;
+    }
+
   }
   
   h1 {
