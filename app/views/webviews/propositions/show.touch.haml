@@ -3,7 +3,7 @@
     %span= @proposition.tags.first.name
   .proposition-container
     .candidacy
-      .candidate-photo= image_tag @proposition.candidacy.candidates.first.photo_url(:small), size: "50x50"
+      .candidate-photo= image_tag @proposition.candidacy.candidates.first.photo_url(:medium), size: "50x50"
       .candidate-name= @proposition.candidacy.candidates.first.name
     .proposition-text= @proposition.text
 
