@@ -4,6 +4,8 @@
     %title= "#{@election.name} | Voxe"
     = stylesheet_link_tag "embed"
     = javascript_include_tag "embed"
+    = render "layouts/partials/google_analytics"
+    = render "layouts/partials/chartbeat_header"
   %body
     = render 'layouts/partials/facebook.html'
     :javascript
@@ -14,5 +16,6 @@
       
     #templates
       = render 'templates.mustache'
-      
+
+    = render "layouts/partials/chartbeat_body"
     = render 'layouts/partials/twitter.html'
