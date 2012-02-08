@@ -106,6 +106,12 @@
         <!-- <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F#{Settings.host}%2Fpropositions%2F{{id}}&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=#{Settings.facebook.app_id}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe> -->
       </div>
     {{/proposition}}
+
+%script#no-proposition-available-template{type: "text/html"}
+  .no-proposition-available
+    En attente de proposition.<br/>
+    %a{href: 'https://docs.google.com/spreadsheet/viewform?formkey=dGNsLWFoYXZ0LXRaRVVrdU9Tay04ZFE6MQ', target: '_blank'}
+      Envoyer une proposition
     
 %script#comment-form-template{type: "text/html"}
   :plain

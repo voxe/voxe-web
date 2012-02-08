@@ -7,11 +7,13 @@ class window.ComparisonCandidaciesView extends Backbone.View
     @propositions = options.propositions
 
   render: ->
-    _.each @candidacies.models, (candidacy, index) =>
-      if @propositions?
+    if @propositions?
+      _.each @candidacies.models, (candidacy, index) =>
         propositions = @propositions[candidacy.id]
         view = new ComparisonCandidacyView(candidacy: candidacy, propositions: propositions, className: "candidacy #{['left', 'right'][index]}")
         $(@el).append view.render().el
+    else
+      $(@el).append $('#no-proposition-available-template').html()
     
     # returns this
     @

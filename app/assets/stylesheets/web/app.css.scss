@@ -373,6 +373,14 @@ a.button {
       }
     }
   }
+
+  .no-proposition-available {
+    a {
+      color: #3B5998;
+    }
+    text-align: center;
+    font-size: 13px;
+  }
 }
 
 .proposition, .new-user, .new-session {
