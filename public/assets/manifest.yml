@@ -29,6 +29,7 @@ touch/elections/france-presidentielle-2012-556.png: touch/elections/france-presi
 touch/nav/64.png: touch/nav/64-a6cecc68ce5fbb35d70d42e22ecf361d.png
 touch/selected-bullet.png: touch/selected-bullet-9a6d8ac7ab02e189dcf5ca2be11a7355.png
 web/about/team/anatoler.jpg: web/about/team/anatoler-48dfdc306fb6970f0628cb340713b484.jpg
+web/about/team/antoinem.jpg: web/about/team/antoinem-cb1977c7655ff07654dcf1847142a612.jpg
 web/about/team/benjaminlsl.jpg: web/about/team/benjaminlsl-eb8ed38418898d6a4fc5c3f461a2a1ce.jpg
 web/about/team/benjaminn.jpg: web/about/team/benjaminn-3f9ac269420856ffdef0dc5b8bd96235.jpg
 web/about/team/charlotter.jpg: web/about/team/charlotter-9c489738a804a8083588788e8ed49c6d.jpg
@@ -49,13 +50,13 @@ web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
 web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
 web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
 web/iphone.png: web/iphone-bc996ebea68dbe20a0eecf08aea516d6.png
-backoffice/application.js: backoffice/application-8417d42cc4f851eabf38ad3efcd5cdca.js
+backoffice/application.js: backoffice/application-965ef9fec7823d86edbe5ceed408cd0f.js
 embed.js: embed-c97b931cc2c089267a90c3901b70cb5f.js
 embed/views/application.js: embed/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
 touch.js: touch-6bf1c53e2b7e4ee3c0eeefa5dd4c6f3a.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
 touch/views/application.js: touch/views/application-ac94443119a72c6fb6608bb5d7a3a2e7.js
-web.js: web-b8a04f8d070abfc3b8479e32a036101c.js
+web.js: web-1185070c5d74434a66a7b5e2ee0b832a.js
 web/application.js: web/application-95fb3f6244d688bae8094f494d3bd3ad.js
 web/views/application.js: web/views/application-e13811e8aab187a1028658eaae371f7c.js
 webviews.js: webviews-cff3aebe65933a081a688c713e52c3a3.js
