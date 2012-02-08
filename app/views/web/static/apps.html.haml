@@ -1,16 +1,16 @@
 .static-page-container
   .page-content
-    .title Compare. Anywhere.
+    .title Comparer. Partout.
     
     .platforms
       .platform.ios
-        .name iPhone, iPad, iTouch
+        .name= link_to_app_store "iPhone, iPad, iTouch"
         = link_to_app_store image_tag('web/iphone.png')
         
       .platform.android
-        .name Android
+        .name= link_to_android_market "Android"
         = link_to_android_market image_tag('web/android.png')
         
-      / .platform
-      /   .name BlackBerry
-      /   Go to voxe.org via your BB.
+      .platform
+        .name= link_to "Sur votre site", platform_embed_index_path
+        = link_to image_tag('web/embed.png'), platform_embed_index_path

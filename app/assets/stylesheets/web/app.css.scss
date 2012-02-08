@@ -96,12 +96,12 @@ a.button {
     float: right;
     font-size: 13px;
     margin: 15px 0 0 0;
-    a {
-      color: #211922;
+    li {
       margin-left: 8px;
-    }
-    #user-profile {
       float: left;
+      a {
+        color: #211922;
+      }
     }
   }
 }

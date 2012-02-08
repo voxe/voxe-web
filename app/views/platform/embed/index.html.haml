@@ -33,8 +33,14 @@
 %pre
   :escaped
     <iframe frameborder='0' width='600px' height='480px'
-    src='http://voxe.org/embed/elections/#{Election.first.id}'>
+    src='http://voxe.org/embed/elections/#{@election.id}'>
     </iframe>
     
 %p
-  %iframe{src: embed_election_url(Election.first.id), width: '550px', height: '550px', frameborder: '0'}
+  %iframe{src: embed_election_url(@election.id), width: '550px', height: '550px', frameborder: '0'}
+  
+.page-header    
+  %h2
+    Need help?
+    
+%p Send an email to api {at} voxe.org

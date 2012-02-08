@@ -2,6 +2,8 @@ class window.UserProfileView  extends Backbone.View
   
   id: "user-profile"
   
+  tagName: "li"
+  
   events:
     "click .connect": "connect"
     

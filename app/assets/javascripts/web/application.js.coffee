@@ -14,7 +14,7 @@ class window.VoxeWeb
       $.cookie 'user_token', user.token(), {expires: 30}
             
     profile = new UserProfileView(model: app.models.user)
-    $("#nav").prepend profile.render().el
+    $("#nav").append profile.render().el
     
     app.collections.elections = new ElectionsCollection()
     

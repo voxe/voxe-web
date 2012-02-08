@@ -213,6 +213,7 @@ Joinplato::Application.routes.draw do
   # web
   scope :module => "web", format: "html" do
     match 'about/' => 'static#about', :as => :about
+    match 'about/how' => 'static#how', :as => :how
     match 'about/team' => 'static#team', :as => :team
     match 'about/press' => 'static#press', :as => :press
     match 'about/terms' => 'static#terms', :as => :terms
