@@ -1,14 +1,6 @@
 %h1 Candidatures
 
-%table
-  - for candidacy in @candidacies.models
-    %tr{'data-candidacy-id': candidacy.id}
-      %td= candidacy.name()
-      %td
-        - if candidacy.get 'published'
-          %button.span2.toggle-publish.btn.success Publié
-        - else
-          %button.span2.toggle-publish.btn.error Non publié
+%table.candidacies
 
 %form.add-candidate{method: 'POST'}
   %h2 Ajouter un candidat déjà existant

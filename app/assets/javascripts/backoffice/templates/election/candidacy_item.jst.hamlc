@@ -1,0 +1,6 @@
+%td= @candidacy.name()
+%td
+  - if @candidacy.get 'published'
+    %button.span2.toggle-publish.btn.success Publié
+  - else
+    %button.span2.toggle-publish.btn.error Non publié

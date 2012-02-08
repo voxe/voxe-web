@@ -2,7 +2,6 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
   template: JST['backoffice/templates/election/candidacies']
 
   events:
-    'click .toggle-publish': 'togglePublish'
     'submit .add-candidate': 'addCandidate'
     'submit .create-candidate': 'createCandidate'
 
@@ -10,14 +9,12 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
     @flash = {}
     @election = @model
     @candidacies = @election.candidacies
-    self = @
-    @candidacies.each (c) ->
-      c.bind 'change', self.render, self
     @render()
 
   render: ->
     $(@el).html @template @
     $('button.hover', @el).hide()
+    @candidacies.each @addCandidacy
 
     #autocomplete
     form = $('form.add-candidate', @el)
@@ -39,11 +36,6 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
 
     @flash = {}
 
-  togglePublish: (event) ->
-    candidacy_id = $(event.target).parent().parent().data().candidacyId
-    candidacy = @candidacies.find (c) -> c.id == candidacy_id
-    candidacy.save {}, data: $.param(candidacy: {published: (not candidacy.get 'published')})
-
   addCandidate: (event) ->
     event.preventDefault()
     form = $(event.target)
@@ -60,3 +52,8 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
     election = @election
     candidate.save {}, success: (candidate) ->
       election.addCandidate candidate
+
+  addCandidacy: (candidacy) ->
+    view = new Backoffice.Views.Election.CandidacyItemView(model: candidacy)
+    viewEl = view.render().el
+    $('table.candidacies').append(viewEl)
