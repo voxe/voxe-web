@@ -40,6 +40,7 @@ class User
     rescue Koala::Facebook::APIError => e
       return
     end
+    return unless profile['email'].present?
 
     if user = User.where(facebook_uid: profile['id']).first
       # Do nothing
@@ -49,7 +50,7 @@ class User
     end
 
     user.facebook_token = access_token
-    user.email = profile['email'] || "#{profile['username']}@facebook.com"
+    user.email = profile['email']
     user.name  = profile['name']
 
     user.save ? user : nil
