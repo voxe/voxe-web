@@ -77,6 +77,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     head :ok
   end
 
+  # POST /api/v1/elections/1/movetags
   def movetags
     params[:tagIds].each_with_index do |tag_id, index|
       tag = Tag.find tag_id
@@ -85,5 +86,11 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     end
     render 'api/v1/elections/show.rabl', status: :ok
   end
-  
+
+  # POST /api/v1/elections/1/addcontributor
+  def addcontributor
+    user = User.find(params[:userId])
+    @election.contributors << user
+    head :ok
+  end
 end

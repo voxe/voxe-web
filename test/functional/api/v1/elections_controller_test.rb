@@ -75,4 +75,12 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
     assert_response :success
     assert assigns(:election).election_tags.where(tag_id: tag.id).empty?
   end
+
+  test "should add a contributor to an election" do
+    user = FactoryGirl.create(:user)
+    post :addcontributor, id: @election.id.to_s, userId: user.id.to_s, format: 'json'
+    assert_response :success
+    @election.reload
+    assert_equal user.id, @election.contributors.last.id
+  end
 end
