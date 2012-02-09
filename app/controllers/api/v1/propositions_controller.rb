@@ -22,12 +22,19 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
   def search
     # query
     conditions = {}
-    conditions[:tag_ids.in] = params[:tagIds].split(',') unless params[:tagIds].blank?
-    conditions[:candidacy_id.in] = params[:candidacyIds].split(',') unless params[:candidacyIds].blank?
+    unless params[:tagIds].blank?
+      conditions[:tag_ids.in] = tag_ids = params[:tagIds].split(',')
+    end
+    unless params[:candidacyIds].blank?
+      conditions[:candidacy_id.in] = candidacy_ids = params[:candidacyIds].split(',')
+    end
     
     # pagination
     skip = params[:offset] || 0
     @propositions = Proposition.includes(:candidacy).where(conditions).limit(500).skip(skip)
+
+    # Logging
+    Event.create name: 'comparison', candidacy_ids: candidacy_ids, tag_ids: tag_ids
   end
   
   # GET /api/v1/propositions

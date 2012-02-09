@@ -13,10 +13,12 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
   end
 
   test "should search some propositions" do
-    get :search, electionId: @election.to_param,
-      tagIds: Tag.first.to_param,
-      candidacyIds: @election.candidacies.collect(&:to_param).join(','),
-      format: 'json'
+    assert_difference('Event.count', 1) do
+      get :search, electionId: @election.to_param,
+        tagIds: Tag.first.to_param,
+        candidacyIds: @election.candidacies.collect(&:to_param).join(','),
+        format: 'json'
+    end
 
     assert_response :success
     json = JSON.parse(@response.body)
