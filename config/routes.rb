@@ -174,6 +174,7 @@ Joinplato::Application.routes.draw do
         get :proposition
         get :tag
         get :candidacy
+        get :user
         get :organization
       end
     end
