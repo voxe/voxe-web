@@ -56,7 +56,7 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    capybara-webkit (0.8.0)
+    capybara-webkit (0.9.0)
       capybara (>= 1.0.0, < 1.2)
       json
     carrierwave (0.5.8)
