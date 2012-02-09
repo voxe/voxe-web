@@ -79,10 +79,11 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     get :comments, id: @proposition.id.to_s, format: 'json'
     assert_response :success
     json = JSON.parse(@response.body)
-    assert_equal Array, json['response'].class
-    assert_equal 1, json['response'].size
-    assert json['response'].first['text'].present?
-    assert json['response'].first['user']['id'].present?
+    assert json['response']['comments'].present?
+    assert_equal Array, json['response']['comments'].class
+    assert_equal 1, json['response']['comments'].size
+    assert json['response']['comments'].first['text'].present?
+    assert json['response']['comments'].first['user']['id'].present?
   end
 
   test "should add an embed" do
