@@ -50,7 +50,9 @@ web/embed.png: web/embed-202c0cbabc69786c9f6a2393890bc6cb.png
 web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
 web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
 web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
+web/icons/youtube.png: web/icons/youtube-af491627771bae64aaefdcaf0c433aba.png
 web/iphone.png: web/iphone-89054ea658a6130ccd75677745c2b083.png
+web/thanks/bubble.png: web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
 backoffice/application.js: backoffice/application-965ef9fec7823d86edbe5ceed408cd0f.js
 embed.js: embed-c97b931cc2c089267a90c3901b70cb5f.js
 embed/views/application.js: embed/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
