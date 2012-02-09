@@ -18,5 +18,8 @@ class Web::StaticController < ApplicationController
   
   def apps
   end
+
+  def thanks
+  end
   
 end
