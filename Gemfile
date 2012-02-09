@@ -112,3 +112,6 @@ gem 'dalli'
 
 # templating markup
 gem 'rdiscount'
+
+# Gem to access to Facebook graph
+gem 'koala'

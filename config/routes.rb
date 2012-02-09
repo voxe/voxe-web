@@ -126,6 +126,7 @@ Joinplato::Application.routes.draw do
           get :search
           get :verify
           get :self
+          post :facebookconnect
         end
       end
 

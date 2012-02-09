@@ -20,6 +20,15 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     end
   end
 
+  # POST /api/v1/users/facebookconnect
+  def facebookconnect
+    if @user = User.find_for_facebook_token(params[:facebookToken])
+      render 'api/v1/users/show.rabl'
+    else
+      render text: {errors: {user: "wrong facebook token"}}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
+
   # GET /api/v1/users/verify
   def verify
     if @user = User.find_for_database_authentication(email: params[:email]) and @user.valid_password? params[:password]

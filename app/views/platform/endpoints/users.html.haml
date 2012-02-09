@@ -1,25 +1,5 @@
 .page-header
-  %h1 Protected
-
-.page-header
-  %h2
-    %small GET
-    \/users/search
-
-%p Search for users.
-
-%h3 Parameters
-%table.bordered-table
-  %tbody
-    %tr
-      %td name
-      %td Benjamin
-
-%p
-  %span.label EXAMPLE
-
-%pre
-  http://voxe.org/api/v1/users/search?name=benjamin
+  %h1 Everyone
 
 .page-header
   %h2
@@ -76,6 +56,26 @@
 
 .page-header
   %h2
+    %small POST
+    \/users/facebookconnect
+
+%p Use Facebook connect. It return an user object with an access token if the connection was successful.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td facebookToken
+      %td XYZXYZXYZXYZXYZ
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/users/facebookconnect
+
+.page-header
+  %h2
     %small GET
     \/users/self
 
@@ -84,3 +84,26 @@
 
 %pre
   http://voxe.org/api/v1/users/self
+
+.page-header
+  %h1 Protected
+
+.page-header
+  %h2
+    %small GET
+    \/users/search
+
+%p Search for users.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td name
+      %td Benjamin
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/users/search?name=benjamin
