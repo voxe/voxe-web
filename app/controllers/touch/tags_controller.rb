@@ -4,7 +4,7 @@ class Touch::TagsController < Touch::ApplicationController
   
   def index
     @options = {electionId: @election.id}
-    render "touch/elections/index", layout: false
+    render "touch/elections/index"
   end
   
 end
