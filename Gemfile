@@ -43,7 +43,7 @@ end
 
 # debugging tools
 group :development, :test do
-  gem 'pry-rails'
+  gem 'ruby-debug19'
 end
 
 gem 'jquery-rails'
