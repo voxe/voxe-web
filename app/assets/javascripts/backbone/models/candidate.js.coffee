@@ -16,3 +16,15 @@ class window.CandidateModel extends Backbone.Model
 
   parse: (response) ->
     response.response.candidate
+
+  addPhoto: (image) ->
+    data = new FormData()
+    data.append 'image', image
+    $.ajax
+      type: 'POST'
+      data: data
+      cache: false
+      contentType: false
+      processData: false
+      url: "/api/v1/candidates/#{@id}/addphoto"
+      complete: (response) ->
