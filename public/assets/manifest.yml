@@ -50,7 +50,7 @@ web/embed.png: web/embed-202c0cbabc69786c9f6a2393890bc6cb.png
 web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
 web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
 web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
-web/icons/youtube.png: web/icons/youtube-af491627771bae64aaefdcaf0c433aba.png
+web/icons/youtube.png: web/icons/youtube-4b37b35ce68a1c22f66118f0a83dc934.png
 web/iphone.png: web/iphone-89054ea658a6130ccd75677745c2b083.png
 web/thanks/bubble.png: web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
 backoffice/application.js: backoffice/application-965ef9fec7823d86edbe5ceed408cd0f.js
@@ -59,7 +59,7 @@ embed/views/application.js: embed/views/application-e4605a07c3b5e66e92482a1593fc
 touch.js: touch-6bf1c53e2b7e4ee3c0eeefa5dd4c6f3a.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
 touch/views/application.js: touch/views/application-ac94443119a72c6fb6608bb5d7a3a2e7.js
-web.js: web-c991339f8e819bb9d123615723673a7f.js
+web.js: web-a3271869ce8abeff6d62ccd8b8d9099c.js
 web/application.js: web/application-82dedb4f7156e972955d20b2acfeabd7.js
 web/views/application.js: web/views/application-e13811e8aab187a1028658eaae371f7c.js
 webviews.js: webviews-cff3aebe65933a081a688c713e52c3a3.js
@@ -73,6 +73,6 @@ mobile/application.css: mobile/application-c8f31b5563b715a35a19835b8347b57b.css
 platform.css: platform-b5c1304499f131ff2cee2dad4f5e508e.css
 touch.css: touch-55d06354bdf2b3e0a85deb8f05c10bf7.css
 touch/application.css: touch/application-fe3274063560caa2ea101a200aaca136.css
-web.css: web-a605eb913669aa8476b470c46098d333.css
+web.css: web-b497d5e6cb670e20a26a3c65b35280d9.css
 webviews.css: webviews-259d12a9a5e36c03d27b22ad143cd3bd.css
 webviews/application.css: webviews/application-259d12a9a5e36c03d27b22ad143cd3bd.css
