@@ -8,6 +8,9 @@ class window.ComparisonPropositionView extends Backbone.View
   
   events:
     "click .comments-count a": "showComments"
+    "click .facebook": "facebook"
+    "mouseover": "mouseOver"
+    "mouseout": "mouseOut"
     
   resetComments: ->
     @.$('.comments-count a').removeClass "indicator"
@@ -44,4 +47,21 @@ class window.ComparisonPropositionView extends Backbone.View
         text = "#{@model.commentsCount()} commentaires"
     @.$('.comments-count a').prepend text
     
+    $('.share', @el).hide()
+
     @
+
+  facebook: ->
+    obj =
+      method: 'feed'
+      link: "http://voxe.org/propositions/#{@model.id}"
+
+    FB.ui obj, (response)->
+      if response['post_id']
+        alert 'Envoye!'
+
+  mouseOver: ->
+    $('.share', @el).show()
+
+  mouseOut: ->
+    $('.share', @el).hide()
