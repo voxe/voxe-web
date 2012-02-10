@@ -1,5 +1,6 @@
 class Candidate
   include Mongoid::Document
+  include Mongoid::FullTextSearch
 
   # attributes
   field :first_name, type: String
@@ -24,6 +25,7 @@ class Candidate
   def name
     "#{first_name} #{last_name}"
   end
+  fulltext_search_in :name
   
   def photo?
     !photos.blank?

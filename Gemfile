@@ -115,3 +115,6 @@ gem 'rdiscount'
 
 # Gem to access to Facebook graph
 gem 'koala'
+
+# Additional features for text searching with mongoid
+gem 'mongoid_fulltext'

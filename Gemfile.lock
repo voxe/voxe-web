@@ -179,6 +179,8 @@ GEM
       mongoid (>= 2.0.1)
       mongoid_adjust (>= 0.1.1)
       mongoid_adjust (>= 0.1.1)
+    mongoid_fulltext (0.5.7)
+      unicode_utils (~> 1.0.0)
     multi_json (1.0.4)
     multipart-post (1.1.4)
     net-scp (1.0.4)
@@ -276,6 +278,7 @@ GEM
     uglifier (1.1.0)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    unicode_utils (1.0.0)
     unicorn (4.2.0)
       kgio (~> 2.6)
       rack
@@ -319,6 +322,7 @@ DEPENDENCIES
   mini_magick
   minitest
   mongoid
+  mongoid_fulltext
   newrelic_rpm
   rabl
   rails (= 3.1.3)
