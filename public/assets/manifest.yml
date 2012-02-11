@@ -56,7 +56,7 @@ web/thanks/bubble.png: web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
 backoffice/application.js: backoffice/application-2719c12027529d35b52745e98a21ba28.js
 embed/elections.js: embed/elections-7574d27fcd0cfc1b14c9b7b90179e5f6.js
 embed/elections/views/application.js: embed/elections/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
-embed/live.js: embed/live-3ff6ca7c1eb7e70b7bde524ec5b08507.js
+embed/live.js: embed/live-fe3f2b8c4f36f47f249f0b30edbd1462.js
 touch.js: touch-ae0d7b59f804c31cc36d0fbdb1935156.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
 touch/views/application.js: touch/views/application-ac94443119a72c6fb6608bb5d7a3a2e7.js
