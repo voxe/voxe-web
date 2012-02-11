@@ -197,6 +197,16 @@ Joinplato::Application.routes.draw do
 
   devise_for :users
   
+  # all platforms
+  match 'about/' => 'Web::Static#about', :as => :about
+  match 'about/how' => 'Web::Static#how', :as => :how
+  match 'about/team' => 'Web::Static#team', :as => :team
+  match 'about/press' => 'Web::Static#press', :as => :press
+  match 'about/terms' => 'Web::Static#terms', :as => :terms
+  match 'about/thanks' => 'Web::Static#thanks', :as => :thanks
+  match 'join' => 'Web::Static#join', :as => :join
+  match 'apps' => 'Web::Static#apps', :as => :apps
+  
   # touch
   scope :module => "touch", format: "touch", constraints: TouchConstraint.new do
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
@@ -221,15 +231,6 @@ Joinplato::Application.routes.draw do
   
   # web
   scope :module => "web", format: "html" do
-    match 'about/' => 'static#about', :as => :about
-    match 'about/how' => 'static#how', :as => :how
-    match 'about/team' => 'static#team', :as => :team
-    match 'about/press' => 'static#press', :as => :press
-    match 'about/terms' => 'static#terms', :as => :terms
-    match 'about/thanks' => 'static#thanks', :as => :thanks
-    match 'join' => 'static#join', :as => :join
-    match 'apps' => 'static#apps', :as => :apps
-    
     match 'propositions/:id' => 'propositions#show', :as => :proposition
     
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
