@@ -1,3 +1,3 @@
 object false
-collection @candidates
-attributes :id, :firstName, :lastName
+collection @candidates => :candidates
+extends "api/v1/candidates/base"

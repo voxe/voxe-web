@@ -1,6 +1,6 @@
 child @candidate do
-  attributes :id, :namespace
-  attributes :first_name => :firstName, :last_name => :lastName
+  attributes :namespace
+  extends "api/v1/candidates/base"
   child :candidacies  do
     attributes :id
     child :election do

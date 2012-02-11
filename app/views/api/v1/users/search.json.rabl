@@ -1,3 +1,4 @@
 object false
 collection @users
-attributes :id, :name, :email
+extends "api/v1/users/base"
+attributes :email

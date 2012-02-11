@@ -31,6 +31,9 @@ class Webviews::ComparisonsController < Webviews::ApplicationController
       return render text: "invalid tagId"
     end
     
+    # logs
+    Event.create name: 'comparison', candidacy_ids: @candidacies.map(&:id), tag_ids: [@tag.id]
+    
     # election tag
     @election_tag = ElectionTag.first conditions: {election_id: @election.id, tag_id: @tag.id}
     return render text: "empty" unless @election_tag

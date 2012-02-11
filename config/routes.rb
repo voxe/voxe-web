@@ -132,6 +132,12 @@ Joinplato::Application.routes.draw do
       end
 
       resources :organizations
+      
+      resources :comparisons do
+        collection do
+          get :search
+        end
+      end
 
     end
   end

@@ -1,6 +1,6 @@
 object false
 child @organization do
-  attributes :id, :name
+  extends "api/v1/organizations/base"
   child :candidacies do
     attributes :id
   end

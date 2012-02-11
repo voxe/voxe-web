@@ -1,9 +1,5 @@
 child @candidacy do
-  attributes :id, :published
-  child :candidates do
-    attributes :id
-    attributes :first_name => :firstName, :last_name => :lastName
-  end
+  extends "api/v1/candidacies/base"
   child :election do
     attributes :id, :name
   end
