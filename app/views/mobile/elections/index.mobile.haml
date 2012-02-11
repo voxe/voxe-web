@@ -1,2 +1,4 @@
 - @elections.each do |election|
+  %p
+    = link_to image_tag("http://voxe.s3.amazonaws.com/elections/#{election.namespace}-556.png", width: "200px"), election
   %p= link_to election.name, election

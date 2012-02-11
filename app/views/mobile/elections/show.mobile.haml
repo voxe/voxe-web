@@ -5,7 +5,7 @@
   = hidden_field_tag 'tagId', params[:tagId]
 
   %ul
-    - @election.candidacies.each do |candidacy|
+    - @election.published_candidacies_sorted.each do |candidacy|
       %li
         = check_box_tag 'candidacies[]', candidacy.id, (params[:candidacyIds] || []).split(',').include?(candidacy.id.to_s), id: "candidacy-#{candidacy.id}"
         = label_tag "candidacy-#{candidacy.id}" do
