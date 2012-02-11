@@ -423,6 +423,10 @@ a.button {
   
   .share {
     float: right;
+
+    .facebook {
+      cursor: pointer;
+    }
   }
 }
 
