@@ -157,6 +157,7 @@ Joinplato::Application.routes.draw do
   # web-app
   namespace :embed do
     resources :elections, only: :show
+    resources :live, only: :index
   end
   
   # api doc
@@ -206,6 +207,7 @@ Joinplato::Application.routes.draw do
   match 'about/thanks' => 'Web::Static#thanks', :as => :thanks
   match 'join' => 'Web::Static#join', :as => :join
   match 'apps' => 'Web::Static#apps', :as => :apps
+  match 'live' => 'Web::Static#live', :as => :live
   
   # touch
   scope :module => "touch", format: "touch", constraints: TouchConstraint.new do

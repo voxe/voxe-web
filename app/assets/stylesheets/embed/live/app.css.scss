@@ -1,0 +1,40 @@
+html, body {
+  margin: 0;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "Times New Roman", Times, serif;
+}
+
+body {
+  background: whiteSmoke;
+}
+
+#high-line {
+  border-right: 2px dashed #C3CCDF;
+  position: fixed;
+  margin-left: 50%;
+  height: 100%;
+}
+
+.comparison {
+  text-align: center;
+  overflow: auto;
+  display: none;
+  padding: 10px 0 30px 0;
+  z-index: 1;
+  position: relative;
+}
+
+.tag-name {
+  margin: 10px 0 20px 0;
+  span {
+    background-color: #A9B5D3;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    color: white;
+  }
+}
+
+.candidate-icon {
+  display: inline;
+  margin: 0 5px 0 5px;
+}

@@ -22,4 +22,7 @@ class Web::StaticController < ApplicationController
   def thanks
   end
   
+  def live
+  end
+  
 end

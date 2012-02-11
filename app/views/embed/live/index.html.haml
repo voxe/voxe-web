@@ -1,18 +1,19 @@
 !!!
 %html
   %head
-    %title= "#{@election.name} | Voxe"
-    = stylesheet_link_tag "embed"
-    = javascript_include_tag "embed"
+    %title= "Live | Voxe"
+    = stylesheet_link_tag "embed/live"
+    = javascript_include_tag "embed/live"
     = render "layouts/partials/google_analytics"
     = render "layouts/partials/chartbeat_header"
   %body
     = render 'layouts/partials/facebook.html'
     :javascript
       $(function() {
-        new VoxeElection({id: '#{@election.id}'});
+        new VoxeLive();
       });
     #app
+      #high-line
       
     #templates
       = render 'templates.mustache'

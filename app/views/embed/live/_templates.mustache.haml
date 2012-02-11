@@ -1,0 +1,22 @@
+%script#comparison-template{type: 'text/html'}
+  :plain
+    {{#comparison}}
+    
+      {{#tags}}
+        <div class="tag-icon">
+          <img src="{{icon.prefix}}64{{icon.name}}" width="64px" height="64px" />
+        </div>
+        <div class="tag-name"><span>{{name}}</span></div>
+      {{/tags}}
+      
+      <div class="candidacies">
+        {{#candidacies}}
+          {{#candidates}}
+            <div class="candidate-icon">
+              <img src="{{photo.sizes.medium.url}}" width="50px" height="50px" alt="{{firstName}} {{lastName}}" />
+            </div>
+          {{/candidates}}
+        {{/candidacies}}
+      </div>
+      
+    {{/comparison}}

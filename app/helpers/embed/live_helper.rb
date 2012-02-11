@@ -1,0 +1,2 @@
+module Embed::LiveHelper
+end

@@ -1,6 +1,8 @@
 collection @events => :comparisons
 attributes :id
-attributes :created_at => :createdAt
+node :createdAt do |comparison|
+  comparison.created_at.to_i
+end
 child :candidacies do
   extends "api/v1/candidacies/base"
 end
