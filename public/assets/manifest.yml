@@ -55,6 +55,7 @@ web/iphone.png: web/iphone-89054ea658a6130ccd75677745c2b083.png
 web/thanks/bubble.png: web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
 backoffice/application.js: backoffice/application-2719c12027529d35b52745e98a21ba28.js
 embed.js: embed-bef1d7a5292dd1ff8e25a9e8b5069f80.js
+embed/live.js: embed/live-3ff6ca7c1eb7e70b7bde524ec5b08507.js
 embed/views/application.js: embed/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
 touch.js: touch-ae0d7b59f804c31cc36d0fbdb1935156.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
@@ -68,6 +69,7 @@ elections/france-presidentielle-2007-556.png: elections/france-presidentielle-20
 elections/france-presidentielle-2012-556.png: elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
 backoffice/application.css: backoffice/application-590187e95df68f0618c68e6b48d5883b.css
 embed.css: embed-6b5e7ff41e1b4e6acbddb76df07df764.css
+embed/live.css: embed/live-932a091e1dfa860ea5f306cd45d3a59d.css
 mobile.css: mobile-ceeaca883190b8466a58f644ca6680e0.css
 mobile/application.css: mobile/application-c8f31b5563b715a35a19835b8347b57b.css
 platform.css: platform-b5c1304499f131ff2cee2dad4f5e508e.css
