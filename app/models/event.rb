@@ -17,5 +17,11 @@ class Event
   # Validations
   #
   validates_inclusion_of :name, :in => %w( comparison )
+  
+  #
+  # Indexes
+  #
+  
+  index [[:name, Mongo::ASCENDING], [:created_at, Mongo::ASCENDING]]
 
 end

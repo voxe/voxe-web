@@ -14,5 +14,5 @@ class window.ComparisonsListView extends Backbone.View
     else
       timestamp = ''
     @collection.fetch url: "/api/v1/comparisons/search", data: {afterTimestamp: timestamp}, add: true, success: =>
-      setTimeout @render, 1000
+      setTimeout @render, 5000
     @
