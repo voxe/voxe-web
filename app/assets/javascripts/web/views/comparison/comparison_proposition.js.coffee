@@ -3,6 +3,8 @@ class window.ComparisonPropositionView extends Backbone.View
   initialize: ->
     @showComments = false
     @model.comments.bind "reset", @resetComments, @
+
+    @candidacy = app.collections.candidacies.find (ca) => ca.id == @model.get('candidacy').id
   
   className: "proposition"
   
@@ -31,6 +33,10 @@ class window.ComparisonPropositionView extends Backbone.View
       @.$("textarea").focus()
   
   render: ->
+    if @model.text().length > 60
+      @model.set twitterMessage: "#{@candidacy.name()} : #{@model.text().slice(0,60)}... http://voxe.org"
+    else
+      @model.set twitterMessage: "#{@candidacy.name()} : #{@model.text()} http://voxe.org"
     $(@el).html Mustache.to_html($('#comparison-proposition-template').html(), proposition: @model.toJSON())
     # videos
     _.each @model.embeds.models, (embed) =>
