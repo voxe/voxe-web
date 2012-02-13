@@ -104,7 +104,7 @@
       <div class="actions ribbon">
         <div class="share">
           #{image_tag('share/facebook16.png', class: 'facebook')}
-          <a href="https://twitter.com/intent/tweet?related=voxe&amp;text={{twitterMessage}}" target="_blank"><img alt="Twitter16" src="/assets/share/twitter16.png"></a>
+          <a href="https://twitter.com/intent/tweet?related=voxe&amp;text={{twitterMessage}}" target="_blank">#{image_tag('share/twitter16.png')}</a>
         </div>
         <div class="comments-count"><a href="#"><span>#{image_tag('ajax-loader-ribbon.gif', valign: "middle")}</span></a></div>
         <!-- <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F#{Settings.host}%2Fpropositions%2F{{id}}&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=#{Settings.facebook.app_id}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe> -->
