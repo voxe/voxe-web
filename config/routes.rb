@@ -113,6 +113,7 @@ Joinplato::Application.routes.draw do
           post :addcomment
           post :addembed
           delete :removeembed
+          delete :removecomment
         end
       end
 

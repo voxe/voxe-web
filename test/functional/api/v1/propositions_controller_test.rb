@@ -10,6 +10,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     @tag = Tag.last
     ElectionTag.create! election: @election, tag: @tag, parent_tag: @parent_tag
     @proposition = @election.candidacies.first.propositions.first
+    @comment = @proposition.comments.create! text: "I agree because blabla ...", user: User.first
   end
 
   test "should search some propositions" do
@@ -83,7 +84,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     json = JSON.parse(@response.body)
     assert json['response']['comments'].present?
     assert_equal Array, json['response']['comments'].class
-    assert_equal 1, json['response']['comments'].size
+    assert_equal @proposition.comments.count, json['response']['comments'].size
     assert json['response']['comments'].first['text'].present?
     assert json['response']['comments'].first['user']['id'].present?
   end
@@ -102,6 +103,11 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     # assert_difference('@proposition.embeds.count') do
       delete :removeembed, id: @proposition.id.to_s, embedId: embed.id.to_s, format: 'json'
     # end
+    assert_response :success
+  end
+
+  test "shoudld remove a comment" do
+    delete :destroy, id: @proposition.id.to_s, commentId: @comment.id.to_s, format: 'json'
     assert_response :success
   end
 end

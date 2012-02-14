@@ -132,6 +132,26 @@
 
 .page-header
   %h2
+    %small DELETE
+    \/propositions/:id/removecomment
+
+%p Remove a comment from database.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td commentId
+      %td 4f0a16e456cc600ad6000168
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/propositions/{id}/removecomment
+
+.page-header
+  %h2
     %small POST
     \/propositions/:id/addembed
 
