@@ -1,0 +1,2 @@
+module Embed::PartnersHelper
+end

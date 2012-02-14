@@ -164,6 +164,11 @@ Joinplato::Application.routes.draw do
   namespace :embed do
     resources :elections, only: :show
     resources :live, only: :index
+    resources :partners, only: :index do
+      collection do
+        get :huffingtonpost
+      end
+    end
   end
   
   # api doc

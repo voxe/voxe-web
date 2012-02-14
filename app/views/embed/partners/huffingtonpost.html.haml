@@ -1,0 +1,147 @@
+!!!
+%html
+  %head
+    %title Voxe.org / Huffingtonpost.fr
+    %meta{charset: "UTF-8"}
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+    = javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.1/underscore-min.js"
+    = javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.3/backbone-min.js"
+    = javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.3.0/mustache.min.js"
+  %body
+    %script#comparison-template{type: 'text/html'}
+      :plain
+        {{#comparison}}
+
+          {{#tags}}
+            <div class="tag-icon">
+              {{#icon}}
+                <img src="{{prefix}}32{{name}}" width="24" height="24" />
+              {{/icon}}
+            </div>
+            <div class="tag-name"><span>{{name}}</span></div>
+          {{/tags}}
+
+          <div class="candidacies">
+            {{#candidacies}}
+              {{#candidates}}
+                <div class="candidate-icon">
+                  <img src="{{#photo}}{{#sizes}}{{#medium}}{{url}}{{/medium}}{{/sizes}}{{/photo}}" width="50px" height="50px" alt="{{firstName}} {{lastName}}" />
+                </div>
+              {{/candidates}}
+            {{/candidacies}}
+          </div>
+
+        {{/comparison}}
+    
+    :coffeescript
+      class window.ComparisonsCollection extends Backbone.Collection
+
+        parse: (response) ->
+          response.response.comparisons
+          
+      class window.ComparisonView extends Backbone.View
+
+        className: "comparison"
+
+        render: ->
+          $(@el).html Mustache.to_html($('#comparison-template').html(), comparison: @model.toJSON())
+          @
+          
+      class window.ComparisonsListView extends Backbone.View
+      
+        id: "comparisons"
+
+        initialize: ->
+          @collection.bind "add", @add, @
+          @offset = 1
+
+        add: (comparison)->
+          view = new ComparisonView model: comparison
+          $(@el).append view.render().el
+          
+        animate: =>
+          if @offset < @collection.models.length
+            $(@el).animate {top: (@offset * -100) + "px"}, 1000
+            @offset = @offset + 1
+            
+          else
+            $(@el).animate {top: "0px"}, 1000
+            @offset = 1
+          setTimeout @animate, 5000
+
+        render: =>
+          @collection.fetch url: "http://voxe.org/api/v1/comparisons/search?callback=?", add: true, success: =>
+            @animate()
+          @
+      
+      class window.VoxeLive
+
+        constructor: (options)->
+          window.app = {models: {}, collections: {}, views:{}}
+
+          comparisons = new ComparisonsCollection()
+
+          comparisonsListView = new ComparisonsListView(collection: comparisons)
+          $("#app").append comparisonsListView.render().el
+      
+      $ ->
+        new VoxeLive()
+          
+    :css
+      html, body {
+        padding: 0;
+        margin: 0;
+        font-family: "Helvetica Neue", "Helvetica", "Arial", "Times New Roman", Times, serif;
+      }
+      body {
+        cursor: pointer;
+      }
+      #background-container {
+        width: 280px;
+        height: 240px;
+        background: url('http://voxe.s3.amazonaws.com/partners/huffpost-background-v1.png');
+        position: relative;
+      }
+      #comparisons-container {
+        width: 280px;
+        height: 100px;
+        position: absolute;
+        top: 105px;
+        left: 0;
+        overflow: hidden;
+      }
+      #comparisons {
+        position: relative;
+      }
+      .comparison {
+        height: 80px;
+        padding: 10px;
+      }
+      .tag-icon {
+        float: left;
+      }
+      .tag-name {
+        padding: 5px 0 0 34px;
+        font-size: 11px;
+        color: #999;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-rendering: optimizelegibility;
+      }
+      .candidacies {
+        clear: both;
+        margin-top: 15px;
+      }
+      .candidate-icon img {
+        border-radius: 2px;
+        float: left;
+        margin-right: 5px;
+      }
+    #background-container
+      #comparisons-container
+        #app
+    / #appstores
+    /   = link_to_app_store image_tag("web/app-store-fr-small.png")
+    /   = link_to_android_market image_tag("web/android-market-small.png")
+    
+    

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Voxe.org / Huffingtonpost.fr</title>
+    <meta charset='UTF-8'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.1/underscore-min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.3/backbone-min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.3.0/mustache.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <script id='comparison-template' type='text/html'>
+      {{#comparison}}
+      
+        {{#tags}}
+          <div class="tag-icon">
+            {{#icon}}
+              <img src="{{prefix}}32{{name}}" width="24" height="24" />
+            {{/icon}}
+          </div>
+          <div class="tag-name"><span>{{name}}</span></div>
+        {{/tags}}
+      
+        <div class="candidacies">
+          {{#candidacies}}
+            {{#candidates}}
+              <div class="candidate-icon">
+                <img src="{{#photo}}{{#sizes}}{{#medium}}{{url}}{{/medium}}{{/sizes}}{{/photo}}" width="50px" height="50px" alt="{{firstName}} {{lastName}}" />
+              </div>
+            {{/candidates}}
+          {{/candidacies}}
+        </div>
+      
+      {{/comparison}}
+    </script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        (function() {
+      var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; }, __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+    
+      window.ComparisonsCollection = (function() {
+    
+        __extends(ComparisonsCollection, Backbone.Collection);
+    
+        function ComparisonsCollection() {
+          ComparisonsCollection.__super__.constructor.apply(this, arguments);
+        }
+    
+        ComparisonsCollection.prototype.parse = function(response) {
+          return response.response.comparisons;
+        };
+    
+        return ComparisonsCollection;
+    
+      })();
+    
+      window.ComparisonView = (function() {
+    
+        __extends(ComparisonView, Backbone.View);
+    
+        function ComparisonView() {
+          ComparisonView.__super__.constructor.apply(this, arguments);
+        }
+    
+        ComparisonView.prototype.className = "comparison";
+    
+        ComparisonView.prototype.render = function() {
+          $(this.el).html(Mustache.to_html($('#comparison-template').html(), {
+            comparison: this.model.toJSON()
+          }));
+          return this;
+        };
+    
+        return ComparisonView;
+    
+      })();
+    
+      window.ComparisonsListView = (function() {
+    
+        __extends(ComparisonsListView, Backbone.View);
+    
+        function ComparisonsListView() {
+          this.render = __bind(this.render, this);
+          this.animate = __bind(this.animate, this);
+          ComparisonsListView.__super__.constructor.apply(this, arguments);
+        }
+    
+        ComparisonsListView.prototype.id = "comparisons";
+    
+        ComparisonsListView.prototype.initialize = function() {
+          this.collection.bind("add", this.add, this);
+          return this.offset = 1;
+        };
+    
+        ComparisonsListView.prototype.add = function(comparison) {
+          var view;
+          view = new ComparisonView({
+            model: comparison
+          });
+          return $(this.el).append(view.render().el);
+        };
+    
+        ComparisonsListView.prototype.animate = function() {
+          if (this.offset < this.collection.models.length) {
+            $(this.el).animate({
+              top: (this.offset * -100) + "px"
+            }, 1000);
+            this.offset = this.offset + 1;
+          } else {
+            $(this.el).animate({
+              top: "0px"
+            }, 1000);
+            this.offset = 1;
+          }
+          return setTimeout(this.animate, 5000);
+        };
+    
+        ComparisonsListView.prototype.render = function() {
+          var _this = this;
+          this.collection.fetch({
+            url: "http://voxe.org/api/v1/comparisons/search?callback=?",
+            add: true,
+            success: function() {
+              return _this.animate();
+            }
+          });
+          return this;
+        };
+    
+        return ComparisonsListView;
+    
+      })();
+    
+      window.VoxeLive = (function() {
+    
+        function VoxeLive(options) {
+          var comparisons, comparisonsListView;
+          window.app = {
+            models: {},
+            collections: {},
+            views: {}
+          };
+          comparisons = new ComparisonsCollection();
+          comparisonsListView = new ComparisonsListView({
+            collection: comparisons
+          });
+          $("#app").append(comparisonsListView.render().el);
+        }
+    
+        return VoxeLive;
+    
+      })();
+    
+      $(function() {
+        return new VoxeLive();
+      });
+    
+    }).call(this);
+    
+      //]]>
+    </script>
+    <style>
+      /*<![CDATA[*/
+        html, body {
+          padding: 0;
+          margin: 0;
+          font-family: "Helvetica Neue", "Helvetica", "Arial", "Times New Roman", Times, serif;
+        }
+        body {
+          cursor: pointer;
+        }
+        #background-container {
+          width: 280px;
+          height: 240px;
+          background: url('http://voxe.s3.amazonaws.com/partners/huffpost-background-v1.png');
+          position: relative;
+        }
+        #comparisons-container {
+          width: 280px;
+          height: 100px;
+          position: absolute;
+          top: 105px;
+          left: 0;
+          overflow: hidden;
+        }
+        #comparisons {
+          position: relative;
+        }
+        .comparison {
+          height: 80px;
+          padding: 10px;
+        }
+        .tag-icon {
+          float: left;
+        }
+        .tag-name {
+          padding: 5px 0 0 34px;
+          font-size: 11px;
+          color: #999;
+          text-transform: uppercase;
+          font-weight: bold;
+          text-rendering: optimizelegibility;
+        }
+        .candidacies {
+          clear: both;
+          margin-top: 15px;
+        }
+        .candidate-icon img {
+          border-radius: 2px;
+          float: left;
+          margin-right: 5px;
+        }
+      /*]]>*/
+    </style>
+    <div id='background-container'>
+      <div id='comparisons-container'>
+        <div id='app'></div>
+      </div>
+    </div>
+    <!-- #appstores -->
+    <!-- = link_to_app_store image_tag("web/app-store-fr-small.png") -->
+    <!-- = link_to_android_market image_tag("web/android-market-small.png") -->
+  </body>
+</html>
