@@ -2,6 +2,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   #caches_action :show, :expires_in => 1.hour
   caches_action :search, expires_in: 300.seconds, if: Proc.new { params[:published].blank? && params[:name].blank? }
+  caches_action :show, expires_in: 300.seconds, if: Proc.new { params[:published].blank? }
 
   # GET /api/v1/elections/1
   def show
