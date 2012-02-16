@@ -39,6 +39,7 @@ namespace :deploy do
     puts `git push origin master`
     puts "== Pushing voxe-staging to Heroku"
     puts `git push git@heroku.com:voxe-staging.git master`
+    puts `heroku run rake cache:clear --app voxe-staging`
   end
 
   task :production => [:setup, :precompile_assets] do
@@ -46,5 +47,6 @@ namespace :deploy do
     puts `git push production master`
     puts "== Pushing voxe to Heroku"
     puts `git push git@heroku.com:voxe.git master`
+    puts `heroku run rake cache:clear --app voxe`
   end
 end
