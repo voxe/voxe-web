@@ -1,6 +1,8 @@
 class Web::ElectionsController < Web::ApplicationController
   
   before_filter :set_election
+  # will be reset every deploy
+  caches_action :show
   
   def show
     respond_to do |format|

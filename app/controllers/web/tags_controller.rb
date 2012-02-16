@@ -1,6 +1,8 @@
 class Web::TagsController < Web::ApplicationController
   
   before_filter :set_election
+  # will be reset every deploy
+  caches_action :index
   
   def index
     respond_to do |format|
