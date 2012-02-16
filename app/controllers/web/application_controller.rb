@@ -1,6 +1,7 @@
 class Web::ApplicationController < ApplicationController
   
-  # caches_action :index
+  # will be reset every deploy
+  caches_action :index
 
   def index
     @options = {}
