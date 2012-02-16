@@ -37,7 +37,7 @@
       class window.ComparisonsCollection extends Backbone.Collection
 
         parse: (response) ->
-          response.response.comparisons
+          _.shuffle response.response.comparisons
           
       class window.ComparisonView extends Backbone.View
 
@@ -61,7 +61,7 @@
           
         animate: =>
           if @offset < @collection.models.length
-            $(@el).animate {top: (@offset * -100) + "px"}, 1000
+            $(@el).animate {top: (@offset * -93) + "px"}, 1000
             @offset = @offset + 1
             
           else
@@ -70,7 +70,7 @@
           setTimeout @animate, 5000
 
         render: =>
-          @collection.fetch url: "http://voxe.org/api/v1/comparisons/search?callback=?", add: true, success: =>
+          @collection.fetch url: "http://#{Settings.host}/api/v1/comparisons/search?callback=?", add: true, success: =>
             @animate()
           @
       
@@ -104,18 +104,19 @@
       }
       #comparisons-container {
         width: 280px;
-        height: 100px;
+        height: 83px;
         position: absolute;
-        top: 105px;
-        left: 0;
+        top: 110px;
+        left: 10px;
         overflow: hidden;
       }
       #comparisons {
         position: relative;
       }
       .comparison {
-        height: 80px;
-        padding: 10px;
+        height: 83px;
+        margin: 0 0 10px 10px;
+        overflow: hidden;
       }
       .tag-icon {
         float: left;
@@ -143,5 +144,3 @@
     / #appstores
     /   = link_to_app_store image_tag("web/app-store-fr-small.png")
     /   = link_to_android_market image_tag("web/android-market-small.png")
-    
-    
