@@ -1,8 +1,8 @@
 class Api::V1::ComparisonsController < Api::V1::ApplicationController
   
   skip_load_and_authorize_resource
-  
-  caches_action :search, expires_in: 300.seconds, if: Proc.new { params[:afterTimestamp].blank? }
+      
+  caches_action :search, expires_in: 300.seconds, if: Proc.new { params[:afterTimestamp].blank? }, layout: false
   
   def search
     # returns the last 20 comparisons
