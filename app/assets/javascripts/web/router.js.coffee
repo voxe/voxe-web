@@ -56,7 +56,12 @@ class window.AppRouter extends Backbone.Router
             
     # set candidacies, tag using url
     # candidacies
-    namespaces = candidacies.split ','    
+    namespaces = candidacies.split ','
+
+    # redirect to candidacies selector
+    if namespaces.length != 2
+      return @navigate namespace, true
+
     _.each app.models.election.candidacies.models, (candidacy)->
       candidacy.set {selected: true} if _.include namespaces, candidacy.namespace()
     # tag
