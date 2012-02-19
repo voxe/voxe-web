@@ -44,15 +44,14 @@ class Embed
     require 'oembed'
     begin
       oembed = OEmbed::ProviderDiscovery.get url
-    rescue OEmbed::NotFound => e
-      errors.add :url, "can't be found"
-      return false
-    end
 
-    self.title         = oembed.title
-    self.provider_name = oembed.provider_name
-    self.type          = oembed.type
-    self.html          = oembed.html
+      self.title         = oembed.title
+      self.provider_name = oembed.provider_name
+      self.type          = oembed.type
+      self.html          = oembed.html
+    rescue
+      self.type = 'link'
+    end
 
     true
   end

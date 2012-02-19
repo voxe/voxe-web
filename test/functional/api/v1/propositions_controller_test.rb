@@ -110,4 +110,16 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     delete :destroy, id: @proposition.id.to_s, commentId: @comment.id.to_s, format: 'json'
     assert_response :success
   end
+
+  test "should simply add a link as an embed" do
+    title = 'Just a link'
+    link = "http://www.twitter.com"
+    assert_difference('@proposition.embeds.count') do
+      post :addembed, id: @proposition.id.to_s, url: link, title: title, format: 'json'
+    end
+    assert_response :success
+    assert_equal 'link', assigns(:embed).type
+    assert_equal title, assigns(:embed).title
+    assert_equal link, assigns(:embed).url
+  end
 end
