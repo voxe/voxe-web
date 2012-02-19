@@ -95,6 +95,7 @@ gem 'coffee-filter'
 gem 'haml_coffee_assets'
 gem 'eco'
 gem 'haml-coffee'
+gem 'mustache-trimmer', :git => 'https://github.com/josh/mustache-trimmer.git'
 
 # http://voxe.airbrake.io/
 gem "airbrake"
