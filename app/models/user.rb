@@ -44,6 +44,8 @@ class User
 
     if user = User.where(facebook_uid: profile['id']).first
       # Do nothing
+    elsif user = User.where(email: profile['email']).first
+      # Do nothing
     else
       user = User.new facebook_uid: profile['id'],
         password: Devise.friendly_token[0,20]
