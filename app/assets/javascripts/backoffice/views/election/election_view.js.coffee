@@ -10,7 +10,7 @@ class Backoffice.Views.ElectionView extends Backbone.View
 
   render: () ->
     menu_entry = @options.menu_entry
-    $(@el).html @template @
+    $(@el).html @template election: @election
     new Backoffice.Views.Election.ElectionMenuView(model: @election, menu_entry: menu_entry)
     switch menu_entry
       when 'contributors'
