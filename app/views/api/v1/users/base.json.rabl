@@ -1,2 +1,4 @@
 attributes :id, :name
-attributes :picture, :if => lambda { |user| user.picture? }
+node :picture, :if => lambda { |user| user.picture? } do |user|
+  user.picture
+end

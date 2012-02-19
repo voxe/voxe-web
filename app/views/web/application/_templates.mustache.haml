@@ -146,7 +146,7 @@
   :plain
     {{#user.name}}
       {{#user.picture}}<img src="{{user.picture}}" width="16" height="16" valign="middle" />{{/user.picture}}
-      <a href="#" title="Logout" class="logout">{{user.name}}</a>
+      {{user.name}} <a href="#" title="Logout" class="logout">[x]</a>
     {{/user.name}}
 
     {{^user.name}}
