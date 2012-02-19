@@ -8,8 +8,18 @@ class window.UserNewView extends Backbone.View
   className: "new-user"
 
   events:
+    "click .fb-connect": "facebookConnect"
     "click a": "createUser"
     "keypress input": "keypress"
+    
+  facebookConnect: (event)->
+    FB.login @facebookCallback, scope: $(event.target).data 'scope'
+    
+  facebookCallback: (response) =>
+    if response.status == "connected"
+      facebookToken = response.authResponse.accessToken
+      @model.set facebookToken: facebookToken
+      @model.fetch()
     
   keypress: (e) ->
     if (e.keyCode == 13)

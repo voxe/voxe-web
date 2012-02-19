@@ -97,7 +97,7 @@ a.button {
     font-size: 13px;
     margin: 15px 0 0 0;
     li {
-      margin-left: 8px;
+      margin-left: 4px;
       float: left;
       a {
         color: #211922;
@@ -368,6 +368,10 @@ a.button {
       padding: 5px 8px;
       font-size: 11px;
       border-bottom: 1px solid #eee;
+      img {
+        margin-right: 4px;
+        border-radius: 1px;
+      }
       span {
         font-weight: bold;
       }
@@ -476,4 +480,22 @@ a.button {
   bottom: 5px;
   right: 5px;
   z-index: 2;
+}
+
+#user-profile {
+  img {
+    border-radius: 1px;
+    margin-right: 4px;
+  }
+}
+
+.fb-connect {
+  width: 254px;
+  height: 44px;
+  background: url("#{asset_path('facebook-login.png', 'images')}");
+  margin: 0 auto 10px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  line-height: 45px;
 }

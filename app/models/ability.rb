@@ -44,6 +44,6 @@ class Ability
     can [:read, :search, :comments], Proposition
     can [:read, :propositions, :search], Tag
     can :read, Candidacy
-    can [:create, :verify, :self], User
+    can [:create, :verify, :self, :facebookconnect], User
   end
 end

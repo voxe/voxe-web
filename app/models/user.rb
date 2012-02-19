@@ -55,5 +55,14 @@ class User
 
     user.save ? user : nil
   end
+  
+  # picture
+  def picture?
+    !facebook_uid.blank?
+  end
+  
+  def picture
+    "http://graph.facebook.com/#{facebook_uid}/picture?type=square"
+  end
 
 end

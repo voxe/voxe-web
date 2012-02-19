@@ -2,6 +2,8 @@ defaults: &defaults
   twitter: voxe
   google_analytics:
     id: UA-28225427-1
+  fb_defaults:
+    scope: "email,offline_access,publish_stream,user_birthday,user_likes,user_location,user_education_history,user_work_history"
 
 test:
   <<: *defaults

@@ -10,10 +10,15 @@ class window.UserModel extends Backbone.Model
   url: ->
     if @token()
       return "/api/v1/users/self?auth_token=#{@token()}"
+    if @facebookToken()
+      return "/api/v1/users/facebookconnect?facebookToken=#{@facebookToken()}"
     "/api/v1/users"
   
   parse: (response) ->
     response.response.user
+    
+  facebookToken: ->
+    @get "facebookToken"
     
   token: ->
     @get "token"
@@ -22,3 +27,6 @@ class window.UserModel extends Backbone.Model
     if @token()
       return true
     false
+    
+  logout: ->
+    @clear()

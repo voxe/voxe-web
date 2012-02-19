@@ -10,8 +10,12 @@ class window.VoxeWeb
       app.models.user.set token: $.cookie 'user_token'
       app.models.user.fetch()
       
+    # cookies
     app.models.user.bind "change:token", (user)->
-      $.cookie 'user_token', user.token(), {expires: 30}
+      if user.token()
+        $.cookie 'user_token', user.token(), {expires: 30}
+      else
+        $.cookie 'user_token', null
             
     profile = new UserProfileView(model: app.models.user)
     $("#nav").append profile.render().el
@@ -46,3 +50,6 @@ $ ->
   height = $(window).height()
   # $('body').animate scrollTop: "1px", 0
   $('.page').css 'min-height', height - 50
+  
+  # tipsy
+  $('a').tipsy live: true

@@ -133,7 +133,7 @@ Joinplato::Application.routes.draw do
           get :search
           get :verify
           get :self
-          post :facebookconnect
+          get :facebookconnect
         end
       end
 
