@@ -2,6 +2,7 @@
 ajax-loader-ribbon.gif: ajax-loader-ribbon-69460b4f5e9019c9fcb41597db3c3418.gif
 ajax-loader.gif: ajax-loader-df580994e9f12989e87d12543607b8ff.gif
 background.jpg: background-ce027591791d2e8a7413eee60ad5811e.jpg
+facebook-login.png: facebook-login-a3b4c72e13173396c024d9f8cb4ed213.png
 fb-ajax-loader.gif: fb-ajax-loader-c90a40bf81d754d8dcb66741b56a9ebc.gif
 iOS/114ios.png: iOS/114ios-9f9142a04593a3bbb96cacecb5f59eb4.png
 iOS/29ios.png: iOS/29ios-828b6ada5cb8e09d38a727cbfc28ef4f.png
@@ -16,6 +17,7 @@ icons/16.png: icons/16-b42425595c1843952dd03403961c50fa.png
 icons/256.png: icons/256-60a15f2625a11e18bd7748658d4d916d.png
 icons/32.png: icons/32-db7107da194269782554758a3499158f.png
 icons/64.png: icons/64-a6cecc68ce5fbb35d70d42e22ecf361d.png
+icons/fb_75.jpg: icons/fb_75-0c3fcdbda67e8491b2631fce0e72bae9.jpg
 loader.gif: loader-94c74f0d10c47a9b6bcd06fef2d7f9e7.gif
 platform/iPhone4S.png: platform/iPhone4S-a1ed60265a0b3227024423b1688559b2.png
 rails.png: rails-e4b51606cd77fda2615e7439907bfc92.png
@@ -23,6 +25,7 @@ share/facebook16.png: share/facebook16-9d0145d29ac229f3c739c6dd4826da6f.png
 share/facebook48.png: share/facebook48-7d56f2d29624e15ee5b87eb8a183fa6a.png
 share/twitter16.png: share/twitter16-55c95c17d5deffdc4e2ccbae32dbb55e.png
 share/twitter48.png: share/twitter48-458ec8c5878236a07e6e29a5368aaa53.png
+signin-facebook.png: signin-facebook-d1938502a92703949868d047d78b33c5.png
 touch/ajax-loader.gif: touch/ajax-loader-df580994e9f12989e87d12543607b8ff.gif
 touch/elections/france-presidentielle-2007-556.png: touch/elections/france-presidentielle-2007-556-3dad9bd25feec72c3a8c9504e7b9a584.png
 touch/elections/france-presidentielle-2012-556.png: touch/elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
@@ -53,15 +56,15 @@ web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
 web/icons/youtube.png: web/icons/youtube-4b37b35ce68a1c22f66118f0a83dc934.png
 web/iphone.png: web/iphone-89054ea658a6130ccd75677745c2b083.png
 web/thanks/bubble.png: web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
-backoffice/application.js: backoffice/application-f936e38e2af6c768b184767b00ecc2b8.js
-embed/elections.js: embed/elections-b3c5305b439547f9367c3ab1e241358a.js
+backoffice/application.js: backoffice/application-c4b91b2fa83bf70df4e2cd54385c867e.js
+embed/elections.js: embed/elections-a872072051aa035436946be14d433a04.js
 embed/elections/views/application.js: embed/elections/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
-embed/live.js: embed/live-7cead2849c5a7b22c32b28cc50a1a6e0.js
-touch.js: touch-d2481d5765e7cc3129a025548a87202b.js
+embed/live.js: embed/live-277aa5ace60948dd710882aefc8fb3f2.js
+touch.js: touch-5bccfdfaeb920be48bd522785073d41b.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
 touch/views/application.js: touch/views/application-ac94443119a72c6fb6608bb5d7a3a2e7.js
-web.js: web-fd8312bf8e3d3f45718bf1ab2cdb01f2.js
-web/application.js: web/application-82dedb4f7156e972955d20b2acfeabd7.js
+web.js: web-d80501c91317a4ec1ed444ec10e719e4.js
+web/application.js: web/application-ef83c4aed8cae42a95e243f93ce4b8ae.js
 web/views/application.js: web/views/application-e13811e8aab187a1028658eaae371f7c.js
 webviews.js: webviews-cff3aebe65933a081a688c713e52c3a3.js
 webviews/application.js: webviews/application-3a7418e3060da6d2741a69d095452e06.js
@@ -76,6 +79,6 @@ mobile/application.css: mobile/application-c8f31b5563b715a35a19835b8347b57b.css
 platform.css: platform-b5c1304499f131ff2cee2dad4f5e508e.css
 touch.css: touch-55d06354bdf2b3e0a85deb8f05c10bf7.css
 touch/application.css: touch/application-fe3274063560caa2ea101a200aaca136.css
-web.css: web-6ac1c7ff47eacd32e00a6a662e8f4773.css
+web.css: web-e62333b4bea4c84621dad99ec64457da.css
 webviews.css: webviews-259d12a9a5e36c03d27b22ad143cd3bd.css
 webviews/application.css: webviews/application-259d12a9a5e36c03d27b22ad143cd3bd.css
