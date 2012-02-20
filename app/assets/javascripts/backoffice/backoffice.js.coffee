@@ -13,6 +13,7 @@
 
 window.Backoffice =
   Views:
+    Admins: {}
     Elections: {}
     Election:
       Propositions:
@@ -31,6 +32,7 @@ window.Backoffice =
       'elections/:election_id/tags/:id': 'tags'
       'elections/:election_id/propositions/candidacies/:id': 'propositions_candidacy_tags'
       'elections/:election_id/propositions/candidacies/:candidacy_id/tags/:id': 'propositions_candidacy_tag'
+      'admins': 'admins'
 
     index: ->
       @.navigate 'elections', true
@@ -65,6 +67,10 @@ window.Backoffice =
         Backoffice.ViewInstances.Election[election_id].go_to menu_entry: 'propositions_candidacy_tag', candidacy_id: candidacy_id, tag_id: tag_id
       else
         Backoffice.ViewInstances.Election[election_id] = new Backoffice.Views.ElectionView(election_id: election_id, menu_entry: 'propositions_candidacy_tag', candidacy_id: candidacy_id, tag_id: tag_id)
+    admins: ->
+      admins = new UsersCollection()
+      new Backoffice.Views.Admins.AdminsView(collection: admins)
+      admins.fetchAdmins()
   )
 
 $ ->

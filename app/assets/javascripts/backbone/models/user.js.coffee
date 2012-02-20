@@ -30,3 +30,17 @@ class window.UserModel extends Backbone.Model
     
   logout: ->
     @clear()
+
+  addAdmin: ->
+    $.ajax
+      type: 'PUT'
+      url: "/api/v1/users/#{@id}/addadmin"
+      success: (response) =>
+        @set response.response.user
+
+  removeAdmin: ->
+    $.ajax
+      type: 'PUT'
+      url: "/api/v1/users/#{@id}/removeadmin"
+      success: (response) =>
+        @set response.response.user
