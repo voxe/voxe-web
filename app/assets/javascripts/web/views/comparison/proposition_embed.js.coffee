@@ -1,15 +1,16 @@
 class window.PropositionEmbedView extends Backbone.View
-  
+
   className: "proposition-embed"
-    
-  events:
-    "click": "play"
-    
-  play: ->
-    theater = new TheaterView width: '640'
-    
-    theater.play "<iframe class='youtube-player' type='text/html' width='640' height='385' src='http://www.youtube.com/embed/#{@model.youtube}?autoplay=1' frameborder='0'></iframe>"
-  
+
+  initialize: ->
+    switch @model.get('type')
+      when 'video' then switch @model.get('provider_name')
+        when 'YouTube'
+          @view = new PropositionEmbedYoutubeView(el: @el, model: @model)
+      when 'link'
+        @view = new PropositionEmbedLinkView(el: @el, model: @model)
+
   render: ->
-    $(@el).html Mustache.to_html($('#proposition-embed-template').html(), embed: @model.toJSON())
+    @view.render()
+
     @
