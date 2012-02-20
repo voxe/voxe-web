@@ -13,7 +13,7 @@ class window.CandidacyCellView extends Backbone.View
     # change state
     # can't add more than two candidacies
     if @model.collection.selected().length == 2 && not @model.get 'selected'
-      return false
+      @model.collection.unselect()
     @model.set selected: !@model.get('selected')
 
     if @model.collection.selected().length == 2
