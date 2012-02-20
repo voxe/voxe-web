@@ -5,6 +5,7 @@ class window.PropositionModel extends Backbone.Model
   initialize: ->
     # comments
     @comments = new CommentsCollection(proposition: @)
+    @comments.bind 'remove', @updateCommentsCount, @
     
     # embeds
     @embeds = new EmbedsCollection(@get 'embeds')
@@ -13,6 +14,10 @@ class window.PropositionModel extends Backbone.Model
     
   commentsCount: ->
     @get("comments").count
+
+  updateCommentsCount: ->
+    @get("comments").count = @comments.length
+    @trigger 'change:commentsCount'
   
   candidacy: ->
     @get "candidacy"

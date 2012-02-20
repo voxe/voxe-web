@@ -3,6 +3,7 @@ class window.CommentsView extends Backbone.View
   initialize: ->
     @model.comments.bind "add", @addComment, @
     @model.comments.bind "reset", @addComments, @
+    @model.comments.bind 'destroy', (-> @trigger 'commentRemoved'), @
   
   events:
     "click a.session": "newSession"

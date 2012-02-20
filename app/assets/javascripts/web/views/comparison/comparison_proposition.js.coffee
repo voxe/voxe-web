@@ -3,6 +3,7 @@ class window.ComparisonPropositionView extends Backbone.View
   initialize: ->
     @showComments = false
     @model.comments.bind "reset", @resetComments, @
+    @model.bind 'change:commentsCount', @renderCommentsCount, @
 
     @candidacy = app.collections.candidacies.find (ca) => ca.id == @model.get('candidacy').id
   
@@ -43,15 +44,7 @@ class window.ComparisonPropositionView extends Backbone.View
       view = new PropositionEmbedView model: embed
       $(@el).prepend view.render().el
     
-    # comments-count
-    if @model.commentsCount() == 0
-      text = "Commenter"
-    else
-      if @model.commentsCount() == 1
-        text = "#{@model.commentsCount()} commentaire"
-      else
-        text = "#{@model.commentsCount()} commentaires"
-    @.$('.comments-count a').prepend text
+    @renderCommentsCount()
     
     $('.share', @el).hide()
 
@@ -71,3 +64,13 @@ class window.ComparisonPropositionView extends Backbone.View
 
   mouseOut: ->
     $('.share', @el).hide()
+
+  renderCommentsCount: ->
+    if @model.commentsCount() == 0
+      text = "Commenter"
+    else
+      if @model.commentsCount() == 1
+        text = "#{@model.commentsCount()} commentaire"
+      else
+        text = "#{@model.commentsCount()} commentaires"
+    @.$('.comments-count a').html text
