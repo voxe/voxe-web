@@ -1,0 +1,18 @@
+<td class="text"><div class="proposition-text">{{proposition.text}}</div></td>
+<td class="embeds">
+  <ul>
+  {{#proposition.embeds}}
+    <li>{{type}} - {{title}}</li>
+  {{/proposition.embeds}}
+  </ul>
+  <form class="add-embed">
+    <input type="text" name="url" placeholder="Url">
+    <input type="text" name="title" placeholder="Titre (pour les liens uniquement)">
+    <input type="submit">
+  </form>
+</td>
+<td>
+  <button class="btn error delete-proposition">X</button>
+  <button class="btn success show-embeds">embarqué</button>
+  <button class="btn success show-text">text</button>
+</td>

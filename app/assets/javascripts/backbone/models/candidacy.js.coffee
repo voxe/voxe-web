@@ -21,3 +21,8 @@ class window.CandidacyModel extends Backbone.Model
 
   parse: (response) ->
     response.response.candidacy
+
+  toJSON: ->
+    r = super
+    r.name = @name()
+    r

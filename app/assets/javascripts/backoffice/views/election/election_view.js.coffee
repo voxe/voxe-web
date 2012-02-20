@@ -20,11 +20,11 @@ class Backoffice.Views.ElectionView extends Backbone.View
       when 'tags'
         new Backoffice.Views.Election.TagsView(el: @content_el, election: @election, tag_id: @options.tag_id)
       when 'propositions'
-        new Backoffice.Views.Election.PropositionsCandidaciesView(el: @content_el, model: @election)
+        new Backoffice.Views.Election.Propositions.Candidacies.CandidaciesView(el: @content_el, model: @election)
       when 'propositions_candidacy_tags'
-        new Backoffice.Views.Election.PropositionsCandidacyTagsView(el: @content_el, election: @election,  candidacy_id: @options.candidacy_id)
+        new Backoffice.Views.Election.Propositions.Tags.TagsView(el: @content_el, election: @election,  candidacy_id: @options.candidacy_id)
       when 'propositions_candidacy_tag'
-        new Backoffice.Views.Election.PropositionsCandidacyTagView(el: @content_el, election: @election,  candidacy_id: @options.candidacy_id, tag_id: @options.tag_id)
+        new Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListView(el: @content_el, election: @election,  candidacy_id: @options.candidacy_id, tag_id: @options.tag_id)
       else
         console.error 'wrong route'
     $('.change-election').click ->

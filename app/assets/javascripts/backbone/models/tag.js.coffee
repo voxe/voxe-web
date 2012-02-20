@@ -30,6 +30,12 @@ class window.TagModel extends Backbone.Model
   isSelected: ->
     @get('selected') == true
 
+  parent: ->
+    if @collection and @collection.parent_tag
+      @collection.parent_tag
+    else
+      undefined
+
   parents: ->
     if @collection and @collection.parent_tag
       parents = @collection.parent_tag.parents()

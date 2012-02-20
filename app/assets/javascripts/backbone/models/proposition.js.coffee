@@ -35,12 +35,12 @@ class window.PropositionModel extends Backbone.Model
   parse: (response) ->
     response.response.proposition
 
-  addEmbed: (url) ->
+  addEmbed: (url, title) ->
     model = @
     $.ajax
       type: 'POST'
       url: "#{@url()}/addembed"
-      data: {url: url}
+      data: {url: url, title: title}
       success: (response) ->
         model.set embeds: response.response.proposition.embeds
 

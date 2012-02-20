@@ -14,7 +14,11 @@
 window.Backoffice =
   Views:
     Elections: {}
-    Election: {}
+    Election:
+      Propositions:
+        Candidacies: {}
+        Tags: {}
+        PropositionsList: {}
   ViewInstances:
     Election: {}
   Cache: {}
@@ -65,4 +69,10 @@ window.Backoffice =
 
 $ ->
   Backoffice.RouterInstance = new Backoffice.Router()
+
+  $('a[data-backbone-link]').live 'click', (event) ->
+    event.preventDefault()
+    href = $(event.target).attr('href').slice(6) # get href and slice "admin/"
+    Backoffice.RouterInstance.navigate href, true
+
   Backbone.history.start()

@@ -1,7 +1,0 @@
-%h1= @candidacy.name()
-
-%table
-  - for tag in @tags.models
-    %tr
-      %td
-        %a{href: "#elections/#{@election.id}/propositions/candidacies/#{@candidacy.id}/tags/#{tag.id}"}= tag.get 'name'

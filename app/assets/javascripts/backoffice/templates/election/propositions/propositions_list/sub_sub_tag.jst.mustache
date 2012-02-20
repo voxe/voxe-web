@@ -1,0 +1,19 @@
+<h3>
+  {{subSubTag.name}}
+  <button class="btn small show-proposition-form" data-mask-text="Masquer le formulaire">Ajouter une proposition</button>
+</h3>
+
+<form class="form-stacked add-proposition alert-message block-message info">
+  <fieldset>
+    <legend>Ajouter une proposition</legend>
+    <textarea class="xxlarge" name="text"></textarea>
+    <input class="primary" type="submit" />
+  </fieldset>
+</form>
+
+{{#propositions}}
+<table class="propositions"></table>
+{{/propositions}}
+{{^propositions}}
+<p>Pas encore de propositions dans cette section</p>
+{{/propositions}}
