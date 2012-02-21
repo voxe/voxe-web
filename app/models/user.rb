@@ -32,6 +32,7 @@ class User
   # Callbacks
   #
   before_create :reset_authentication_token
+  after_destroy :destroy_proposition_comments!
 
   def self.find_for_facebook_token access_token
     begin
@@ -68,4 +69,13 @@ class User
     "http://graph.facebook.com/#{facebook_uid}/picture?type=square"
   end
 
+  def proposition_comments
+    Proposition.where("comments.user_id" => self.id).collect(&:comments).flatten
+  end
+
+  private
+
+  def destroy_proposition_comments!
+    proposition_comments.map(&:destroy)
+  end
 end

@@ -5,6 +5,10 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     sign_in FactoryGirl.create(:admin)
 
     @user = User.first
+
+    FactoryGirl.create(:election)
+    Proposition.last.comments.create user: @user, text: "blabla"    
+    Proposition.first.comments.create user: FactoryGirl.create(:user), text: "Yet another comment from another user"
   end
 
   test "should search users" do
@@ -64,5 +68,22 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     # json = JSON.parse(@response.body)
     # assert json['response']['user'].present?
     # assert json['response']['user']['token'].present?
+  end
+
+  test "should destroy an user with his comments" do
+    @user.proposition_comments.each do |comment|
+      assert_equal @user.id, comment.user_id
+    end
+
+    assert_difference('User.count', -1) do
+      delete :destroy, id: @user.id.to_s
+    end
+    assert_response :success
+
+    Proposition.all.each do |proposition|
+      proposition.comments.each do |comment|
+        assert_not_equal comment.user_id, @user.id
+      end
+    end
   end
 end

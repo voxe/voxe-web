@@ -107,3 +107,16 @@
 
 %pre
   http://voxe.org/api/v1/users/search?name=benjamin
+
+.page-header
+  %h2
+    %small DELETE
+    \/users/id
+
+%p Destroy an user from database.
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/users/{id}

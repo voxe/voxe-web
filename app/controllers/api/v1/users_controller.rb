@@ -38,4 +38,13 @@ class Api::V1::UsersController < Api::V1::ApplicationController
       render text: {errors: {user: "wrong email or password"}}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
+
+  # DELETE /api/v1/users/:id
+  def destroy
+    if @user.destroy
+      head :ok
+    else
+      render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
 end
