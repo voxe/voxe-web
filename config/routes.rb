@@ -135,6 +135,10 @@ Joinplato::Application.routes.draw do
           get :self
           get :facebookconnect
         end
+        member do
+          put :addadmin
+          put :removeadmin
+        end
       end
 
       resources :organizations

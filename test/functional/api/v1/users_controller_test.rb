@@ -2,7 +2,8 @@ require 'test_helper'
 
 class Api::V1::UsersControllerTest < ActionController::TestCase
   setup do
-    sign_in FactoryGirl.create(:admin)
+    @admin = FactoryGirl.create(:admin)
+    sign_in @admin
 
     @user = User.first
 
@@ -85,5 +86,19 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
         assert_not_equal comment.user_id, @user.id
       end
     end
+  end
+
+  test "should add admin role to an user" do
+    put :addadmin, id: @user.id.to_s, format: 'json'
+    assert_response :success
+    @user.reload
+    assert @user.admin
+  end
+
+  test "should remove admin role to an user" do
+    put :removeadmin, id: @admin.id.to_s, format: 'json'
+    assert_response :success
+    @admin.reload
+    assert !@user.admin
   end
 end

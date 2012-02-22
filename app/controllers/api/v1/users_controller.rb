@@ -47,4 +47,24 @@ class Api::V1::UsersController < Api::V1::ApplicationController
       render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
+
+  # PUT /api/v1/users/:id/addadmin
+  def addadmin
+    @user.admin = true
+    if @user.save
+      render 'api/v1/users/show.rabl'
+    else
+      render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
+
+  # PUT /api/v1/users/:id/addadmin
+  def removeadmin
+    @user.admin = false
+    if @user.save
+      render 'api/v1/users/show.rabl'
+    else
+      render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
 end

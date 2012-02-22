@@ -120,3 +120,29 @@
 
 %pre
   http://voxe.org/api/v1/users/{id}
+
+.page-header
+  %h2
+    %small PUT
+    \/users/id/addadmin
+
+%p Grant admin access to an user.
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/users/{id}/addadmin
+
+.page-header
+  %h2
+    %small PUT
+    \/users/id/removeadmin
+
+%p Revoke admin access to an user.
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/users/{id}/removeadmin
