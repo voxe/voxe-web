@@ -12,6 +12,14 @@
       $(function() {
         new VoxeElection({id: '#{@election.id}'});
       });
+      
+    #touch{style: "display: none"}
+      .container
+        = link_to image_tag('icons/16.png', valign: 'middle'), root_url, target: "_blank"
+        = link_to "Voxe.org", root_url, target: "_blank"
+      .market= link_to_app_store image_tag("embed/elections/apple-app-store.png")
+      .market= link_to_android_market image_tag("embed/elections/google-app-store.png")
+      
     #app
       
     #templates

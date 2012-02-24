@@ -78,3 +78,23 @@ ul {
     margin-bottom: 1px;
   }
 }
+
+#touch {
+  .container {
+    padding: 5px 10px 0 10px;
+    background-color: #DDEEF6;
+    font-weight: bold;
+    height: 25px;
+    border-bottom: #E5E5EE 1px solid;
+    a {
+      color: rgba(0, 0, 0, .5);
+      font-size: 10px;
+      font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+      text-decoration: none;
+    }
+  }
+  .market {
+    margin: 5px;
+    text-align: center;
+  }
+}

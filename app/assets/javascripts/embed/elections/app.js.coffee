@@ -1,6 +1,11 @@
 class window.VoxeElection
   
   constructor: (options)->
+    # mobile
+    if navigator && navigator.userAgent && navigator.userAgent.match(/iphone|android/i)
+      $("#touch").show()
+      return true
+          
     window.app = {models: {}, collections: {}, views:{}}
         
     app.models.election = new ElectionModel()
