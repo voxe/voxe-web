@@ -65,7 +65,7 @@ embed/live.js: embed/live-7646caf0748868d35734b8c1422625e0.js
 touch.js: touch-50bc2353d2a022ec94fa78387e751148.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
 touch/views/application.js: touch/views/application-ac94443119a72c6fb6608bb5d7a3a2e7.js
-web.js: web-add3c1bbd4f5e7d4621e0fdc85cfc3df.js
+web.js: web-47f47170c13b53ec954f75764ee52775.js
 web/application.js: web/application-ef83c4aed8cae42a95e243f93ce4b8ae.js
 web/views/application.js: web/views/application-e13811e8aab187a1028658eaae371f7c.js
 webviews.js: webviews-cff3aebe65933a081a688c713e52c3a3.js
@@ -74,13 +74,13 @@ elections/france-presidentielle-2007-556.png: elections/france-presidentielle-20
 elections/france-presidentielle-2012-556.png: elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
 partners/huffpost-background-v1.png: partners/huffpost-background-v1-0950e6a543d6eb5d81e3ac8d81b3ed4a.png
 backoffice/application.css: backoffice/application-590187e95df68f0618c68e6b48d5883b.css
-embed/elections.css: embed/elections-5f1992760a7da878c6567e4f6bdfefed.css
+embed/elections.css: embed/elections-050fa586856cd16a907fca4ebc53e6a0.css
 embed/live.css: embed/live-932a091e1dfa860ea5f306cd45d3a59d.css
-mobile.css: mobile-ceeaca883190b8466a58f644ca6680e0.css
-mobile/application.css: mobile/application-c8f31b5563b715a35a19835b8347b57b.css
+mobile.css: mobile-2d0cc7cb0cbbde1edae87b4952841a6e.css
+mobile/application.css: mobile/application-cdc94d6d477c1bd492dcdabe334466ad.css
 platform.css: platform-b5c1304499f131ff2cee2dad4f5e508e.css
 touch.css: touch-55d06354bdf2b3e0a85deb8f05c10bf7.css
 touch/application.css: touch/application-fe3274063560caa2ea101a200aaca136.css
-web.css: web-166026cef1091f3598ab4c5ed253b7f0.css
+web.css: web-d896b4653b0de85641ad7645a3c710d9.css
 webviews.css: webviews-259d12a9a5e36c03d27b22ad143cd3bd.css
 webviews/application.css: webviews/application-259d12a9a5e36c03d27b22ad143cd3bd.css
