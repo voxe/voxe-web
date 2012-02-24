@@ -9,7 +9,6 @@ class window.CommentView extends Backbone.View
   
   initialize: ->
     @model.bind 'destroy', @remove, @
-    @model.bind 'destroy', (-> @collection.remove @)
 
   render: ->
     $(@el).html Mustache.to_html($('#comment-template').html(), comment: @model.toJSON())
@@ -28,8 +27,7 @@ class window.CommentView extends Backbone.View
   removeThisComment: (event) ->
     event.preventDefault()
 
-
     comment = @model
     proposition = @model.collection.proposition
-    @model.destroy url: "#{proposition.url()}/removecomment", data: $.param({commentId: @model.id}), complete: (response) ->
+    @model.destroy url: "#{proposition.url()}/removecomment?auth_token=#{app.models.user.token()}", data: $.param({commentId: @model.id}), complete: (response) ->
       comment.trigger 'destroy' if response.status == 200
