@@ -6,7 +6,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # GET /api/v1/elections/1
   def show
-    @all_tags = (params[:tags] == 'all')
+    @all_tags = true # since we use caching #(params[:tags] == 'all')
     @only_published_candidacies = not(params[:published] == 'all')
   end
 
