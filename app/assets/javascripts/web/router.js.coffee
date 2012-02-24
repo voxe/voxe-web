@@ -21,6 +21,9 @@ class window.AppRouter extends Backbone.Router
     app.views.application.scrollTo $('#elections').offset().top
       
   candidatesList: (namespace)->
+    # reload the page if no election is loaded
+    window.location.reload() unless app.models.election.id
+
     @trackPageview()
     app.models.election.candidacies.unselect()
     
@@ -33,6 +36,9 @@ class window.AppRouter extends Backbone.Router
     app.views.application.scrollTo $('#candidacies').offset().top
     
   tagsList: (namespace, names)->
+    # reload the page if no election is loaded
+    window.location.reload() unless app.models.election.id
+
     @trackPageview()
     # redirect if /
     unless names
@@ -46,6 +52,9 @@ class window.AppRouter extends Backbone.Router
     app.views.application.scrollTo $('#tags').offset().top
     
   comparison: (namespace, candidacies, tagNamespace)->
+    # reload the page if no election is loaded
+    window.location.reload() unless app.models.election.id
+
     @trackPageview()
     # redirect if /
     unless tagNamespace
