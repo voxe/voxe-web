@@ -23,5 +23,6 @@ class Event
   #
   
   index [[:name, Mongo::ASCENDING], [:created_at, Mongo::ASCENDING]]
+  index [[:name, Mongo::ASCENDING], [:created_at, Mongo::DESCENDING]]
 
 end
