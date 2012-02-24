@@ -54,7 +54,11 @@ html, body {
     text-decoration: none;
   }
   .container {
-    padding: 5px 0 0 10px;
+    padding: 5px 10px 0 10px;
+    #instructions {
+      float: right;
+      font-size: 9px;
+    }
   }
 }
 
