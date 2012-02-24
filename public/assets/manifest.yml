@@ -65,7 +65,7 @@ embed/live.js: embed/live-7646caf0748868d35734b8c1422625e0.js
 touch.js: touch-50bc2353d2a022ec94fa78387e751148.js
 touch/application.js: touch/application-d9a05a6e9d757f1b0fa81d1429353210.js
 touch/views/application.js: touch/views/application-ac94443119a72c6fb6608bb5d7a3a2e7.js
-web.js: web-47f47170c13b53ec954f75764ee52775.js
+web.js: web-c2aa02c7240a515f1126a25cf40d92eb.js
 web/application.js: web/application-ef83c4aed8cae42a95e243f93ce4b8ae.js
 web/views/application.js: web/views/application-e13811e8aab187a1028658eaae371f7c.js
 webviews.js: webviews-cff3aebe65933a081a688c713e52c3a3.js
