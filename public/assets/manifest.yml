@@ -2,6 +2,8 @@
 ajax-loader-ribbon.gif: ajax-loader-ribbon-69460b4f5e9019c9fcb41597db3c3418.gif
 ajax-loader.gif: ajax-loader-df580994e9f12989e87d12543607b8ff.gif
 background.jpg: background-ce027591791d2e8a7413eee60ad5811e.jpg
+embed/elections/apple-app-store.png: embed/elections/apple-app-store-c92ac24b62fc0961e38172b98de7008a.png
+embed/elections/google-app-store.png: embed/elections/google-app-store-713411daed1c4e7f066cf6b8d7ae25c0.png
 facebook-login.png: facebook-login-a3b4c72e13173396c024d9f8cb4ed213.png
 fb-ajax-loader.gif: fb-ajax-loader-c90a40bf81d754d8dcb66741b56a9ebc.gif
 iOS/114ios.png: iOS/114ios-9f9142a04593a3bbb96cacecb5f59eb4.png
@@ -57,7 +59,7 @@ web/icons/youtube.png: web/icons/youtube-4b37b35ce68a1c22f66118f0a83dc934.png
 web/iphone.png: web/iphone-89054ea658a6130ccd75677745c2b083.png
 web/thanks/bubble.png: web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
 backoffice/application.js: backoffice/application-44353eb24d748f53ae03ae34792d9ef4.js
-embed/elections.js: embed/elections-32f5e2c718c2e8b978b2ba4dc27d0e8f.js
+embed/elections.js: embed/elections-5b56fd20a5995c824bb8d5b79aa32087.js
 embed/elections/views/application.js: embed/elections/views/application-e4605a07c3b5e66e92482a1593fcc42a.js
 embed/live.js: embed/live-7646caf0748868d35734b8c1422625e0.js
 touch.js: touch-50bc2353d2a022ec94fa78387e751148.js
@@ -72,7 +74,7 @@ elections/france-presidentielle-2007-556.png: elections/france-presidentielle-20
 elections/france-presidentielle-2012-556.png: elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
 partners/huffpost-background-v1.png: partners/huffpost-background-v1-0950e6a543d6eb5d81e3ac8d81b3ed4a.png
 backoffice/application.css: backoffice/application-590187e95df68f0618c68e6b48d5883b.css
-embed/elections.css: embed/elections-285e0c7999025aa14649ddc54c9e4cc6.css
+embed/elections.css: embed/elections-5f1992760a7da878c6567e4f6bdfefed.css
 embed/live.css: embed/live-932a091e1dfa860ea5f306cd45d3a59d.css
 mobile.css: mobile-ceeaca883190b8466a58f644ca6680e0.css
 mobile/application.css: mobile/application-c8f31b5563b715a35a19835b8347b57b.css
