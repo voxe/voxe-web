@@ -32,7 +32,7 @@ class Webviews::ComparisonsController < Webviews::ApplicationController
     end
     
     # logs
-    Event.create name: 'comparison', candidacy_ids: @candidacies.map(&:id), tag_ids: [@tag.id]
+    Event.create name: 'comparison', candidacy_ids: @candidacies.map(&:id), tag_ids: [@tag.id], ip_address: request.remote_ip.inspect
     
     # election tag
     @election_tag = ElectionTag.first conditions: {election_id: @election.id, tag_id: @tag.id}

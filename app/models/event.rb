@@ -5,7 +5,8 @@ class Event
   #
   # Attributes
   #
-  field :name,      type: String
+  field :name,       type: String
+  field :ip_address, type: String
 
   #
   # Associations
