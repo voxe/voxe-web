@@ -105,6 +105,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
   # DELETE /api/v1/propositions/1/removecomment
   def removecomment
     comment = @proposition.comments.find params[:commentId]
+    authorize! :destroy, comment
     if comment.destroy
       head :ok
     else

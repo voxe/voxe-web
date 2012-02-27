@@ -37,7 +37,8 @@ class Api::V1::CandidatesControllerTest < ActionController::TestCase
     json = JSON.parse(@response.body)
     assert_equal @candidate.reload.photos.last.image.url, json['response']['photo']['image']['url']
     assert assigns(:candidate).photos.any?
-    @candidate.reload.photos.map {|i| i.remove_image! }
+    # FIXME Remove image
+    # @candidate.reload.photos.map {|i| i.remove_image! }
   end
 
   test "should fail when posting an empty on a candidate" do

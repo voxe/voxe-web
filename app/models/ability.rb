@@ -29,12 +29,17 @@ class Ability
 
     # If user is logged in
     if user.persisted?
+      # Visitor
+
+      can :addcomment, Proposition
+      can :removecomment, Proposition # Access to the controller action "removecomment"
+      can :destroy, Comment, user_id: user.id # Instance access to method destroy
+
       if user.admin?
         can :manage, :all
-      else
+      elsif user.elections.present?
         can :index, :dashboard
         can :manage, Proposition, candidacy: { election: { contributor_ids: [user.id] } }
-        can [:addcomment], Proposition
       end
     end
     

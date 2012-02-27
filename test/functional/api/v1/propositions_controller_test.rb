@@ -2,7 +2,8 @@ require 'test_helper'
 
 class Api::V1::PropositionsControllerTest < ActionController::TestCase
   setup do
-    sign_in FactoryGirl.create(:admin)
+    @user = FactoryGirl.create(:admin)
+    sign_in @user
 
     @election = FactoryGirl.create(:election)
     @parent_tag = Tag.first
@@ -10,7 +11,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     @tag = Tag.last
     ElectionTag.create! election: @election, tag: @tag, parent_tag: @parent_tag
     @proposition = @election.candidacies.first.propositions.first
-    @comment = @proposition.comments.create! text: "I agree because blabla ...", user: User.first
+    @comment = @proposition.comments.create! text: "I agree because blabla ...", user: @user
   end
 
   test "should search some propositions" do
@@ -78,7 +79,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
   end
 
   test "should get the list of comments" do
-    @proposition.comments.create user: User.first, text: "Bla bla bla ... a lot !"
+    @proposition.comments.create user: @user, text: "Bla bla bla ... a lot !"
     get :comments, id: @proposition.id.to_s, format: 'json'
     assert_response :success
     json = JSON.parse(@response.body)
@@ -106,8 +107,25 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "shoudld remove a comment" do
-    delete :destroy, id: @proposition.id.to_s, commentId: @comment.id.to_s, format: 'json'
+  test "should remove a comment" do
+    delete :removecomment, id: @proposition.id.to_s, commentId: @comment.id.to_s, format: 'json'
+    assert_response :success
+  end
+
+  test "should trying to remove a comment" do
+    sign_out @user
+    sign_in FactoryGirl.create(:user)
+    assert_no_difference "@proposition.comments.count" do
+      delete :removecomment, id: @proposition.id.to_s, commentId: @comment.id.to_s, format: 'json'
+    end
+  end
+
+  test "should remove own comment of user" do
+    sign_out @user
+    user = FactoryGirl.create(:user)
+    sign_in user
+    new_comment = @proposition.comments.create! text: "Blabla ...", user: user
+    delete :removecomment, id: @proposition.id.to_s, commentId: new_comment.id.to_s, format: 'json'
     assert_response :success
   end
 
