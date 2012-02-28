@@ -1,7 +1,7 @@
 class Web::StaticController < ApplicationController
   
   # # will be reset every deploy
-  caches_action :team, :about, :press, :terms, :join, :apps, :thanks, :live, :how
+  caches_action :team, :about, :how, :press, :apps, :thanks
   
   def team
     @people = File.open(Rails.root.join('config','team.yml')) { |file| YAML::load(file) }
@@ -18,21 +18,16 @@ class Web::StaticController < ApplicationController
   end
   
   def press
-  end
-  
-  def terms
-  end
-  
-  def join
+    @post_id = 18436410010
+    render action: "tumblr"
   end
   
   def apps
   end
 
   def thanks
-  end
-  
-  def live
+    @post_id = 18436182546
+    render action: "tumblr"
   end
   
 end

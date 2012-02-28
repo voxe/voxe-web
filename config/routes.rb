@@ -218,11 +218,8 @@ Joinplato::Application.routes.draw do
   match 'about/how' => 'Web::Static#how', :as => :how
   match 'about/team' => 'Web::Static#team', :as => :team
   match 'about/press' => 'Web::Static#press', :as => :press
-  match 'about/terms' => 'Web::Static#terms', :as => :terms
   match 'about/thanks' => 'Web::Static#thanks', :as => :thanks
-  match 'join' => 'Web::Static#join', :as => :join
   match 'apps' => 'Web::Static#apps', :as => :apps
-  match 'live' => 'Web::Static#live', :as => :live
   
   # touch
   scope :module => "touch", format: "touch", constraints: TouchConstraint.new do
