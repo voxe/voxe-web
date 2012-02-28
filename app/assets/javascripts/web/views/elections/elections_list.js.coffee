@@ -6,5 +6,5 @@ class window.ElectionsListView extends Backbone.View
   render: ->
     @collection.each (election) =>
       view = new ElectionCellView model: election
-      $(@el).prepend view.render().el
+      $(@el).append view.render().el
     @
