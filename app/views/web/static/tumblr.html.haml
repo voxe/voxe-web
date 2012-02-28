@@ -1,0 +1,11 @@
+.static-page-container
+  = render "web/static/nav"
+  
+  :coffeescript
+    document.domain = 'voxe.org'
+    window.setFrameHeight= ->
+      page = document.getElementById('page')
+      page.height = page.contentWindow.document.body.scrollHeight + "px"
+  
+  .static-page
+    %iframe{id: "page", width: "100%", height: "500px", src: "http://static.voxe.org/post/#{@post_id}", frameborder: 0, onLoad: "setFrameHeight()"}

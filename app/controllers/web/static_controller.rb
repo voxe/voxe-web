@@ -8,6 +8,13 @@ class Web::StaticController < ApplicationController
   end
   
   def about
+    @post_id = 18435358007
+    render action: "tumblr"
+  end
+  
+  def how
+    @post_id = 18435068606
+    render action: "tumblr"
   end
   
   def press
