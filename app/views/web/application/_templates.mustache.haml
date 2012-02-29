@@ -93,10 +93,15 @@
 %script#proposition-embed-video-template{type: "text/html"}
   :plain
     {{#embed}}
+      <div class="play-button"></div>
       <img src="{{imageUrl}}" width="255px" />
     {{/embed}}
 
-%scriptt#proposition-embed-link-template{type: "text/html"}
+%script#proposition-embed-links-template{type: "text/html"}
+  :plain
+    <p>En savoir plus:</p>
+
+%script#proposition-embed-link-template{type: "text/html"}
   :plain
     {{#embed}}
       <a href="{{url}}" target="_blank">{{title}}</a>

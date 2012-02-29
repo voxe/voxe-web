@@ -332,9 +332,34 @@ a.button {
     background-color: white;
     line-height: 1.466;
     
-    .proposition-embed {
+    .proposition-links {
+      margin: 0 10px 10px 10px;
+      border-top: 1px solid #E2E2E2;
+      background: #F1F1F1;
+      padding: 5px;
+      p {
+        font-weight: bold;
+      }
+    }
+    
+    .proposition-video {
       margin: 5px 10px 0 10px;
       cursor: pointer;
+      position: relative;
+      .play-button {
+        position: absolute;
+        width: 255px;
+        height: 190px;
+        background: url("#{asset_path('web/icons/play.png', 'images')}") no-repeat 111px 80px;
+      }
+    }
+    
+    .proposition-link {
+      a {
+        display: block;
+        background: url("#{asset_path('web/icons/glass.png', 'images')}") no-repeat 4px 3px;
+        padding: 0 0 0 24px;
+      }
     }
     
     .text {
