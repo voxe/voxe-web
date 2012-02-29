@@ -4,6 +4,7 @@ log/*.log
 tmp/
 .sass-cache/
 .DS_Store
+.rbenv-version
 public/candidates
 public/photos
 public/uploads
