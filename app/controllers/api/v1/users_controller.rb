@@ -67,4 +67,9 @@ class Api::V1::UsersController < Api::V1::ApplicationController
       render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
   end
+
+  # GET /api/v1/users/admins
+  def admins
+    @users = User.where admin: true
+  end
 end

@@ -101,4 +101,13 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     @admin.reload
     assert !@user.admin
   end
+
+  test "should get a list of all admins" do
+    get :admins, format: 'json'
+    assert_response :success
+    json = JSON.parse(@response.body)
+    json['response'].each do |user|
+      assert user['admin']
+    end
+  end
 end

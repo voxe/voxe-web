@@ -134,6 +134,7 @@ Joinplato::Application.routes.draw do
           get :verify
           get :self
           get :facebookconnect
+          get :admins
         end
         member do
           put :addadmin
