@@ -1,6 +1,0 @@
-.fields
-  .clearfix.offset1
-    - if f.object.persisted?
-      = f.object.html.html_safe
-    - else
-      = f.text_field :url, class: "xlarge"

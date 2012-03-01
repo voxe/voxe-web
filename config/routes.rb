@@ -59,15 +59,6 @@ Joinplato::Application.routes.draw do
 
   namespace :admin do
     match '/' => 'dashboard#index'
-    resources :users
-    resources :elections
-    resources :candidates
-    resources :tags
-    resources :propositions do
-      collection do
-        get :manage
-      end
-    end
   end
   
   # API
@@ -158,12 +149,6 @@ Joinplato::Application.routes.draw do
     resources :comparisons, only: :index
     resources :propositions, only: :show
   end
-  # resources :webviews, :only => :index do
-  #   collection do
-  #     get :compare
-  #     get :proposition
-  #   end
-  # end
   
   # web-app
   namespace :embed do
