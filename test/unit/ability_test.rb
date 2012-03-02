@@ -26,4 +26,10 @@ class AbilityTest < ActiveSupport::TestCase
   #   assert ability.cannot?(:update, @unauthorize_election.candidacies.first)
   # end
 
+  test "standard users should not be able to add contributors" do
+    user = FactoryGirl.create(:user)
+    ability = Ability.new(user)
+    assert ability.cannot?(:addcontributor, @election)
+  end
+
 end
