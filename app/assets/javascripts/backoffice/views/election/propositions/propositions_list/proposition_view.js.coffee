@@ -21,6 +21,11 @@ class Backoffice.Views.Election.Propositions.PropositionsList.PropositionView ex
     $('.embeds', @el).hide()
     $('.show-text', @el).hide()
 
+    @model.embeds.each (embed) =>
+      view = new Backoffice.Views.Election.Propositions.PropositionsList.EmbedItemView(model: embed, proposition: @model)
+      viewEl = view.render().el
+      $('ul.embeds', @el).append(viewEl)
+
     view = @
     $('.proposition-text', @el).editable(
       (value, setting) ->
