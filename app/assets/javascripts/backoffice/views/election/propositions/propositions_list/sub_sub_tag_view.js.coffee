@@ -8,7 +8,8 @@ class Backoffice.Views.Election.Propositions.PropositionsList.SubSubTagView exte
 
   initialize: ->
     @subSubTag = @model
-    @propositions = @options.propositions
+    @propositionsByTag = @options.propositionsByTag
+    @propositions = new PropositionsCollection(@propositionsByTag[@subSubTag.id])
     @candidacy = @options.candidacy
     @propositions.bind 'remove', @render, @
     @propositions.bind 'add', @render, @

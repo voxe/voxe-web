@@ -12,28 +12,15 @@ class Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListVi
     @propositions.fetch({data: {electionId: @election.id, candidacyIds: @candidacy.id, tagIds: @tag.id}})
 
   render: ->
-    @propositionsBySubTag = @propositions.reduce(
-      (res, proposition) ->
-        subSubTagId = proposition.get('tags')[0].id
-        subSubTag = @election.tags.depthTagSearch subSubTagId
-
-        subTag = subSubTag.parent()
-
-        res[subTag.id][subSubTagId].add proposition
-
-        res
-      @tags.reduce(
-        (res, tag) ->
-          res[tag.id] = tag.tags.reduce(
-            (res, subTag) ->
-              res[subTag.id] = new PropositionsCollection()
-              res
-            {}
-          )
-          res
-        {}
-      )
-      @
+    @propositionsByTag = @propositions.reduce(
+      (memo, proposition) ->
+        _.each(proposition.get('tags'), (tagObject) ->
+          tagId = tagObject.id
+          memo[tagId] ||= new Array()
+          memo[tagId].push proposition
+        )
+        memo
+      {}
     )
 
     $(@el).html @template candidacy: @candidacy.toJSON()
@@ -45,6 +32,6 @@ class Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListVi
     @
 
   addSubTag: (subTag) ->
-    view = new Backoffice.Views.Election.Propositions.PropositionsList.SubTagView(model: subTag, propositionsBySubSubTag: @propositionsBySubTag[subTag.id], candidacy: @candidacy)
+    view = new Backoffice.Views.Election.Propositions.PropositionsList.SubTagView(model: subTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
     viewEl = view.render().el
     $(@el).append(viewEl)

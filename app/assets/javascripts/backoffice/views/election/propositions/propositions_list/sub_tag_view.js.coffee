@@ -4,7 +4,7 @@ class Backoffice.Views.Election.Propositions.PropositionsList.SubTagView extends
 
   initialize: ->
     @subTag = @model
-    @propositionsBySubSubTag = @options.propositionsBySubSubTag
+    @propositionsByTag = @options.propositionsByTag
     @candidacy = @options.candidacy
 
   render: ->
@@ -15,6 +15,6 @@ class Backoffice.Views.Election.Propositions.PropositionsList.SubTagView extends
     @
 
   addSubSubTag: (subSubTag) ->
-    view = new Backoffice.Views.Election.Propositions.PropositionsList.SubSubTagView(model: subSubTag, propositions: @propositionsBySubSubTag[subSubTag.id], candidacy: @candidacy)
+    view = new Backoffice.Views.Election.Propositions.PropositionsList.SubSubTagView(model: subSubTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
     viewEl = view.render().el
     $(@el).append(viewEl)
