@@ -16,7 +16,7 @@
           .proposition
             = link_to proposition.text, webviews_proposition_path(proposition.id)
             - proposition.embeds.each do |embed|
-              - if embed.type == 'video'
+              - if embed.type == 'video' && embed.provider_name == 'YouTube'
                 .embed
                   = embed.video_player.html_safe
             
