@@ -1,6 +1,6 @@
 development:
   host: localhost
-  database: voxe-staging
+  database: voxe
   identity_map_enabled: true
 
 test:
