@@ -42,14 +42,14 @@
           <div class="name">{{name}}</div>
         </li>
       {{/tags}}
-      
+
 %script#propositions-template{type: 'text/html'}
   :plain
     {{#categories}}
       <div class="category">
         <div class="category-name">{{name}}</div>
         {{#sections}}
-          <div class="section">               
+          <div class="section">
             <div class="section-name">{{name}}</div>
             {{#candidacies}}
               <div class="candidacy">
@@ -61,6 +61,11 @@
 
                 {{#propositions}}
                   <div class="proposition">
+                    <ul class="embeds">
+                      {{#embeds}}
+                        <li><a class="{{type}}" href="{{url}}" target="_blank">{{title}}</a></li>
+                      {{/embeds}}
+                    </ul>
                     {{text}}
                   </div>
                 {{/propositions}}
