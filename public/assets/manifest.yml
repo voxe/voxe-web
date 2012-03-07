@@ -6,6 +6,7 @@
 !binary "ZW1iZWQvZWxlY3Rpb25zL2dvb2dsZS1hcHAtc3RvcmUucG5n": embed/elections/google-app-store-713411daed1c4e7f066cf6b8d7ae25c0.png
 !binary "ZmFjZWJvb2stbG9naW4ucG5n": facebook-login-a3b4c72e13173396c024d9f8cb4ed213.png
 !binary "ZmItYWpheC1sb2FkZXIuZ2lm": fb-ajax-loader-c90a40bf81d754d8dcb66741b56a9ebc.gif
+!binary "Z2xvYmUucG5n": globe-2b7014c4df2062c468f151498770fe6e.png
 !binary "aU9TLzExNGlvcy5wbmc=": iOS/114ios-9f9142a04593a3bbb96cacecb5f59eb4.png
 !binary "aU9TLzI5aW9zLnBuZw==": iOS/29ios-828b6ada5cb8e09d38a727cbfc28ef4f.png
 !binary "aU9TLzUwaW9zLnBuZw==": iOS/50ios-f527f781071aba838b75c7225a0ab996.png
@@ -39,6 +40,7 @@
 : touch/elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
 !binary "dG91Y2gvbmF2LzY0LnBuZw==": touch/nav/64-a6cecc68ce5fbb35d70d42e22ecf361d.png
 !binary "dG91Y2gvc2VsZWN0ZWQtYnVsbGV0LnBuZw==": touch/selected-bullet-9a6d8ac7ab02e189dcf5ca2be11a7355.png
+!binary "dmlkZW8ucG5n": video-154a771c9b3396a9a3bfb497f5abb47c.png
 !binary "d2ViL2Fib3V0L3RlYW0vYW5hdG9sZXIuanBn": web/about/team/anatoler-48dfdc306fb6970f0628cb340713b484.jpg
 !binary "d2ViL2Fib3V0L3RlYW0vYW50b2luZW0uanBn": web/about/team/antoinem-cb1977c7655ff07654dcf1847142a612.jpg
 !binary "d2ViL2Fib3V0L3RlYW0vYmVuamFtaW5sc2wuanBn": web/about/team/benjaminlsl-eb8ed38418898d6a4fc5c3f461a2a1ce.jpg
@@ -82,7 +84,7 @@
 !binary "ZWxlY3Rpb25zL2ZyYW5jZS1wcmVzaWRlbnRpZWxsZS0yMDEyLTU1Ni5wbmc=": elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
 !binary "cGFydG5lcnMvaHVmZnBvc3QtYmFja2dyb3VuZC12MS5wbmc=": partners/huffpost-background-v1-0950e6a543d6eb5d81e3ac8d81b3ed4a.png
 !binary "YmFja29mZmljZS9hcHBsaWNhdGlvbi5jc3M=": backoffice/application-590187e95df68f0618c68e6b48d5883b.css
-!binary "ZW1iZWQvZWxlY3Rpb25zLmNzcw==": embed/elections-050fa586856cd16a907fca4ebc53e6a0.css
+!binary "ZW1iZWQvZWxlY3Rpb25zLmNzcw==": embed/elections-bc52d37a21c8397934780032c4f3cb50.css
 !binary "ZW1iZWQvbGl2ZS5jc3M=": embed/live-932a091e1dfa860ea5f306cd45d3a59d.css
 !binary "bW9iaWxlLmNzcw==": mobile-2d0cc7cb0cbbde1edae87b4952841a6e.css
 !binary "bW9iaWxlL2FwcGxpY2F0aW9uLmNzcw==": mobile/application-cdc94d6d477c1bd492dcdabe334466ad.css
