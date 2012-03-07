@@ -1,7 +1,7 @@
 development:
   host: localhost
   database: voxe
-  identity_map_enabled: true
+  identity_map_enabled: false
 
 test:
   host: localhost
