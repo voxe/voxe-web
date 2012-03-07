@@ -78,7 +78,7 @@ gem 'cancan'
 
 # Webserver
 # http://michaelvanrooijen.com/articles/2011/06/01-more-concurrency-on-a-single-heroku-dyno-with-the-new-celadon-cedar-stack/
-gem 'unicorn'
+# gem 'unicorn'
 
 # scaling
 gem 'hirefireapp'
