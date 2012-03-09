@@ -1,18 +1,14 @@
 development:
   host: localhost
   database: voxe
-  identity_map_enabled: false
 
 test:
   host: localhost
   database: joinplato_test
-  identity_map_enabled: true
 
 # set these environment variables on your prod server
 production:
   uri: <%= ENV['MONGOHQ_URL'] %>
-  identity_map_enabled: true
 
 staging:
   uri: <%= ENV['MONGOHQ_URL'] %>
-  identity_map_enabled: true
