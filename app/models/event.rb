@@ -5,14 +5,10 @@ class Event
   #
   # Attributes
   #
-  field :name,       type: String
-  field :ip_address, type: String
-
-  #
-  # Associations
-  #
-  has_and_belongs_to_many :candidacies
-  has_and_belongs_to_many :tags
+  field :name,          type: String
+  field :ip_address,    type: String
+  field :candidacy_ids, type: Array
+  field :tag_ids,       type: Array
 
   #
   # Validations
@@ -25,5 +21,13 @@ class Event
   
   index [[:name, Mongo::ASCENDING], [:created_at, Mongo::ASCENDING]]
   index [[:name, Mongo::ASCENDING], [:created_at, Mongo::DESCENDING]]
+
+  def candidacies
+    Candidacy.find(candidacy_ids)
+  end
+  
+  def tags
+    Tag.find(tag_ids)
+  end
 
 end
