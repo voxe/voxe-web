@@ -155,7 +155,7 @@ GEM
       rubyzip
       term-ansicolor (~> 1.0.5)
     hike (1.2.1)
-    hirefireapp (0.0.5)
+    hirefireapp (0.0.7)
     i18n (0.6.0)
     jammit (0.6.5)
       yui-compressor (>= 0.9.3)
