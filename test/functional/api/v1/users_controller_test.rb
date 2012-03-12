@@ -96,10 +96,11 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
   end
 
   test "should remove admin role to an user" do
-    put :removeadmin, id: @admin.id.to_s, format: 'json'
+    another_admin = FactoryGirl.create(:admin)
+    put :removeadmin, id: another_admin.id.to_s, format: 'json'
     assert_response :success
-    @admin.reload
-    assert !@user.admin
+    another_admin.reload
+    assert !another_admin.admin
   end
 
   test "should get a list of all admins" do

@@ -72,7 +72,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
   end
 
   test "should post a comment on proposition" do
-    assert_difference "@proposition.comments.count" do
+    assert_difference "@proposition.reload.comments.count" do
       post :addcomment, id: @proposition.id.to_s, text: "I disagree because blablabla ...", format: 'json'
     end
     assert_response :success
@@ -91,8 +91,9 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
   end
 
   test "should add an embed" do
-    assert_difference('@proposition.embeds.count') do
+    assert_difference('@proposition.reload.embeds.count') do
       post :addembed, id: @proposition.id.to_s, url: "http://www.youtube.com/watch?v=XGQewDiDN_E", format: 'json'
+      # assert @proposition.
     end
     assert_response :success
     json = JSON.parse(@response.body)
@@ -132,7 +133,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
   test "should simply add a link as an embed" do
     title = 'Just a link'
     link = "http://www.twitter.com"
-    assert_difference('@proposition.embeds.count') do
+    assert_difference('@proposition.reload.embeds.count') do
       post :addembed, id: @proposition.id.to_s, url: link, title: title, format: 'json'
     end
     assert_response :success
