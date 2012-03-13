@@ -5,7 +5,7 @@ class Proposition
   field :text, type: String
 
   belongs_to :candidacy
-  has_and_belongs_to_many :tags
+  has_and_belongs_to_many :tags, inverse_of: nil
   
   # indexes
   index [[:candidacy_id, Mongo::ASCENDING], [:tag_ids, Mongo::ASCENDING]]

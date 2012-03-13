@@ -5,8 +5,6 @@ class Tag
   field :namespace, type: String
   field :icon,      type: String
 
-  has_and_belongs_to_many :propositions
-
   validates_presence_of :name
   
   before_validation :on => :create do
