@@ -1,96 +1,90 @@
 ---
-!binary "YWpheC1sb2FkZXItcmliYm9uLmdpZg==": ajax-loader-ribbon-69460b4f5e9019c9fcb41597db3c3418.gif
-!binary "YWpheC1sb2FkZXIuZ2lm": ajax-loader-df580994e9f12989e87d12543607b8ff.gif
-!binary "YmFja2dyb3VuZC5qcGc=": background-ce027591791d2e8a7413eee60ad5811e.jpg
-!binary "ZW1iZWQvZWxlY3Rpb25zL2FwcGxlLWFwcC1zdG9yZS5wbmc=": embed/elections/apple-app-store-c92ac24b62fc0961e38172b98de7008a.png
-!binary "ZW1iZWQvZWxlY3Rpb25zL2dvb2dsZS1hcHAtc3RvcmUucG5n": embed/elections/google-app-store-713411daed1c4e7f066cf6b8d7ae25c0.png
-!binary "ZmFjZWJvb2stbG9naW4ucG5n": facebook-login-a3b4c72e13173396c024d9f8cb4ed213.png
-!binary "ZmItYWpheC1sb2FkZXIuZ2lm": fb-ajax-loader-c90a40bf81d754d8dcb66741b56a9ebc.gif
-!binary "Z2xvYmUucG5n": globe-2b7014c4df2062c468f151498770fe6e.png
-!binary "aU9TLzExNGlvcy5wbmc=": iOS/114ios-9f9142a04593a3bbb96cacecb5f59eb4.png
-!binary "aU9TLzI5aW9zLnBuZw==": iOS/29ios-828b6ada5cb8e09d38a727cbfc28ef4f.png
-!binary "aU9TLzUwaW9zLnBuZw==": iOS/50ios-f527f781071aba838b75c7225a0ab996.png
-!binary "aU9TLzUxMmlvcy5wbmc=": iOS/512ios-07cc71d029cb7c975a0f5da2ee2f1c56.png
-!binary "aU9TLzU3aW9zLnBuZw==": iOS/57ios-74ec83b1d5281dca8e018fe2b1d46dd8.png
-!binary "aU9TLzU4aW9zLnBuZw==": iOS/58ios-5d1f7efe482715a49fcb20206b0b910c.png
-!binary "aU9TLzcyaW9zLnBuZw==": iOS/72ios-ce61ef5b95c814950c6940585548a144.png
-!binary "aWNvbi1jb21tZW50LnBuZw==": icon-comment-13f63a9f3721d0a37ce7df8bae0390b2.png
-!binary "aWNvbnMvMTI4LnBuZw==": icons/128-3ecbd5481dab81be596c3031e110a4f3.png
-!binary "aWNvbnMvMTYucG5n": icons/16-b42425595c1843952dd03403961c50fa.png
-!binary "aWNvbnMvMjU2LnBuZw==": icons/256-60a15f2625a11e18bd7748658d4d916d.png
-!binary "aWNvbnMvMzIucG5n": icons/32-db7107da194269782554758a3499158f.png
-!binary "aWNvbnMvNjQucG5n": icons/64-a6cecc68ce5fbb35d70d42e22ecf361d.png
-!binary "aWNvbnMvZmJfNzUuanBn": icons/fb_75-0c3fcdbda67e8491b2631fce0e72bae9.jpg
-!binary "bG9hZGVyLmdpZg==": loader-94c74f0d10c47a9b6bcd06fef2d7f9e7.gif
-!binary "cGxhdGZvcm0vaVBob25lNFMucG5n": platform/iPhone4S-a1ed60265a0b3227024423b1688559b2.png
-!binary "cmFpbHMucG5n": rails-e4b51606cd77fda2615e7439907bfc92.png
-!binary "c2hhcmUvZmFjZWJvb2sxNi5wbmc=": share/facebook16-9d0145d29ac229f3c739c6dd4826da6f.png
-!binary "c2hhcmUvZmFjZWJvb2s0OC5wbmc=": share/facebook48-7d56f2d29624e15ee5b87eb8a183fa6a.png
-!binary "c2hhcmUvdHdpdHRlcjE2LnBuZw==": share/twitter16-55c95c17d5deffdc4e2ccbae32dbb55e.png
-!binary "c2hhcmUvdHdpdHRlcjQ4LnBuZw==": share/twitter48-458ec8c5878236a07e6e29a5368aaa53.png
-!binary "c2lnbmluLWZhY2Vib29rLnBuZw==": signin-facebook-d1938502a92703949868d047d78b33c5.png
-!binary "dG91Y2gvYWpheC1sb2FkZXIuZ2lm": touch/ajax-loader-df580994e9f12989e87d12543607b8ff.gif
-? !binary |-
-  dG91Y2gvZWxlY3Rpb25zL2ZyYW5jZS1wcmVzaWRlbnRpZWxsZS0yMDA3LTU1
-  Ni5wbmc=
-: touch/elections/france-presidentielle-2007-556-3dad9bd25feec72c3a8c9504e7b9a584.png
-? !binary |-
-  dG91Y2gvZWxlY3Rpb25zL2ZyYW5jZS1wcmVzaWRlbnRpZWxsZS0yMDEyLTU1
-  Ni5wbmc=
-: touch/elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
-!binary "dG91Y2gvbmF2LzY0LnBuZw==": touch/nav/64-a6cecc68ce5fbb35d70d42e22ecf361d.png
-!binary "dG91Y2gvc2VsZWN0ZWQtYnVsbGV0LnBuZw==": touch/selected-bullet-9a6d8ac7ab02e189dcf5ca2be11a7355.png
-!binary "dmlkZW8ucG5n": video-154a771c9b3396a9a3bfb497f5abb47c.png
-!binary "d2ViL2Fib3V0L3RlYW0vYW5hdG9sZXIuanBn": web/about/team/anatoler-48dfdc306fb6970f0628cb340713b484.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vYW50b2luZW0uanBn": web/about/team/antoinem-cb1977c7655ff07654dcf1847142a612.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vYmVuamFtaW5sc2wuanBn": web/about/team/benjaminlsl-eb8ed38418898d6a4fc5c3f461a2a1ce.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vYmVuamFtaW5uLmpwZw==": web/about/team/benjaminn-3f9ac269420856ffdef0dc5b8bd96235.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vY2hhcmxvdHRlci5qcGc=": web/about/team/charlotter-9c489738a804a8083588788e8ed49c6d.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vZWRvdWFyZHMuanBn": web/about/team/edouards-e0e3f0fcbc8a27bc3b855fabfd575bc3.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vanVsaWFiLmpwZw==": web/about/team/juliab-f6a82e1892a6d17a544d0e77c50c8e92.jpg
-!binary "d2ViL2Fib3V0L3RlYW0va2F0Yi5qcGc=": web/about/team/katb-0eeb893166883f2cd643a50851125e2a.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vcGFyaXMuanBn": web/about/team/paris-27a371c5c6cc1c9dce38ce8fc4ab360b.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vcGF1bGMuanBn": web/about/team/paulc-9370ca85e723799a67791b95d4741d8a.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vcGllcnJldi5qcGc=": web/about/team/pierrev-fc63442560b8c27ea96b59636a588c75.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vcGllcnJleXZlc3IuanBn": web/about/team/pierreyvesr-2be56d63c81d24f06b75af3e93e940b9.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vcm9tYWlubC5qcGc=": web/about/team/romainl-ede0c868431b5f890e9cb91a2c1b5dd1.jpg
-!binary "d2ViL2Fib3V0L3RlYW0vdGhpYmF1bHRnLmpwZw==": web/about/team/thibaultg-9e4b60651208509a33febf2cd0030ae4.jpg
-!binary "d2ViL2FqYXgtbG9hZGVyLmdpZg==": web/ajax-loader-c040c0cd9239e33cec1d07bfc22d61f6.gif
-!binary "d2ViL2FuZHJvaWQtbWFya2V0LXNtYWxsLnBuZw==": web/android-market-small-61735b4bd51a4cec1398dff0482561f6.png
-!binary "d2ViL2FuZHJvaWQucG5n": web/android-ea59150387e5663d1fa74c3e70cafe88.png
-!binary "d2ViL2FwcC1zdG9yZS1mci1zbWFsbC5wbmc=": web/app-store-fr-small-a978a0bf45dec4aebdf18ceae2adad8d.png
-!binary "d2ViL2VtYmVkLnBuZw==": web/embed-202c0cbabc69786c9f6a2393890bc6cb.png
-!binary "d2ViL2Zhdmljb24uaWNv": web/favicon-44df5c5c9316f8457247989a5aece98f.ico
-!binary "d2ViL2ljb25zL2ZhY2Vib29rLnBuZw==": web/icons/facebook-606252b910aca3d443f0714897a771d3.png
-!binary "d2ViL2ljb25zL2dsYXNzLnBuZw==": web/icons/glass-74d3052a77784fe40d7a7b83d00de70e.png
-!binary "d2ViL2ljb25zL3BsYXkucG5n": web/icons/play-d8c9f24227f25d6a5b68fb0ec24030d6.png
-!binary "d2ViL2ljb25zL3R3aXR0ZXIucG5n": web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
-!binary "d2ViL2ljb25zL3lvdXR1YmUucG5n": web/icons/youtube-4b37b35ce68a1c22f66118f0a83dc934.png
-!binary "d2ViL2lwaG9uZS5wbmc=": web/iphone-89054ea658a6130ccd75677745c2b083.png
-!binary "d2ViL3RoYW5rcy9idWJibGUucG5n": web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
-!binary "YmFja29mZmljZS9hcHBsaWNhdGlvbi5qcw==": backoffice/application-145cacf6f04b38409cf8a9b81fef7ba3.js
-!binary "ZW1iZWQvZWxlY3Rpb25zLmpz": embed/elections-424d56e41079ad487e9b4d1447aca0bd.js
-!binary "ZW1iZWQvZWxlY3Rpb25zL3ZpZXdzL2FwcGxpY2F0aW9uLmpz": embed/elections/views/application-6dcd5e9419f3a062d2e6267f40232cfe.js
-!binary "ZW1iZWQvbGl2ZS5qcw==": embed/live-9045e77b6bbc1d8def7e7c91a3eb0637.js
-!binary "dG91Y2guanM=": touch-0ca9983656a5a6a048a8ed3f6de547e6.js
-!binary "dG91Y2gvYXBwbGljYXRpb24uanM=": touch/application-a60164267ec5e8b0629ff1df7c9aa1f7.js
-!binary "dG91Y2gvdmlld3MvYXBwbGljYXRpb24uanM=": touch/views/application-99cc860031fb60680e2670c73df666af.js
-!binary "d2ViLmpz": web-0d73671d427cacb2ccbfb3edf4a1fe56.js
-!binary "d2ViL2FwcGxpY2F0aW9uLmpz": web/application-c28564cebdb818fee54d43f604cf017c.js
-!binary "d2ViL3ZpZXdzL2FwcGxpY2F0aW9uLmpz": web/views/application-ca3da560d3230537b8c545d3c77a339f.js
-!binary "d2Vidmlld3MuanM=": webviews-95e4868d7ab1d548739fda716f02a356.js
-!binary "d2Vidmlld3MvYXBwbGljYXRpb24uanM=": webviews/application-1ac3221ba378f39a4f42c594712dcbec.js
-!binary "ZWxlY3Rpb25zL2ZyYW5jZS1wcmVzaWRlbnRpZWxsZS0yMDA3LTU1Ni5wbmc=": elections/france-presidentielle-2007-556-3dad9bd25feec72c3a8c9504e7b9a584.png
-!binary "ZWxlY3Rpb25zL2ZyYW5jZS1wcmVzaWRlbnRpZWxsZS0yMDEyLTU1Ni5wbmc=": elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
-!binary "cGFydG5lcnMvaHVmZnBvc3QtYmFja2dyb3VuZC12MS5wbmc=": partners/huffpost-background-v1-0950e6a543d6eb5d81e3ac8d81b3ed4a.png
-!binary "YmFja29mZmljZS9hcHBsaWNhdGlvbi5jc3M=": backoffice/application-95126df5faf94c7e66e2cdd7910fe53d.css
-!binary "ZW1iZWQvZWxlY3Rpb25zLmNzcw==": embed/elections-bc52d37a21c8397934780032c4f3cb50.css
-!binary "ZW1iZWQvbGl2ZS5jc3M=": embed/live-932a091e1dfa860ea5f306cd45d3a59d.css
-!binary "bW9iaWxlLmNzcw==": mobile-2d0cc7cb0cbbde1edae87b4952841a6e.css
-!binary "bW9iaWxlL2FwcGxpY2F0aW9uLmNzcw==": mobile/application-cdc94d6d477c1bd492dcdabe334466ad.css
-!binary "cGxhdGZvcm0uY3Nz": platform-b5c1304499f131ff2cee2dad4f5e508e.css
-!binary "dG91Y2guY3Nz": touch-55d06354bdf2b3e0a85deb8f05c10bf7.css
-!binary "dG91Y2gvYXBwbGljYXRpb24uY3Nz": touch/application-fe3274063560caa2ea101a200aaca136.css
-!binary "d2ViLmNzcw==": web-4d7eb04a9789b7751eeddf8b3a188914.css
-!binary "d2Vidmlld3MuY3Nz": webviews-259d12a9a5e36c03d27b22ad143cd3bd.css
-!binary "d2Vidmlld3MvYXBwbGljYXRpb24uY3Nz": webviews/application-259d12a9a5e36c03d27b22ad143cd3bd.css
+ajax-loader-ribbon.gif: ajax-loader-ribbon-69460b4f5e9019c9fcb41597db3c3418.gif
+ajax-loader.gif: ajax-loader-df580994e9f12989e87d12543607b8ff.gif
+background.jpg: background-ce027591791d2e8a7413eee60ad5811e.jpg
+embed/elections/apple-app-store.png: embed/elections/apple-app-store-c92ac24b62fc0961e38172b98de7008a.png
+embed/elections/google-app-store.png: embed/elections/google-app-store-713411daed1c4e7f066cf6b8d7ae25c0.png
+facebook-login.png: facebook-login-a3b4c72e13173396c024d9f8cb4ed213.png
+fb-ajax-loader.gif: fb-ajax-loader-c90a40bf81d754d8dcb66741b56a9ebc.gif
+globe.png: globe-2b7014c4df2062c468f151498770fe6e.png
+iOS/114ios.png: iOS/114ios-9f9142a04593a3bbb96cacecb5f59eb4.png
+iOS/29ios.png: iOS/29ios-828b6ada5cb8e09d38a727cbfc28ef4f.png
+iOS/50ios.png: iOS/50ios-f527f781071aba838b75c7225a0ab996.png
+iOS/512ios.png: iOS/512ios-07cc71d029cb7c975a0f5da2ee2f1c56.png
+iOS/57ios.png: iOS/57ios-74ec83b1d5281dca8e018fe2b1d46dd8.png
+iOS/58ios.png: iOS/58ios-5d1f7efe482715a49fcb20206b0b910c.png
+iOS/72ios.png: iOS/72ios-ce61ef5b95c814950c6940585548a144.png
+icon-comment.png: icon-comment-13f63a9f3721d0a37ce7df8bae0390b2.png
+icons/128.png: icons/128-3ecbd5481dab81be596c3031e110a4f3.png
+icons/16.png: icons/16-b42425595c1843952dd03403961c50fa.png
+icons/256.png: icons/256-60a15f2625a11e18bd7748658d4d916d.png
+icons/32.png: icons/32-db7107da194269782554758a3499158f.png
+icons/64.png: icons/64-a6cecc68ce5fbb35d70d42e22ecf361d.png
+icons/fb_75.jpg: icons/fb_75-0c3fcdbda67e8491b2631fce0e72bae9.jpg
+loader.gif: loader-94c74f0d10c47a9b6bcd06fef2d7f9e7.gif
+platform/iPhone4S.png: platform/iPhone4S-a1ed60265a0b3227024423b1688559b2.png
+rails.png: rails-e4b51606cd77fda2615e7439907bfc92.png
+share/facebook16.png: share/facebook16-9d0145d29ac229f3c739c6dd4826da6f.png
+share/facebook48.png: share/facebook48-7d56f2d29624e15ee5b87eb8a183fa6a.png
+share/twitter16.png: share/twitter16-55c95c17d5deffdc4e2ccbae32dbb55e.png
+share/twitter48.png: share/twitter48-458ec8c5878236a07e6e29a5368aaa53.png
+signin-facebook.png: signin-facebook-d1938502a92703949868d047d78b33c5.png
+touch/ajax-loader.gif: touch/ajax-loader-df580994e9f12989e87d12543607b8ff.gif
+touch/elections/france-presidentielle-2007-556.png: touch/elections/france-presidentielle-2007-556-3dad9bd25feec72c3a8c9504e7b9a584.png
+touch/elections/france-presidentielle-2012-556.png: touch/elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
+touch/nav/64.png: touch/nav/64-a6cecc68ce5fbb35d70d42e22ecf361d.png
+touch/selected-bullet.png: touch/selected-bullet-9a6d8ac7ab02e189dcf5ca2be11a7355.png
+video.png: video-154a771c9b3396a9a3bfb497f5abb47c.png
+web/about/team/anatoler.jpg: web/about/team/anatoler-48dfdc306fb6970f0628cb340713b484.jpg
+web/about/team/antoinem.jpg: web/about/team/antoinem-cb1977c7655ff07654dcf1847142a612.jpg
+web/about/team/benjaminlsl.jpg: web/about/team/benjaminlsl-eb8ed38418898d6a4fc5c3f461a2a1ce.jpg
+web/about/team/benjaminn.jpg: web/about/team/benjaminn-3f9ac269420856ffdef0dc5b8bd96235.jpg
+web/about/team/charlotter.jpg: web/about/team/charlotter-9c489738a804a8083588788e8ed49c6d.jpg
+web/about/team/edouards.jpg: web/about/team/edouards-e0e3f0fcbc8a27bc3b855fabfd575bc3.jpg
+web/about/team/juliab.jpg: web/about/team/juliab-f6a82e1892a6d17a544d0e77c50c8e92.jpg
+web/about/team/katb.jpg: web/about/team/katb-0eeb893166883f2cd643a50851125e2a.jpg
+web/about/team/paris.jpg: web/about/team/paris-27a371c5c6cc1c9dce38ce8fc4ab360b.jpg
+web/about/team/paulc.jpg: web/about/team/paulc-9370ca85e723799a67791b95d4741d8a.jpg
+web/about/team/pierrev.jpg: web/about/team/pierrev-fc63442560b8c27ea96b59636a588c75.jpg
+web/about/team/pierreyvesr.jpg: web/about/team/pierreyvesr-2be56d63c81d24f06b75af3e93e940b9.jpg
+web/about/team/romainl.jpg: web/about/team/romainl-ede0c868431b5f890e9cb91a2c1b5dd1.jpg
+web/about/team/thibaultg.jpg: web/about/team/thibaultg-9e4b60651208509a33febf2cd0030ae4.jpg
+web/ajax-loader.gif: web/ajax-loader-c040c0cd9239e33cec1d07bfc22d61f6.gif
+web/android-market-small.png: web/android-market-small-61735b4bd51a4cec1398dff0482561f6.png
+web/android.png: web/android-ea59150387e5663d1fa74c3e70cafe88.png
+web/app-store-fr-small.png: web/app-store-fr-small-a978a0bf45dec4aebdf18ceae2adad8d.png
+web/embed.png: web/embed-202c0cbabc69786c9f6a2393890bc6cb.png
+web/favicon.ico: web/favicon-44df5c5c9316f8457247989a5aece98f.ico
+web/icons/facebook.png: web/icons/facebook-606252b910aca3d443f0714897a771d3.png
+web/icons/glass.png: web/icons/glass-74d3052a77784fe40d7a7b83d00de70e.png
+web/icons/play.png: web/icons/play-d8c9f24227f25d6a5b68fb0ec24030d6.png
+web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
+web/icons/youtube.png: web/icons/youtube-4b37b35ce68a1c22f66118f0a83dc934.png
+web/iphone.png: web/iphone-89054ea658a6130ccd75677745c2b083.png
+web/thanks/bubble.png: web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
+backoffice/application.js: backoffice/application-145cacf6f04b38409cf8a9b81fef7ba3.js
+embed/elections.js: embed/elections-424d56e41079ad487e9b4d1447aca0bd.js
+embed/elections/views/application.js: embed/elections/views/application-6dcd5e9419f3a062d2e6267f40232cfe.js
+embed/live.js: embed/live-9045e77b6bbc1d8def7e7c91a3eb0637.js
+touch.js: touch-0ca9983656a5a6a048a8ed3f6de547e6.js
+touch/application.js: touch/application-a60164267ec5e8b0629ff1df7c9aa1f7.js
+touch/views/application.js: touch/views/application-99cc860031fb60680e2670c73df666af.js
+web.js: web-0d73671d427cacb2ccbfb3edf4a1fe56.js
+web/application.js: web/application-c28564cebdb818fee54d43f604cf017c.js
+web/views/application.js: web/views/application-ca3da560d3230537b8c545d3c77a339f.js
+webviews.js: webviews-95e4868d7ab1d548739fda716f02a356.js
+webviews/application.js: webviews/application-1ac3221ba378f39a4f42c594712dcbec.js
+elections/france-presidentielle-2007-556.png: elections/france-presidentielle-2007-556-3dad9bd25feec72c3a8c9504e7b9a584.png
+elections/france-presidentielle-2012-556.png: elections/france-presidentielle-2012-556-224e2aa00d6f8d7986e5fd488a5187e8.png
+partners/huffpost-background-v1.png: partners/huffpost-background-v1-0950e6a543d6eb5d81e3ac8d81b3ed4a.png
+backoffice/application.css: backoffice/application-95126df5faf94c7e66e2cdd7910fe53d.css
+embed/elections.css: embed/elections-bc52d37a21c8397934780032c4f3cb50.css
+embed/live.css: embed/live-932a091e1dfa860ea5f306cd45d3a59d.css
+mobile.css: mobile-2d0cc7cb0cbbde1edae87b4952841a6e.css
+mobile/application.css: mobile/application-cdc94d6d477c1bd492dcdabe334466ad.css
+platform.css: platform-b5c1304499f131ff2cee2dad4f5e508e.css
+touch.css: touch-55d06354bdf2b3e0a85deb8f05c10bf7.css
+touch/application.css: touch/application-fe3274063560caa2ea101a200aaca136.css
+web.css: web-4d7eb04a9789b7751eeddf8b3a188914.css
+webviews.css: webviews-259d12a9a5e36c03d27b22ad143cd3bd.css
+webviews/application.css: webviews/application-259d12a9a5e36c03d27b22ad143cd3bd.css
