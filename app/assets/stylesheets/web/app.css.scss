@@ -105,6 +105,9 @@ a.button {
       float: left;
       a {
         color: #211922;
+        &.support {
+          color: red;
+        }
       }
     }
   }
