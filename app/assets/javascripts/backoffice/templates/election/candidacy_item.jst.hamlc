@@ -1,5 +1,5 @@
 %td
-  %img{src: @candidacy.candidates.models[0].get('photo').sizes.small.url style: 'float:left'}
+  %img{src: @candidacy.candidates.models[0].get('photo').sizes.small.url, style: 'float:left'}
   = @candidacy.name()
   %form.change-picture{method:'POST' enctype:'multipart/form-data'}
     %input{type:'file', name: 'image'}
