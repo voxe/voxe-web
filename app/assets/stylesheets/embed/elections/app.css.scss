@@ -55,6 +55,11 @@ html, body {
   }
   .container {
     padding: 5px 10px 0 10px;
+    #support {
+      font-weight: bold;
+      color: red;
+      margin-left: 5px;
+    }
     #instructions {
       float: right;
       font-size: 9px;
