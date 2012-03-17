@@ -3,6 +3,7 @@ class Api::V1::ApplicationController < ApplicationController
   layout "api_v1.json"
 
   # Handle errors
+  rescue_from BSON::InvalidObjectId, with: :api_error_400
   rescue_from Mongoid::Errors::DocumentNotFound, with: :api_error_400
 
   # Authorization with CanCan
