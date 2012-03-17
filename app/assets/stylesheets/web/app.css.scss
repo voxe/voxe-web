@@ -107,6 +107,7 @@ a.button {
         color: #211922;
         &.support {
           color: red;
+          font-weight: bold;
         }
       }
     }
@@ -180,6 +181,56 @@ a.button {
     position: relative;
     .page {
       /*display: none;*/
+    }
+  }
+}
+
+#support {
+  width: 480px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #F1F3F8;
+  border: 1px solid #97A4C2;
+  border-radius: 3px;
+  font-size: 14px;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.32);
+  .name {
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #97A4C2;
+    font-weight: bold;
+    span {
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+  .info {
+    overflow: auto;
+    padding-top: 10px;
+    .video {
+      float: left;
+    }
+    .text {
+      margin-left: 270px;
+      font-size: 13px;
+      p {
+        margin-bottom: 5px;
+        a {
+          color: black;
+        }
+      }
+      .support-button-container {
+        text-align: center;
+        padding-top: 10px;
+      }
+      a.support-button {
+        background-color: #5B74A8;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #29447E;
+        padding: 5px 8px;
+        border-radius: 2px;
+      }
     }
   }
 }
