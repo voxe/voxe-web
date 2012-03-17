@@ -31,7 +31,11 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     
     # pagination
     skip = params[:offset] || 0
-    @propositions = Proposition.includes(:candidacy).where(conditions).limit(500).skip(skip)
+    limit = 500
+    if params[:limit]
+      limit = params[:limit].to_i
+    end
+    @propositions = Proposition.includes(:candidacy).where(conditions).limit(limit).skip(skip)
 
     # Logging
     Event.create name: 'comparison', candidacy_ids: candidacy_ids, tag_ids: tag_ids, ip_address: request.remote_ip.inspect

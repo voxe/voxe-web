@@ -34,6 +34,19 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     end
   end
 
+  test "should search some propositions with limit" do
+    get :search, electionId: @election.to_param,
+      tagIds: Tag.first.to_param,
+      candidacyIds: @election.candidacies.collect(&:to_param).join(','),
+      limit: 1,
+      format: 'json'
+
+    assert_response :success
+    json = JSON.parse(@response.body)
+
+    assert_equal 1, json['response']['propositions'].size
+  end
+
   test "should create a proposition" do
     proposition_attributes                = {}
     proposition_attributes['text']        = "Something"
