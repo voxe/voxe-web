@@ -45,10 +45,14 @@ To get some data from 2007 French Presidential Election, at the command prompt t
 
   rake migrate:france2007
   
-If you have access to your staging server, you can also use the "heroku-mongo-sync" plugin to get the database we use on this server:
+If you have access to your staging server, you can also use the voxe custom "heroku-mongo-sync" plugin to get the database we use on this server:
 
-  heroku plugins:install http://github.com/pedro/heroku-mongo-sync.git
+  heroku plugins:install http://github.com/voxe/voxe-heroku-mongo-sync.git
   heroku mongo:pull --app voxe
+  
+Then, to update the staging server with the production data
+
+  heroku mongo:push --app voxe-staging
 
 == Testing
 
