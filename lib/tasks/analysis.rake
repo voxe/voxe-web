@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 namespace :analysis do
   task :tags_without_propositions => :environment do
 
@@ -9,5 +11,18 @@ namespace :analysis do
       end
     end
 
+  end
+  
+  task :remove_propositions_without_text => :environment do
+    
+    count = 1
+    Proposition.all.each do |proposition|
+      if proposition.text == "Non mentionné."
+        proposition.destroy
+        count = count + 1
+      end
+    end
+    
+    puts "#{count} propositions supprimées"
   end
 end
