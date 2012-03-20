@@ -17,7 +17,7 @@ namespace :analysis do
     
     count = 1
     Proposition.all.each do |proposition|
-      if proposition.text == "Non mentionné."
+      if proposition.text.downcase == "non mentionné." || proposition.text.downcase == "non mentionné"
         proposition.destroy
         count = count + 1
       end
