@@ -3,7 +3,7 @@ class Embed::ElectionsController < ApplicationController
   layout false
   
   # will be reset every deploy
-  caches_action :show
+  #caches_action :show
   
   def show
     begin
