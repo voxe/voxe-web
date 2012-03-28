@@ -36,6 +36,12 @@ class window.TagsListView extends Backbone.View
       $('#propositions').animate {left: "49px"}, 600
     
   render: ->
+    # filter tags with tagIds params
+    if @options.tagIds
+      @collection.models = @collection.filter( (tag) =>
+        _.include(@options.tagIds, tag.id)
+      )
+
     $(@el).html Mustache.to_html($('#tags-list-template').html(), tags: @collection.toJSON())
 
     # trigger a click on default tag

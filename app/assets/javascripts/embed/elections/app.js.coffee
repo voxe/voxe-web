@@ -29,8 +29,8 @@ class window.VoxeElection
     app.views.application = new ApplicationView(model: app.models.election)
     $('#app').html app.views.application.render().el
 
-    app.views.candidaciesList = new CandidaciesListView(collection: app.collections.candidacies, el: "#candidacies-list", defaultCandidacyIds: options.defaultCandidacyIds)
-    app.views.tagsList = new TagsListView(collection: app.collections.tags, el: "#tags-list", defaultTagId: options.defaultTagId)
+    app.views.candidaciesList = new CandidaciesListView(collection: app.collections.candidacies, el: "#candidacies-list", candidacyIds: options.candidacyIds, defaultCandidacyIds: options.defaultCandidacyIds)
+    app.views.tagsList = new TagsListView(collection: app.collections.tags, el: "#tags-list", tagIds: options.tagIds, defaultTagId: options.defaultTagId)
     
     app.views.propositions = new PropositionsView(el: "#propositions")
 
