@@ -18,7 +18,7 @@ class Tag
   mount_uploader :icon, IconUploader
   
   def icon_prefix
-    "http://voxe.s3.amazonaws.com/tags/v2-#{namespace}_"
+    "https://voxe.s3.amazonaws.com/tags/v2-#{namespace}_"
   end
   
   def icon_sizes
