@@ -12,7 +12,7 @@
       $(function() {
         new VoxeElection({
           electionId: '#{@election.id}',
-          defaultCandidacyIds: #{params['candidacyIds'].split(',').to_json},
+          defaultCandidacyIds: #{params['candidacyIds'].try(:split, ',').to_json},
           defaultTagId: #{params['tagId'].to_json}
         });
       });
