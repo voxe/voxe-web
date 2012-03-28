@@ -37,4 +37,13 @@ class window.TagsListView extends Backbone.View
     
   render: ->
     $(@el).html Mustache.to_html($('#tags-list-template').html(), tags: @collection.toJSON())
+
+    # trigger a click on default tag
+    if(@options.defaultTagId)
+      defaultTagId = @options.defaultTagId
+      defaultTagListItem = _.find @$('li'), (listItem) ->
+        listItem.getAttribute('tag-id') == defaultTagId
+      $(defaultTagListItem).click()
+      @options.defaultTagId = null
+
     @

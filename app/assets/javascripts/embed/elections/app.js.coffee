@@ -28,10 +28,10 @@ class window.VoxeElection
     
     app.views.application = new ApplicationView(model: app.models.election)
     $('#app').html app.views.application.render().el
-    
-    app.views.candidaciesList = new CandidaciesListView(collection: app.collections.candidacies, el: "#candidacies-list")
-    app.views.tagsList = new TagsListView(collection: app.collections.tags, el: "#tags-list")
+
+    app.views.candidaciesList = new CandidaciesListView(collection: app.collections.candidacies, el: "#candidacies-list", defaultCandidacyIds: options.defaultCandidacyIds)
+    app.views.tagsList = new TagsListView(collection: app.collections.tags, el: "#tags-list", defaultTagId: options.defaultTagId)
     
     app.views.propositions = new PropositionsView(el: "#propositions")
 
-    app.models.election.set options
+    app.models.election.set {id: options.electionId}

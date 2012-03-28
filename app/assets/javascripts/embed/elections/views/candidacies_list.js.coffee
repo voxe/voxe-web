@@ -21,7 +21,7 @@ class window.CandidaciesListView extends Backbone.View
   render: ->
     $(@el).html Mustache.to_html($('#candidacies-list-template').html(), candidacies: @collection.toJSON())
     $candidacies = @.$('ul')
-    @collection.each (candidacy) ->
-      view = new CandidacyCellView model: candidacy, collection: @collection
+    @collection.each (candidacy) =>
+      view = new CandidacyCellView model: candidacy, collection: @collection, selected: _.include(@options.defaultCandidacyIds, candidacy.id)
       $candidacies.append view.render().el
     @

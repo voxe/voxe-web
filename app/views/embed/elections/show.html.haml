@@ -10,7 +10,11 @@
     = render 'layouts/partials/facebook.html'
     :javascript
       $(function() {
-        new VoxeElection({id: '#{@election.id}'});
+        new VoxeElection({
+          electionId: '#{@election.id}',
+          defaultCandidacyIds: #{params['candidacyIds'].split(',').to_json},
+          defaultTagId: #{params['tagId'].to_json}
+        });
       });
       
     #touch{style: "display: none"}
