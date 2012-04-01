@@ -141,3 +141,12 @@ span.label {
     }
   }
 }
+
+.output {
+  background: whiteSmoke;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  width: 100%;
+  font-size: 1em;
+  font-family: monospace;
+}

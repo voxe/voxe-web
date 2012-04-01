@@ -1,0 +1,10 @@
+<div class="page-header"><h2>Select tags</h2></div>
+
+<table class="bordered-table">
+{{#tags}}
+<tr>
+  <td><input type="checkbox" name="tagIds" value="{{id}}" checked></td>
+  <td>{{name}}</td>
+</tr>
+{{/tags}}
+</table>

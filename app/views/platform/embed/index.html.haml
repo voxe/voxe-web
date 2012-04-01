@@ -1,46 +1,20 @@
-.page-header
-  %h1 Embed
+%form.embed-form
+  .page-header
+    %h1 Embed
 
-%p Add Voxe to your website. Only one line of code.
+  %p Add Voxe to your website. Only one line of code.
+  %p We recommend a minimum width of 500 pixels and a minimum height of 480px.
 
-.page-header
-  %h2
-    Find your election Id
+  #election-list
+  #tag-list
+  #preview
 
-%table.bordered-table
-  - Election.where(published: true).each do |election|
-    %tbody
-      %tr
-        %td= election.name
-        %td= election.id
+  .page-header    
+    %h2
+      Need help?
+      
+  %p Send an email to api {at} voxe.org
 
-.page-header
-  %h2
-    Get the code and change {id} by your election Id
-    
-%p We recommend a minimum width of 500 pixels and a minimum height of 480px.
-    
-%p
-  %pre
-    :escaped
-      <iframe frameborder='0' width='600px' height='480px'
-      src='http://voxe.org/embed/elections/{id}'></iframe>
-
-.page-header    
-  %h2
-    Preview
-    
-%pre
-  :escaped
-    <iframe frameborder='0' width='600px' height='480px'
-    src='http://voxe.org/embed/elections/#{@election.id}'>
-    </iframe>
-    
-%p
-  %iframe{src: embed_election_url(@election.id), width: '550px', height: '550px', frameborder: '0'}
-  
-.page-header    
-  %h2
-    Need help?
-    
-%p Send an email to api {at} voxe.org
+%script
+  :plain
+    new Platform.Views.EmbedFormView({el: $('.embed-form')})

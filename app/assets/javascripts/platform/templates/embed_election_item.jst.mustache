@@ -1,0 +1,10 @@
+<div class="page-header"><h2>Select your election</h2></div>
+
+<table class="bordered-table">
+{{#elections}}
+<tr>
+  <td><input type="radio" name="electionId" value="{{id}}"</td>
+  <td>{{name}}</td>
+</tr>
+{{/elections}}
+</table>

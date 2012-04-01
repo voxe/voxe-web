@@ -5,6 +5,7 @@
     %meta{name: "description", content: "Create apps that help people decide."}
     %meta{charset: "UTF-8"}
     = stylesheet_link_tag "platform"
+    = javascript_include_tag 'platform/application'
     = render "layouts/partials/google_analytics"
     %link{rel: "shortcut icon", href: "#{asset_path('web/favicon.ico')}"}
   %body{:class => "#{controller_name} #{action_name}"}
