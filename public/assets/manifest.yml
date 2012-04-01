@@ -72,6 +72,7 @@
 !binary "ZW1iZWQvZWxlY3Rpb25zLmpz": embed/elections-e86ab489c6cf01fde322b5e802ee8fe0.js
 !binary "ZW1iZWQvZWxlY3Rpb25zL3ZpZXdzL2FwcGxpY2F0aW9uLmpz": embed/elections/views/application-6dcd5e9419f3a062d2e6267f40232cfe.js
 !binary "ZW1iZWQvbGl2ZS5qcw==": embed/live-9045e77b6bbc1d8def7e7c91a3eb0637.js
+!binary "cGxhdGZvcm0vYXBwbGljYXRpb24uanM=": platform/application-cd8ed85b47dde5fac62f026eb0ec7ca1.js
 !binary "dG91Y2guanM=": touch-0ca9983656a5a6a048a8ed3f6de547e6.js
 !binary "dG91Y2gvYXBwbGljYXRpb24uanM=": touch/application-a60164267ec5e8b0629ff1df7c9aa1f7.js
 !binary "dG91Y2gvdmlld3MvYXBwbGljYXRpb24uanM=": touch/views/application-99cc860031fb60680e2670c73df666af.js
@@ -88,7 +89,7 @@
 !binary "ZW1iZWQvbGl2ZS5jc3M=": embed/live-932a091e1dfa860ea5f306cd45d3a59d.css
 !binary "bW9iaWxlLmNzcw==": mobile-2d0cc7cb0cbbde1edae87b4952841a6e.css
 !binary "bW9iaWxlL2FwcGxpY2F0aW9uLmNzcw==": mobile/application-cdc94d6d477c1bd492dcdabe334466ad.css
-!binary "cGxhdGZvcm0uY3Nz": platform-b5c1304499f131ff2cee2dad4f5e508e.css
+!binary "cGxhdGZvcm0uY3Nz": platform-8ba268a999bbadf12d3015d535d2d686.css
 !binary "dG91Y2guY3Nz": touch-203e568c4d1bac6514f295b1d4b6e26e.css
 !binary "dG91Y2gvYXBwbGljYXRpb24uY3Nz": touch/application-fe3274063560caa2ea101a200aaca136.css
 !binary "d2ViLmNzcw==": web-d8d396b9990c939eb59e282e9f6289fe.css
