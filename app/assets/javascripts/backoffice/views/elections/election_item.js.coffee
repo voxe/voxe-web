@@ -41,7 +41,7 @@ class Backoffice.Views.Elections.ElectionItemView extends Backbone.View
     @election.save {}, data: $.param
       election:
         name: electionName
-        namespace: electionName.replace /\s+/g, '-' # TODO: should be compute by API
+        #namespace: electionName.replace /\s+/g, '-' # TODO: should be compute by API
 
   cancelRenameForm: ->
     @render()
