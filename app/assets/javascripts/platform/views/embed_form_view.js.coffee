@@ -31,7 +31,7 @@ class Platform.Views.EmbedFormView extends Backbone.View
     params = ""
     params += "/?tagIds=#{tagIds.join(',')}" if tagIds
 
-    iframeCode = "<iframe frameborder='0' width='600px' height='480px' src='http://voxe.org/embed/elections/#{@election.id}#{params}'></iframe>"
+    iframeCode = "<iframe frameborder='0' width='600px' height='520px' src='http://voxe.org/embed/elections/#{@election.id}#{params}'></iframe>"
 
     @$('#preview').html @templates.preview(iframeCode: iframeCode)
 
