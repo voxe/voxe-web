@@ -9,7 +9,7 @@ class window.CandidacyModel extends Backbone.Model
     @candidates = new CandidatesCollection(@get 'candidates')
 
   name: ->
-    @candidates.models[0]
+    @candidates.models[0].name()
   
   namespace: ->
     @get 'namespace'

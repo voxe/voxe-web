@@ -1,11 +1,14 @@
 class Platform.Views.EmbedFormView extends Backbone.View
   templates:
-    electionItem: JST['platform/templates/embed_election_item']
-    tagItem: JST['platform/templates/embed_tag_item']
+    electionSelector: JST['platform/templates/embed_election_selector']
+    tagFilter: JST['platform/templates/embed_tag_filter']
+    candidacyFilter: JST['platform/templates/embed_candidacy_filter']
+    defaultTag: JST['platform/templates/embed_default_tag']
+    defaultCandidacies: JST['platform/templates/embed_default_candidacies']
     preview: JST['platform/templates/embed_preview']
 
   events:
-    'change [name="electionId"]': 'renderTagList'
+    'change [name="electionId"]': 'renderFilters'
     'change': 'renderPreview'
     'click .output': 'selectOutput'
 
@@ -15,23 +18,36 @@ class Platform.Views.EmbedFormView extends Backbone.View
     @collection.fetch()
 
   render: ->
-    @$('#election-list').html @templates.electionItem(elections: @collection.toJSON())
+    @$('#election-list').html @templates.electionSelector(elections: @collection.toJSON())
 
-  renderTagList: (event) ->
+  renderFilters: (event) ->
     electionId = $('input:radio[name=electionId]:checked').val()
     @election = @collection.find((e) -> electionId == e.id)
 
-    @$('#tag-list').html @templates.tagItem(@election.toJSON())
+    @$('#tag-filter').html @templates.tagFilter(@election.toJSON())
+    @$('#candidacy-filter').html @templates.candidacyFilter(@election.toJSON())
+    @$('#default-tags').html @templates.defaultTag(@election.toJSON())
+    @$('#default-candidacies').html @templates.defaultCandidacies(@election.toJSON())
 
   renderPreview: ->
-    checkedTagCheckBoxes = $('input:checkbox[name=tagIds]:checked')
-    unless checkedTagCheckBoxes.length == @election.tags.length
-      tagIds = _.map checkedTagCheckBoxes, (c) -> $(c).val()
+    params = {}
 
-    params = ""
-    params += "/?tagIds=#{tagIds.join(',')}" if tagIds
+    pushFilterAndDefaultToParams = (inputName, options={}) ->
+      domItems = @$("input[name=#{inputName}]")
+      seletedDomItems = @$("input[name=#{inputName}]:checked")
+      if (options.anyByDefault and seletedDomItems.length isnt 0) or (not options.anyByDefault and seletedDomItems.length isnt domItems.length)
+        console.log "#{seletedDomItems.length} vs #{domItems.length}"
+        # map dom item to values and join
+        params[inputName] = _.map(seletedDomItems, (c) -> $(c).val()).join(',')
 
-    iframeCode = "<iframe frameborder='0' width='600px' height='570px' src='http://voxe.org/embed/elections/#{@election.id}#{params}'></iframe>"
+    # hash to queryString
+    pushFilterAndDefaultToParams 'tagIds'
+    pushFilterAndDefaultToParams 'candidacyIds'
+    pushFilterAndDefaultToParams 'defaultTagId', anyByDefault: true
+    pushFilterAndDefaultToParams 'defaultCandidacyIds', anyByDefault: true
+    params = $.param params if params
+
+    iframeCode = "<iframe frameborder='0' width='600px' height='570px' src='http://voxe.org/embed/elections/#{@election.id}#{if _.isEmpty(params) then "" else "?#{params}"}'></iframe>"
 
     @$('#preview').html @templates.preview(iframeCode: iframeCode)
 

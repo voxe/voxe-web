@@ -8,8 +8,11 @@ class window.CandidateModel extends Backbone.Model
   lastName: ->
     @get "lastName"
 
-  toString: ->
+  name: ->
     "#{@get 'firstName'} #{@get 'lastName'}"
+
+  toString: ->
+    @name()
 
   urlRoot:
     "/api/v1/candidates/"

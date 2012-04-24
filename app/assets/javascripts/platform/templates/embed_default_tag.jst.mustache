@@ -1,0 +1,10 @@
+<div class="page-header"><h3>Tags you want to be selected by default</h2></div>
+
+<table class="bordered-table">
+{{#tags}}
+<tr>
+  <td><input type="radio" name="defaultTagId" value="{{id}}"></td>
+  <td>{{name}}</td>
+</tr>
+{{/tags}}
+</table>

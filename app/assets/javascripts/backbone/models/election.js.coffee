@@ -29,12 +29,11 @@ class window.ElectionModel extends Backbone.Model
     @get "namespace"
   
   toJSON: ->
-    object = _.clone(@attributes)
-    for key,value of object
-      if value instanceof Backbone.Model
-        object[key] = value.toJSON()
-    object
-  
+    hsh = super
+    hsh.candidacies = @candidacies.toJSON()
+    hsh.tags = @tags.toJSON()
+    hsh
+
   parse: (response)->
     # deleted because the bind "change:candidacies" should take care of this
     # @candidacies.reset response.response.election.candidacies

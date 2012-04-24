@@ -1,0 +1,10 @@
+<div class="page-header"><h3>Candidacies you want to display</h2></div>
+
+<table class="bordered-table">
+{{#candidacies}}
+<tr>
+  <td><input type="checkbox" name="candidacyIds" value="{{id}}" checked></td>
+  <td>{{name}}</td>
+</tr>
+{{/candidacies}}
+</table>

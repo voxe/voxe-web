@@ -6,7 +6,10 @@
   %p We recommend a minimum width of 500 pixels and a minimum height of 480px.
 
   #election-list
-  #tag-list
+  #tag-filter
+  #candidacy-filter
+  #default-tags
+  #default-candidacies
   #preview
 
   .page-header    
@@ -15,6 +18,5 @@
       
   %p Send an email to api {at} voxe.org
 
-%script
-  :plain
+  :javascript
     new Platform.Views.EmbedFormView({el: $('.embed-form')})
