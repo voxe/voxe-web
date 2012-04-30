@@ -16,10 +16,11 @@
           - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
           - if candidacy_propositions.empty?
             .proposition
-              = mail_to 'content@voxe.org', 'En attente de proposition.', style: "color: gray"
+              %p{style: "color: gray"}= 'En attente de proposition.'
           - candidacy_propositions.each do |proposition|
             .proposition
-              = link_to proposition.text, webviews_proposition_path(proposition.id)
+              %p
+                = link_to proposition.text, webviews_proposition_path(proposition.id)
               - proposition.embeds.each do |embed|
                 - if embed.type == 'video' && embed.provider_name == 'YouTube'
                   .embed
