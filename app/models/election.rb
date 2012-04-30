@@ -39,6 +39,12 @@ class Election
   def published_candidacies_sorted
     array = candidacies.published.entries
     array.sort_by! { |candidacy| candidacy.candidates[0].last_name }
+    # pierre: ugly hack to put the french candidates for the second "tour" at the top
+    if id.to_s == '4f16fe2299c7a10001000012'
+      array.insert(0, array.delete_at(4)) # hollande
+      array.insert(1, array.delete_at(9)) # sarkozy
+    end
+    array
   end
 
 end

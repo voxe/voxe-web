@@ -1,24 +1,29 @@
 - if election_tag.children_election_tags.empty?
-  .help
-    %span= election_tag.tag.name
-    
   - tag_propositions = @tags_propositions[election_tag.tag.id.to_s]
-  - if tag_propositions
-    - @candidacies.each do |candidacy|
-      .propositions
-        / candidate
-        .candidate
-          = image_tag candidacy.candidates.first.photo_url(:medium), size: "40x40"
-          
-        / propositions
-        - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
-        - candidacy_propositions.each do |proposition|
-          .proposition
-            = link_to proposition.text, webviews_proposition_path(proposition.id)
-            - proposition.embeds.each do |embed|
-              - if embed.type == 'video' && embed.provider_name == 'YouTube'
-                .embed
-                  = embed.video_player.html_safe
+  - unless tag_propositions.blank?
+    .help
+      %span= election_tag.tag.name
+      
+    
+    - if tag_propositions
+      - @candidacies.each do |candidacy|
+        .propositions
+          / candidate
+          .candidate
+            = image_tag candidacy.candidates.first.photo_url(:medium), size: "40x40"
+            
+          / propositions
+          - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
+          - if candidacy_propositions.empty?
+            .proposition
+              = mail_to 'content@voxe.org', 'En attente de proposition.', style: "color: gray"
+          - candidacy_propositions.each do |proposition|
+            .proposition
+              = link_to proposition.text, webviews_proposition_path(proposition.id)
+              - proposition.embeds.each do |embed|
+                - if embed.type == 'video' && embed.provider_name == 'YouTube'
+                  .embed
+                    = embed.video_player.html_safe
             
 - else
   .help

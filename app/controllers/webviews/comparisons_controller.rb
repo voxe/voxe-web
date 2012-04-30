@@ -1,4 +1,7 @@
 class Webviews::ComparisonsController < Webviews::ApplicationController
+
+  before_filter :log, only: :index
+  caches_action :index, expires_in: 3600.seconds, cache_path: Proc.new { webviews_comparisons_path(params) }
   
   def index
     # election
@@ -31,9 +34,6 @@ class Webviews::ComparisonsController < Webviews::ApplicationController
       return render text: "invalid tagId"
     end
     
-    # logs
-    Event.create name: 'comparison', candidacy_ids: @candidacies.map(&:id), tag_ids: [@tag.id], ip_address: request.remote_ip.inspect
-    
     # election tag
     @election_tag = ElectionTag.first conditions: {election_id: @election.id, tag_id: @tag.id}
     return render text: "empty" unless @election_tag
@@ -50,7 +50,15 @@ class Webviews::ComparisonsController < Webviews::ApplicationController
         @tags_propositions[tag_id.to_s] = [] unless @tags_propositions[tag_id.to_s]
         @tags_propositions[tag_id.to_s] << proposition
       end
-    end    
+    end
+  end
+
+  private
+  def log
+    begin
+      Event.create name: 'comparison', candidacy_ids: params[:candidacyIds], tag_ids: [params[:tagId].to_s], ip_address: request.remote_ip.inspect
+    rescue
+    end
   end
   
 end
