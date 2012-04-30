@@ -56,7 +56,7 @@ class Webviews::ComparisonsController < Webviews::ApplicationController
   private
   def log
     begin
-      Event.create name: 'comparison', candidacy_ids: params[:candidacyIds], tag_ids: [params[:tagId].to_s], ip_address: request.remote_ip.inspect
+      Event.create name: 'comparison', candidacy_ids: params[:candidacyIds].split(','), tag_ids: [params[:tagId].to_s], ip_address: request.remote_ip.inspect
     rescue
     end
   end
