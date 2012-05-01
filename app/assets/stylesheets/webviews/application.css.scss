@@ -38,6 +38,17 @@ a {
   }
 }
 
+#notice {
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 12px;
+  background: white;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.52);
+  p {
+    margin: 5px 0;
+  }
+}
+
 #compare-view {
   
   padding: 15px;
