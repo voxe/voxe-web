@@ -38,7 +38,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     @propositions = Proposition.includes(:candidacy).where(conditions).limit(limit).skip(skip)
 
     # Logging
-    Event.create name: 'comparison', candidacy_ids: candidacy_ids, tag_ids: tag_ids, ip_address: request.remote_ip.inspect
+    Event.create name: 'comparison', candidacy_ids: candidacy_ids, tag_ids: tag_ids, ip_address: request.remote_ip.inspect, user_driven: params[:userDriven]
   end
   
   # GET /api/v1/propositions

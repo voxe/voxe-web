@@ -19,6 +19,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
       get :search, electionId: @election.to_param,
         tagIds: Tag.first.to_param,
         candidacyIds: @election.candidacies.collect(&:to_param).join(','),
+        user_driven: "1",
         format: 'json'
     end
 
@@ -32,6 +33,8 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
       assert proposition_attrs['candidacy']['id'].present?
       assert proposition_attrs['text'].present?
     end
+
+    assert Event.last.user_driven
   end
 
   test "should search some propositions with limit" do

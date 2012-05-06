@@ -7,6 +7,7 @@ class Event
   #
   field :name,          type: String
   field :ip_address,    type: String
+  field :user_driven,   type: Boolean, default: false
 
   #
   # Associations
@@ -22,7 +23,6 @@ class Event
   #
   # Indexes
   #
-  
   index [[:name, Mongo::ASCENDING], [:created_at, Mongo::ASCENDING]]
   index [[:name, Mongo::ASCENDING], [:created_at, Mongo::DESCENDING]]
 
