@@ -39,12 +39,12 @@ class window.ComparisonPropositionView extends Backbone.View
     else
       @model.set twitterMessage: "#{@candidacy.name()} : #{@model.text()} http://voxe.org"
     $(@el).html Mustache.to_html($('#comparison-proposition-template').html(), proposition: @model.toJSON())
-    # videos
-    _.each @model.embeds.videos(), (embed) =>
-      view = new PropositionEmbedView model: embed
-      $(@el).prepend view.render().el
     # datavizs
     _.each @model.embeds.datavizs(), (embed) =>
+      view = new PropositionEmbedView model: embed
+      $(@el).prepend view.render().el
+    # videos
+    _.each @model.embeds.videos(), (embed) =>
       view = new PropositionEmbedView model: embed
       $(@el).prepend view.render().el
     # links
