@@ -9,3 +9,7 @@ class window.EmbedsCollection extends Backbone.Collection
   videos: ->
     @filter (embed) ->
       embed.isVideo()
+  
+  datavizs: ->
+    @filter (embed) ->
+      embed.isDataviz()

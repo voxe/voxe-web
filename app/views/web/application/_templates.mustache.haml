@@ -97,6 +97,13 @@
       <img src="{{imageUrl}}" width="255px" />
     {{/embed}}
 
+%script#proposition-embed-dataviz-template{type: "text/html"}
+  :plain
+    {{#embed}}
+      <img src="{{imageUrl}}" width="255px" />
+      <p class="legend">{{title}}</p>
+    {{/embed}}
+
 %script#proposition-embed-links-template{type: "text/html"}
   :plain
     <p>En savoir plus:</p>

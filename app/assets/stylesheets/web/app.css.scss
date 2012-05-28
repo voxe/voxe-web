@@ -407,6 +407,18 @@ a.button {
         background: url("#{asset_path('web/icons/play.png', 'images')}") no-repeat 111px 80px;
       }
     }
+
+    .proposition-dataviz {
+      margin: 5px 10px 0 10px;
+      cursor: pointer;
+      position: relative;
+      .legend {
+        text-align: center;
+        color: #3B5998;
+        font-weight: 300;
+      }
+    }
+    
     
     .proposition-link {
       a {

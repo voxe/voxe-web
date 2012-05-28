@@ -50,7 +50,13 @@ class Embed
       self.type          = oembed.type
       self.html          = oembed.html
     rescue
-      self.type = 'link'
+      # link or dataviz
+      if self.url =~ /qunb/
+        self.type = 'dataviz'
+        self.provider_name = 'qunb'
+      else
+        self.type = 'link'
+      end
     end
 
     true

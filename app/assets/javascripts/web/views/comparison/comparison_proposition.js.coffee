@@ -43,6 +43,10 @@ class window.ComparisonPropositionView extends Backbone.View
     _.each @model.embeds.videos(), (embed) =>
       view = new PropositionEmbedView model: embed
       $(@el).prepend view.render().el
+    # datavizs
+    _.each @model.embeds.datavizs(), (embed) =>
+      view = new PropositionEmbedView model: embed
+      $(@el).prepend view.render().el
     # links
     links = @model.embeds.links()
     unless _.isEmpty links
