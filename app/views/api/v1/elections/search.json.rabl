@@ -1,6 +1,6 @@
 object false
 collection @elections => :elections
-attributes :id, :name, :namespace, :published
+attributes :id, :name, :namespace, :published, :date
 child (@only_published_candidacies ? :published_candidacies_sorted : :candidacies_sorted) do
   extends "api/v1/candidacies/base"
 end

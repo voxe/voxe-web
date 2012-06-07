@@ -103,3 +103,24 @@ class window.ElectionModel extends Backbone.Model
       url: "#{@url()}/movetags"
       data: tagIds: tagIds
       # TODO add callback
+
+  sync: (method, model, options) ->
+    options ||= {}
+    if method is 'update'
+      modelData = ['date']
+      params =
+        type: 'PUT'
+        dataType: 'json'
+        contentType: 'application/json'
+        data: JSON.stringify(_.reduce(
+          model.attributes
+          (memo, val, key) ->
+            memo[key] = val if _.include(modelData, key)
+            memo
+          {}
+        ))
+        url: @url()
+      $.ajax(_.extend(params, options))
+    else
+      Backbone.sync(method, model, options)
+

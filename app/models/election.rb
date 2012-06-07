@@ -5,6 +5,7 @@ class Election
   field :name, type: String
   field :namespace, type: String
   field :published, type: Boolean, default: false
+  field :date, type: Date
   
   # relations
   belongs_to :parent_election, class_name: 'Election'

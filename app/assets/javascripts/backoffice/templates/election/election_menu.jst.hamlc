@@ -4,3 +4,5 @@
   %a{href: "#elections/#{@election.id}/tags"} Tags
 %li.propositions
   %a{href: "#elections/#{@election.id}/propositions"} Propositions
+%li.informations
+  %a{href: "#elections/#{@election.id}/informations"} General informations
