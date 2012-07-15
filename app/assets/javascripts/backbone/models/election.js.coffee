@@ -92,9 +92,9 @@ class window.ElectionModel extends Backbone.Model
 
   togglePublish: ->
     if @get 'published'
-      @save {}, data: $.param(election: {published: false})
+      @save {published: false}
     else
-      @save {}, data: $.param(election: {published: true})
+      @save {published: true}
 
   moveTags: (tagIds) ->
     election = @
@@ -107,7 +107,7 @@ class window.ElectionModel extends Backbone.Model
   sync: (method, model, options) ->
     options ||= {}
     if method is 'update'
-      modelData = ['date']
+      modelData = ['published', 'date']
       params =
         type: 'PUT'
         dataType: 'json'
