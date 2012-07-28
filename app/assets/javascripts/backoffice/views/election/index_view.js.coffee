@@ -5,39 +5,37 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
     @flash = {}
     @election = @model
     @candidacies = @election.candidacies
-# 
-#     @options.main_tag_id = "4ffc3357d5ded316c4000052"
-#     @options.sub_tag_id = "4ffc3357d5ded316c4000054"
-#     @options.sub_sub_tag_id = "4ffc3357d5ded316c4000068"
-# 
-#     @selectedMainTag = @mainTags.depthTagSearch @options.main_tag_id
-#     
-#     @subTags = @selectedMainTag.tags
-#     @selectedSubTag = @mainTags.depthTagSearch @options.sub_tag_id
-#     
-#     @subSubTags = @selectedSubTag.tags
-#     @selectedSubSubTag = @mainTags.depthTagSearch @options.sub_sub_tag_id
-#     
-#     @propositions = new PropositionsCollection()
-#     @propositions.bind 'reset', @render, @
-#     @propositions.fetch({data: {electionId: @election.id, candidacyIds: @candidacy.id, tagIds: @selectedSubSubTag.id}})
-# 
-    @render()
 
-  updateCandidacy: (candidacy_id = "4ffc3358d5ded316c4000305") =>
-    @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == candidacy_id), @
+    if @options.tag_id
+      @propositions = new PropositionsCollection()
+      @propositions.bind 'reset', @render, @
+      @propositions.fetch {data: {electionId: @election.id, candidacyIds: @options.candidacy_id, tagIds: @options.tag_id}}
+    else
+      @render()
+
+  updateCandidacy: (candidacy_id) =>
+    @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == @options.candidacy_id), @
     @election.tags.each @addMainTag
 
-  updateTag: (tag_id = "4ffc3357d5ded316c4000068") =>
+  updateTag: (tag_id) =>
     @election.tags.each @addMainTag
-    @subTags.each @addSubTag
-    @subSubTags.each @addSubSubTag
-    @propositions.each @addProposition
-
+    @tag = @election.tags.depthTagSearch(@options.tag_id)
+    if @tag.collection.parent_tag
+      if @tag.collection.parent_tag.collection.parent_tag
+        @tag.collection.parent_tag.collection.each @addSubTag
+        @tag.collection.each @addSubSubTag
+      else
+        @tag.collection.each @addSubTag
+        @tag.tags.each @addSubSubTag
+    else
+      @tag.tags.each @addSubTag
+      
   render: ->
     $(@el).html @template @
     @candidacies.each @addCandidacy
-    @updateCandidacy()
+    @updateCandidacy() if @options.candidacy_id
+    @updateTag() if @options.tag_id
+    @propositions.each @addProposition if @propositions
 
   addCandidacy: (candidacy) =>
     view = new Backoffice.Views.Election.CandidacyItemView(election: @election, model: candidacy)
@@ -45,20 +43,19 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
     $('.candidacies').append(viewEl)
 
   addMainTag: (tag) =>
-    view = new Backoffice.Views.Election.TagItemView(election: @election, candidacy: @candidacy, model: tag)
-    viewEl = view.render().el
-    $('.main-tags').append(viewEl)
+    @addTag tag, $('.main-tags')
 
   addSubTag: (tag) =>
-    view = new Backoffice.Views.Election.TagItemView(election: @election, candidacy: @candidacy, model: tag)
-    viewEl = view.render().el
-    $('.sub-tags').append(viewEl)
+    @addTag tag, $('.sub-tags')
 
   addSubSubTag: (tag) =>
+    @addTag tag, $('.sub-sub-tags')
+
+  addTag: (tag, target) =>
     view = new Backoffice.Views.Election.TagItemView(election: @election, candidacy: @candidacy, model: tag)
     viewEl = view.render().el
-    $('.sub-sub-tags').append(viewEl)
+    target.append(viewEl)
 
   addProposition: (proposition) =>
     new Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListView(
-      el: '.propositions', election: @election,  candidacy_id: @candidacy.id, tag_id: @selectedSubSubTag.id)
+      el: '.propositions', election: @election,  candidacy_id: @candidacy.id, tag_id: @options.tag_id)

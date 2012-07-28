@@ -30,8 +30,10 @@ window.Backoffice =
       'elections/:id': 'election'
       'elections/:election_id/:menu_entry': 'election'
       'elections/:election_id/tags/:id': 'tags'
-      'elections/:election_id/propositions/candidacies/:id': 'propositions_candidacy_tags'
-      'elections/:election_id/propositions/candidacies/:candidacy_id/tags/:id': 'propositions_candidacy_tag'
+      # 'elections/:election_id/propositions/candidacies/:id': 'propositions_candidacy_tags'
+      'elections/:election_id/:menu_entry/candidacies/:candidacy_id': 'election'
+      # 'elections/:election_id/propositions/candidacies/:candidacy_id/tags/:id': 'propositions_candidacy_tag'
+      'elections/:election_id/:menu_entry/candidacies/:candidacy_id/tags/:id': 'election'
       'admins': 'admins'
 
     index: ->
@@ -44,12 +46,15 @@ window.Backoffice =
         Backoffice.Cache.elections = elections
         new Backoffice.Views.ElectionsView(collection: elections)
         elections.fetch({data: published: 'all'})
-    election: (id, menu_entry) ->
+    election: (election_id, menu_entry, candidacy_id = null, id = null) ->
       if menu_entry
-        if Backoffice.ViewInstances.Election[id]
-          Backoffice.ViewInstances.Election[id].go_to(menu_entry: menu_entry, reset: true)
+        if Backoffice.ViewInstances.Election[election_id]
+          Backoffice.ViewInstances.Election[election_id].go_to(
+            menu_entry: menu_entry, reset: true, candidacy_id: candidacy_id, tag_id: id)
         else
-          Backoffice.ViewInstances.Election[id] = new Backoffice.Views.ElectionView(election_id: id, menu_entry: menu_entry)
+          Backoffice.ViewInstances.Election[election_id] =
+            new Backoffice.Views.ElectionView(
+              election_id: election_id, menu_entry: menu_entry, candidacy_id: candidacy_id, tag_id: id)
       else
         console.error 'wrong route'
     tags: (election_id, tag_id) ->

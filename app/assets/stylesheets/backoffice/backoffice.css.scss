@@ -32,3 +32,13 @@ form .image-form {
   float: left;
   margin: 0px 6px;
 }
+
+.finder {
+  th:last-of-type {
+    width: 50%;
+  }
+
+  td.candidacies {
+    padding: 0;
+  }
+}

@@ -1,14 +1,13 @@
-.candidacies.span2
-  menu
-
-.main-tags.span2
-  Thèmes
-
-.sub-tags.span2
-  Sous-thèmes
-
-.sub-sub-tags.span2
-  Sous sous-thèmes
-
-.propositions.span8
-  Propositions
+%table.finder.table.table-bordered
+  %thead
+    %tr
+      %th Menu
+      %th{colspan: 3} Tags
+      %th Propositions
+  %tbody
+    %tr
+      %td.candidacies
+      %td.main-tags
+      %td.sub-tags
+      %td.sub-sub-tags
+      %td.propositions
