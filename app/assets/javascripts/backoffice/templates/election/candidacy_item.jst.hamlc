@@ -1,11 +1,29 @@
 %td
   %a{href: "#elections/#{@election.id}/propositions/candidacies/#{@candidacy.id}"}
-    %img{src: @candidacy.candidates.models[0].get('photo').sizes.small.url, style: 'float:left' 
-      alt: @candidacy.name()}
-  %form.change-picture{method:'POST' enctype:'multipart/form-data' style:'display:none;'}
+    - @class = if @candidacy.get('published') then "published" else "not-published"
+    %img{src: @candidacy.candidates.models[0].get('photo').sizes.small.url, style: 'float:left',
+      alt: @candidacy.name(), class: @class }
+  %form.change-picture{method:'POST' enctype:'multipart/form-data'}
     %input{type:'file', name: 'image'}
-%td{style:'display:none;'}
-  - if @candidacy.get 'published'
-    %button.span2.toggle-publish.btn.success Publié
-  - else
-    %button.span2.toggle-publish.btn.error Non publié
+  %ul.tabs.actions
+    %li.dropdown{"data-dropdown" => "dropdown"}
+      %a.dropdown-toggle{:href => "#"}
+      %ul.dropdown-menu
+        %li
+          %a
+            = @candidacy.name()
+        %li.divider
+        %li
+          %a.change-first-name Change first name
+        %li
+          %a.change-last-name Change last name
+        %li
+          %a.change-namespace Change namespace
+        %li.divider
+        %li
+          %a.toggle-publish Toggle publishing
+        %li
+          %a.change-picture-button Change picture
+        %li.divider
+        %li
+          %a.delete /!\\ Delete

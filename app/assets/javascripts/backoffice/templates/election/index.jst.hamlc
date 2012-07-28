@@ -1,13 +1,16 @@
 %table.finder.table.table-bordered
   %thead
     %tr
-      %th Menu
+      %th Candidacies
       %th{colspan: 3} Tags
       %th Propositions
   %tbody
     %tr
       %td.candidacies
-      %td.main-tags
-      %td.sub-tags
-      %td.sub-sub-tags
+      %td.tags-list
+        %table.tags.main-tags
+      %td.tags-list
+        %table.tags.sub-tags
+      %td.tags-list
+        %table.tags.sub-sub-tags
       %td.propositions

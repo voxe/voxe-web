@@ -5,21 +5,21 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
     @flash = {}
     @election = @model
     @candidacies = @election.candidacies
+    @tag = @election.tags.depthTagSearch(@options.tag_id)
 
     if @options.tag_id
       @propositions = new PropositionsCollection()
       @propositions.bind 'reset', @render, @
-      @propositions.fetch {data: {electionId: @election.id, candidacyIds: @options.candidacy_id, tagIds: @options.tag_id}}
+      @propositions.fetch {data: {electionId: @election.id, candidacyIds: @options.candidacy_id, tagIds: @tag.id}}
     else
       @render()
 
   updateCandidacy: (candidacy_id) =>
     @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == @options.candidacy_id), @
-    @election.tags.each @addMainTag
+    $('.candidacies').removeClass "selected"
+    $("[data-candidacy-id=#{@candidacy.id}]").addClass "selected"
 
-  updateTag: (tag_id) =>
-    @election.tags.each @addMainTag
-    @tag = @election.tags.depthTagSearch(@options.tag_id)
+  updateTag: =>
     if @tag.collection.parent_tag
       if @tag.collection.parent_tag.collection.parent_tag
         @tag.collection.parent_tag.collection.each @addSubTag
@@ -29,11 +29,14 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
         @tag.tags.each @addSubSubTag
     else
       @tag.tags.each @addSubTag
+    $('.tags-list').removeClass "selected"
+    $("[data-tag-id=#{@tag.id}]").addClass "selected"
       
   render: ->
     $(@el).html @template @
     @candidacies.each @addCandidacy
     @updateCandidacy() if @options.candidacy_id
+    @election.tags.each @addMainTag if @candidacy
     @updateTag() if @options.tag_id
     @propositions.each @addProposition if @propositions
 

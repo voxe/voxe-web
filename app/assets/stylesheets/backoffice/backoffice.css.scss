@@ -38,7 +38,28 @@ form .image-form {
     width: 50%;
   }
 
-  td.candidacies {
+  td.candidacies, td.tags-list {
     padding: 0;
+
+    .actions {
+      float: right;
+      width: auto;
+    }
+  }
+
+  .candidacies {
+    width: 14%;
+  }
+
+  .selected {
+    background-color: #eee;
+  }
+
+  .published {
+    border-right: solid 5px green;
+  }
+
+  .not-published {
+    border-left: solid 5px red;
   }
 }
