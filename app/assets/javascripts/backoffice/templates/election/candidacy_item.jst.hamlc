@@ -1,5 +1,7 @@
 %td
-  %img{src: @candidacy.candidates.models[0].get('photo').sizes.small.url, style: 'float:left' alt: @candidacy.name()}
+  %a{href: "#elections/#{@election.id}/propositions/candidacies/#{@candidacy.id}"}
+    %img{src: @candidacy.candidates.models[0].get('photo').sizes.small.url, style: 'float:left' 
+      alt: @candidacy.name()}
   %form.change-picture{method:'POST' enctype:'multipart/form-data' style:'display:none;'}
     %input{type:'file', name: 'image'}
 %td{style:'display:none;'}

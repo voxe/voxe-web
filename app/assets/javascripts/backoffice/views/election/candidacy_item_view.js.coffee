@@ -8,6 +8,7 @@ class Backoffice.Views.Election.CandidacyItemView extends Backbone.View
 
   initialize: ->
     @candidacy = @model
+    @election = @options.election
     @candidacy.bind 'change', @render, @
 
   render: ->

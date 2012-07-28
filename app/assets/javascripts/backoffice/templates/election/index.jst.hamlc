@@ -1,14 +1,14 @@
 .candidacies.span2
   menu
 
-.span2
+.main-tags.span2
   Thèmes
 
-.span2
+.sub-tags.span2
   Sous-thèmes
 
-.span2
+.sub-sub-tags.span2
   Sous sous-thèmes
 
-.span8
+.propositions.span8
   Propositions
