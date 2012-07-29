@@ -1,15 +1,17 @@
 class Backoffice.Views.Election.CandidaciesView extends Backbone.View
   template: JST['backoffice/templates/election/candidacies']
 
-  events:
-    'submit .add-candidate': 'addCandidate'
-    'submit .create-candidate': 'createCandidate'
-
   initialize: ->
     @flash = {}
     @election = @model
     @candidacies = @election.candidacies
     @render()
+    $('.add-candidate').submit (event) =>
+      event.preventDefault()
+      @addCandidate event
+    $('.create-candidate').submit (even) =>
+      event.preventDefault()
+      @createCandidate event
 
   render: ->
     $(@el).html @template @
@@ -37,13 +39,12 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
     @flash = {}
 
   addCandidate: (event) ->
-    event.preventDefault()
     form = $(event.target)
     candidate = {id: $('.id', form).val()}
     @election.addCandidate candidate
+    $('#modal-candidacies').modal('hide')
 
   createCandidate: (event) ->
-    event.preventDefault()
     form = $(event.target)
     firstName = $('input.first-name', form).val()
     lastName = $('input.last-name', form).val()
@@ -52,8 +53,10 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
     election = @election
     candidate.save {}, success: (candidate) ->
       election.addCandidate candidate
+      $('#modal-candidacies').modal('hide')
 
-  addCandidacy: (candidacy) ->
-    view = new Backoffice.Views.Election.CandidacyItemView(model: candidacy)
+  addCandidacy: (candidacy) =>
+    @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == @options.candidacy_id), @
+    view = new Backoffice.Views.Election.CandidacyItemView(election: @election, model: candidacy)
     viewEl = view.render().el
-    $('table.candidacies').append(viewEl)
+    $('table.list').append(viewEl)

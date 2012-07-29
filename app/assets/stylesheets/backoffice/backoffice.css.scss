@@ -36,6 +36,10 @@ form .image-form {
 .finder {
   table {
     border: none;
+
+    &.list {
+      margin-bottom: 0;
+    }
   }
 
   th:last-of-type {
@@ -65,5 +69,11 @@ form .image-form {
 
   .not-published {
     border-left: solid 5px red;
+  }
+
+  .add {
+    border-top: solid 1px #CCC;
+    text-align: center;
+    padding: 10px;
   }
 }

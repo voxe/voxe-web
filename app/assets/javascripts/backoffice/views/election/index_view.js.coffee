@@ -34,16 +34,11 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
       
   render: ->
     $(@el).html @template @
-    @candidacies.each @addCandidacy
+    @candidaciesView = new Backoffice.Views.Election.CandidaciesView(el: '.candidacies', model: @election)
     @updateCandidacy() if @options.candidacy_id
     @election.tags.each @addMainTag if @candidacy
     @updateTag() if @options.tag_id
     @propositions.each @addProposition if @propositions
-
-  addCandidacy: (candidacy) =>
-    view = new Backoffice.Views.Election.CandidacyItemView(election: @election, model: candidacy)
-    viewEl = view.render().el
-    $('.candidacies').append(viewEl)
 
   addMainTag: (tag) =>
     @addTag tag, $('.main-tags')
