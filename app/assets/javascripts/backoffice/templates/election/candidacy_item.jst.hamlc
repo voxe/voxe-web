@@ -26,4 +26,6 @@
           %a.change-picture-button Change picture
         %li.divider
         %li
-          %a.delete /!\\ Delete
+          %a.delete-candidate /!\\ Delete candidate
+        %li
+          %a.delete-candidacy /!\\ Delete candidacy

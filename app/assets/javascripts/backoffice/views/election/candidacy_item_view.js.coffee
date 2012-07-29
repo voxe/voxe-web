@@ -9,7 +9,8 @@ class Backoffice.Views.Election.CandidacyItemView extends Backbone.View
     'click .change-first-name': 'changeFirstName'
     'click .change-last-name': 'changeLastName'
     'click .change-namespace': 'changeNamespace'
-    'click .delete': 'delete'
+    'click .delete-candidate': 'deleteCandidate'
+    'click .delete-candidacy': 'deleteCandidacy'
 
   initialize: ->
     @candidacy = @model
@@ -24,20 +25,6 @@ class Backoffice.Views.Election.CandidacyItemView extends Backbone.View
 
     @
 
-  changeFirstName: (event) ->
-    firstName = prompt "First name :", @candidate.get('firstName')
-    @candidate.save {firstName: firstName}
-      success: (model, response) ->
-        console.log "success"
-      error: (model, response) ->
-        console.log "error"
-
-  changeLastName: (event) ->
-    lastname = prompt "Last name :", @candidate.get('lastName')
-  
-  changeNamespace: (event) ->
-    namespace = prompt "Namespace :", @candidate.get('namespace')
-  
   togglePublish: (event) ->
     @candidacy.save {}, data: $.param(candidacy: {published: (not @candidacy.get 'published')})
 
@@ -48,10 +35,42 @@ class Backoffice.Views.Election.CandidacyItemView extends Backbone.View
     image =  $('input[type=file]', @el)[0].files[0]
     @candidate.addPhoto image
 
-  delete: (event) ->
-    @candidacy.destroy({
-      success: (model, response) ->
+  deleteCandidate: (event) =>
+    @candidate.destroy
+      success: (model, response) =>
         $(@el).hide()
-      error: (model, response) ->
-        console.log response
-    })
+      error: (model, response) =>
+        console.log "error"
+        $(@el).hide()
+
+  deleteCandidacy: (event) =>
+    @candidacy.destroy
+      success: (model, response) =>
+        $(@el).hide()
+      error: (model, response) =>
+        console.log "error"
+        $(@el).hide()
+
+  changeFirstName: (event) =>
+    firstName = prompt "First name :", @candidate.get('firstName')
+    @candidate.save {firstName: firstName}
+      success: (model, response) =>
+        @render()
+      error: (model, response) =>
+        console.log "error"
+
+  changeLastName: (event) =>
+    lastName = prompt "Last name :", @candidate.get('lastName')
+    @candidate.save {lastName: lastName}
+      success: (model, response) =>
+        @render()
+      error: (model, response) =>
+        console.log "error"
+  
+  changeNamespace: (event) =>
+    namespace = prompt "Namespace :", @candidate.get('namespace')
+    @candidate.save {namespace: namespace}
+      success: (model, response) =>
+        @render()
+      error: (model, response) =>
+        console.log "error"
