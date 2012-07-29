@@ -3,10 +3,10 @@
 #modal-candidacies.modal.hide.fade
   .modal-header
     %a.close{:href => "#"} ×
-    %h3 Candidates
+    %h3 Candidacies
   .modal-body
     %form.add-candidate.form-stacked{method: 'POST'}
-      %h2 Add an existing one
+      %h2 Add an existing candidate
       - if @flash.error_messages
         .alert-message.block-message.error
           %ul

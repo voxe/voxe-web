@@ -36,20 +36,22 @@ class Backoffice.Views.Election.CandidacyItemView extends Backbone.View
     @candidate.addPhoto image
 
   deleteCandidate: (event) =>
-    @candidate.destroy
-      success: (model, response) =>
-        $(@el).hide()
-      error: (model, response) =>
-        console.log "error"
-        $(@el).hide()
+    if confirm('Are you sure ? It will also delete the candidacy')
+      @candidate.destroy
+        success: (model, response) =>
+          $(@el).hide()
+        error: (model, response) =>
+          console.log "error"
+          $(@el).hide()
 
   deleteCandidacy: (event) =>
-    @candidacy.destroy
-      success: (model, response) =>
-        $(@el).hide()
-      error: (model, response) =>
-        console.log "error"
-        $(@el).hide()
+    if confirm('Are you sure ?')
+      @candidacy.destroy
+        success: (model, response) =>
+          $(@el).hide()
+        error: (model, response) =>
+          console.log "error"
+          $(@el).hide()
 
   changeFirstName: (event) =>
     firstName = prompt "First name :", @candidate.get('firstName')

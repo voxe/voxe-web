@@ -1,10 +1,12 @@
 %form.rename-tag-form
   %td.tag-name
-    %a{href: "#elections/#{@election.id}/propositions/candidacies/#{@candidacy.id}/tags/#{@tag.id}"}= @tag.get 'name'
-    %input{type: 'text' style:'display:none;'}
-  %td.rename-cell{style:'display:none;'}
-    %button.btn.primary.start-rename-tag{type: 'button'} renommer
-    %input.btn.success.finish-rename-tag{type: 'submit', value: 'Valider'}
-    %button.btn.error.cancel-rename-tag{type: 'button'} annuler
-  %td{style:'display:none;'}
-    %button.btn.error.remove-tag{type: 'button'} -
+    %a.tag{href: "#"}= @tag.get 'name'
+  %ul.tabs.actions
+    %li.dropdown{"data-dropdown" => "dropdown"}
+      %a.dropdown-toggle{:href => "#"}
+      %ul.dropdown-menu
+        %li
+          %a.change-name Change name
+        %li.divider
+        %li
+          %a.remove /!\\ Delete tag

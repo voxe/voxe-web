@@ -3,10 +3,6 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
 
   events:
     'submit .add-tag': 'addOrCreateTag'
-    'click .remove-tag': 'removeTag'
-    'click .start-rename-tag': 'startRenameTag'
-    'submit .rename-tag-form': 'submitRenameTag'
-    'click .cancel-rename-tag': 'cancelRenameTag'
 
   initialize: ->
     @flash = {}
@@ -27,10 +23,6 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
 
   render: ->
     $(@el).html @template @
-
-    $('.tag-name input').hide()
-    $('.cancel-rename-tag').hide()
-    $('.finish-rename-tag').hide()
 
     form = $('form.add-tag', @el)
 
@@ -106,45 +98,3 @@ class Backoffice.Views.Election.TagsView extends Backbone.View
             election.addTag tag, parent_tag
           else
             election.addTag tag
-
-  removeTag: (event) ->
-    tagId = $(event.target).parent().parent().data().tagId
-    tag = @tags.find (t) -> t.id == tagId
-    @election.removeTag tag
-
-  startRenameTag: (event) ->
-    tableLine = $(event.target).parent().parent()
-    tagId = $(event.target).parent().parent().data().tagId
-    tag = @tags.find (t) -> t.id == tagId
-
-    field = $('.tag-name input', tableLine)
-    field.val(tag.get 'name')
-
-    $('.tag-name a', tableLine).hide()
-    $('.start-rename-tag', tableLine).hide()
-    $('.cancel-rename-tag', tableLine).show()
-    $('.tag-name input', tableLine).show()
-    $('.finish-rename-tag', tableLine).show()
-
-  submitRenameTag: (event) ->
-    event.preventDefault()
-
-    tableLine = $(event.target).parent()
-    tagId = tableLine.data().tagId
-    tag = @tags.find (t) -> t.id == tagId
-
-    tagName = $('.tag-name input', tableLine).val()
-    tagNamespace = tagName.replace /\s+/g, '-'
-    view = @
-    tag.bind 'error', (tag, response) ->
-      view.flash.rename_error_messages = tag.error_messages
-      view.render()
-    tag.save {}, data: $.param(tag: {name: tagName, namespace: tagNamespace})
-
-  cancelRenameTag: (event) ->
-    tableLine = $(event.target).parent().parent()
-    $('.cancel-rename-tag', tableLine).hide()
-    $('.tag-name input', tableLine).hide()
-    $('.finish-rename-tag', tableLine).hide()
-    $('.tag-name a', tableLine).show()
-    $('.start-rename-tag', tableLine).show()
