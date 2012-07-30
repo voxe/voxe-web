@@ -50,7 +50,15 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
       @tag.tags.each @addSubTag
     $("[data-tag-id=#{@tag.id}]").addClass "selected"
     @updateTagsButtonsVisibility()
-  
+    @initMoveTags()
+
+  initMoveTags: =>
+    $('.tags', @el).tableDnD
+      onDrop: (table, row) =>
+        ids = _.map $('tr', table), (ro) =>
+          $(ro).data().tagId
+        @election.moveTags(ids)
+
   updateTagsButtonsVisibility: ->
     if $('.main-tags .tags').is(':empty')
       $('.main-tags .add').hide()
@@ -58,12 +66,18 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
       $('.main-tags .add').show()
 
     if $('.sub-tags .tags').is(':empty')
-      $('.sub-tags .add').hide()
+      if $('.main-tags:has(.selected)').length == 1
+        $('.sub-tags .add').show()
+      else
+        $('.sub-tags .add').hide()
     else
       $('.sub-tags .add').show()
 
     if $('.sub-sub-tags .tags').is(':empty')
-      $('.sub-sub-tags .add').hide()
+      if $('.sub-tags:has(.selected)').length == 1
+        $('.sub-sub-tags .add').show()
+      else
+        $('.sub-sub-tags .add').hide()
     else
       $('.sub-sub-tags .add').show()
       
@@ -164,5 +178,7 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
             election.addTag tag
             @addMainTag tag
           $('#modal-tags').modal('hide')
+          @initMoveTags()
+          $('.tag-id', form).val("")
         error: (tag) =>
           console.log "error"

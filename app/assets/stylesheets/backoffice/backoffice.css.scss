@@ -4,6 +4,10 @@ html, body {
 body {
   padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
 }
+.container {
+  width: 1150px;
+}
+
 .container > footer p {
   text-align: center; /* center align it with the container */
 }
@@ -56,7 +60,11 @@ form .image-form {
   }
 
   .candidacies {
-    width: 14%;
+    width: 130px;
+  }
+
+  .tags-list {
+    min-width: 20px;
   }
 
   .selected {
