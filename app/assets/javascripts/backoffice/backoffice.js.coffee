@@ -30,9 +30,7 @@ window.Backoffice =
       'elections/:id': 'election'
       'elections/:election_id/:menu_entry': 'election'
       'elections/:election_id/tags/:id': 'tags'
-      # 'elections/:election_id/propositions/candidacies/:id': 'propositions_candidacy_tags'
       'elections/:election_id/:menu_entry/candidacies/:candidacy_id': 'election'
-      # 'elections/:election_id/propositions/candidacies/:candidacy_id/tags/:id': 'propositions_candidacy_tag'
       'elections/:election_id/:menu_entry/candidacies/:candidacy_id/tags/:id': 'election'
       'admins': 'admins'
 
