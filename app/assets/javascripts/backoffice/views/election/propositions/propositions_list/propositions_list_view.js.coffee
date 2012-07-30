@@ -25,13 +25,19 @@ class Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListVi
 
     $(@el).html @template candidacy: @candidacy.toJSON()
 
-    @tags.each @addSubTag, @
+    if @tag.parents().length == 2
+      @addSubTag @tag
+    else
+      @tags.each @addSubTag, @
 
     $(@el).button()
 
     @
 
   addSubTag: (subTag) ->
-    view = new Backoffice.Views.Election.Propositions.PropositionsList.SubTagView(model: subTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
+    if subTag.parents().length == 2
+      view = new Backoffice.Views.Election.Propositions.PropositionsList.SubSubTagView(model: subTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
+    else
+      view = new Backoffice.Views.Election.Propositions.PropositionsList.SubTagView(model: subTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
     viewEl = view.render().el
     $(@el).append(viewEl)
