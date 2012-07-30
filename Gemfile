@@ -9,7 +9,7 @@ gem 'rails', '3.1.3'
 
 group :development do
   # http://documentcloud.github.com/jammit/
-  # gem 'jammit' (seb: I can't run the server because of this gem)
+  gem 'jammit'
   gem 'heroku'
 end
 
@@ -79,7 +79,7 @@ gem 'cancan'
 
 # Webserver
 # http://michaelvanrooijen.com/articles/2011/06/01-more-concurrency-on-a-single-heroku-dyno-with-the-new-celadon-cedar-stack/
-# gem 'unicorn' (seb : I didn't manage to install kgio gem on my windows)
+gem 'unicorn'
 # gem 'thin'
 
 # scaling
