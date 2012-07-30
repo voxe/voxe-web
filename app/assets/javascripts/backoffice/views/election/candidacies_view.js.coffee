@@ -57,6 +57,6 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
 
   addCandidacy: (candidacy) =>
     @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == @options.candidacy_id), @
-    view = new Backoffice.Views.Election.CandidacyItemView(election: @election, model: candidacy)
+    view = new Backoffice.Views.Election.CandidacyView(election: @election, model: candidacy)
     viewEl = view.render().el
     $('table.list').append(viewEl)

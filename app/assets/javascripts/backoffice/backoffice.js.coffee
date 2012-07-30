@@ -29,7 +29,6 @@ window.Backoffice =
       'elections': 'elections'
       'elections/:id': 'election'
       'elections/:election_id/:menu_entry': 'election'
-      'elections/:election_id/tags/:id': 'tags'
       'elections/:election_id/:menu_entry/candidacies/:candidacy_id': 'election'
       'elections/:election_id/:menu_entry/candidacies/:candidacy_id/tags/:id': 'election'
       'admins': 'admins'
@@ -55,21 +54,6 @@ window.Backoffice =
               election_id: election_id, menu_entry: menu_entry, candidacy_id: candidacy_id, tag_id: id)
       else
         console.error 'wrong route'
-    tags: (election_id, tag_id) ->
-      if Backoffice.ViewInstances.Election[election_id]
-        Backoffice.ViewInstances.Election[election_id].go_to menu_entry: 'tags', tag_id: tag_id
-      else
-        Backoffice.ViewInstances.Election[election_id] = new Backoffice.Views.ElectionView(election_id: election_id, menu_entry: 'tags', tag_id: tag_id)
-    propositions_candidacy_tags: (election_id, candidacy_id) ->
-      if Backoffice.ViewInstances.Election[election_id]
-        Backoffice.ViewInstances.Election[election_id].go_to menu_entry: 'propositions_candidacy_tags', candidacy_id: candidacy_id
-      else
-        Backoffice.ViewInstances.Election[election_id] = new Backoffice.Views.ElectionView(election_id: election_id, menu_entry: 'propositions_candidacy_tags', candidacy_id: candidacy_id)
-    propositions_candidacy_tag: (election_id, candidacy_id, tag_id) ->
-      if Backoffice.ViewInstances.Election[election_id]
-        Backoffice.ViewInstances.Election[election_id].go_to menu_entry: 'propositions_candidacy_tag', candidacy_id: candidacy_id, tag_id: tag_id
-      else
-        Backoffice.ViewInstances.Election[election_id] = new Backoffice.Views.ElectionView(election_id: election_id, menu_entry: 'propositions_candidacy_tag', candidacy_id: candidacy_id, tag_id: tag_id)
     admins: ->
       admins = new UsersCollection()
       new Backoffice.Views.Admins.AdminsView(collection: admins)

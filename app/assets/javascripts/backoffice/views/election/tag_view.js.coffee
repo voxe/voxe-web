@@ -1,5 +1,5 @@
-class Backoffice.Views.Election.TagItemView extends Backbone.View
-  template: JST['backoffice/templates/election/tag_item']
+class Backoffice.Views.Election.TagView extends Backbone.View
+  template: JST['backoffice/templates/election/tag']
   tagName: 'tr'
 
   events: ->

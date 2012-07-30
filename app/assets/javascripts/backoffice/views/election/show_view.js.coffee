@@ -102,7 +102,7 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
     @addTag tag, $('.sub-sub-tags .tags')
 
   addTag: (tag, target) =>
-    view = new Backoffice.Views.Election.TagItemView(election: @election, candidacy: @candidacy, model: tag)
+    view = new Backoffice.Views.Election.TagView(election: @election, candidacy: @candidacy, model: tag)
     viewEl = view.render().el
     target.append(viewEl)
 
@@ -179,6 +179,6 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
             @addMainTag tag
           $('#modal-tags').modal('hide')
           @initMoveTags()
-          $('.tag-id', form).val("")
+          $('.tag-name', form).val("")
         error: (tag) =>
           console.log "error"
