@@ -54,24 +54,18 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
         @election.moveTags(ids)
 
   updateTagsButtonsVisibility: ->
-    if $('.main-tags .tags').is(':empty')
+    if $('.main-tags .tags').is(':empty') && !@candidacy
       $('.main-tags .add').hide()
     else
       $('.main-tags .add').show()
 
-    if $('.sub-tags .tags').is(':empty')
-      if $('.main-tags:has(.selected)').length == 1
-        $('.sub-tags .add').show()
-      else
-        $('.sub-tags .add').hide()
+    if $('.sub-tags .tags').is(':empty') && $('.main-tags:has(.selected)').length != 1
+      $('.sub-tags .add').hide()
     else
       $('.sub-tags .add').show()
 
-    if $('.sub-sub-tags .tags').is(':empty')
-      if $('.sub-tags:has(.selected)').length == 1
-        $('.sub-sub-tags .add').show()
-      else
-        $('.sub-sub-tags .add').hide()
+    if $('.sub-sub-tags .tags').is(':empty') && $('.sub-tags:has(.selected)').length != 1
+      $('.sub-sub-tags .add').hide()
     else
       $('.sub-sub-tags .add').show()
       
