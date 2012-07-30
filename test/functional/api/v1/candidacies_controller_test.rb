@@ -42,4 +42,11 @@ class Api::V1::CandidaciesControllerTest < ActionController::TestCase
 
     assert_equal organization, assigns(:candidacy).organization
   end
+
+  test "should delete a candidacy" do
+    assert_difference('Candidacy.count', -1) do
+      delete :destroy, id: @candidacy.id.to_s
+    end
+    assert_response :success
+  end
 end

@@ -12,12 +12,11 @@ class Backoffice.Views.ElectionView extends Backbone.View
     menu_entry = @options.menu_entry
     $(@el).html @template election: @election
     switch menu_entry
-      when 'informations'
-        new Backoffice.Views.Election.InformationsView(el: @content_el, model: @election)
       when 'contributors'
         new Backoffice.Views.Election.ContributorsView(el: @content_el, model: @election)
       when 'candidacies', 'propositions'
-        new Backoffice.Views.Election.IndexView(el: @content_el, model: @election, candidacyId: @options.candidacy_id, tagId: @options.tag_id)
+        new Backoffice.Views.Election.ShowView(el: @content_el, model: @election, candidacyId: @options.candidacy_id, tagId: @options.tag_id)
+        new Backoffice.Views.Election.InformationsView(el: '.election-infos', model: @election)
       else
         console.error 'wrong route'
     $('.change-election').click ->

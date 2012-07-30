@@ -9,4 +9,4 @@
           %a.change-name Change name
         %li.divider
         %li
-          %a.remove /!\\ Delete tag
+          %a.remove /!\\ Remove tag from this election

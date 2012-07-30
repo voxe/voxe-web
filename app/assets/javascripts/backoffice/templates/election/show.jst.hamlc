@@ -10,17 +10,17 @@
       %td.tags-list.main-tags
         %table.tags
         .add
-          %button.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-tags",
+          %button.add-main-tag.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-tags",
             "data-keyboard" => "true"} Add
       %td.tags-list.sub-tags
         %table.tags
         .add
-          %button.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-tags",
+          %button.add-sub-tag.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-tags",
             "data-keyboard" => "true"} Add
       %td.tags-list.sub-sub-tags
         %table.tags
         .add
-          %button.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-tags",
+          %button.add-sub-sub-tag.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-tags",
             "data-keyboard" => "true"} Add
       %td.propositions
 

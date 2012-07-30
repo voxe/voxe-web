@@ -15,11 +15,7 @@ class Api::V1::CandidatesController < Api::V1::ApplicationController
 
   # PUT /api/v1/candidates/1
   def update
-    @candidate.first_name = params[:firstName] if params[:firstName]
-    @candidate.last_name = params[:lastName] if params[:lastName]
-    @candidate.namespace = params[:namespace] if params[:namespace]
-
-    if @candidate.save
+    if @candidate.update_attributes params[:candidate]
       render 'api/v1/candidates/show.rabl', status: :ok
     else
       render json: {errors: @candidate.errors}, status: :unprocessable_entity
@@ -47,5 +43,4 @@ class Api::V1::CandidatesController < Api::V1::ApplicationController
     @candidate.destroy
     head :ok
   end
-
 end

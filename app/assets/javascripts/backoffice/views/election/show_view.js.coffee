@@ -1,5 +1,5 @@
-class Backoffice.Views.Election.IndexView extends Backbone.View
-  template: JST['backoffice/templates/election/index']
+class Backoffice.Views.Election.ShowView extends Backbone.View
+  template: JST['backoffice/templates/election/show']
 
   events: ->
     "click .tags a.tag": "tagClicked"
@@ -12,12 +12,16 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
     if @options.tagId
       @tag = @election.tags.depthTagSearch(@options.tagId)
       @updatePropositions()
-      
+
     @render()
  
     $('.add-tag').submit (event) =>
       event.preventDefault()
       @addOrCreateTag event
+ 
+    $('.tags-list .add button').click (event) =>
+      event.preventDefault()
+      @addATagClicked event
 
   updatePropositions: =>
     $('.propositions').html 'loading...'
@@ -100,9 +104,32 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
     @updateTag false
     @updatePropositions()
 
+  addATagClicked: (event) =>
+    @targetTagLevel =
+      if $(event.target).hasClass('add-main-tag')
+        "main"
+      else if $(event.target).hasClass('add-sub-tag')
+        "sub"
+      else
+        "sub-sub"
+
   addOrCreateTag: (event) =>
     event.preventDefault()
     
+    parentTag =
+      if @targetTagLevel == "sub"
+        if @tag.parents().length == 2
+          @tag.parents()[0]
+        else if @tag.parents().length == 1
+          @tag.parents()[0]
+        else if @tag.parents().length == 0
+          @tag
+      else if @targetTagLevel == "sub-sub"
+        if @tag.parents().length == 2
+          @tag.parents()[1]
+        else if @tag.parents().length == 1
+          @tag
+
     form = $(event.target)
     tag_id = $('.tag-id', form).val()
     if tag_id # add
@@ -110,8 +137,8 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
       tag = new TagModel(id: tag_id)
       tag.bind 'change',
         (tag) ->
-          if @tag #parent_tag
-            @election.addTag tag, @tag
+          if parentTag
+            @election.addTag tag, parentTag
           else
             @election.addTag tag
         @
@@ -120,7 +147,6 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
       tagName = tag_id = $('.tag-name', form).val()
       tag = new TagModel()
       election = @election
-      parent_tag = @tag if @tag
       tagNamespace = tagName.replace /\s+/g, '-'
       view = @
       tag.bind 'error', (tag, response) ->
@@ -128,8 +154,12 @@ class Backoffice.Views.Election.IndexView extends Backbone.View
         view.render()
       tag.save {name: tagName, namespace: tagNamespace},
         success: (tag) => # link tag to election
-          if parent_tag?
-            election.addTag tag, parent_tag
+          if parentTag?
+            election.addTag tag, parentTag
+            if @targetTagLevel == "sub"
+              @addSubTag tag
+            else if @targetTagLevel == "sub-sub"
+              @addSubSubTag tag
           else
             election.addTag tag
             @addMainTag tag
