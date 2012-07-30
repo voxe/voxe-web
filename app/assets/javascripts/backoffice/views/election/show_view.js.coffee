@@ -8,12 +8,12 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
     @flash = {}
     @election = @model
     @candidacies = @election.candidacies
+    
+    @render()
 
     if @options.tagId
       @tag = @election.tags.depthTagSearch(@options.tagId)
       @updatePropositions()
-
-    @render()
  
     $('.add-tag').submit (event) =>
       event.preventDefault()
@@ -22,12 +22,6 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
     $('.tags-list .add button').click (event) =>
       event.preventDefault()
       @addATagClicked event
-
-  updatePropositions: =>
-    $('.propositions').html 'loading...'
-    @propositions = new PropositionsCollection()
-    @propositions.bind 'reset', @renderPropositions, @
-    @propositions.fetch {data: {electionId: @election.id, candidacyIds: @options.candidacyId, tagIds: @tag.id}}
 
   updateCandidacy: (candidacyId) =>
     @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == @options.candidacyId), @
@@ -90,7 +84,7 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
     @updateTagsButtonsVisibility()
 
   renderPropositions: =>
-    @propositions.each @addProposition if @propositions
+    @addPropositionsList()
 
   addMainTag: (tag) =>
     @addTag tag, $('.main-tags .tags')
@@ -106,7 +100,8 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
     viewEl = view.render().el
     target.append(viewEl)
 
-  addProposition: (proposition) =>
+  updatePropositions: =>
+    $('.propositions').html 'loading...'
     @propositionsListView = new Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListView(
       el: '.propositions', election: @election,  candidacy_id: @candidacy.id, tag_id: @tag.id)
 
