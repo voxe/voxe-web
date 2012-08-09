@@ -1,0 +1,12 @@
+%form.rename-tag-form
+  %td.tag-name
+    %a.tag{href: "#"}= @tag.get 'name'
+  %ul.tabs.actions
+    %li.dropdown{"data-dropdown" => "dropdown"}
+      %a.dropdown-toggle{:href => "#"}
+      %ul.dropdown-menu
+        %li
+          %a.change-name Change name
+        %li.divider
+        %li
+          %a.remove /!\\ Remove tag from this election

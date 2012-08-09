@@ -23,4 +23,10 @@ class Api::V1::CandidaciesController < Api::V1::ApplicationController
       render json: {errors: @candidacy.errors}, status: :unprocessable_entity
     end
   end
+
+  # DELETE /api/v1/candidacies/1
+  def destroy
+    @candidacy.destroy
+    head :ok
+  end
 end

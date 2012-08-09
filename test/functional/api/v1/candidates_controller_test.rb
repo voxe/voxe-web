@@ -55,4 +55,28 @@ class Api::V1::CandidatesControllerTest < ActionController::TestCase
     get :search, name: 'Nico', format: 'json'
     assert_response :success
   end
+
+  test "should update a candidate" do
+    new_first_name = "New first name"
+    new_last_name = "New last name"
+    new_namespace = "new-namespace"
+    put :update, id: @candidate.id.to_s,
+      candidate: {
+        first_name: new_first_name,
+        last_name: new_last_name,
+        namespace: new_namespace},
+      format: 'json'
+
+    assert_response :success
+    assert_equal new_first_name, assigns(:candidate).first_name
+    assert_equal new_last_name, assigns(:candidate).last_name
+    assert_equal new_namespace, assigns(:candidate).namespace
+  end
+
+  test "should delete a candidate" do
+    assert_difference('Candidate.count', -1) do
+      delete :destroy, id: @candidate.id.to_s
+    end
+    assert_response :success
+  end
 end

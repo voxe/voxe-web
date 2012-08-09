@@ -20,6 +20,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
+  gem "rails-backbone"
 end
 
 group :test do
@@ -38,7 +39,7 @@ group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'cucumber-rails'
-  gem 'capybara-webkit'
+  gem 'capybara-webkit', '>= 0.12.1'
   gem 'factory_girl_rails'
 end
 
@@ -79,7 +80,7 @@ gem 'cancan'
 # Webserver
 # http://michaelvanrooijen.com/articles/2011/06/01-more-concurrency-on-a-single-heroku-dyno-with-the-new-celadon-cedar-stack/
 gem 'unicorn'
-#gem 'thin'
+# gem 'thin'
 
 # scaling
 gem 'hirefireapp'

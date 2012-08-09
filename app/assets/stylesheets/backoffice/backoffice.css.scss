@@ -1,9 +1,15 @@
 html, body {
   background-color: #eee;
 }
+
 body {
   padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
 }
+
+.container {
+  width: 1150px;
+}
+
 .container > footer p {
   text-align: center; /* center align it with the container */
 }
@@ -31,4 +37,62 @@ body {
 form .image-form {
   float: left;
   margin: 0px 6px;
+}
+
+.finder {
+  table {
+    border: none;
+
+    &.list {
+      margin-bottom: 0;
+    }
+  }
+
+  th:last-of-type {
+    width: 50%;
+  }
+
+  td.candidacies, td.tags-list {
+    padding: 0;
+
+    .actions {
+      float: right;
+      width: auto;
+    }
+  }
+
+  .candidacies {
+    width: 130px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .tags-list {
+    min-width: 20px;
+  }
+
+  .selected {
+    background-color: #eee;
+  }
+
+  .published {
+    border-right: solid 5px green;
+  }
+
+  .not-published {
+    border-left: solid 5px red;
+  }
+
+  .add {
+    border-top: solid 1px #CCC;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .tabs {
+    margin: 0;
+  }
 }

@@ -11,22 +11,12 @@ class Backoffice.Views.ElectionView extends Backbone.View
   render: () ->
     menu_entry = @options.menu_entry
     $(@el).html @template election: @election
-    new Backoffice.Views.Election.ElectionMenuView(model: @election, menu_entry: menu_entry)
     switch menu_entry
-      when 'informations'
-         new Backoffice.Views.Election.InformationsView(el: @content_el, model: @election)
       when 'contributors'
         new Backoffice.Views.Election.ContributorsView(el: @content_el, model: @election)
-      when 'candidacies'
-        new Backoffice.Views.Election.CandidaciesView(el: @content_el, model: @election)
-      when 'tags'
-        new Backoffice.Views.Election.TagsView(el: @content_el, election: @election, tag_id: @options.tag_id)
-      when 'propositions'
-        new Backoffice.Views.Election.Propositions.Candidacies.CandidaciesView(el: @content_el, model: @election)
-      when 'propositions_candidacy_tags'
-        new Backoffice.Views.Election.Propositions.Tags.TagsView(el: @content_el, election: @election,  candidacy_id: @options.candidacy_id)
-      when 'propositions_candidacy_tag'
-        new Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListView(el: @content_el, election: @election,  candidacy_id: @options.candidacy_id, tag_id: @options.tag_id)
+      when 'candidacies', 'propositions'
+        new Backoffice.Views.Election.ShowView(el: @content_el, model: @election, candidacyId: @options.candidacy_id, tagId: @options.tag_id)
+        new Backoffice.Views.Election.InformationsView(el: '.election-infos', model: @election)
       else
         console.error 'wrong route'
     $('.change-election').click ->

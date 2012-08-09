@@ -1,12 +1,8 @@
-%h1 General informations
-
-%form.general-informations
+%form.general-informations.form-stacked
   %fieldset
     .clearfix
       %label(for="election-date") Election date
       .input
         %input(type="date" name="election_date"){value: @election.get('date')}
         %span.help-block Eg: 2012-04-22
-    .actions
       %input.btn.primary(type="submit" value="Save changes")
-

@@ -1,40 +1,47 @@
-%h1 Candidatures
+%table.list
 
-%table.candidacies
+#modal-candidacies.modal.hide.fade
+  .modal-header
+    %a.close{:href => "#"} ×
+    %h3 Candidacies
+  .modal-body
+    %form.add-candidate.form-stacked{method: 'POST'}
+      %h2 Add an existing candidate
+      - if @flash.error_messages
+        .alert-message.block-message.error
+          %ul
+            - for error_message in @flash.error_messages
+              %li= error_message
+      %fieldset
+        .clearfix
+          %label Last Name/First Name
+          .input
+            %input.xlarge.name{name: 'name'}
+            %input.xlarge.id{type: 'hidden', name: 'name'}
+        .clearfix
+          .input
+            %input.btn.primary{type: 'submit', value: 'Add a candidate'}
 
-%form.add-candidate{method: 'POST'}
-  %h2 Ajouter un candidat déjà existant
-  - if @flash.error_messages
-    .alert-message.block-message.error
-      %ul
-        - for error_message in @flash.error_messages
-          %li= error_message
-  %fieldset
-    .clearfix
-      %label Nom/Prénom
-      .input
-        %input.xxlarge.name{name: 'name'}
-        %input.xxlarge.id{type: 'hidden', name: 'name'}
-    .clearfix
-      .input
-        %input.btn.primary{type: 'submit'} Ajouter le candidat
+    %form.create-candidate.form-stacked{method: 'POST'}
+      %h2 Create a new candidate for this election
+      - if @flash.error_messages
+        .alert-message.block-message.error
+          %ul
+            - for error_message in @flash.error_messages
+              %li= error_message
+      %fieldset
+        .clearfix
+          %label First name
+          .input
+            %input.xlarge.first-name{name: 'firstName'}
+        .clearfix
+          %label Last name
+          .input
+            %input.xlarge.last-name{name: 'lastName'}
+        .clearfix
+          .input
+            %input.btn.primary{type: 'submit', value: 'Create this candidate'}
 
-%form.create-candidate{method: 'POST'}
-  %h2 Créer un candidat pour cette election
-  - if @flash.error_messages
-    .alert-message.block-message.error
-      %ul
-        - for error_message in @flash.error_messages
-          %li= error_message
-  %fieldset
-    .clearfix
-      %label Prénom du candidat
-      .input
-        %input.xxlarge.first-name{name: 'firstName'}
-    .clearfix
-      %label Nom du candidat
-      .input
-        %input.xxlarge.last-name{name: 'lastName'}
-    .clearfix
-      .input
-        %input.btn.primary{type: 'submit'} Créer le candidat
+.add
+  %button.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-candidacies",
+    "data-keyboard" => "true"} Add

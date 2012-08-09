@@ -13,6 +13,15 @@ class Api::V1::CandidatesController < Api::V1::ApplicationController
   def show
   end
 
+  # PUT /api/v1/candidates/1
+  def update
+    if @candidate.update_attributes params[:candidate]
+      render 'api/v1/candidates/show.rabl', status: :ok
+    else
+      render json: {errors: @candidate.errors}, status: :unprocessable_entity
+    end
+  end
+
   # POST /api/v1/candidates/1/addphoto
   def addphoto
     photo = @candidate.photos.build image: params[:image]
@@ -27,5 +36,11 @@ class Api::V1::CandidatesController < Api::V1::ApplicationController
   # GET /api/v1/candidates/search
   def search
     @candidates = Candidate.fulltext_search(params[:name])
+  end
+
+  # DELETE /api/v1/candidates/1
+  def destroy
+    @candidate.destroy
+    head :ok
   end
 end

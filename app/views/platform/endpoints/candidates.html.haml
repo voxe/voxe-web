@@ -88,3 +88,42 @@
 
 %pre
   http://voxe.org/api/v1/candidates/4ed1cb0203ad190006000132/addphoto
+
+.page-header
+  %h2
+    %small PUT
+    \/candidates/{id}
+
+%p Update a candidate.
+
+%h3 Parameters
+%table.bordered-table
+  %tbody
+    %tr
+      %td candidate[firstName]
+      %td John
+    %tr
+      %td candidate[lastName]
+      %td Doe
+    %tr
+      %td candidate[namespace]
+      %td johndoe
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/candidates/4ed1cb0203ad190006000132
+
+.page-header
+  %h2
+    %small DELETE
+    \/candidates/{id}
+
+%p Destroy a candidate from database.
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/candidates/4ed1cb0203ad190006000132
