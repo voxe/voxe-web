@@ -337,7 +337,7 @@ DEPENDENCIES
   cucumber-rails
   dalli
   database_cleaner
-  devise
+  devise (~> 2.0.4)
   eco
   factory_girl_rails
   fog

@@ -72,7 +72,7 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick'
 
 # User authentication
-gem 'devise'
+gem 'devise', "~> 2.0.4"
 
 # User authorization
 gem 'cancan'
