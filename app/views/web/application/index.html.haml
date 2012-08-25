@@ -12,24 +12,37 @@
     
 #pages-container
   #pages
+    .page#countries
+      .page-container
+        #countries-list-container
+          .help
+            %span 1. Choose a country
+          #countries-list
+            .category Upcoming elections
+            #countries-upcoming-list
+            .clear
+            .category Previous elections
+            #countries-previous-list
+            .clear
+
     .page#elections
       .page-container
         #elections-list-container
           .help
-            %span 1. Sélectionnez une élection...
+            %span 2. Choose an election...
           #elections-list
                     
     .page#candidacies
       .page-container
         #candidacies-list-container
           .help
-            %span 2. ... puis deux candidats, et...
+            %span 3. ... choose two candidates, and...
           #candidacies-list
             
     .page#tags
       .page-container
         .help
-          %span 3. ... choisissez un thème
+          %span 3. ... choose a theme
         %ul#tags-list
           / .section
           /   %span Themes

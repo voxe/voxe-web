@@ -11,7 +11,7 @@ class window.MenuElectionView extends Backbone.View
     
   goToPage: ->
     # app.views.application.scrollTo $('#elections').offset().top
-    app.router.navigate "", true
+    app.router.navigate "country-" + @model.attributes.country.namespace, true
     
   render: ->
     $(@el).html Mustache.to_html($('#menu-election-template').html(), election: @model.toJSON())

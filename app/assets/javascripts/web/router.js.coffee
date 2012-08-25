@@ -3,21 +3,34 @@
 class window.AppRouter extends Backbone.Router
   
   routes:
-    "": "electionsList"
+    "": "countriesList"
+    "country-:namespace": "electionsList"
     ":namespace/:candidacies/:tag": "comparison"
     ":namespace/:candidacies": "tagsList"
     ":namespace": "candidatesList"
   
-  electionsList: ->
+  countriesList: ->
     @trackPageview()
-    unless @electionsListView
-      @electionsListView = new ElectionsListView(el: "#elections-list", collection: app.collections.elections, model: app.models.election)
-      @electionsListView.render()
-    
+    unless @countriesListView
+      @countriesListView = new CountriesListView(el: "#countries-list", collection: app.collections.elections)
+      @countriesListView.render()
+
     # get elections
     if _.isEmpty app.collections.elections.models
       app.collections.elections.fetch()
-      
+
+    app.views.application.scrollTo $('#countries').offset().top
+
+  electionsList: (namespace) ->
+    @trackPageview()
+    unless @electionsListView
+      @electionsListView = new ElectionsListView(el: "#elections-list", collection: app.collections.elections, model: app.models.election, countryNamespace: namespace)
+      @electionsListView.render()
+
+    # get elections
+    if _.isEmpty app.collections.elections.models
+      app.collections.elections.fetch()
+
     app.views.application.scrollTo $('#elections').offset().top
       
   candidatesList: (namespace)->

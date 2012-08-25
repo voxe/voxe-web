@@ -10,6 +10,9 @@ child @election do
   child (@only_published_candidacies ? :published_candidacies_sorted : :candidacies_sorted) do
     extends "api/v1/candidacies/base"
   end
+  child :country do
+    attributes :name, :namespace
+  end
   node :tags do |election|
     if @all_tags
       # include all tags

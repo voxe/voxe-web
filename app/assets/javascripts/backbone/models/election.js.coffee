@@ -27,7 +27,13 @@ class window.ElectionModel extends Backbone.Model
     
   namespace: ->
     @get "namespace"
-  
+
+  date: ->
+    if _.isString @get('date')
+      new Date(@get('date'))
+    else
+      null
+
   toJSON: ->
     hsh = super
     hsh.candidacies = @candidacies.toJSON()

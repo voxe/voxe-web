@@ -40,6 +40,10 @@ a img {
   border: 0px;
 }
 
+.clear {
+  clear: both;
+}
+
 .help {
   position: relative;
   z-index: 2;
@@ -232,6 +236,30 @@ a.button {
         border-radius: 2px;
       }
     }
+  }
+}
+
+#countries-list {
+  cursor: pointer;
+  width: 640px;
+  margin: 10px auto 0 auto;
+  border: 1px solid #C4CDE0;
+  padding: 10px;
+  background-color: white;
+
+  .category {
+    border-bottom: 2px solid #E5E5E5;
+    padding: 0 0 3px 0;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  .country {
+    width: 160px;
+    height: 60px;
+    float: left;
+    border: 2px solid #E5E5E5;
+    margin: 8px;
   }
 }
 

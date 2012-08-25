@@ -12,6 +12,7 @@ class Election
   has_many :elections, foreign_key: 'parent_election_id'
   has_many :candidacies, autosave: true
   has_and_belongs_to_many :contributors, class_name: 'User'
+  belongs_to :country
   
   # validations
   validates_presence_of :name, :namespace

@@ -189,7 +189,7 @@ Joinplato::Application.routes.draw do
   # web
   scope :module => "web", format: "html" do
     match 'propositions/:id' => 'propositions#show', :as => :proposition
-    
+    match 'country-:countrynamespace' => 'countries#show', :as => :country
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election

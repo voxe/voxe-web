@@ -3,6 +3,9 @@
   .theater-container
     .theater-movie
 
+%script#menu-country-template{type: "text/html"}
+  {{country.name}}
+
 %script#menu-election-template{type: "text/html"}
   {{election.name}}
   
@@ -31,6 +34,12 @@
         <li class="section" data-tag-id="{{id}}">{{name}}</li>
       {{/tags}}
     {{/tag}}
+
+%script#country-cell-template{type: "text/html"}
+  :plain
+    <div class="country">
+      <div class="name">{{country.name}}</div>
+    </div>
 
 %script#election-cell-template{type: "text/html"}
   :plain
