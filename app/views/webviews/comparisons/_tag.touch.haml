@@ -16,7 +16,7 @@
           - candidacy_propositions = tag_propositions.select { |p| p.candidacy_id == candidacy.id }
           - if candidacy_propositions.empty?
             .proposition
-              %p{style: "color: gray"}= 'En attente de proposition.'
+              %p{style: "color: gray"}= t("comparator.no_proposition_available")
           - candidacy_propositions.each do |proposition|
             .proposition
               %p

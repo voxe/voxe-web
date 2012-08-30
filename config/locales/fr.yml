@@ -1,0 +1,27 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fr:
+  navigation:
+    about: Projet
+    how: Sources
+    press: On parle de nous
+    apps: Apps
+    API: Développeurs
+    hackathon: Hackathon
+    method: Méthode
+    donate: Soutenir
+    team: Equipe
+    special_thanks: Remerciements
+    candidates: "Candidats"
+  comparator:
+    choose_a_country: Choissisez un pays
+    upcoming_elections: Prochaines élections
+    previous_elections: Elections passées
+    choose_an_election: Choissisez une election
+    choose_two_candidates: ... puis deux candidats, et...
+    choose_a_theme: ... choisissez un thème
+    no_proposition_available: En attente de proposition.
+    send_us_a_missing_proposition: Vous avez identifié une proposition manquante d'un candidat ? Envoyez-la nous !
+    learn_more: En savoir plus
+    sign_in_or_sign_up_to_add_a_comment: Connectez-vous ou créez un compte pour ajouter un commentaire

@@ -16,12 +16,14 @@
       .page-container
         #countries-list-container
           .help
-            %span 1. Choose a country
+            %span
+              1.
+              = t "comparator.choose_a_country"
           #countries-list
-            .category Upcoming elections
+            .category= t "comparator.upcoming_elections"
             #countries-upcoming-list
             .clear
-            .category Previous elections
+            .category= t "comparator.previous_elections"
             #countries-previous-list
             .clear
 
@@ -29,20 +31,26 @@
       .page-container
         #elections-list-container
           .help
-            %span 2. Choose an election...
+            %span
+              2.
+              = t "comparator.choose_an_election"
           #elections-list
                     
     .page#candidacies
       .page-container
         #candidacies-list-container
           .help
-            %span 3. ... choose two candidates, and...
+            %span
+              3.
+              = t"comparator.choose_two_candidates"
           #candidacies-list
             
     .page#tags
       .page-container
         .help
-          %span 3. ... choose a theme
+          %span
+            4.
+            = t "comparator.choose_a_theme"
         %ul#tags-list
           / .section
           /   %span Themes

@@ -115,7 +115,7 @@
 
 %script#proposition-embed-links-template{type: "text/html"}
   :plain
-    <p>En savoir plus:</p>
+    <p>#{t("comparator.learn_more")}:</p>
 
 %script#proposition-embed-link-template{type: "text/html"}
   :plain
@@ -140,10 +140,11 @@
 
 %script#no-proposition-available-template{type: "text/html"}
   .no-proposition-available
-    En attente de proposition.<br/>
+    = t "comparator.no_proposition_available"
+    <br/>
     %a{href: 'https://docs.google.com/spreadsheet/viewform?formkey=dGNsLWFoYXZ0LXRaRVVrdU9Tay04ZFE6MQ', target: '_blank'}
-      Vous avez identifié une proposition manquante d'un candidat ? Envoyez-la nous !
-    
+      = t "comparator.send_us_a_missing_proposition"
+
 %script#comment-form-template{type: "text/html"}
   :plain
     {{#user.token}}
@@ -154,7 +155,7 @@
     {{/user.token}}
     
     {{^user.token}}
-      <a href="#" class="session">Connectez-vous ou créez un compte pour ajouter un commentaire</a>
+      <a href="#" class="session">#{t("comparator.sign_in_or_sign_up_to_add_a_comment")}</a>
     {{/user.token}}
     
 %script#comments-template{type: "text/html"}
