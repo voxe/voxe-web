@@ -254,12 +254,17 @@ a.button {
     font-size: 18px;
   }
 
+  #countries-upcoming-list {
+    margin-bottom: 20px;
+  }
+
   .country {
-    width: 160px;
-    height: 60px;
     float: left;
-    border: 2px solid #E5E5E5;
-    margin: 8px;
+    margin: 14px;
+    .name {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 
