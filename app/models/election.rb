@@ -11,7 +11,8 @@ class Election
   belongs_to :parent_election, class_name: 'Election'
   has_many :elections, foreign_key: 'parent_election_id'
   has_many :candidacies, autosave: true
-  has_and_belongs_to_many :contributors, class_name: 'User'
+  has_and_belongs_to_many :ambassadors, class_name: 'User', inverse_of: nil
+  has_and_belongs_to_many :contributors, class_name: 'User', inverse_of: nil
   belongs_to :country
   
   # validations

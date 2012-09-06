@@ -30,6 +30,7 @@ Joinplato::Application.routes.draw do
           post :addcandidacy
           post :movetags
           post :addcontributor
+          post :addambassador
         end
         collection do
           get :search

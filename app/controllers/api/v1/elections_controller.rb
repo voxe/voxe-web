@@ -93,6 +93,15 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
   def addcontributor
     user = User.find(params[:userId])
     @election.contributors << user
+    @election.save
+    head :ok
+  end
+
+  # POST /api/v1/elections/1/addambassador
+  def addambassador
+    user = User.find(params[:userId])
+    @election.ambassadors << user
+    @election.save
     head :ok
   end
 end
