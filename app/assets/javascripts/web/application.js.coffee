@@ -28,7 +28,7 @@ class window.VoxeWeb
     app.collections.candidacies = app.models.election.candidacies
         
     app.views.application = new ApplicationView(el: "#application-view")
-    app.views.menu = new MenuView(el: "#menu", model: app.models.election)
+    app.views.menu = new MenuView(el: "#menu", model: app.models.election, collection: app.collections.elections)
     app.views.menu.render()
     
     # views

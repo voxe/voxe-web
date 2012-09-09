@@ -91,8 +91,35 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
   # POST /api/v1/elections/1/addcontributor
   def addcontributor
-    user = User.find(params[:userId])
-    @election.contributors << user
-    head :ok
+    @user = User.find(params[:userId])
+    @election.contributors << @user
+    @election.save
+    if @election.save
+      render 'api/v1/users/show.rabl'
+    else
+      render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
   end
+
+  # GET /api/v1/elections/1/contributors
+  def contributors
+    @users = @election.contributors
+  end
+
+  # POST /api/v1/elections/1/addambassador
+  def addambassador
+    @user = User.find(params[:userId])
+    @election.ambassadors << @user
+    if @election.save
+      render 'api/v1/users/show.rabl'
+    else
+      render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
+
+  # GET /api/v1/elections/1/contributors
+  def ambassadors
+    @users = @election.ambassadors
+  end
+
 end

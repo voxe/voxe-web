@@ -160,9 +160,12 @@ Devise.setup do |config|
   # Defines name of the authentication token params key
   config.token_authentication_key = :auth_token
 
+  # DEPRECATED
   # If true, authentication through token does not store user in session and needs
   # to be supplied on each request. Useful if you are using the token as API token.
-  config.stateless_token = false
+  # config.stateless_token = false
+
+  config.skip_session_storage << :token_auth
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
@@ -208,4 +211,6 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+
+  config.apply_schema = false
 end

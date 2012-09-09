@@ -12,3 +12,12 @@ class window.ElectionsCollection extends Backbone.Collection
     current_date = new Date()
 
     return Math.abs(date - current_date)
+
+  filterByCountry: (countryNamespace) ->
+    filtered = _.filter @models, (election) =>
+      election.attributes.country.namespace == countryNamespace
+    proxy = @
+    if _.any(filtered)
+      proxy.selectedCountry = _.first(filtered).attributes.country
+    @trigger "filter:country"
+    filtered

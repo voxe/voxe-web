@@ -10,6 +10,28 @@ class User
   #
   # Attributes
   #
+
+  ## Database authenticatable
+  field :email,              :type => String, :null => false
+  field :encrypted_password, :type => String, :null => false
+
+  # Token authenticatable
+  field :authentication_token, :type => String
+
+  ## Recoverable
+  field :reset_password_token,   :type => String
+  field :reset_password_sent_at, :type => Time
+
+  ## Rememberable
+  field :remember_created_at, :type => Time
+
+  ## Trackable
+  field :sign_in_count,      :type => Integer
+  field :current_sign_in_at, :type => Time
+  field :last_sign_in_at,    :type => Time
+  field :current_sign_in_ip, :type => String
+  field :last_sign_in_ip,    :type => String
+
   field :admin,                type: Boolean, default: false
   field :name,                 type: String
   field :facebook_uid,         type: String
@@ -27,6 +49,8 @@ class User
   # Associations
   #
   has_and_belongs_to_many :elections
+  has_and_belongs_to_many :ambassador_elections, class_name: 'Election', inverse_of: :ambassadors
+  has_and_belongs_to_many :contributor_elections, class_name: 'Election', inverse_of: :contributors
 
   #
   # Callbacks

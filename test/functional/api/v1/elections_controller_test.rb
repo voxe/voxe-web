@@ -83,4 +83,32 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
     @election.reload
     assert_equal user.id, @election.contributors.last.id
   end
+
+  test "should add an ambassador to an election" do
+    user = FactoryGirl.create(:user)
+    post :addambassador, id: @election.id.to_s, userId: user.id.to_s, format: 'json'
+    assert_response :success
+    @election.reload
+    assert_equal user.id, @election.ambassadors.last.id
+  end
+
+  test "should have the list of contributors" do
+    user = FactoryGirl.create(:user)
+    @election.contributors << user
+    @election.save
+    get :contributors, id: @election.id.to_s, format: 'json'
+    assert_response :success
+    json = JSON.parse(@response.body)
+    assert_equal user.id.to_s, json['response'].first['id']
+  end
+
+  test "should have the list of ambassadors" do
+    user = FactoryGirl.create(:user)
+    @election.ambassadors << user
+    @election.save
+    get :ambassadors, id: @election.id.to_s, format: 'json'
+    assert_response :success
+    json = JSON.parse(@response.body)
+    assert_equal user.id.to_s, json['response'].first['id']
+  end
 end

@@ -37,9 +37,26 @@ class Ability
 
       if user.admin?
         can :manage, :all
-      elsif user.elections.present?
-        can :index, :dashboard
-        can :manage, Proposition, candidacy: { election: { contributor_ids: [user.id] } }
+      else
+        if user.ambassador_elections.exists?
+          can :index, :dashboard
+          can :search, User
+          can :manage, Tag
+          can :manage, Election, ambassador_ids: user.id
+          can :manage, Candidacy, election: { ambassador_ids: user.id }
+          can :create, Candidate
+          can :manage, Candidate, candidacies: { election: { ambassador_ids: user.id } }
+          can :create, Proposition
+          can :manage, Proposition, candidacy: { election: { ambassador_ids: user.id } }
+          can :destroy, Comment, proposition: { candidacy: { election: { ambassador_ids: user.id } } }
+        end
+        if user.contributor_elections.exists?
+          can :index, :dashboard
+          can [:ambassadors, :contributors], Election, contributor_ids: user.id
+          can :create, Proposition
+          can :manage, Proposition, candidacy: { election: { contributor_ids: user.id } }
+          can :destroy, Comment, proposition: { candidacy: { election: { contributor_ids: user.id } } }
+        end
       end
     end
     

@@ -30,6 +30,9 @@ Joinplato::Application.routes.draw do
           post :addcandidacy
           post :movetags
           post :addcontributor
+          get :contributors
+          post :addambassador
+          get :ambassadors
         end
         collection do
           get :search
@@ -189,7 +192,7 @@ Joinplato::Application.routes.draw do
   # web
   scope :module => "web", format: "html" do
     match 'propositions/:id' => 'propositions#show', :as => :proposition
-    
+    match 'country-:countrynamespace' => 'countries#show', :as => :country
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election

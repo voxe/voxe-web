@@ -40,6 +40,10 @@ a img {
   border: 0px;
 }
 
+.clear {
+  clear: both;
+}
+
 .help {
   position: relative;
   z-index: 2;
@@ -231,6 +235,35 @@ a.button {
         padding: 5px 8px;
         border-radius: 2px;
       }
+    }
+  }
+}
+
+#countries-list {
+  cursor: pointer;
+  width: 640px;
+  margin: 10px auto 0 auto;
+  border: 1px solid #C4CDE0;
+  padding: 10px;
+  background-color: white;
+
+  .category {
+    border-bottom: 2px solid #E5E5E5;
+    padding: 0 0 3px 0;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  #countries-upcoming-list {
+    margin-bottom: 20px;
+  }
+
+  .country {
+    float: left;
+    margin: 14px;
+    .name {
+      width: 100%;
+      text-align: center;
     }
   }
 }

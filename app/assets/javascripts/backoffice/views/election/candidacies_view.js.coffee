@@ -13,6 +13,14 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
       event.preventDefault()
       @createCandidate event
 
+    ambassadors_view = new Backoffice.Views.Election.AmbassadorsView(model: @election)
+    $('#modal-ambassadors').on 'show', ->
+      ambassadors_view.fetch_amabassadors()
+
+    contributors_view = new Backoffice.Views.Election.ContributorsView(model: @election)
+    $('#modal-contributors').on 'show', ->
+      contributors_view.fetch_contributors()
+
   render: ->
     $(@el).html @template @
     $('button.hover', @el).hide()

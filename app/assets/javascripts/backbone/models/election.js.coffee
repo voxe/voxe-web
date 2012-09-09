@@ -27,7 +27,13 @@ class window.ElectionModel extends Backbone.Model
     
   namespace: ->
     @get "namespace"
-  
+
+  date: ->
+    if _.isString @get('date')
+      new Date(@get('date'))
+    else
+      null
+
   toJSON: ->
     hsh = super
     hsh.candidacies = @candidacies.toJSON()
@@ -124,3 +130,38 @@ class window.ElectionModel extends Backbone.Model
     else
       Backbone.sync(method, model, options)
 
+  ambassadors: ->
+    unless @ambassadors_collection
+      @ambassadors_collection = new UsersCollection()
+      @ambassadors_collection.url = "#{@url()}/ambassadors"
+    @ambassadors_collection
+
+  contributors: ->
+    unless @contributors_collection
+      @contributors_collection = new UsersCollection()
+      @contributors_collection.url = "#{@url()}/contributors"
+    @contributors_collection
+
+  addAmbassador: (user) ->
+    election = @
+    data = {userId: user.id}
+    unless user.id
+      return 0
+    $.ajax
+      type: 'POST'
+      url: "#{@url()}/addambassador"
+      data: $.param(data)
+      success: (response) ->
+        election.ambassadors().fetch()
+
+  addContributor: (user) ->
+    election = @
+    data = {userId: user.id}
+    unless user.id
+      return 0
+    $.ajax
+      type: 'POST'
+      url: "#{@url()}/addcontributor"
+      data: $.param(data)
+      success: (response) ->
+        election.contributors().fetch()
