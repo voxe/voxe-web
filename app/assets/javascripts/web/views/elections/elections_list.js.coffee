@@ -4,8 +4,9 @@ class window.ElectionsListView extends Backbone.View
     @collection.bind "reset", @render, @
     
   render: ->
-    @collection.each (election) =>
-      if election.attributes.country.namespace == @options.countryNamespace
-        view = new ElectionCellView model: election
-        $(@el).append view.render().el
+    $(@el).html ''
+    filtered = @collection.filterByCountry(@options.countryNamespace)
+    _.each filtered, (election) =>
+      view = new ElectionCellView model: election
+      $(@el).append view.render().el
     @

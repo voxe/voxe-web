@@ -23,9 +23,9 @@ class window.AppRouter extends Backbone.Router
 
   electionsList: (namespace) ->
     @trackPageview()
-    unless @electionsListView
-      @electionsListView = new ElectionsListView(el: "#elections-list", collection: app.collections.elections, model: app.models.election, countryNamespace: namespace)
-      @electionsListView.render()
+
+    @electionsListView = new ElectionsListView(el: "#elections-list", collection: app.collections.elections, model: app.models.election, countryNamespace: namespace)
+    @electionsListView.render()
 
     # get elections
     if _.isEmpty app.collections.elections.models
