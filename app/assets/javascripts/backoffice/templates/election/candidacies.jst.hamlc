@@ -45,3 +45,21 @@
 .add
   %button.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-candidacies",
     "data-keyboard" => "true"} Add
+
+#modal-ambassadors.modal.hide.fade
+  .modal-header
+    %a.close{:href => "#"} ×
+    %h3 Ambassadors
+  .modal-body
+
+.add
+  %button.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-ambassadors", "data-keyboard" => "true"} Ambassadors
+
+#modal-contributors.modal.hide.fade
+  .modal-header
+    %a.close{:href => "#"} ×
+    %h3 Contributors
+  .modal-body
+
+.add
+  %button.btn{"data-backdrop" => "true", "data-controls-modal" => "modal-contributors", "data-keyboard" => "true"} Contributors

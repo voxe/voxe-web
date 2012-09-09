@@ -4,8 +4,8 @@
 
 %hr/
 
-%form#contributor-form
-  %h4 Add a contributor to this election
+%form#ambassador-form
+  %h4 Add an ambassador to this election
   %fieldset
     .clearfix
       %label Name

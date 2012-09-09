@@ -1,13 +1,13 @@
-class Backoffice.Views.Election.ContributorsView extends Backbone.View
-  el: '#modal-contributors .modal-body'
-  template: JST['backoffice/templates/election/contributors']
+class Backoffice.Views.Election.AmbassadorsView extends Backbone.View
+  el: '#modal-ambassadors .modal-body'
+  template: JST['backoffice/templates/election/ambassadors']
 
   events:
-    'submit #contributor-form': 'addContributor'
+    'submit #ambassador-form': 'addAmbassador'
 
   initialize: ->
     @election = @model
-    @collection = @election.contributors()
+    @collection = @election.ambassadors()
     @collection.bind 'reset', @render, @
     @render()
 
@@ -15,7 +15,7 @@ class Backoffice.Views.Election.ContributorsView extends Backbone.View
     $(@el).html @template @
 
     #autocomplete
-    form = $('#contributor-form', @el)
+    form = $('#ambassador-form', @el)
     $('.name', form).autocomplete
       source: (request, response) ->
         users = new UsersCollection()
@@ -31,12 +31,12 @@ class Backoffice.Views.Election.ContributorsView extends Backbone.View
         $('.id', form).val ui.item.value
         return false
 
-  fetch_contributors: ->
+  fetch_amabassadors: ->
     @collection.fetch()
 
-  addContributor: ->
+  addAmbassador: ->
     event.preventDefault()
-    form = $('#contributor-form', @el)
+    form = $('#ambassador-form', @el)
     userId = $('.id', form).val()
     user = new UserModel(id: userId)
-    @election.addContributor(user)
+    @election.addAmbassador(user)
