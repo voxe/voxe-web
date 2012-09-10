@@ -101,6 +101,12 @@ Joinplato::Application.routes.draw do
         end
       end
 
+      resources :countries do
+        collection do
+          get :search
+        end
+      end
+
     end
   end
   
@@ -135,6 +141,7 @@ Joinplato::Application.routes.draw do
         get :candidacies
         get :users
         get :organizations
+        get :countries
       end
     end
     resources :models do
@@ -146,6 +153,7 @@ Joinplato::Application.routes.draw do
         get :candidacy
         get :user
         get :organization
+        get :country
       end
     end
     resources :embed, :only => :index do
