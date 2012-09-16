@@ -79,7 +79,7 @@ class window.ComparisonPropositionView extends Backbone.View
       text = "Commenter"
     else
       if @model.commentsCount() == 1
-        text = "#{@model.commentsCount()} commentaire"
+        text = "#{@model.commentsCount()} comment"
       else
-        text = "#{@model.commentsCount()} commentaires"
+        text = "#{@model.commentsCount()} comments"
     @.$('.comments-count a').html text

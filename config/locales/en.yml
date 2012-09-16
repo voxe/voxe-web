@@ -2,4 +2,34 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  navigation:
+    about: About
+    how: How
+    press: Press
+    apps: Apps
+    API: API
+    hackathon: Hackathon
+    method: Method
+    donate: Donate
+    team: Team
+    special_thanks: Special thanks
+    candidates: Candidates
+  comparator:
+    choose_a_country: Choose a country
+    upcoming_elections: Upcoming elections
+    previous_elections: Previous elections
+    choose_an_election: Choose an election
+    choose_two_candidates: ... then choose two candidates, and...
+    choose_a_theme: ... choose a theme
+    no_proposition_available: No proposition available.
+    send_us_a_missing_proposition: Send us a missing proposition!
+    learn_more: Learn more
+    sign_in_or_sign_up_to_add_a_comment: Sign in or sign up to add a comment
+  account:
+    not_yet_on_voxe_signup: No yet on Voxe? Sign up.
+    full_name: Full name
+    email_address: Email address
+    password: Password
+    sign_up: Sign up
+    already_on_voxe_sign_in: Already on Voxe? Sign in.
+    sign_in: Sign in

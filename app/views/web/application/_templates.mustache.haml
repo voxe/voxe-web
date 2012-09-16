@@ -189,23 +189,23 @@
     
     <div class="fb-connect" data-scope="#{Settings.fb_defaults.scope}">Facebook</div>
     
-    <div class="ribbon">Pas encore sur Voxe? S'inscrire.</div>
+    <div class="ribbon">#{t 'account.not_yet_on_voxe_signup'}</div>
     <div class="fields">
-      <div class="field"><input type='text' name='name' placeholder='Nom complet' /></div>
-      <div class="field"><input type='text' name='email' placeholder='Adresse e-mail' /></div>
-      <div class="field"><input type='password' name='password' placeholder='Mot de passe' /></div>
+      <div class="field"><input type='text' name='name' placeholder='#{t 'account.full_name'}' /></div>
+      <div class="field"><input type='text' name='email' placeholder='#{t 'account.email_address'}' /></div>
+      <div class="field"><input type='password' name='password' placeholder='#{t 'account.password'}' /></div>
         
-      <div class="button"><a href="#" class="button">S'inscrire</a></div>
+      <div class="button"><a href="#" class="button">#{t 'account.sign_up'}</a></div>
       <ul class="errors"></ul>
     </div>
     
 %script#users-signin-template{type: "text/html"}
   :plain
-    <div class="ribbon">Déjà sur Voxe? Se connecter.</div>
+    <div class="ribbon"></div>
     <div class="fields">
-      <div class="field"><input type='text' name='email' placeholder='Adresse e-mail' /></div>
-      <div class="field"><input type='password' name='password' placeholder='Mot de passe' /></div>
-      <div class="button"><a href="#" class="button">Se connecter</a></div>
+      <div class="field">#{t 'account.already_on_voxe_sign_in'}<input type='text' name='email' placeholder='#{t 'account.email_address'}' /></div>
+      <div class="field"><input type='password' name='password' placeholder='#{t 'account.password'}' /></div>
+      <div class="button"><a href="#" class="button">#{t 'account.sign_in'}</a></div>
       <ul class="errors"></ul>
     </div>
     
