@@ -1,0 +1,21 @@
+%h1 Countries
+
+%table.countries
+  %tr
+    %th Name
+    %th Namespace
+  - for country in @countries.models
+    %tr
+      %td= country.get "name"
+      %td= country.get "namespace"
+
+%form.new-country{method: 'POST'}
+  %h2 Add a new country
+  %fieldset
+    .clearfix
+      %label Country name
+      .input
+        %input.xxlarge{name: 'countryName'}
+    .clearfix
+      .input
+        %input.btn.primary{type: 'submit', value: 'Add'}

@@ -14,6 +14,7 @@
 window.Backoffice =
   Views:
     Admins: {}
+    Countries: {}
     Elections: {}
     Election:
       Propositions:
@@ -32,6 +33,7 @@ window.Backoffice =
       'elections/:election_id/:menu_entry/candidacies/:candidacy_id': 'election'
       'elections/:election_id/:menu_entry/candidacies/:candidacy_id/tags/:id': 'election'
       'admins': 'admins'
+      'countries': 'countries'
 
     index: ->
       @.navigate 'elections', true
@@ -58,6 +60,10 @@ window.Backoffice =
       admins = new UsersCollection()
       new Backoffice.Views.Admins.AdminsView(collection: admins)
       admins.fetchAdmins()
+    countries: ->
+      countries = new CountriesCollection()
+      new Backoffice.Views.Countries.CountriesView(collection: countries)
+      countries.fetch()
   )
 
 $ ->
