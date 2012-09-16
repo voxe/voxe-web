@@ -70,7 +70,7 @@ platform/application.js: platform/application-f98262c67fd3cd96ac2b682f761812f3.j
 touch.js: touch-57e2b9afc27b640eaaf78f99eb6c05d9.js
 touch/application.js: touch/application-a60164267ec5e8b0629ff1df7c9aa1f7.js
 touch/views/application.js: touch/views/application-99cc860031fb60680e2670c73df666af.js
-web.js: web-aee5e0afa6ed7eb2320e0d3b1ae88bd3.js
+web.js: web-53477be9660bacd1574df5fb211397ab.js
 web/application.js: web/application-cfe97c980c71c6692e12f73f2a8e1e87.js
 web/views/application.js: web/views/application-ca3da560d3230537b8c545d3c77a339f.js
 webviews.js: webviews-95e4868d7ab1d548739fda716f02a356.js
@@ -86,6 +86,6 @@ mobile/application.css: mobile/application-cdc94d6d477c1bd492dcdabe334466ad.css
 platform.css: platform-8ba268a999bbadf12d3015d535d2d686.css
 touch.css: touch-203e568c4d1bac6514f295b1d4b6e26e.css
 touch/application.css: touch/application-fe3274063560caa2ea101a200aaca136.css
-web.css: web-cd57080cf23e5a12631265c4b4adb6b0.css
+web.css: web-5fccc8a386ef1916d29b489c698b4a32.css
 webviews.css: webviews-a8ae7bb09b21a68a65d35596855e7834.css
 webviews/application.css: webviews/application-a8ae7bb09b21a68a65d35596855e7834.css
