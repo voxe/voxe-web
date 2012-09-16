@@ -4,5 +4,17 @@
       %label(for="election-date") Election date
       .input
         %input(type="date" name="election_date"){value: @election.get('date')}
-        %span.help-block Eg: 2012-04-22
-      %input.btn.primary(type="submit" value="Save changes")
+        %span.help-block Eg: 22/04/12
+    .clearfix
+      %label(for="election-country") Election country
+      .input
+        %select#countries_select(name="election_country")
+          %option Choose a country
+          - for country in @countries.models
+            - if @election.get('country')['namespace'] == country.get('namespace')
+              %option{value: country.get('namespace'), selected: 'selected'}
+                = country.get("name")
+            - else
+              %option{value: country.get('namespace')}
+                = country.get("name")
+    %input.btn.primary(type="submit" value="Save changes")

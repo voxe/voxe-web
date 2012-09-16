@@ -113,7 +113,7 @@ class window.ElectionModel extends Backbone.Model
   sync: (method, model, options) ->
     options ||= {}
     if method is 'update'
-      modelData = ['published', 'date']
+      modelData = ['published', 'date', 'country_namespace']
       params =
         type: 'PUT'
         dataType: 'json'

@@ -6,6 +6,7 @@ class Election
   field :namespace, type: String
   field :published, type: Boolean, default: false
   field :date, type: Date
+  attr_reader :country_namespace
   
   # relations
   belongs_to :parent_election, class_name: 'Election'
@@ -48,6 +49,12 @@ class Election
       array.insert(1, array.delete_at(9)) # sarkozy
     end
     array
+  end
+
+  def country_namespace= namespace
+    @country_namespace = namespace
+    self.country = Country.where(namespace: @country_namespace).first
+    @country_namespace
   end
 
 end

@@ -9,6 +9,10 @@ class Backoffice.Views.Election.InformationsView extends Backbone.View
 
     @election.bind 'change', @successfullyChanged, @
 
+    @countries = new CountriesCollection()
+    @countries.bind 'reset', @render, @
+    @countries.fetch()
+
     @render()
 
   render: ->
@@ -17,7 +21,10 @@ class Backoffice.Views.Election.InformationsView extends Backbone.View
   submitForm: (event) ->
     event.preventDefault()
 
-    @election.save(date: @$('[name="election_date"]').val())
+    @election.save(
+      date: @$('[name="election_date"]').val(),
+      country_namespace: @$('[name="election_country"] option:selected').val()
+    )
 
   successfullyChanged: ->
     @$(@el).prepend JST['backoffice/templates/success_message']({message: 'Nice !'})
