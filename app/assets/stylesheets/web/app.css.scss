@@ -173,6 +173,13 @@ a.button {
 .page-container {
   width: 980px;
   margin: 30px auto 0 auto;
+
+  .add {
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  }
 }
 
 #pages-container {
@@ -296,6 +303,7 @@ a.button {
   .election:hover {
     border-color: #97A4C4;
   }
+
 }
 
 #candidacies-list-container {
@@ -336,6 +344,7 @@ a.button {
       font-weight: bold;
     }
   }
+
 }
 
 #tags-list {

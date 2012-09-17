@@ -19,12 +19,12 @@ class window.CountriesListView extends Backbone.View
     _.each previous, (country) =>
       if _.indexOf(previous_rendered, country.namespace) == -1
         view = new CountryCellView model: country
-        $(@el).find("#countries-previous-list").append view.render().el
+        $(@el).find("#countries-previous-list").prepend view.render().el
         previous_rendered.push country.namespace
     _.each upcoming, (country) =>
       if _.indexOf(upcoming_rendered, country.namespace) == -1
         view = new CountryCellView model: country
-        $(@el).find("#countries-upcoming-list").append view.render().el
+        $(@el).find("#countries-upcoming-list").prepend view.render().el
         upcoming_rendered.push country.namespace
 
     @

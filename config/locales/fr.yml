@@ -25,6 +25,9 @@ fr:
     send_us_a_missing_proposition: Vous avez identifié une proposition manquante d'un candidat ? Envoyez-la nous !
     learn_more: En savoir plus
     sign_in_or_sign_up_to_add_a_comment: Connectez-vous ou créez un compte pour ajouter un commentaire
+    add_your_country: Ajouter votre pays
+    add_your_election: Ajouter votre election
+    add_a_candidate: Ajouter un candidat
   account:
     not_yet_on_voxe_signup: Pas encore sur Voxe? S'inscrire.
     full_name: Nom complet

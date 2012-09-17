@@ -25,6 +25,9 @@ en:
     send_us_a_missing_proposition: Send us a missing proposition!
     learn_more: Learn more
     sign_in_or_sign_up_to_add_a_comment: Sign in or sign up to add a comment
+    add_your_country: Add your country
+    add_your_election: Add your election
+    add_a_candidate: Add a candidate
   account:
     not_yet_on_voxe_signup: No yet on Voxe? Sign up.
     full_name: Full name
