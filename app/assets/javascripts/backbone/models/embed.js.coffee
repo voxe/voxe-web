@@ -8,7 +8,7 @@ class window.EmbedModel extends Backbone.Model
         @set imageUrl: "http://img.youtube.com/vi/#{@youtube}/hqdefault.jpg"
       when "qunb"
         @qunb = @get("url").match('qunb.com/Website.html#!Viz:([0-9]+)')[1]
-        @set imageUrl: "http://images.qunb.com/viz/#{@qunb}?size=thumb"
+        @set imageUrl: "http://qunb.viz.s3.amazonaws.com/#{@qunb}-thumb.png"
   type: ->
     @get "type"
     
