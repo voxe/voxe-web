@@ -15,7 +15,7 @@ class window.ElectionsCollection extends Backbone.Collection
 
   filterByCountry: (countryNamespace) ->
     filtered = _.filter @models, (election) =>
-      election.attributes.country.namespace == countryNamespace
+      election.attributes.country and election.attributes.country.namespace == countryNamespace
     proxy = @
     if _.any(filtered)
       proxy.selectedCountry = _.first(filtered).attributes.country
