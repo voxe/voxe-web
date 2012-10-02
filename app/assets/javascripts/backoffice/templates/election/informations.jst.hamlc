@@ -11,7 +11,7 @@
         %select#countries_select(name="election_country")
           %option Choose a country
           - for country in @countries.models
-            - if @election.get('country')['namespace'] == country.get('namespace')
+            - if @election.get('country') and @election.get('country')['namespace'] == country.get('namespace')
               %option{value: country.get('namespace'), selected: 'selected'}
                 = country.get("name")
             - else
