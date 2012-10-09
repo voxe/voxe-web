@@ -23,8 +23,9 @@
             .category= t "comparator.upcoming_elections"
             #countries-upcoming-list
               .country
-                %img{src: "https://voxe.s3.amazonaws.com/countries/add.jpg"}
-                .name= t "comparator.add_your_country"
+                = link_to "https://docs.google.com/spreadsheet/viewform?fromEmail=true&formkey=dFRwZWdTMTFZQTc5UHhBeHZKTkwxaFE6MQ" do
+                  %img{src: "https://voxe.s3.amazonaws.com/countries/add.jpg"}
+                  .name= t "comparator.add_your_country"
             .clear
             .category= t "comparator.previous_elections"
             #countries-previous-list
@@ -39,9 +40,10 @@
               = t "comparator.choose_an_election"
           #elections-list
           .add
-            %img{src: "https://voxe.s3.amazonaws.com/elections/add.jpg"}
-            %br/
-            = t "comparator.add_your_election"
+            = link_to "https://docs.google.com/a/voxe.org/spreadsheet/viewform?fromEmail=true&formkey=dHJLX29POG05d04tR1loaE1ZaVFrVXc6MQ" do
+              %img{src: "https://voxe.s3.amazonaws.com/elections/add.jpg"}
+              %br/
+              = t "comparator.add_your_election"
                     
     .page#candidacies
       .page-container
@@ -51,10 +53,10 @@
               3.
               = t"comparator.choose_two_candidates"
           #candidacies-list
-          .add
-            %img{src: "https://voxe.s3.amazonaws.com/candidates/add.jpg"}
-            %br/
-            = t "comparator.add_a_candidate"
+          / .add
+          /   %img{src: "https://voxe.s3.amazonaws.com/candidates/add.jpg"}
+          /   %br/
+          /   = t "comparator.add_a_candidate"
             
     .page#tags
       .page-container
