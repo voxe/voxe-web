@@ -70,7 +70,7 @@ platform/application.js: platform/application-67d4c912cfbd7a96d41fa1471db2e36b.j
 touch.js: touch-01cb2194a7103f936bbe198d4f648172.js
 touch/application.js: touch/application-a60164267ec5e8b0629ff1df7c9aa1f7.js
 touch/views/application.js: touch/views/application-99cc860031fb60680e2670c73df666af.js
-web.js: web-2b0914a479f6be8164366230b55344ee.js
+web.js: web-80150b7a4ed0cab100be2623ccf46c84.js
 web/application.js: web/application-cfe97c980c71c6692e12f73f2a8e1e87.js
 web/views/application.js: web/views/application-ca3da560d3230537b8c545d3c77a339f.js
 webviews.js: webviews-95e4868d7ab1d548739fda716f02a356.js
