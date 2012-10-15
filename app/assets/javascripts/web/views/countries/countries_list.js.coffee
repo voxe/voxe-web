@@ -13,18 +13,17 @@ class window.CountriesListView extends Backbone.View
       else
         previous.push(election.attributes.country)
 
-    previous_rendered = []
-    upcoming_rendered = []
+    rendered = []
 
-    _.each previous, (country) =>
-      if country and _.indexOf(previous_rendered, country.namespace) == -1
-        view = new CountryCellView model: country
-        $(@el).find("#countries-previous-list").prepend view.render().el
-        previous_rendered.push country.namespace
     _.each upcoming, (country) =>
-      if country and _.indexOf(upcoming_rendered, country.namespace) == -1
+      if country and _.indexOf(rendered, country.namespace) == -1
         view = new CountryCellView model: country
         $(@el).find("#countries-upcoming-list").prepend view.render().el
-        upcoming_rendered.push country.namespace
+        rendered.push country.namespace
+    _.each previous, (country) =>
+      if country and _.indexOf(rendered, country.namespace) == -1
+        view = new CountryCellView model: country
+        $(@el).find("#countries-previous-list").prepend view.render().el
+        rendered.push country.namespace
 
     @
