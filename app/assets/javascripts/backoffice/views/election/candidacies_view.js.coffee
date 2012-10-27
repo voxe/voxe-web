@@ -31,7 +31,6 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
     $('.name', form).autocomplete
       source: (request, response) ->
         candidates = new CandidatesCollection()
-        candidates.searchRequest = true
         candidates.bind 'reset', ->
           response @map (candidate) ->
             {label: candidate.toString(), value: candidate.id}

@@ -6,7 +6,4 @@ class window.CandidatesCollection extends Backbone.Collection
     @fetch {url: "/api/v1/candidates/search", data: {name: name}}
 
   parse: (response) ->
-    if @searchRequest
-      response.response
-    else
-      response.response.candidates
+    response.response.candidates
