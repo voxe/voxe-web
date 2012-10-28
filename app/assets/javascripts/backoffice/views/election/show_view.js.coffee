@@ -77,6 +77,31 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
     @updateTag() if @tag
     @updateTagsButtonsVisibility()
 
+    form = $('form.add-tag', @el)
+
+    # autocomplete
+    $('.tag-name', form).autocomplete
+      source: (request, response) ->
+        tags = new TagsCollection()
+        tags.bind 'reset', ->
+          exactTag = (@find (t) -> t.get('name') == request.term)
+          if exactTag
+            $('.tag-id').val(exactTag.id)
+          else
+            $('.tag-id').val('')
+          response @map (tag) ->
+            {label: tag.get('name'), value: tag.id}
+        tags.search request.term
+      select: (event, ui) ->
+        $('.tag-name').val ui.item.label
+        $('.tag-id').val(ui.item.value)
+        return false
+      focus: (event, ui) ->
+        $('.tag-name').val ui.item.label
+        return false
+
+    @
+
   renderPropositions: =>
     @addPropositionsList()
 
@@ -146,6 +171,10 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
             @election.addTag tag
         @
       tag.fetch()
+      @addSubTag tag
+      $('#modal-tags').modal('hide')
+      @initMoveTags()
+      $('.tag-name', form).val("")
     else # create
       tagName = tag_id = $('.tag-name', form).val()
       tag = new TagModel()
