@@ -1,0 +1,16 @@
+!!! HTML
+%html
+  %head
+    %title Voxe
+    = stylesheet_link_tag "backoffice/application"
+    = csrf_meta_tags
+  %body
+    .container
+      .content
+        - if notice
+          .alert-message.success
+            %p= notice
+        - elsif alert
+          .alert-message.error
+            %p= alert
+        = yield
