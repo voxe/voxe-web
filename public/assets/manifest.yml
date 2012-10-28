@@ -62,7 +62,7 @@ web/icons/twitter.png: web/icons/twitter-0a5c2730fa3a300c94040968f967d804.png
 web/icons/youtube.png: web/icons/youtube-4b37b35ce68a1c22f66118f0a83dc934.png
 web/iphone.png: web/iphone-89054ea658a6130ccd75677745c2b083.png
 web/thanks/bubble.png: web/thanks/bubble-a0fa5188e8d3d09183a1d6a5be029ab2.png
-backoffice/application.js: backoffice/application-86552bdbfd7b14ade98c0816f83663e4.js
+backoffice/application.js: backoffice/application-76434a38030d8914111097fc7d1438ec.js
 embed/elections.js: embed/elections-e421fafbedbffa2a9835cc828a9d0e39.js
 embed/elections/views/application.js: embed/elections/views/application-6dcd5e9419f3a062d2e6267f40232cfe.js
 embed/live.js: embed/live-26c2aa7a8fde406de05a7b93a0ba6e06.js
