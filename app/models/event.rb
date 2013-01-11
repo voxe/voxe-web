@@ -23,7 +23,6 @@ class Event
   #
   # Indexes
   #
-  index [[:name, Mongo::ASCENDING], [:created_at, Mongo::ASCENDING]]
-  index [[:name, Mongo::ASCENDING], [:created_at, Mongo::DESCENDING]]
+  index({ name: 1, created_at: -1 }, { background: true })
 
 end

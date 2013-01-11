@@ -1,14 +1,23 @@
 development:
-  host: localhost
-  database: voxe
+  sessions:
+    default:
+      database: voxe
+      hosts:
+        - localhost:27017
 
 test:
-  host: localhost
-  database: joinplato_test
-
-# set these environment variables on your prod server
-production:
-  uri: <%= ENV['MONGOHQ_URL'] %>
+  sessions:
+    default:
+      database: voxe_test
+      hosts:
+        - localhost:27017
 
 staging:
-  uri: <%= ENV['MONGOHQ_URL'] %>
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
+
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>

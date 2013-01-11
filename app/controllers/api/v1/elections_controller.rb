@@ -25,7 +25,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     @election.contributors << current_user
 
     if @election.save
-      render 'api/v1/elections/show.rabl', status: :created
+      render 'api/v1/elections/show', status: :created
     else
       render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -36,7 +36,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     if @election.update_attributes params[:election]
       #expire_action action: "show", id: @election.id
       
-      render 'api/v1/elections/show.rabl', status: :ok
+      render 'api/v1/elections/show', status: :ok
     else
       render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -53,7 +53,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
     if @election_tag.save
       #expire_action action: "show", id: @election.id
-      render 'api/v1/elections/show.rabl', status: :created
+      render 'api/v1/elections/show', status: :created
     else
       render text: {errors: @election_tag.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -66,7 +66,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
 
     if @election.save
       #expire_action action: "show", id: @election.id
-      render 'api/v1/elections/show.rabl', status: :created
+      render 'api/v1/elections/show', status: :created
     else
       render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -86,7 +86,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
       et = ElectionTag.where(election_id: @election.id, tag_id: tag.id).first
       et.update_attribute :position, index+1
     end
-    render 'api/v1/elections/show.rabl', status: :ok
+    render 'api/v1/elections/show', status: :ok
   end
 
   # POST /api/v1/elections/1/addcontributor
@@ -95,7 +95,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     @election.contributors << @user
     @election.save
     if @election.save
-      render 'api/v1/users/show.rabl'
+      render 'api/v1/users/show'
     else
       render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -111,7 +111,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     @user = User.find(params[:userId])
     @election.ambassadors << @user
     if @election.save
-      render 'api/v1/users/show.rabl'
+      render 'api/v1/users/show'
     else
       render text: {errors: @user.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end

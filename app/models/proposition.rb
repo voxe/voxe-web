@@ -8,7 +8,7 @@ class Proposition
   has_and_belongs_to_many :tags, inverse_of: nil
   
   # indexes
-  index [[:candidacy_id, Mongo::ASCENDING], [:tag_ids, Mongo::ASCENDING]]
+  index({ candidacy_id: 1, tag_ids: 1 }, { background: true })
 
   validates_presence_of :candidacy, :tags, :text
 
@@ -37,7 +37,7 @@ class Proposition
   end
 
   def add_tag name
-    unless tag = Tag.first(conditions: {name: name})
+    unless tag = Tag.where({name: name}).first
       tag = Tag.create name: name
     end
     self.tags << tag
@@ -47,13 +47,14 @@ class Proposition
 
   def add_parent_tags
     return false unless candidacy and candidacy.election
-    for tag in self.tags do
+    all_tags = self.tags.to_a
+    for tag in all_tags do
       election_tag = candidacy.election.election_tags.where(tag_id: tag.id).first
       parent_tag = election_tag.try(:parent_tag)
       if parent_tag and not tags.include?(parent_tag)
-        self.tags << parent_tag
+        all_tags << parent_tag
       end
     end
-    self.tags
+    self.tags = all_tags
   end
 end

@@ -8,7 +8,7 @@ class Api::V1::CountriesController < Api::V1::ApplicationController
   # POST /api/v1/countries
   def create
     if @country.save
-      render 'api/v1/countries/show.rabl', status: :created
+      render 'api/v1/countries/show', status: :created
     else
       render text: {errors: @country.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end

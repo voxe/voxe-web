@@ -6,7 +6,7 @@ class Api::V1::CandidaciesController < Api::V1::ApplicationController
   # PUT /api/v1/candidacies/1
   def update
     if @candidacy.update_attributes params[:candidacy]
-      render 'api/v1/candidacies/show.rabl', status: :ok
+      render 'api/v1/candidacies/show', status: :ok
     else
       render json: {errors: @candidacy.errors}, status: :unprocessable_entity
     end
@@ -18,7 +18,7 @@ class Api::V1::CandidaciesController < Api::V1::ApplicationController
     @candidacy.organization = organization
 
     if @candidacy.save
-      render 'api/v1/candidacies/show.rabl', status: :ok
+      render 'api/v1/candidacies/show', status: :ok
     else
       render json: {errors: @candidacy.errors}, status: :unprocessable_entity
     end

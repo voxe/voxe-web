@@ -1,13 +1,13 @@
 Joinplato::Application.routes.draw do
   
   # redirect www to .
-  match "/" => redirect {|params| "http://voxe.org" }, :constraints => {:subdomain => "www"}
-  match "/*path" => redirect {|params| "http://voxe.org/#{params[:path]}" }, :constraints => {:subdomain => "www"}
+  match "/" => redirect("http://voxe.org"), :constraints => {:subdomain => "www"}
+  match "/*path" => redirect {|params, request| "http://voxe.org/#{params[:path]}" }, :constraints => {:subdomain => "www"}
   
   # 2008
-  match "/election-municipales" => redirect {|params| "http://france-municipales-2008.voxe.org/election-municipales" }
-  match "/election-municipales/" => redirect {|params| "http://france-municipales-2008.voxe.org/election-municipales" }
-  match "/election-municipales/*path" => redirect {|params| "http://france-municipales-2008.voxe.org/election-municipales/#{params[:path]}" }
+  match "/election-municipales" => redirect("http://france-municipales-2008.voxe.org/election-municipales")
+  match "/election-municipales/" => redirect("http://france-municipales-2008.voxe.org/election-municipales")
+  match "/election-municipales/*path" => redirect {|params, request| "http://france-municipales-2008.voxe.org/election-municipales/#{params[:path]}" }
   
   # sitemap
   match 'sitemap.xml' => 'web/sitemap#index', format: 'xml'

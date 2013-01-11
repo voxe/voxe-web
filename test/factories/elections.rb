@@ -3,9 +3,9 @@ FactoryGirl.define do
     sequence(:name) {|n| "Election #{n}" }
     sequence(:namespace) {|n| "election#{n}" }
     published true
-    after_build do |election|
+    after(:create) do |election|
       5.times do
-        election.candidacies << Factory(:candidacy, election: election)
+        FactoryGirl.create(:candidacy, election: election)
       end
     end
   end

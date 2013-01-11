@@ -41,9 +41,11 @@ class Api::V1::ElectionsControllerTest < ActionController::TestCase
 
   test "should add a tag for an election" do
     @tag = FactoryGirl.create(:tag)
-    post :addtag, id: @election.id.to_s, tagId: @tag.to_param, format: 'json'
+    post :addtag, id: @election.id.to_s, tagId: @tag.id.to_s, format: 'json'
     assert_response :success
-    assert assigns(:election).root_election_tags.collect {|et| et.tag.name}.include? @tag.name
+    assert assigns(:election_tag).persisted?
+    assert_equal @election.id.to_s, assigns(:election_tag).election.id.to_s
+    assert_equal @tag.id.to_s, assigns(:election_tag).tag.id.to_s
   end
 
   test "should search some elections" do

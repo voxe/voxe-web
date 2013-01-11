@@ -6,11 +6,8 @@ class ActiveSupport::TestCase
 
   teardown :clean_mongodb
   def clean_mongodb
-    Mongoid.database.collections.each do |collection|
-      unless collection.name =~ /^system\./
-        collection.remove
-      end
-    end
+    # Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
+    DatabaseCleaner.clean
   end
 
 end

@@ -1,5 +1,5 @@
 <% if params[:callback].blank? %>
-  <%= render 'api/v1/response.json', response: response %>
+  <%= render 'api/v1/response', response: response %>
 <% else %>
-  <%= params[:callback] %>(<%= render 'api/v1/response.json', response: response %>);
+  <%= params[:callback] %>(<%= render 'api/v1/response', response: response %>);
 <% end %>

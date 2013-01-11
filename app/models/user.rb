@@ -12,8 +12,8 @@ class User
   #
 
   ## Database authenticatable
-  field :email,              :type => String, :null => false
-  field :encrypted_password, :type => String, :null => false
+  field :email,              :type => String, :default => ''
+  field :encrypted_password, :type => String, :default => ''
 
   # Token authenticatable
   field :authentication_token, :type => String
@@ -38,7 +38,7 @@ class User
   field :facebook_token,       type: String
   attr_accessible :name, :email, :password, :password_confirmation,
     :remember_me, :facebook_uid, :facebook_token
-  index :facebook_uid
+  index({ facebook_uid: 1 }, { background: true })
 
   #
   # Validations

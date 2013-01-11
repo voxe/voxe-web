@@ -11,7 +11,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     )
 
     if @proposition.save
-      render 'api/v1/propositions/show.rabl'
+      render 'api/v1/propositions/show'
     else
       render text: {errors: @proposition.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -56,7 +56,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     end
 
     if @proposition.save
-      render 'api/v1/propositions/show.rabl'
+      render 'api/v1/propositions/show'
     else
       render text: {errors: @proposition.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -74,7 +74,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     @comment.user = current_user
     
     if @comment.save
-      render 'api/v1/comments/show.rabl'
+      render 'api/v1/comments/show'
     else
       render text: {errors: @comment.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -90,7 +90,7 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     transform_youtube_url_shortner_links
     @embed = @proposition.embeds.build url: params[:url], title: params[:title]
     if @embed.save
-      render 'api/v1/propositions/show.rabl'
+      render 'api/v1/propositions/show'
     else
       render text: {errors: @embed.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end

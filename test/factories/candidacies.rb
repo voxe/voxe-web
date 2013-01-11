@@ -1,12 +1,17 @@
 FactoryGirl.define do
   factory :candidacy do
-    after_create do |candidacy|
-      published true
-      Factory(:organization, candidacies: [candidacy])
+    after(:create) do |candidacy|
+      organization = FactoryGirl.build(:organization)
+      organization.candidacies = [candidacy]
+      organization.save!
       10.times do
-        Factory(:proposition, candidacy: candidacy)
+        proposition = FactoryGirl.build(:proposition)
+        proposition.candidacy = candidacy
+        proposition.save!
       end
-      Factory(:candidate, candidacies: [candidacy])
+      candidate = FactoryGirl.build(:candidate)
+      candidate.candidacies = [candidacy]
+      candidate.save!
     end
   end
 end

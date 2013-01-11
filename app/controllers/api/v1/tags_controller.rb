@@ -3,7 +3,7 @@ class Api::V1::TagsController < Api::V1::ApplicationController
   # POST /api/v1/tags
   def create
     if @tag.save
-      render 'api/v1/tags/show.rabl', status: :created
+      render 'api/v1/tags/show', status: :created
     else
       render text: {errors: @tag.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
@@ -25,7 +25,7 @@ class Api::V1::TagsController < Api::V1::ApplicationController
         expire_action controller: "api/v1/elections", action: "show", id: @tag.election
       end
       
-      render 'api/v1/tags/show.rabl'
+      render 'api/v1/tags/show'
     else
       render text: {errors: @tag.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
     end
