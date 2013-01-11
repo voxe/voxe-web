@@ -15,9 +15,9 @@ test:
 staging:
   sessions:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
 
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
