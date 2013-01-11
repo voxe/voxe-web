@@ -35,7 +35,7 @@ class Webviews::ComparisonsController < Webviews::ApplicationController
     end
     
     # election tag
-    @election_tag = ElectionTag.first conditions: {election_id: @election.id, tag_id: @tag.id}
+    @election_tag = ElectionTag.where({election_id: @election.id, tag_id: @tag.id}).first
     return render text: "empty" unless @election_tag
     
     conditions = {}

@@ -7,7 +7,7 @@ class Api::V1::Formatters::ElectionTags
   end
   
   def root_tags_json
-    root_tags = ElectionTag.all(conditions: {election_id: election.parent_election ? election.parent_election.id : election.id, parent_tag_id: nil}).includes(:tag)
+    root_tags = ElectionTag.where({election_id: election.parent_election ? election.parent_election.id : election.id, parent_tag_id: nil}).includes(:tag)
     root_tags.collect do |election_tag|
       tag_json election_tag
     end

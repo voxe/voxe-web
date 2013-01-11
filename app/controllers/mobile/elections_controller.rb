@@ -22,7 +22,7 @@ class Mobile::ElectionsController < Mobile::ApplicationController
     
     # tag
     begin
-      @tag = Tag.first conditions: {namespace: params[:tag]}
+      @tag = Tag.where({namespace: params[:tag]}).first
     rescue
       return render text: "invalid tag"
     end
@@ -33,7 +33,7 @@ class Mobile::ElectionsController < Mobile::ApplicationController
     @page_title += " | #{@election.name}"
     
     # election tag
-    @election_tag = ElectionTag.first conditions: {election_id: @election.id, tag_id: @tag.id}
+    @election_tag = ElectionTag.where({election_id: @election.id, tag_id: @tag.id}).first
     return render text: "empty" unless @election_tag
         
     propositions = Proposition.where :candidacy_id.in => @candidacies.collect(&:id),

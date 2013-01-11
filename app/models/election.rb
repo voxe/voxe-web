@@ -24,7 +24,7 @@ class Election
   scope :published, where(published: true)
 
   def root_election_tags
-    ElectionTag.all(conditions: {election_id: parent_election ? parent_election.id : self.id, parent_tag_id: nil}).includes(:tag)
+    ElectionTag.where({election_id: parent_election ? parent_election.id : self.id, parent_tag_id: nil}).includes(:tag)
   end
 
   def election_tags
