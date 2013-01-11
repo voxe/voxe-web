@@ -19,7 +19,7 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
       get :search, electionId: @election.to_param,
         tagIds: Tag.first.to_param,
         candidacyIds: @election.candidacies.collect(&:to_param).join(','),
-        user_driven: "1",
+        userDriven: "1",
         format: 'json'
     end
 
