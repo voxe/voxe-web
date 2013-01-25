@@ -16,8 +16,8 @@
     = render "layouts/partials/chartbeat_header"
     
   %body{:class => "#{touch_device}"}
-    = render 'layouts/partials/facebook.html'
+    = render partial: 'layouts/partials/facebook', formats: [:html]
     = yield
-    = render 'layouts/partials/twitter.html'
+    = render partial: 'layouts/partials/twitter', formats: [:html]
     = render "layouts/partials/chartbeat_body"
     
