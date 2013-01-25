@@ -188,4 +188,19 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "an user should favorite a proposition" do
+    assert_difference('@proposition.favorite_users.count') do
+      post :favorite, id: @proposition.id.to_s, format: 'json'
+    end
+    assert_response :success
+  end
+
+  test "an user should unfavorite a proposition" do
+    UserAction.create(user_id: @user.id, proposition_id: @proposition.id, action: 'favorite')
+    assert_difference('@proposition.favorite_users.count', -1) do
+      delete :favorite, id: @proposition.id.to_s, format: 'json'
+    end
+    assert_response :success
+  end
+
 end

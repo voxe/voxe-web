@@ -247,3 +247,29 @@
 
 %pre
   http://voxe.org/api/v1/propositions/{id}/against
+
+.page-header
+  %h2
+    %small POST
+    \/propositions/:id/favorite
+
+%p Make the signed user to favorite this proposition
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/propositions/{id}/favorite
+
+.page-header
+  %h2
+    %small DELETE
+    \/propositions/:id/favorite
+
+%p Make the signed user to unfavorite this proposition
+
+%p
+  %span.label EXAMPLE
+
+%pre
+  http://voxe.org/api/v1/propositions/{id}/favorite

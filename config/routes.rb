@@ -70,6 +70,12 @@ Joinplato::Application.routes.draw do
           post :addembed
           delete :removeembed
           delete :removecomment
+          post :support
+          delete :support
+          post :against
+          delete :against
+          post :favorite
+          delete :favorite
         end
       end
 

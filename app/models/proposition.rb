@@ -52,6 +52,10 @@ class Proposition
     self.user_actions.where(action: 'against')
   end
 
+  def favorite_users
+    self.user_actions.where(action: 'favorite')
+  end
+
   private
 
   def add_parent_tags
