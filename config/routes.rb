@@ -5,9 +5,9 @@ Joinplato::Application.routes.draw do
   match "/*path" => redirect {|params, request| "http://voxe.org/#{params[:path]}" }, :constraints => {:subdomain => "www"}
   
   # 2008
-  match "/election-municipales" => redirect("http://france-municipales-2008.voxe.org/election-municipales")
-  match "/election-municipales/" => redirect("http://france-municipales-2008.voxe.org/election-municipales")
-  match "/election-municipales/*path" => redirect {|params, request| "http://france-municipales-2008.voxe.org/election-municipales/#{params[:path]}" }
+  match "/election-municipales" => redirect('/')
+  match "/election-municipales/" => redirect('/')
+  match "/election-municipales/*path" => redirect('/')
   
   # sitemap
   match 'sitemap.xml' => 'web/sitemap#index', format: 'xml'
