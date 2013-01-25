@@ -172,4 +172,20 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     end
     assert_response :success
   end
+
+  test "an user should be against a proposition" do
+    assert_difference('@proposition.against_users.count') do
+      post :against, id: @proposition.id.to_s, format: 'json'
+    end
+    assert_response :success
+  end
+
+  test "an user should remove his against to a proposition" do
+    UserAction.create(user_id: @user.id, proposition_id: @proposition.id, action: 'against')
+    assert_difference('@proposition.against_users.count', -1) do
+      delete :against, id: @proposition.id.to_s, format: 'json'
+    end
+    assert_response :success
+  end
+
 end

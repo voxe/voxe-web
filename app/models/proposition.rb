@@ -48,6 +48,10 @@ class Proposition
     self.user_actions.where(action: 'support')
   end
 
+  def against_users
+    self.user_actions.where(action: 'against')
+  end
+
   private
 
   def add_parent_tags
