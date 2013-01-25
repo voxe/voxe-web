@@ -13,4 +13,7 @@ child @proposition do
   child embeds: :embeds do
     attributes :id, :title, :url, :provider_name, :type, :html
   end
+  node :supporters do |proposition|
+    {count: proposition.support_users.count}
+  end
 end

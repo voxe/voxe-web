@@ -51,6 +51,7 @@ class User
   has_and_belongs_to_many :elections
   has_and_belongs_to_many :ambassador_elections, class_name: 'Election', inverse_of: :ambassadors
   has_and_belongs_to_many :contributor_elections, class_name: 'Election', inverse_of: :contributors
+  has_many :user_actions
 
   #
   # Callbacks

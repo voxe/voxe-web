@@ -117,6 +117,20 @@ class Api::V1::PropositionsController < Api::V1::ApplicationController
     end
   end
 
+  # POST OR DELETE /api/v1/propositions/1/support
+  def support
+    if request.post?
+      user_action = UserAction.find_or_create_by(user_id: current_user.id, proposition_id: @proposition.id, action: 'support')
+      head :ok
+    elsif request.delete?
+      user_action = UserAction.find_by(user_id: current_user.id, proposition_id: @proposition.id, action: 'support')
+      user_action.try :destroy
+      head :ok
+    else
+      render text: {errors: "Wrong HTTP method"}.to_json, status: :unprocessable_entity, layout: 'api_v1'
+    end
+  end
+
   protected
     def transform_youtube_url_shortner_links
       params[:url] = params[:url].gsub /^http:\/\/youtu.be\/(\w+)$/, 'http://www.youtube.com/watch?v=\\1'

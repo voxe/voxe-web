@@ -157,4 +157,19 @@ class Api::V1::PropositionsControllerTest < ActionController::TestCase
     assert_equal title, assigns(:embed).title
     assert_equal link, assigns(:embed).url
   end
+
+  test "an user should support a proposition" do
+    assert_difference('@proposition.support_users.count') do
+      post :support, id: @proposition.id.to_s, format: 'json'
+    end
+    assert_response :success
+  end
+
+  test "an user should unsupport a proposition" do
+    UserAction.create(user_id: @user.id, proposition_id: @proposition.id, action: 'support')
+    assert_difference('@proposition.support_users.count', -1) do
+      delete :support, id: @proposition.id.to_s, format: 'json'
+    end
+    assert_response :success
+  end
 end

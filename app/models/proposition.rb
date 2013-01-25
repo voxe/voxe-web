@@ -15,6 +15,7 @@ class Proposition
   embeds_many :embeds, as: :embedable
   embeds_many :comments
   accepts_nested_attributes_for :embeds, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
+  has_many :user_actions
 
   before_save :add_parent_tags
 
@@ -41,6 +42,10 @@ class Proposition
       tag = Tag.create name: name
     end
     self.tags << tag
+  end
+
+  def support_users
+    self.user_actions.where(action: 'support')
   end
 
   private
