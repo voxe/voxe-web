@@ -57,6 +57,9 @@ class Ability
           can :manage, Proposition, candidacy: { election: { contributor_ids: user.id } }
           can :destroy, Comment, proposition: { candidacy: { election: { contributor_ids: user.id } } }
         end
+        if user.owned_candidacies.exists?
+          # TODO Special Backoffice for candidates
+        end
       end
     end
     

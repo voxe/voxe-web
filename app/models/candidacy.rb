@@ -13,6 +13,7 @@ class Candidacy
   belongs_to :organization
   has_many   :propositions
   has_and_belongs_to_many :candidates
+  belongs_to :owner, class_name: 'User'
 
   #
   # Validations
