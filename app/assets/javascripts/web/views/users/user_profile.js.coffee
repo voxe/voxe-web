@@ -7,6 +7,7 @@ class window.UserProfileView  extends Backbone.View
   events:
     "click .connect": "connect"
     "click .logout": "logout"
+    "click .edit-profile": "edit"
     
   logout: (e)->
     e.preventDefault()
@@ -19,7 +20,13 @@ class window.UserProfileView  extends Backbone.View
     
     view = new SessionView(model: app.models.user)
     view.render()
-  
+
+  edit: (e) ->
+    e.preventDefault()
+
+    view = new EditUserProfileView(model: app.models.user)
+    view.render()
+
   initialize: ->
     @model.bind "change", @render, @
     

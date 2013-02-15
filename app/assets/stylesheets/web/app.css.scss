@@ -539,7 +539,7 @@ a.button {
   }
 }
 
-.proposition, .new-user, .new-session {
+.proposition, .new-user, .new-session, .edit-profile {
   .ribbon {
     font-weight: 300;
     background: #EDEFF4;
@@ -656,4 +656,11 @@ a.button {
   text-align: center;
   cursor: pointer;
   line-height: 45px;
+}
+
+#edit-profile {
+  .facepile {
+    margin: 15px 0 5px 0;
+    text-align: center;
+  }
 }

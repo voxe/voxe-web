@@ -90,6 +90,7 @@ Joinplato::Application.routes.draw do
           get :search
           get :verify
           get :self
+          put :self
           get :facebookconnect
           get :admins
         end

@@ -176,7 +176,7 @@
   :plain
     {{#user.name}}
       {{#user.picture}}<img src="{{user.picture}}" width="16" height="16" valign="middle" />{{/user.picture}}
-      {{user.name}} <a href="#" title="Logout" class="logout">[x]</a>
+      <a href="#" title="Edit my profile" class="edit-profile">{{user.name}}</a> <a href="#" title="Logout" class="logout">[x]</a>
     {{/user.name}}
 
     {{^user.name}}
@@ -211,4 +211,17 @@
     
     <div class="facepile">
       <iframe src="//www.facebook.com/plugins/facepile.php?href=https%3A%2F%2Fwww.facebook.com%2Fjoinvoxe&amp;&amp;action&amp;size=small&amp;max_rows=1&amp;width=300&amp;colorscheme=light&amp;appId=339716929372553" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px;" width="400px" height="60px" allowTransparency="true"></iframe>
+    </div>
+
+%script#user-edit-profile-template{type: "text/html"}
+  :plain
+    <div class="ribbon">#{t 'account.edit_my_profile'}</div>
+
+    <div class="fields">
+      <div class="field"><input type='text' name='name' placeholder='#{t 'account.full_name'}' value="{{user.name}}" /></div>
+      <div class="field"><input type='text' name='email' placeholder='#{t 'account.email_address'}' value="{{user.email}}" /></div>
+      <div class="field">Is anonymous?<input type="checkbox" name="is_anonymous" {{#user.is_anonymous}}checked{{/user.is_anonymous}}/></div>
+
+      <div class="button"><a href="#" class="button save">OK</a></div>
+      <ul class="errors"></ul>
     </div>

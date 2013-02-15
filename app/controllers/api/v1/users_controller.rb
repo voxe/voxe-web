@@ -3,6 +3,12 @@ class Api::V1::UsersController < Api::V1::ApplicationController
   # GET /api/v1/users/self
   def self
     @user = current_user
+    if request.put?
+      @user.name = params[:name]
+      @user.email = params[:email]
+      @user.is_anonymous = params[:is_anonymous]
+      @user.save!
+    end
     render 'api/v1/users/show'
   end
   

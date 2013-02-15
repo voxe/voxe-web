@@ -36,6 +36,7 @@ class User
   field :name,                 type: String
   field :facebook_uid,         type: String
   field :facebook_token,       type: String
+  field :is_anonymous,         type: Boolean, default: false
   attr_accessible :name, :email, :password, :password_confirmation,
     :remember_me, :facebook_uid, :facebook_token
   index({ facebook_uid: 1 }, { background: true })
