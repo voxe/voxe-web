@@ -11,3 +11,4 @@ public/uploads
 public/assets
 !public/assets/manifest.yml
 ~/
+.ruby-version
