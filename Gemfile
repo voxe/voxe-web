@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 ruby '1.9.3'
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 group :development do
   # http://documentcloud.github.com/jammit/
@@ -34,15 +34,11 @@ group :development, :test do
   gem 'ruby-debug19'
 end
 
-gem "haml-rails"
-
 gem 'jquery-rails'
 
 # MongoDB adapter and an optimizer for MongoDB
-# gem "mongoid", "~> 2.3"
-# gem "bson_ext", "~> 1.4"
-gem "mongoid"
-gem "bson_ext"
+gem 'mongoid', '~> 3.0.0'
+gem 'bson_ext'
 
 # Upload system
 gem 'carrierwave'
@@ -80,11 +76,9 @@ gem 'acts_as_list_mongoid'
 gem 'rabl'
 
 # templates
-gem 'haml'
-gem 'coffee-filter'
+gem 'haml-rails'
 gem 'haml_coffee_assets'
 gem 'eco'
-gem 'haml-coffee'
 gem 'mustache-trimmer', :git => 'https://github.com/josh/mustache-trimmer.git'
 
 # http://voxe.airbrake.io/
