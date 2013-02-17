@@ -2,17 +2,62 @@
   = render "web/static/nav"
     
   .static-page
-    %h1 Team
-        
-    - @people.each do |person|
-      .person
-        - unless person['namespace'].blank?
-          .picture= image_tag "web/about/team/#{person['namespace']}.jpg", width: "80px"
-        .content
-          .name
-            = person['name']
-            %span= person['info']
-          - if person['description']
-            .description= person['description'].html_safe
+    %h1 Team Voxe 2013
 
-    %p Photos: Thomas Salva
+    .person
+      .picture= image_tag "web/about/team/edouards.jpg", width: "80px"
+      .content
+        .name
+          Edouard Schlumberger
+        .description Co-founder
+
+    .person
+      .picture= image_tag "web/about/team/benjaminlsl.jpg", width: "80px"
+      .content
+        .name
+          Benjamin Lan Sun Luk
+        .description Tech Ninja
+
+    .person
+      .picture= image_tag "web/about/team/charlotter.jpg", width: "80px"
+      .content
+        .name
+          Charlotte Richard
+        .description Communication Mama
+
+    .person
+      .picture= image_tag "web/about/team/romainl.jpg", width: "80px"
+      .content
+        .name
+          Romain Lalanne
+        .description Data Evangelist
+
+    .person
+      .picture= image_tag "web/about/team/thibaultg.jpg", width: "80px"
+      .content
+        .name
+          Thibault Geoffroy
+        .description Art Guru
+
+    .person
+      .picture= image_tag "web/about/team/paulc.jpg", width: "80px"
+      .content
+        .name
+          Paul Chobert
+        .description
+
+    .person
+      .picture= image_tag "web/about/team/juliab.jpg", width: "80px"
+      .content
+        .name
+          Julia Bijaoui
+        .description
+          Partnership Enthusiast
+
+    %h1 Thank you to...
+    %p
+      Pierre Valade, Kat Borlogan, Pierre-Yves Ricau, Benjamin Netter, Anatole Royer, Antoine Maillard, Thomas Salva, Olivier Lambert, Bubble Prod, Videoagency, Sébastien Bourdu.
+
+    %h1 And...
+    %p
+      Elena Ponomareva, Mathilde de Germain, Barbara Lantz, Brigitte Geffroy, Claire Baronnet, François Boisson, Christian Vanizette, Isabelle Karleskind Michel  Thiers, Michèle Bijaoui, Muriel  Imowicz, Richard Lalanne, Thibault  Geffroy, Thomas  Owadenko, Alexandre Dana, Bakari  Sumaila, Benjamin  Pommeraud, camille Strozecki, Lucinda Deurveilher, Pierre-Emmanuel Dutang, Fabien  Rouault, Eventpixr.net, Guillaume Oules, Henry Peyret, Julien  Dussart, Laurent   Hache, Maxime  Delavergne, Ophelia Noor, Quentin Chevrier, Baptiste  Vanpoulle, Yann  Lechelle, Amandine  Springer, Amélie  Carcel, Richard Ying, Alexandre de Schotten, Bastien Jaillot, Gérard  Bijaoui, Céline  Letellier, Romain  Simiand, Cy  Mahe, Edouard Valade, Milena  Dufresne, François  Rouge, Gilles  Bonneau, Gilles  Chan Liat, Florent Sciberras, Lucas Le Provost, Marine  Dulude, Mathilde  Lagrange, Mélanie Collin, Nicolas Bole, Paul  Milon, Pierre-Lou  Dominjon, Sophie  Hardouin, Stéphanie Schwob, Thomas  France, Tristan Silhol, Etienne Watrigant, Sébastien Périer, Yves  Chadeyras, Alexandre Benaim, Anne  Schlumberger, Benjamin  Solins, Cécile  Baquey, Hu  Hu, David Talbot, Delphine  Clerjaud, Fred  Valade, Jérémy  Gallemard, Carmine Guerriero, Hugo  Bléas, Jean-Baptiste Casaux, Héléna  Alves, Margot  Sartorius, Nathalie  d asaro biondo, Sébastien Gruhier, Mathieu Fontaine, Yassine El Ouarzazi, Laboratoire Européen d'Anticipation Politique , Antoine Khativ, Frédérique Pons, Sebastian Harris, Melchior Scholler, Muriel Imowicz, Philippe Imowicz, Thierry Calmette, Frank Biancheri.

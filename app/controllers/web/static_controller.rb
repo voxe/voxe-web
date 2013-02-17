@@ -4,7 +4,6 @@ class Web::StaticController < ApplicationController
   caches_action :team, :about, :how, :press, :apps, :thanks
   
   def team
-    @people = File.open(Rails.root.join('config','team.yml')) { |file| YAML::load(file) }
   end
   
   def about
