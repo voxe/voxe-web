@@ -34,7 +34,7 @@ group :development, :test do
   gem 'ruby-debug19'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '=2.1.4'
 
 # MongoDB adapter and an optimizer for MongoDB
 gem 'mongoid', '~> 3.0.0'
