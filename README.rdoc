@@ -15,8 +15,8 @@ If you need some data, check out chapter "Import Data" below.
 
 == Environment
 
-* Ruby 1.9.2 (use RVM)
-* mongoDB 1.8.X
+* Ruby 1.9.3
+* mongoDB 2.2.X
 * imagemagick
 * heroku
 
@@ -44,12 +44,12 @@ Then:
 To get some data from 2007 French Presidential Election, at the command prompt type:
 
   rake migrate:france2007
-  
+
 If you have access to your staging server, you can also use the voxe custom "heroku-mongo-sync" plugin to get the database we use on this server:
 
   heroku plugins:install http://github.com/voxe/voxe-heroku-mongo-sync.git
   heroku mongo:pull --app voxe
-  
+
 Then, to update the staging server with the production data
 
   heroku mongo:push --app voxe-staging
@@ -70,4 +70,3 @@ Deploying in staging mode:
 
 Or in production mode:
   rake deploy:production
-
