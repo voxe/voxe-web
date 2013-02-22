@@ -51,15 +51,15 @@ class Proposition
   end
 
   def support_users
-    self.user_actions.where(action: 'support')
+    self.user_actions.where(action: 'support').map(&:user)
   end
 
   def against_users
-    self.user_actions.where(action: 'against')
+    self.user_actions.where(action: 'against').map(&:user)
   end
 
   def favorite_users
-    self.user_actions.where(action: 'favorite')
+    self.user_actions.where(action: 'favorite').map(&:user)
   end
 
   private
