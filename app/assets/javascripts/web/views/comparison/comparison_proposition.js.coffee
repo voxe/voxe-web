@@ -1,27 +1,27 @@
 class window.ComparisonPropositionView extends Backbone.View
   
   initialize: ->
-    @showComments = false
+    @commentsDisplayed = false
     @model.comments.bind "reset", @resetComments, @
     @model.bind 'change:commentsCount', @renderCommentsCount, @
 
     @candidacy = app.collections.candidacies.find (ca) => ca.id == @model.get('candidacy').id
-  
+
   className: "proposition"
-  
+
   events:
     "click .comments-count a": "showComments"
     "click .facebook": "facebook"
     "mouseover": "mouseOver"
     "mouseout": "mouseOut"
-    
+
   resetComments: ->
     @.$('.comments-count a').removeClass "indicator"
-    
-  showComments: (e)->
+
+  showComments: (e) ->
     e.preventDefault()
-    unless @showComments
-      @showComments = true
+    unless @commentsDisplayed
+      @commentsDisplayed = true
       view = new CommentsView(model: @model)
       if @model.commentsCount() == 0
         view.render()

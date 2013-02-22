@@ -15,7 +15,7 @@ class window.UserModel extends Backbone.Model
     "/api/v1/users"
   
   parse: (response) ->
-    response.response.user
+    response.response?.user || super
     
   facebookToken: ->
     @get "facebookToken"

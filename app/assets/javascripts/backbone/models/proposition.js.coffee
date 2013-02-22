@@ -38,7 +38,7 @@ class window.PropositionModel extends Backbone.Model
     "/api/v1/propositions/#{@id}"
 
   parse: (response) ->
-    response.response.proposition
+    response.response?.proposition || super
 
   addEmbed: (url, title) ->
     model = @

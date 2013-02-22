@@ -2,8 +2,10 @@
 //= require libs/jquery/jquery.cookie.js
 //= require libs/jquery/jquery.tipsy.js
 
-//= require libs/underscore-1.2.0
-//= require libs/backbone-0.5.3
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
 //= require libs/mustache-2011-10-11
 
 //= require_tree './backbone/models'

@@ -4,4 +4,4 @@ class window.SessionModel extends Backbone.Model
     "/api/v1/users/verify"
   
   parse: (response) ->
-    response.response.user
+    response.response?.user || super
