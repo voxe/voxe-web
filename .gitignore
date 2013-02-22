@@ -12,3 +12,4 @@ public/assets
 !public/assets/manifest.yml
 ~/
 .ruby-version
+.powenv
