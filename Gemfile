@@ -7,6 +7,9 @@ group :development do
   # http://documentcloud.github.com/jammit/
   gem 'jammit'
   gem 'heroku'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # Gems used only for assets and not required
