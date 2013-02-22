@@ -3,12 +3,18 @@ class Proposition
   include Mongoid::Timestamps
 
   field :text, type: String
+  field :support_users_count, type: Integer, default: 0
+  field :against_users_count, type: Integer, default: 0
+  field :favorite_users_count, type: Integer, default: 0
 
   belongs_to :candidacy
   has_and_belongs_to_many :tags, inverse_of: nil
   
   # indexes
   index({ candidacy_id: 1, tag_ids: 1 }, { background: true })
+  index({ candidacy_id: 1, support_users_count: 1 }, { background: true })
+  index({ candidacy_id: 1, against_users_count: 1 }, { background: true })
+  index({ candidacy_id: 1, favorite_users_count: 1 }, { background: true })
 
   validates_presence_of :candidacy, :tags, :text
 

@@ -173,7 +173,12 @@ Joinplato::Application.routes.draw do
   end
 
   devise_for :users
-  
+
+  # Back-office for candidates
+  namespace 'backoffice' do
+    resources :candidacies
+  end
+
   # all platforms
   match 'about/' => 'Web::Static#about', :as => :about
   match 'about/how' => 'Web::Static#how', :as => :how

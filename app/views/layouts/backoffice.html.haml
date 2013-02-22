@@ -1,25 +1,9 @@
 !!! HTML
 %html
   %head
-    %title The Voxe
-    = stylesheet_link_tag "backoffice/application"
-    = javascript_include_tag "backoffice/application"
+    %title Voxe Back Office
     = csrf_meta_tags
   %body
-    .topbar
-      .fill
-        .container
-          = link_to "The Voxe Office", admin_path, class: "brand"
-          - if current_user.email == 'admin@voxe.org'
-            %ul
-              %li= link_to 'Elections', '#elections'
-              %li= link_to 'Countries', '#countries'
-              %li= link_to 'Admins', '#admins'
-          %ul.nav.secondary-nav
-            %li
-              = link_to "Logged as #{current_user.email}", '#'
-            %li
-              = link_to "Sign out", destroy_user_session_path, method: 'delete'
     .container
       .content
         - if notice
@@ -29,6 +13,3 @@
           .alert-message.error
             %p= alert
         = yield
-
-      %footer
-        %p The Voxe

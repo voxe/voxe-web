@@ -24,5 +24,6 @@ class Event
   # Indexes
   #
   index({ name: 1, created_at: -1 }, { background: true })
+  index({ candidacy_ids: 1 }, { background: true })
 
 end

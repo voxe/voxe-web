@@ -1,5 +1,5 @@
 class Admin::DashboardController < ApplicationController
-  layout 'backoffice'
+  layout 'admin'
   authorize_resource class: false
 
   def index

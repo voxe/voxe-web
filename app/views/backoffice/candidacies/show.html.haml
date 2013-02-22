@@ -1,0 +1,45 @@
+%h1= @candidacy.candidates.first.name
+
+%h2 Analytics
+%ul
+  - for et in @election.root_election_tags
+    %li
+      = et.tag.name
+      \-
+      = Event.where(candidacy_ids: @candidacy.id, tag_ids: et.tag_id).count
+      views
+
+%h2 Propositions
+Mosts supported:
+- for proposition in @candidacy.propositions.desc(:support_users_count).limit(3)
+  %p
+    (#{proposition.support_users_count})
+    = proposition.text
+Mosts against:
+- for proposition in @candidacy.propositions.desc(:against_users_count).limit(3)
+  %p
+    (#{proposition.against_users_count})
+    = proposition.text
+Mosts favorite:
+- for proposition in @candidacy.propositions.desc(:favorite_users_count).limit(3)
+  %p
+    (#{proposition.favorite_users_count})
+    = proposition.text
+
+%h2 Users profiles
+TODO
+
+%h2 Map
+TODO
+
+%h2 Comparison frequency
+
+%p Total: #{Event.where(candidacy_ids: @candidacy.id).count}
+
+%p Compared with: TODO map reduce on candidacies
+
+%p Conpared more on: TODO map reduce on tags
+
+%h2 Context
+
+TODO Search open data materials
