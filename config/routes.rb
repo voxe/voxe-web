@@ -61,6 +61,7 @@ Joinplato::Application.routes.draw do
       end
       
       resources :propositions do
+        resource :favorite, only: [:create, :destroy]
         collection do
           get :search
         end
@@ -74,8 +75,6 @@ Joinplato::Application.routes.draw do
           delete :support
           post :against
           delete :against
-          post :favorite
-          delete :favorite
         end
       end
 

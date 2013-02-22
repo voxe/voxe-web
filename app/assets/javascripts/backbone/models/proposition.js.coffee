@@ -60,3 +60,18 @@ class window.PropositionModel extends Backbone.Model
           # sync collection with server
           embeds = model.get 'embeds'
           model.set embeds: _.reject(embeds, (e) -> e.id == embedId)
+
+  toogleFavorite: ->
+    isInCurrentUserFavorites = _.find @get('favorite_users').data,((u) -> u.id is app.models.user.id)
+    $.ajax
+      type: if isInCurrentUserFavorites then 'DELETE' else 'POST'
+      url: "#{@url()}/favorite"
+      data:
+        auth_token: app.models.user.token()
+      success: () =>
+        @trigger('change:favorite_users')
+
+  isFavorite: ->
+    console.log @ if @get('favorite_users').count > 0
+    console.log(@get('favorite_users').data[0].id) if @get('favorite_users').count > 0
+    _.find @get('favorite_users').data, (u) -> u.id == app.models.user.id

@@ -50,16 +50,25 @@ class Proposition
     self.tags << tag
   end
 
-  def support_users
-    self.user_actions.where(action: 'support').map(&:user)
+  def support_users(options={})
+    options[:with_anonymous] ||= false
+    res = self.user_actions.where(action: 'support').map(&:user)
+    res = res.select { |u| not u.is_anonymous } unless options[:with_anonymous]
+    res
   end
 
-  def against_users
-    self.user_actions.where(action: 'against').map(&:user)
+  def against_users(options={})
+    options[:with_anonymous] ||= false
+    res = self.user_actions.where(action: 'against').map(&:user)
+    res = res.select { |u| not u.is_anonymous } unless options[:with_anonymous]
+    res
   end
 
-  def favorite_users
-    self.user_actions.where(action: 'favorite').map(&:user)
+  def favorite_users(options={})
+    options[:with_anonymous] ||= false
+    res = self.user_actions.where(action: 'favorite').map(&:user)
+    res = res.select { |u| not u.is_anonymous } unless options[:with_anonymous]
+    res
   end
 
   private

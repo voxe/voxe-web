@@ -66,7 +66,7 @@ class Ability
     # public
     can [:read, :search], Election
     can [:read, :search, :elections], Candidate
-    can [:read, :search, :comments], Proposition
+    can [:read, :search, :comments, :favorite], Proposition
     can [:read, :propositions, :search], Tag
     can :read, Candidacy
     can [:create, :verify, :self, :facebookconnect], User
