@@ -44,7 +44,7 @@ class window.TagModel extends Backbone.Model
     else new Array()
 
   parse: (response) ->
-    response.response.tag
+    response.response?.tag || super
 
   processErrors: (tag, response) ->
     errors = ($.parseJSON response.responseText).response.errors

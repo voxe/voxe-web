@@ -7,4 +7,4 @@ class window.CommentModel extends Backbone.Model
     "/api/v1/propositions/#{@proposition.id}/addcomment?auth_token=#{app.models.user.token()}"
   
   parse: (response) ->
-    response.response.comment
+    response.response?.comment || super

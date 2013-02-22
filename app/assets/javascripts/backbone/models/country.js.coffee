@@ -6,4 +6,4 @@ class window.CountryModel extends Backbone.Model
     '/api/v1/countries'
 
   parse: (response) ->
-    response.response.country
+    response.response?.country || super

@@ -20,7 +20,7 @@ class window.CandidacyModel extends Backbone.Model
   urlRoot: "/api/v1/candidacies"
 
   parse: (response) ->
-    response.response.candidacy
+    response.response?.candidacy || super
 
   toJSON: ->
     r = super

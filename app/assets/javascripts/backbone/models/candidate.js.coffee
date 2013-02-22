@@ -18,7 +18,7 @@ class window.CandidateModel extends Backbone.Model
     "/api/v1/candidates/"
 
   parse: (response) ->
-    response.response.candidate
+    response.response?.candidate || super
 
   addPhoto: (image) ->
     data = new FormData()

@@ -44,7 +44,7 @@ class window.ElectionModel extends Backbone.Model
     # deleted because the bind "change:candidacies" should take care of this
     # @candidacies.reset response.response.election.candidacies
     # @tags.reset response.response.election.tags
-    response.response.election
+    response.response?.election || super
 
   # {namespace: ["is already taken"]}
   processErrors: (election, response) ->
