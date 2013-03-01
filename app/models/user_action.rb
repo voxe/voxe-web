@@ -15,6 +15,8 @@ class UserAction
   after_create :increase_proposition
   after_destroy :decrease_proposition
 
+  delegate :candidacy, to: :proposition
+
   private
 
   def increase_proposition
