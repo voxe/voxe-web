@@ -6,7 +6,6 @@ gem 'rails', '3.2.12'
 group :development do
   # http://documentcloud.github.com/jammit/
   gem 'jammit'
-  gem 'heroku'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
