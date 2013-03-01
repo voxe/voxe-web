@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - '1.9.3'
+services:
+  - mongodb
+before_script:
+  - bundle exec rake tmp:create
+script: bundle exec rake test
+notifications:
+  email:
+    - dev+ci@voxe.org

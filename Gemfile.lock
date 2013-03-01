@@ -351,6 +351,7 @@ DEPENDENCIES
   rabl
   rails (= 3.2.12)
   rails-backbone
+  rake
   rdiscount
   rspec-rails
   ruby-debug19

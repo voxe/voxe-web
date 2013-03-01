@@ -35,6 +35,7 @@ end
 # debugging tools
 group :development, :test do
   gem 'ruby-debug19'
+  gem 'rake'
 end
 
 gem 'jquery-rails', '=2.1.4'
