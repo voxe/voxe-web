@@ -1,4 +1,4 @@
-{<img src="https://travis-ci.org/voxe/voxe-web.png?branch=master" alt="Build Status" />}[https://travis-ci.org/voxe/voxe-web]
+{<img src="https://travis-ci.org/voxe/voxe-web.png" alt="Build Status" />}[https://travis-ci.org/voxe/voxe-web]
 
 == Getting started
 
