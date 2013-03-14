@@ -1,6 +1,6 @@
-class Backoffice.Views.Election.Propositions.PropositionsList.PropositionView extends Backbone.View
+class Admin.Views.Election.Propositions.PropositionsList.PropositionView extends Backbone.View
   tagName: 'tr'
-  template: JST['backoffice/templates/election/propositions/propositions_list/proposition']
+  template: JST['admin/templates/election/propositions/propositions_list/proposition']
 
   events:
     'click button.delete-proposition': 'delete'
@@ -22,7 +22,7 @@ class Backoffice.Views.Election.Propositions.PropositionsList.PropositionView ex
     $('.show-text', @el).hide()
 
     @model.embeds.each (embed) =>
-      view = new Backoffice.Views.Election.Propositions.PropositionsList.EmbedItemView(model: embed, proposition: @model)
+      view = new Admin.Views.Election.Propositions.PropositionsList.EmbedItemView(model: embed, proposition: @model)
       viewEl = view.render().el
       $('ul.embeds', @el).append(viewEl)
 

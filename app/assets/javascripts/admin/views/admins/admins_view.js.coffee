@@ -1,6 +1,6 @@
-class Backoffice.Views.Admins.AdminsView extends Backbone.View
+class Admin.Views.Admins.AdminsView extends Backbone.View
   el: '.content'
-  template: JST['backoffice/templates/admins/admins']
+  template: JST['admin/templates/admins/admins']
 
   events:
     'submit #add-admin': 'addAdmin'
@@ -36,7 +36,7 @@ class Backoffice.Views.Admins.AdminsView extends Backbone.View
     @
 
   renderAdmin: (admin) ->
-    $('.admins', @el).append((new Backoffice.Views.Admins.AdminView(model: admin)).render().el)
+    $('.admins', @el).append((new Admin.Views.Admins.AdminView(model: admin)).render().el)
 
   addAdmin: (event) ->
     event.preventDefault()

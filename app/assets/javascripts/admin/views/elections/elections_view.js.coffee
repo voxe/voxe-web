@@ -1,6 +1,6 @@
-class Backoffice.Views.ElectionsView extends Backbone.View
+class Admin.Views.ElectionsView extends Backbone.View
   el: '.content'
-  template: JST['backoffice/templates/elections']
+  template: JST['admin/templates/elections']
 
   events:
     'submit form.new-election': 'newElection'
@@ -18,7 +18,7 @@ class Backoffice.Views.ElectionsView extends Backbone.View
     @
 
   addElection: (election) ->
-    view = new Backoffice.Views.Elections.ElectionItemView(model: election)
+    view = new Admin.Views.Elections.ElectionItemView(model: election)
     viewEl = view.render().el
     $('table.elections').append(viewEl)
 

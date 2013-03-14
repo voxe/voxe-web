@@ -1,6 +1,6 @@
-class Backoffice.Views.Election.Propositions.PropositionsList.SubSubTagView extends Backbone.View
+class Admin.Views.Election.Propositions.PropositionsList.SubSubTagView extends Backbone.View
   className: 'sub-sub-tag'
-  template: JST['backoffice/templates/election/propositions/propositions_list/sub_sub_tag']
+  template: JST['admin/templates/election/propositions/propositions_list/sub_sub_tag']
 
   events:
     'click button.show-proposition-form': 'showPropositionForm'
@@ -27,7 +27,7 @@ class Backoffice.Views.Election.Propositions.PropositionsList.SubSubTagView exte
     @
 
   addProposition: (proposition) ->
-    view = new Backoffice.Views.Election.Propositions.PropositionsList.PropositionView(model: proposition, subSubTag: @subSubTag, candidacy: @candidacy)
+    view = new Admin.Views.Election.Propositions.PropositionsList.PropositionView(model: proposition, subSubTag: @subSubTag, candidacy: @candidacy)
     viewEl = view.render().el
     $('table.propositions', @el).append(viewEl)
 

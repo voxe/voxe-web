@@ -11,7 +11,7 @@
 #= require_tree ./templates
 #= require_tree ./views
 
-window.Backoffice =
+window.Admin =
   Views:
     Admins: {}
     Countries: {}
@@ -38,40 +38,40 @@ window.Backoffice =
     index: ->
       @.navigate 'elections', true
     elections: ->
-      if elections = Backoffice.Cache.elections
-        new Backoffice.Views.ElectionsView(collection: elections).render()
+      if elections = Admin.Cache.elections
+        new Admin.Views.ElectionsView(collection: elections).render()
       else
         elections = new ElectionsCollection()
-        Backoffice.Cache.elections = elections
-        new Backoffice.Views.ElectionsView(collection: elections)
+        Admin.Cache.elections = elections
+        new Admin.Views.ElectionsView(collection: elections)
         elections.fetch({data: published: 'all'})
     election: (election_id, menu_entry, candidacy_id = null, id = null) ->
       if menu_entry
-        if Backoffice.ViewInstances.Election[election_id]
-          Backoffice.ViewInstances.Election[election_id].go_to(
+        if Admin.ViewInstances.Election[election_id]
+          Admin.ViewInstances.Election[election_id].go_to(
             menu_entry: menu_entry, reset: true, candidacy_id: candidacy_id, tag_id: id)
         else
-          Backoffice.ViewInstances.Election[election_id] =
-            new Backoffice.Views.ElectionView(
+          Admin.ViewInstances.Election[election_id] =
+            new Admin.Views.ElectionView(
               election_id: election_id, menu_entry: menu_entry, candidacy_id: candidacy_id, tag_id: id)
       else
         console.error 'wrong route'
     admins: ->
       admins = new UsersCollection()
-      new Backoffice.Views.Admins.AdminsView(collection: admins)
+      new Admin.Views.Admins.AdminsView(collection: admins)
       admins.fetchAdmins()
     countries: ->
       countries = new CountriesCollection()
-      new Backoffice.Views.Countries.CountriesView(collection: countries)
+      new Admin.Views.Countries.CountriesView(collection: countries)
       countries.fetch()
   )
 
 $ ->
-  Backoffice.RouterInstance = new Backoffice.Router()
+  Admin.RouterInstance = new Admin.Router()
 
   $('a[data-backbone-link]').live 'click', (event) ->
     event.preventDefault()
     href = $(event.target).attr('href').slice(6) # get href and slice "admin/"
-    Backoffice.RouterInstance.navigate href, true
+    Admin.RouterInstance.navigate href, true
 
   Backbone.history.start()
