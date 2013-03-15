@@ -45,5 +45,4 @@ class Admin.Views.Election.Propositions.PropositionsList.SubSubTagView extends B
     params = text: event.target.text.value
     params['tagIds'] = @subSubTag.id
     params['candidacyId'] = @candidacy.id
-    console.log params
     @propositions.create {proposition: params }, url: '/api/v1/propositions', type: 'POST'
