@@ -170,6 +170,7 @@ Joinplato::Application.routes.draw do
       end
     end
     resources :mobile, :only => :index
+    resources :open_data, :only => :index
   end
 
   devise_for :users
