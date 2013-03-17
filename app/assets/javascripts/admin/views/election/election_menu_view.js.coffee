@@ -1,6 +1,6 @@
-class Backoffice.Views.Election.ElectionMenuView extends Backbone.View
+class Admin.Views.Election.ElectionMenuView extends Backbone.View
   el: '.menu'
-  template: JST['backoffice/templates/election/election_menu']
+  template: JST['admin/templates/election/election_menu']
 
   initialize: () ->
     @election = @model # readability++

@@ -1,5 +1,5 @@
-class Backoffice.Views.Election.InformationsView extends Backbone.View
-  template: JST['backoffice/templates/election/informations']
+class Admin.Views.Election.InformationsView extends Backbone.View
+  template: JST['admin/templates/election/informations']
 
   events:
     'submit form.general-informations': 'submitForm'
@@ -27,4 +27,4 @@ class Backoffice.Views.Election.InformationsView extends Backbone.View
     )
 
   successfullyChanged: ->
-    @$(@el).prepend JST['backoffice/templates/success_message']({message: 'Nice !'})
+    @$(@el).prepend JST['admin/templates/success_message']({message: 'Nice !'})

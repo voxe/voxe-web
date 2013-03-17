@@ -1,5 +1,5 @@
-class Backoffice.Views.Election.CandidaciesView extends Backbone.View
-  template: JST['backoffice/templates/election/candidacies']
+class Admin.Views.Election.CandidaciesView extends Backbone.View
+  template: JST['admin/templates/election/candidacies']
 
   initialize: ->
     @flash = {}
@@ -13,11 +13,11 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
       event.preventDefault()
       @createCandidate event
 
-    ambassadors_view = new Backoffice.Views.Election.AmbassadorsView(model: @election)
+    ambassadors_view = new Admin.Views.Election.AmbassadorsView(model: @election)
     $('#modal-ambassadors').on 'show', ->
       ambassadors_view.fetch_amabassadors()
 
-    contributors_view = new Backoffice.Views.Election.ContributorsView(model: @election)
+    contributors_view = new Admin.Views.Election.ContributorsView(model: @election)
     $('#modal-contributors').on 'show', ->
       contributors_view.fetch_contributors()
 
@@ -64,6 +64,6 @@ class Backoffice.Views.Election.CandidaciesView extends Backbone.View
 
   addCandidacy: (candidacy) =>
     @candidacy = @election.candidacies.find ((candidacy) -> candidacy.id == @options.candidacy_id), @
-    view = new Backoffice.Views.Election.CandidacyView(election: @election, model: candidacy)
+    view = new Admin.Views.Election.CandidacyView(election: @election, model: candidacy)
     viewEl = view.render().el
     $('table.list').append(viewEl)

@@ -1,5 +1,5 @@
-class Backoffice.Views.Election.Propositions.Tags.TagsView extends Backbone.View
-  template: JST['backoffice/templates/election/propositions/tags/tags']
+class Admin.Views.Election.Propositions.Tags.TagsView extends Backbone.View
+  template: JST['admin/templates/election/propositions/tags/tags']
 
   initialize: ->
     @election = @options.election
@@ -15,6 +15,6 @@ class Backoffice.Views.Election.Propositions.Tags.TagsView extends Backbone.View
     @
 
   addTag: (tag) ->
-    view = new Backoffice.Views.Election.Propositions.Tags.TagView(model: tag, candidacy: @candidacy, election: @election)
+    view = new Admin.Views.Election.Propositions.Tags.TagView(model: tag, candidacy: @candidacy, election: @election)
     viewEl = view.render().el
     $('table#tags', @el).append(viewEl)
