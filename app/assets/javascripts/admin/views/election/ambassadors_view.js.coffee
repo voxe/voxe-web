@@ -34,7 +34,7 @@ class Admin.Views.Election.AmbassadorsView extends Backbone.View
   fetch_amabassadors: ->
     @collection.fetch()
 
-  addAmbassador: ->
+  addAmbassador: (event) ->
     event.preventDefault()
     form = $('#ambassador-form', @el)
     userId = $('.id', form).val()
