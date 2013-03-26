@@ -1,6 +1,6 @@
-class Backoffice.Views.Countries.CountriesView extends Backbone.View
+class Admin.Views.Countries.CountriesView extends Backbone.View
   el: '.content'
-  template: JST['backoffice/templates/countries/countries']
+  template: JST['admin/templates/countries/countries']
 
   events:
     'submit form.new-country': 'newCountry'

@@ -1,5 +1,5 @@
-class Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListView extends Backbone.View
-  template: JST['backoffice/templates/election/propositions/propositions_list/propositions_list']
+class Admin.Views.Election.Propositions.PropositionsList.PropositionsListView extends Backbone.View
+  template: JST['admin/templates/election/propositions/propositions_list/propositions_list']
 
   initialize: ->
     @flash = {}
@@ -36,8 +36,8 @@ class Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListVi
 
   addSubTag: (subTag) ->
     if subTag.parents().length == 2
-      view = new Backoffice.Views.Election.Propositions.PropositionsList.SubSubTagView(model: subTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
+      view = new Admin.Views.Election.Propositions.PropositionsList.SubSubTagView(model: subTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
     else
-      view = new Backoffice.Views.Election.Propositions.PropositionsList.SubTagView(model: subTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
+      view = new Admin.Views.Election.Propositions.PropositionsList.SubTagView(model: subTag, propositionsByTag: @propositionsByTag, candidacy: @candidacy)
     viewEl = view.render().el
     $(@el).append(viewEl)

@@ -1,5 +1,5 @@
-class Backoffice.Views.Election.ShowView extends Backbone.View
-  template: JST['backoffice/templates/election/show']
+class Admin.Views.Election.ShowView extends Backbone.View
+  template: JST['admin/templates/election/show']
 
   events: ->
     "click .tags a.tag": "tagClicked"
@@ -71,7 +71,7 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
       
   render: ->
     $(@el).html @template @
-    @candidaciesView = new Backoffice.Views.Election.CandidaciesView(el: '.candidacies', model: @election)
+    @candidaciesView = new Admin.Views.Election.CandidaciesView(el: '.candidacies', model: @election)
     @updateCandidacy() if @options.candidacyId
     @election.tags.each @addMainTag if @candidacy
     @updateTag() if @tag
@@ -115,13 +115,13 @@ class Backoffice.Views.Election.ShowView extends Backbone.View
     @addTag tag, $('.sub-sub-tags .tags')
 
   addTag: (tag, target) =>
-    view = new Backoffice.Views.Election.TagView(election: @election, candidacy: @candidacy, model: tag)
+    view = new Admin.Views.Election.TagView(election: @election, candidacy: @candidacy, model: tag)
     viewEl = view.render().el
     target.append(viewEl)
 
   updatePropositions: =>
     $('.propositions').html 'loading...'
-    @propositionsListView = new Backoffice.Views.Election.Propositions.PropositionsList.PropositionsListView(
+    @propositionsListView = new Admin.Views.Election.Propositions.PropositionsList.PropositionsListView(
       el: '.propositions', election: @election,  candidacy_id: @candidacy.id, tag_id: @tag.id)
 
   tagClicked: (event) =>

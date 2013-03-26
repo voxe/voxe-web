@@ -1,6 +1,6 @@
-class Backoffice.Views.Election.AmbassadorsView extends Backbone.View
+class Admin.Views.Election.AmbassadorsView extends Backbone.View
   el: '#modal-ambassadors .modal-body'
-  template: JST['backoffice/templates/election/ambassadors']
+  template: JST['admin/templates/election/ambassadors']
 
   events:
     'submit #ambassador-form': 'addAmbassador'

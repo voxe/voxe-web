@@ -1,6 +1,6 @@
-class Backoffice.Views.Election.Propositions.PropositionsList.EmbedItemView extends Backbone.View
+class Admin.Views.Election.Propositions.PropositionsList.EmbedItemView extends Backbone.View
   tagName: 'li'
-  template: JST['backoffice/templates/election/propositions/propositions_list/embed_item']
+  template: JST['admin/templates/election/propositions/propositions_list/embed_item']
 
   events:
     'click .delete': 'delete'

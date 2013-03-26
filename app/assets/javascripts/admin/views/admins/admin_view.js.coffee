@@ -1,6 +1,6 @@
-class Backoffice.Views.Admins.AdminView extends Backbone.View
+class Admin.Views.Admins.AdminView extends Backbone.View
   tagName: 'tr'
-  template: JST['backoffice/templates/admins/admin']
+  template: JST['admin/templates/admins/admin']
 
   events:
     'click .remove': 'removeAdmin'

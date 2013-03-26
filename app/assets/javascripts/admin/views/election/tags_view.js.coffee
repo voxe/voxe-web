@@ -1,5 +1,5 @@
-class Backoffice.Views.Election.TagsView extends Backbone.View
-  template: JST['backoffice/templates/election/tags']
+class Admin.Views.Election.TagsView extends Backbone.View
+  template: JST['admin/templates/election/tags']
 
   events:
     'submit .add-tag': 'addOrCreateTag'

@@ -1,6 +1,6 @@
-class Backoffice.Views.Election.ContributorsView extends Backbone.View
+class Admin.Views.Election.ContributorsView extends Backbone.View
   el: '#modal-contributors .modal-body'
-  template: JST['backoffice/templates/election/contributors']
+  template: JST['admin/templates/election/contributors']
 
   events:
     'submit #contributor-form': 'addContributor'

@@ -1,7 +1,7 @@
-class Backoffice.Views.Elections.ElectionItemView extends Backbone.View
+class Admin.Views.Elections.ElectionItemView extends Backbone.View
   tagName: 'tr'
 
-  template: JST['backoffice/templates/elections/election_item']
+  template: JST['admin/templates/elections/election_item']
 
   events:
     'click .toggle-publish': 'togglePublish'
