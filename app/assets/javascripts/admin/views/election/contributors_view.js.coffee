@@ -34,7 +34,7 @@ class Admin.Views.Election.ContributorsView extends Backbone.View
   fetch_contributors: ->
     @collection.fetch()
 
-  addContributor: ->
+  addContributor: (event) ->
     event.preventDefault()
     form = $('#contributor-form', @el)
     userId = $('.id', form).val()
