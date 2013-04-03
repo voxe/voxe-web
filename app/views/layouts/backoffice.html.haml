@@ -2,14 +2,11 @@
 %html
   %head
     %title Voxe Back Office
+    = stylesheet_link_tag 'backoffice/application'
     = csrf_meta_tags
   %body
-    .container
-      .content
-        - if notice
-          .alert-message.success
-            %p= notice
-        - elsif alert
-          .alert-message.error
-            %p= alert
-        = yield
+    .navbar
+      .navbar-inner
+        .container
+          = link_to 'Voxe Backoffice', backoffice_root_url, class: 'brand'
+    .container= yield
