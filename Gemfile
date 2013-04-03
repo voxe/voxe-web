@@ -108,3 +108,6 @@ gem 'koala'
 
 # Additional features for text searching with mongoid
 gem 'mongoid_fulltext'
+
+# Internationalization according to http accept-language
+gem 'http_accept_language'
