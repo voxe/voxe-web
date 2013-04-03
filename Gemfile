@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.0.0'
 gem 'rails', '3.2.13'
 
 group :development do
@@ -34,7 +34,6 @@ end
 
 # debugging tools
 group :development, :test do
-  gem 'ruby-debug19'
   gem 'rake'
 end
 
