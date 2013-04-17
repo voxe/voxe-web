@@ -9,4 +9,7 @@
       .navbar-inner
         .container
           = link_to 'Voxe Backoffice', backoffice_root_url, class: 'brand'
+          .nav-collapse.collapse
+            %ul.nav
+              %li= link_to t('backoffice.my_profile'), '#'
     .container= yield
