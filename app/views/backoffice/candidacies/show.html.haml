@@ -27,7 +27,7 @@ Mosts favorite:
     = proposition.text
 
 %h2 Users profiles
-TODO
+INFO Not sure to do this immediatly because of the few Facebook connected accounts
 
 %h2 Map
 TODO
@@ -36,7 +36,11 @@ TODO
 
 %p Total: #{Event.where(candidacy_ids: @candidacy.id).count}
 
-%p Compared with: TODO map reduce on candidacies
+%p
+  Compared with:
+  %ul
+    - for candidacy, counter in CandidaciesComparison.most_compared_list(@candidacy)
+      %li #{candidacy.name} #{counter}
 
 %p Conpared more on: TODO map reduce on tags
 
