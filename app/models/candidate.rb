@@ -5,6 +5,17 @@ class Candidate
   # attributes
   field :first_name, type: String
   field :last_name, type: String
+  field :phone, type: String
+  field :birthday, type: Date
+  field :email, type: String
+  field :address, type: String
+  field :biography, type: String
+  field :introduction, type: String
+  field :twitter, type: String
+  field :facebook, type: String
+  field :youtube, type: String
+  field :wikipedia, type: String
+  field :website, type: String
   field :namespace, type: String
   alias :firstName :first_name
   alias :lastName :last_name
@@ -15,7 +26,7 @@ class Candidate
   has_many :photos, as: :photoable, dependent: :destroy, autosave: true
 
   # validations
-  validates_presence_of :namespace, :last_name #, :first_name
+  validates_presence_of :namespace, :last_name, :first_name
   validates_associated :photos
   validates_uniqueness_of :namespace
   
@@ -39,6 +50,10 @@ class Candidate
     #photo? ? ((size == nil) ? photo.image.url : photo.image.send(size).url) : default_photo(size)
     width = {:small => 50, :medium => 100, :large => 300}[size]
     "https://voxe.s3.amazonaws.com/candidates/#{namespace}-#{width}.jpg"
+  end
+
+  def to_s
+    name
   end
   
   private
