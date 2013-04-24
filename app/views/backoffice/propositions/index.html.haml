@@ -1,0 +1,7 @@
+- @elections.each do |election|
+  %h4
+    =election[:name].to_s
+
+- @propositions.each do |proposition|
+  %p
+    = proposition[:text]
