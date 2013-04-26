@@ -1,7 +1,9 @@
-- @elections.each do |election|
-  %h4
-    =election[:name].to_s
+.btn.btn-block
+  = link_to 'New proposition', new_backoffice_election_proposition_path(params[:election_id])
 
-- @propositions.each do |proposition|
-  %p
-    = proposition[:text]
+%table{ :class => "table table-hover" }
+  %tbody  
+    - @propositions.each do |proposition|
+      %tr
+        %td
+          = link_to proposition[:text],edit_backoffice_election_proposition_path(params[:election_id], proposition[:_id])
