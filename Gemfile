@@ -83,6 +83,7 @@ gem 'haml-rails'
 gem 'haml_coffee_assets'
 gem 'eco'
 gem 'mustache-trimmer', :git => 'https://github.com/josh/mustache-trimmer.git'
+gem 'simple_form'
 
 # http://voxe.airbrake.io/
 gem "airbrake"
