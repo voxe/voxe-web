@@ -61,7 +61,11 @@ Joinplato::Application.routes.draw do
       end
       
       resources :propositions do
-        resource :favorite, only: [:create, :destroy]
+        scope module: :user_actions do
+          resource :favorite, only: [:create, :destroy]
+          resource :support, only: [:create, :destroy]
+          resource :against, only: [:create, :destroy]
+        end
         collection do
           get :search
         end
@@ -71,10 +75,6 @@ Joinplato::Application.routes.draw do
           post :addembed
           delete :removeembed
           delete :removecomment
-          post :support
-          delete :support
-          post :against
-          delete :against
         end
       end
 

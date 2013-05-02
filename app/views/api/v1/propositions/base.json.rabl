@@ -13,13 +13,13 @@ end
 child embeds: :embeds do
   attributes :id, :title, :url, :provider_name, :type, :html
 end
-node :supporters do |proposition|
-  {count: proposition.support_users.count}
-  {count: proposition.support_users.count, data: partial('api/v1/propositions/user', object: proposition.support_users)}
-end
-node :against_users do |proposition|
-  {count: proposition.against_users.count, data: partial('api/v1/propositions/user', object: proposition.against_users)}
-end
-node :favorite_users do |proposition|
-  {count: proposition.favorite_users.count, data: partial('api/v1/propositions/user', object: proposition.favorite_users)}
+
+@object.class::USER_ACTIONS.each do |action|
+  attribute @object.class.field_name_for_counter_cache(action)
+  node "#{action}_users" do |proposition|
+    {
+      count: proposition.send(proposition.class.field_name_for_counter_cache(action)),
+      data: partial('api/v1/propositions/user', object: proposition.send("#{action}_users"))
+    }
+  end
 end

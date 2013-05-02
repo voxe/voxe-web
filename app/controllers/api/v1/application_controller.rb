@@ -1,4 +1,5 @@
 class Api::V1::ApplicationController < ApplicationController
+  respond_to :json
 
   layout "api_v1.json"
 
