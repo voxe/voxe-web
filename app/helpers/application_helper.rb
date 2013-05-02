@@ -21,5 +21,12 @@ module ApplicationHelper
   def link_to_android_market text
     link_to text, "https://market.android.com/details?id=org.voxe.android", target: "_blank"
   end
-  
+
+  def add_country_form_url
+    'https://docs.google.com/spreadsheet/viewform?fromEmail=true&formkey=dFRwZWdTMTFZQTc5UHhBeHZKTkwxaFE6MQ'
+  end
+
+  def add_election_form_url
+    'https://docs.google.com/a/voxe.org/spreadsheet/viewform?fromEmail=true&formkey=dHJLX29POG05d04tR1loaE1ZaVFrVXc6MQ'
+  end
 end

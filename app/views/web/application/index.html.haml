@@ -1,33 +1,24 @@
-:javascript
-  $(function() {
-    new VoxeWeb(#{@options});
-  });
-  
-= render '/web/application/templates.mustache'
-    
 #high-line
 
 #menu-container
-  #menu
-    
+  %ul#menu
+
 #pages-container
   #pages
     .page#countries
       .page-container
         #countries-list-container
           .help
-            %span
-              1.
-              = t "comparator.choose_a_country"
+            %span 1. #{t 'comparator.choose_a_country'}
           #countries-list
-            .category= t "comparator.upcoming_elections"
+            .category= t 'comparator.upcoming_elections'
             #countries-upcoming-list
               .country
-                = link_to "https://docs.google.com/spreadsheet/viewform?fromEmail=true&formkey=dFRwZWdTMTFZQTc5UHhBeHZKTkwxaFE6MQ" do
-                  %img{src: "https://voxe.s3.amazonaws.com/countries/add.jpg"}
-                  .name= t "comparator.add_your_country"
+                = link_to add_country_form_url do
+                  = image_tag 'add_country.jpg'
+                  .name= t 'comparator.add_your_country'
             .clear
-            .category= t "comparator.previous_elections"
+            .category= t 'comparator.previous_elections'
             #countries-previous-list
             .clear
 
@@ -35,39 +26,26 @@
       .page-container
         #elections-list-container
           .help
-            %span
-              2.
-              = t "comparator.choose_an_election"
+            %span 2. #{t 'comparator.choose_an_election'}
           #elections-list
           .add
-            = link_to "https://docs.google.com/a/voxe.org/spreadsheet/viewform?fromEmail=true&formkey=dHJLX29POG05d04tR1loaE1ZaVFrVXc6MQ" do
-              %img{src: "https://voxe.s3.amazonaws.com/elections/add.jpg"}
+            = link_to add_election_form_url do
+              = image_tag 'add_election.jpg'
               %br/
-              = t "comparator.add_your_election"
-                    
+              = t 'comparator.add_your_election'
+
     .page#candidacies
       .page-container
         #candidacies-list-container
           .help
-            %span
-              3.
-              = t"comparator.choose_two_candidates"
+            %span 3. #{t 'comparator.choose_two_candidates'}
           #candidacies-list
-          / .add
-          /   %img{src: "https://voxe.s3.amazonaws.com/candidates/add.jpg"}
-          /   %br/
-          /   = t "comparator.add_a_candidate"
-            
+
     .page#tags
       .page-container
         .help
-          %span
-            4.
-            = t "comparator.choose_a_theme"
+          %span 4. #{t 'comparator.choose_a_theme'}
         %ul#tags-list
-          / .section
-          /   %span Themes
-                  
     .page#comparison-page
       #comparison-container
         #comparison
