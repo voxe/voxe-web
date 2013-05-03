@@ -54,5 +54,9 @@ module Joinplato
       g.template_engine :haml
       g.test_framework  :test_unit, :fixture => true
     end
+
+    if defined? ::HamlCoffeeAssets
+      config.hamlcoffee.dependencies = { 't' => 'I18n.t'}
+    end
   end
 end

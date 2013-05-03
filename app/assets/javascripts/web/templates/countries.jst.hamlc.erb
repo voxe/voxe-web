@@ -1,0 +1,21 @@
+.page-container
+  #countries-list-container
+    .help
+      %span 1. #{I18n.t 'comparator.choose_a_country'}
+    #countries-list
+      .category= I18n.t 'comparator.upcoming_elections'
+      #countries-upcoming-list
+        %a.country(ng-repeat="country in electionsCountries.upcoming" href="/country-{{country.namespace}}")
+          %img(ng-src="//voxe.s3.amazonaws.com/countries/{{country.namespace}}.jpg" title="{{country.name}}")
+          .name {{country.name}}
+        .country
+          %a(href="https://docs.google.com/spreadsheet/viewform?fromEmail=true&formkey=dFRwZWdTMTFZQTc5UHhBeHZKTkwxaFE6MQ")
+            <%= image_tag 'add_country.jpg' %>
+            .name= I18n.t 'comparator.add_your_country'
+      .clear
+      .category= I18n.t 'comparator.previous_elections'
+      #countries-previous-list
+        %a.country(ng-repeat="country in electionsCountries.past" href="/country-{{country.namespace}}")
+          %img(ng-src="//voxe.s3.amazonaws.com/countries/{{country.namespace}}.jpg" title="{{country.name}}")
+          .name {{country.name}}
+      .clear

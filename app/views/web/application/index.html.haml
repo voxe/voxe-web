@@ -5,34 +5,8 @@
 
 #pages-container
   #pages
-    .page#countries
-      .page-container
-        #countries-list-container
-          .help
-            %span 1. #{t 'comparator.choose_a_country'}
-          #countries-list
-            .category= t 'comparator.upcoming_elections'
-            #countries-upcoming-list
-              .country
-                = link_to add_country_form_url do
-                  = image_tag 'add_country.jpg'
-                  .name= t 'comparator.add_your_country'
-            .clear
-            .category= t 'comparator.previous_elections'
-            #countries-previous-list
-            .clear
-
-    .page#elections
-      .page-container
-        #elections-list-container
-          .help
-            %span 2. #{t 'comparator.choose_an_election'}
-          #elections-list
-          .add
-            = link_to add_election_form_url do
-              = image_tag 'add_election.jpg'
-              %br/
-              = t 'comparator.add_your_election'
+    .page#countries(ui-view="countries")
+    .page#elections(ui-view="elections")
 
     .page#candidacies
       .page-container
@@ -46,6 +20,7 @@
         .help
           %span 4. #{t 'comparator.choose_a_theme'}
         %ul#tags-list
+
     .page#comparison-page
       #comparison-container
         #comparison

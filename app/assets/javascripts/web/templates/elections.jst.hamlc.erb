@@ -1,0 +1,14 @@
+.page-container
+  #elections-list-container
+    .help
+      %span 2. #{I18n.t 'comparator.choose_an_election'}
+    #elections-list
+      .election(ng-repeat="election in elections")
+        .name {{election.name}}
+        .facepile
+          %img(ng-repeat="candidacy in election.candidacies" ng-src="{{candidacy.candidates[0].photo.sizes.small.url}}" width="30px" height="30px")
+    .add
+      %a(href="https://docs.google.com/a/voxe.org/spreadsheet/viewform?fromEmail=true&formkey=dHJLX29POG05d04tR1loaE1ZaVFrVXc6MQ")
+        <%= image_tag 'add_election.jpg' %>
+        %br/
+        = I18n.t 'comparator.add_your_election'

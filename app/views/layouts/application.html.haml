@@ -1,5 +1,5 @@
 !!!
-%html
+%html(ng-app="voxe")
   %head
     %meta{charset: "UTF-8"}
     %title Voxe.org
@@ -14,11 +14,11 @@
     = render "layouts/partials/chartbeat_header"
   %body{:class => "#{controller_name} #{action_name}"}
     = render 'layouts/partials/facebook'
-    
+
     #appstores
       = link_to_app_store image_tag("web/app-store-fr-small.png")
       = link_to_android_market image_tag("web/android-market-small.png")
-        
+
     #empire-state-building
       .top-container
         #app
