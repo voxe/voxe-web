@@ -180,9 +180,7 @@ Joinplato::Application.routes.draw do
     root to: 'dashboard#index'
     resources :candidacies
     resource :my_profile
-    resources :elections do
-      resources :propositions
-    end
+    resources :propositions
   end
 
   # all platforms

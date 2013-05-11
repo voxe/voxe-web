@@ -35,6 +35,10 @@ class ElectionTag
     parent_tag == nil
   end
 
+  def to_s
+    tag.name
+  end
+
   private
 
   def destroy_children

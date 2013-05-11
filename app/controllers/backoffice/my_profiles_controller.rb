@@ -1,6 +1,6 @@
 class Backoffice::MyProfilesController < Backoffice::BackofficeController
-  before_filter :load_candidate
-  load_and_authorize_resource :candidate
+  before_filter :load_profile
+  #load_and_authorize_resource :candidacy_candidate_profile
 
   def show
     redirect_to action: :edit
@@ -10,12 +10,12 @@ class Backoffice::MyProfilesController < Backoffice::BackofficeController
   end
 
   def update
-    current_candidate.update_attributes params[:candidate]
-    respond_with current_candidate, location: backoffice_my_profile_path
+    @profile.update_attributes params[:candidacy_candidate_profile]
+    respond_with @profile, location: backoffice_my_profile_path
   end
 
   protected
-  def load_candidate
-    @candidate ||= current_candidate
+  def load_profile
+    @profile ||= CandidacyCandidateProfile.where(:candidacy_id => current_candidacy._id).first
   end
 end

@@ -9,6 +9,8 @@ class Candidacy
   #
   # Associations
   #
+  belongs_to :user
+  has_one :candidate_profile, class_name: 'CandidacyCandidateProfile'
   belongs_to :election
   belongs_to :organization
   has_many   :propositions
