@@ -1,0 +1,95 @@
+#pages-container
+  #pages
+    #countries.page
+      .page-container
+        #countries-list-container
+          .help
+            %span 1. Choose a country
+          #countries-list
+            .category Upcoming elections
+            #countries-upcoming-list
+              - @countries[:with_upcoming_elections].each do |country|
+                .country
+                  = link_to country_path(country) do
+                    = image_tag "https://voxe.s3.amazonaws.com/countries/#{country.namespace}.jpg"
+                    .name= country.name
+              .country
+                %a(href="https://docs.google.com/spreadsheet/viewform?fromEmail=true&formkey=dFRwZWdTMTFZQTc5UHhBeHZKTkwxaFE6MQ")
+                  %img(src="https://voxe.s3.amazonaws.com/countries/add.jpg")
+                  .name Add your country
+            .clear
+            .category Previous elections
+            #countries-previous-list
+              - @countries[:with_past_elections].each do |country|
+                .country
+                  = link_to country_path(country) do
+                    = image_tag "https://voxe.s3.amazonaws.com/countries/#{country.namespace}.jpg"
+                    .name= country.name
+            .clear
+    #elections.page
+      .page-container
+        #elections-list-container
+          .help
+            %span 2. Choose an election
+          #elections-list
+            - @elections.each do |election|
+              = link_to compare_path(election) do
+                .election
+                  .name= election.name
+                  .facepile
+                    - election.candidacies.each do |candidacy|
+                      = image_tag candidacy.photo_url(:small), height: '30px', width: '30px'
+    #candidacies.page
+      .page-container
+        #candidacies-list-container
+          .help
+            %span 3. ... then choose two candidates, and...
+          #candidacies-list
+            - if @election
+              - @election.candidacies.published.each do |candidacy|
+                .candidacy{data: {candidacy: {namespace: candidacy.namespace}}}
+                  .image
+                    = image_tag candidacy.photo_url(:small), height: '50px', width: '50px'
+                  .name= candidacy.name
+              :coffeescript
+                $ ->
+                  new CandidaciesSelectorView
+                    el: $('#candidacies-list')
+                    electionNamespace: #{@election.namespace.to_json}
+                    selectedCandidacies: #{(@candidacies || []).map(&:namespace).to_json}
+    #tags.page
+      .page-container
+        .help
+          %span 4. ... choose a theme
+        %ul#tags-list
+          - if @election
+            - @election.root_election_tags.map(&:tag).each do |tag|
+              = link_to compare_path(@election, (@candidacies || []).map(&:namespace).join(','), tag.namespace) do
+                %li
+                  .icon
+                    = image_tag "#{tag.icon_prefix}32.png"
+                  .name= tag.name
+    #comparison-page.page
+      #comparison-container
+        #comparison
+          - if @propositions.present? && @propositions.any?
+            .tag-image
+              = image_tag "#{@tag.icon_prefix}64.png", height: '64px', width: '64px'
+            .tag
+              %span= @tag.name
+            - @groupedPropositions.each do |tag1, sub_tags|
+              .tag
+                %span= tag1.name
+              - sub_tags.each do |tag2, candidacies|
+                .tag
+                  %span= tag2.name
+                .candidacies
+                  .candidacy.left
+                    - candidacy = candidacies.keys.first
+                    - propositions = candidacies.values.first
+                    = render 'propositions_list', propositions: propositions, candidacy: candidacy
+                  .candidacy.right
+                    - candidacy = candidacies.keys.last
+                    - propositions = candidacies.values.last
+                    = render 'propositions_list', propositions: propositions, candidacy: candidacy
+                  .clear

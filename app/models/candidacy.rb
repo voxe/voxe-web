@@ -35,4 +35,8 @@ class Candidacy
     candidates[0].try(:namespace)
   end
 
+  def photo_url(version)
+    candidates[0].try(:photo_url, version)
+  end
+
 end

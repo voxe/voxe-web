@@ -57,4 +57,11 @@ class Election
     @country_namespace
   end
 
+  def upcoming?
+    date > Date.today
+  end
+
+  def past?
+    not upcoming?
+  end
 end

@@ -108,3 +108,4 @@ gem 'koala'
 
 # Additional features for text searching with mongoid
 gem 'mongoid_fulltext'
+gem 'turbolinks'
