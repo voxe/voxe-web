@@ -1,4 +1,4 @@
 = simple_form_for @proposition, url: backoffice_propositions_path, html: { class: 'form-horizontal' } do |f|
   = f.input :text, as: :text, input_html: { class: "input-xxlarge", rows: 10 }
-  = f.association :tags, as: :check_boxes, collection: load_tags
+  = f.association :tags, as: :check_boxes, collection: @tags
   = f.submit 'submit'
