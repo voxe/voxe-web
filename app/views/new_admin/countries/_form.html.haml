@@ -1,0 +1,4 @@
+- url = country.new_record? ? new_admin_countries_path : new_admin_country_path(country.id)
+= simple_form_for country, url: url, html: {class: "form-vertical"}do |f|
+  = f.input :name
+  = f.button :submit, class: "btn"

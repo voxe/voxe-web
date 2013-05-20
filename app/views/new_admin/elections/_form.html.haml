@@ -1,0 +1,15 @@
+= f.input :name
+= f.input :country, collection: Country.all.order_by(name: :asc)
+= f.input :date
+= f.button :submit
+
+:javascript
+  $("#election_date").datepicker({
+    "format": "yyyy-mm-dd",
+    "weekStart": 1,
+    "autoclose": true
+  })
+
+  $("#election_country").select2({
+    "maximumSelectionSize": 1
+  })
