@@ -13,6 +13,15 @@ class NewAdmin::ElectionsController < AdminController
     respond_with @election, location: new_admin_elections_path
   end
 
+  def destroy
+    if @election.destroy
+      flash[:notice] = @election.to_s + " has been deleted."
+    else
+      flash[:error] = "An error occured while deleting" + @election.to_s
+    end
+    respond_with @election, location: new_admin_elections_path
+  end
+
   def publish
     toggle_publication("publish", true)
   end
