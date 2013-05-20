@@ -1,4 +1,8 @@
 = simple_form_for @proposition, url: backoffice_propositions_path, html: { class: 'form-horizontal' } do |f|
   = f.input :text, as: :text, input_html: { class: "input-xxlarge", rows: 10 }
-  = f.association :tags, as: :check_boxes, collection: @tags
+  = f.association :tags, as: :select, collection: @tags, input_html: { class: "input-xxlarge" }
+  %h5 Liens
+  = f.simple_fields_for :embeds, html: { label: "Liens" } do |embed|
+    = embed.input :title
+    = embed.input :url
   = f.submit 'submit'

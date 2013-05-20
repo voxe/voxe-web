@@ -2,7 +2,9 @@
 %html
   %head
     %title Voxe Back Office
+    = include_gon
     = stylesheet_link_tag 'backoffice/application'
+    = javascript_include_tag 'backoffice/backoffice'
     = csrf_meta_tags
   %body
     .navbar
