@@ -1,5 +1,5 @@
 = f.input :name
-= f.input :country, collection: Country.all.order_by(name: :asc)
+= f.input :country_id, collection: Country.all.order_by(name: :asc)
 = f.input :date
 = f.button :submit
 
@@ -10,6 +10,6 @@
     "autoclose": true
   })
 
-  $("#election_country").select2({
+  $("#election_country_id").select2({
     "maximumSelectionSize": 1
   })
