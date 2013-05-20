@@ -34,7 +34,11 @@ class Election
   def to_param
     self.namespace
   end
-  
+
+  def to_s
+    self.name
+  end
+
   def candidacies_sorted
     array = candidacies
     array.sort_by! { |candidacy| candidacy.candidates[0].last_name }

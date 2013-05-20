@@ -16,6 +16,10 @@ class Country
     namespace
   end
   
+  def to_s
+    self.name
+  end
+
   private
     def generate_namespace
       self.namespace = "#{name}".parameterize
