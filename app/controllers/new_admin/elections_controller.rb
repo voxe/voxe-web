@@ -8,6 +8,11 @@ class NewAdmin::ElectionsController < AdminController
   def edit
   end
 
+  def update
+    @election.update_attributes(params[:election])
+    respond_with @election, location: new_admin_elections_path
+  end
+
   def publish
     toggle_publication("publish", true)
   end
