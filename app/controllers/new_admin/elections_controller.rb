@@ -1,10 +1,11 @@
 class NewAdmin::ElectionsController < AdminController
+  load_resource
+
   def index
-    @elections = Election.all.order_by name: :asc
+    @elections = @elections.order_by name: :asc
   end
 
   def edit
-    @election = Election.find(params[:id])
   end
 
   def publish
