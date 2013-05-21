@@ -3,13 +3,16 @@
 #= require_self
 
 @remove_fields = (link) ->
-  $(link).prev().find('div').find('input').val("true")
+  $(link).prev().val("true")
   $(link).parent().hide()
 
 @add_fields = (link, association, content) ->
   new_id = new Date().getTime();
   regexp = new RegExp("new_" + association, "g");
-  $(link).prev().append(content.replace(regexp, new_id))
+  if $(link).parent().find("div.embed").last() == []
+    $(link).parent().find("div.embed").last().append(content.replace(regexp, new_id))
+  else
+    $(link).parent().find("h5").append(content.replace(regexp, new_id))
 
 $ ->
   try

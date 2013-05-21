@@ -11,7 +11,6 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
 
   def new
     @proposition = Proposition.new
-    @proposition.embeds = [ Embed.new ]
   end
 
   def create
