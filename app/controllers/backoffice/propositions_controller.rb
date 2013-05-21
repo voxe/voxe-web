@@ -31,7 +31,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   def update
     params[:proposition][:tag_ids].delete("")
     @proposition.update_attributes params[:proposition]
-    respond_with @proposition, location: backoffice_propositions_path(@proposition[:_id])
+    respond_with @proposition, location: backoffice_proposition_path(@proposition[:_id])
   end
 
   protected

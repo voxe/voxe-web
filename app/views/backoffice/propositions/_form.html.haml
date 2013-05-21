@@ -1,0 +1,10 @@
+= f.input :text, as: :text, input_html: { class: "input-xxlarge", rows: 10 }
+= f.association :tags, as: :select, collection: @tags, input_html: { class: "input-xxlarge" }
+%h5 Liens
+= f.simple_fields_for :embeds do |embed|
+  .embed
+    = embed.input :title
+    = embed.input :url
+    = embed.input :_destroy, :as => :hidden
+    = link_to_function "Remove", "remove_fields(this)"
+= f.submit 'submit'

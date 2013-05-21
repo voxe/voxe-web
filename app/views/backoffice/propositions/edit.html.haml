@@ -1,9 +1,4 @@
 = @proposition.tag_names
 
-= simple_form_for @proposition, url: backoffice_proposition_path(@proposition[:_id]), html: { class: 'form-horizontal' } do |f|
-  = f.input :text, as: :text, input_html: { class: "input-xxlarge", rows: 10 }
-  = f.association :tags, as: :select, collection: @tags, :selected => @proposition_tags, input_html: { class: "input-xxlarge" }
-  %h5 Liens
-  = f.simple_fields_for :embeds do |embed|
-    = embed.input :url
-  = f.submit 'submit'
+= simple_form_for @proposition, url: backoffice_proposition_path(@proposition.id), html: { class: 'form-horizontal' } do |f|
+  = render "form", f: f
