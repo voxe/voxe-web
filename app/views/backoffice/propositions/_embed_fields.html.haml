@@ -1,0 +1,5 @@
+.embed
+  = f.input :title
+  = f.input :url
+  = f.input :_destroy, :as => :hidden
+  = link_to_remove_fields "remove", f
