@@ -1,0 +1,14 @@
+%h2 Tags management
+
+= render "form"
+
+%form#form-tag-search.form-search
+  .input-append
+    = text_field_tag "tag-search", nil, class: "search-query", placeholder: "Search"
+    = button_tag type: "submit", class: "btn" do
+      %i.icon-search
+
+%ul
+  - @tags.each do |t|
+    %li.tag.span2
+      = link_to t, new_admin_tag_path(t.id)
