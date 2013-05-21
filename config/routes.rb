@@ -24,6 +24,7 @@ Joinplato::Application.routes.draw do
       post 'publish'
       post 'unpublish'
     end
+    resources :tags, except: [:new]
   end
   
   # API
