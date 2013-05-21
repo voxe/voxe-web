@@ -9,7 +9,7 @@
 @add_fields = (link, association, content) ->
   new_id = new Date().getTime();
   regexp = new RegExp("new_" + association, "g");
-  $(link).prepend(content.replace(regexp, new_id))
+  $(link).prev().append(content.replace(regexp, new_id))
 
 $ ->
   try
