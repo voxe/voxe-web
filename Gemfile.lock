@@ -179,6 +179,7 @@ GEM
     meta_request (0.2.3)
       rack-contrib
       railties
+    method_source (0.8.1)
     mime-types (1.22)
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
@@ -216,6 +217,12 @@ GEM
     origin (1.0.11)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    pry (0.9.12)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-rails (0.2.2)
+      pry (>= 0.9.10)
     puma (1.6.3)
       rack (~> 1.2)
     rabl (0.8.3)
@@ -278,6 +285,7 @@ GEM
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    slop (3.4.4)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -339,6 +347,7 @@ DEPENDENCIES
   mongoid_fulltext
   mustache-trimmer!
   newrelic_rpm
+  pry-rails
   puma
   rabl
   rails (= 3.2.13)
