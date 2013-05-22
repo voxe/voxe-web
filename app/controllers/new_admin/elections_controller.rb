@@ -8,6 +8,12 @@ class NewAdmin::ElectionsController < AdminController
   def edit
   end
 
+  def show
+    @election_tags = @election.election_tags.
+      select{|et| et.root? }.
+      sort{|et1,et2| et1.tag.name <=> et2.tag.name}
+  end
+
   def update
     @election.update_attributes(params[:election])
     respond_with @election, location: new_admin_elections_path

@@ -14,7 +14,7 @@
     - @elections.each do |e|
       %tr
         %td
-          = e
+          = link_to e, new_admin_election_path(e.id)
         %td
           = e.country
         %td
