@@ -112,3 +112,9 @@ gem 'mongoid_fulltext'
 
 # Gem to get rails variables in js
 gem 'gon'
+
+# Add a type for geospcial stuff on mongoid
+gem 'mongoid_spacial'
+
+# Geocode ip addresses, etc...
+gem 'geocoder', require: false
