@@ -24,6 +24,7 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'bootstrap-datepicker-rails'
   gem 'select2-rails'
+  gem 'underscore-rails'
 end
 
 group :test do
