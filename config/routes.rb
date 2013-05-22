@@ -23,8 +23,8 @@ Joinplato::Application.routes.draw do
     resources :elections do
       post 'publish'
       post 'unpublish'
+      resources :tags, only: [:create]
     end
-    resources :tags, except: [:new]
   end
   
   # API
