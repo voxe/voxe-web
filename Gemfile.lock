@@ -131,6 +131,7 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.4)
+    geocoder (1.1.8)
     gherkin (2.11.8)
       multi_json (~> 1.3)
     haml (4.0.2)
@@ -192,6 +193,9 @@ GEM
     mongoid_fulltext (0.6.1)
       mongoid (~> 3.0)
       unicode_utils (~> 1.0.0)
+    mongoid_spacial (0.2.16)
+      activesupport (~> 3.0)
+      mongoid (>= 2.3.0)
     moped (1.4.5)
     multi_json (1.7.2)
     multipart-post (1.2.0)
@@ -308,6 +312,7 @@ DEPENDENCIES
   eco
   factory_girl_rails
   fog
+  geocoder
   haml-rails
   haml_coffee_assets
   hirefireapp
@@ -319,6 +324,7 @@ DEPENDENCIES
   minitest
   mongoid (~> 3.0.0)
   mongoid_fulltext
+  mongoid_spacial
   mustache-trimmer!
   newrelic_rpm
   puma

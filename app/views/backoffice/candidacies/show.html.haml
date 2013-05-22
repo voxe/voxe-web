@@ -1,46 +1,92 @@
+- content_for :head do
+  :plain
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+    <![endif]-->
+- content_for :javascript do
+  :javascript
+    $(function() {
+      var baseLayer = L.tileLayer(
+        'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png',{
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+          maxZoom: 18
+        }
+      );
+
+      var heatmapLayer = L.TileLayer.heatMap({
+        // radius could be absolute or relative
+        // absolute: radius in meters, relative: radius in pixels
+        radius: { value: 2000, absolute: true },
+        opacity: 0.8,
+        gradient: {
+          0.45: "rgb(0,0,255)",
+          0.55: "rgb(0,255,255)",
+          0.65: "rgb(0,255,0)",
+          0.95: "yellow",
+          1.0: "rgb(255,0,0)"
+        }
+      });
+
+      heatmapLayer.setData(testData.data);
+
+      var map = new L.Map('tags-heapmap', {
+        center: new L.LatLng(48.8667, 2.3333),
+        zoom: 7,
+        layers: [baseLayer, heatmapLayer]
+      });
+
+      // make accessible for debugging
+      layer = heatmapLayer;
+    });
+
+    var testData={
+      max: 1,
+      data: #{Event.where(processed: true).map(&:to_heatmap).to_json}
+    };
+
 %h1= @candidacy.candidates.first.name
 
-%h2 Analytics
+%h2 Tags
 %ul
-  - for et in @election.root_election_tags
-    %li
-      = et.tag.name
-      \-
-      = Event.where(candidacy_ids: @candidacy.id, tag_ids: et.tag_id).count
-      views
+  - for et, count in TagsComparison.most_compared_for_candidacy @candidacy
+    %li #{et.tag.name} - #{count} views
+
+%h2 Comparison frequency
+
+%ul
+  - for candidacy, counter in CandidaciesComparison.most_compared_list(@candidacy)
+    %li #{candidacy.name} - #{counter} times
 
 %h2 Propositions
-Mosts supported:
+%h3 Mosts supported:
 - for proposition in @candidacy.propositions.desc(:support_users_count).limit(3)
   %p
     (#{proposition.support_users_count})
     = proposition.text
-Mosts against:
+%h3 Mosts against:
 - for proposition in @candidacy.propositions.desc(:against_users_count).limit(3)
   %p
     (#{proposition.against_users_count})
     = proposition.text
-Mosts favorite:
+%h3 Mosts favorite:
 - for proposition in @candidacy.propositions.desc(:favorite_users_count).limit(3)
   %p
     (#{proposition.favorite_users_count})
     = proposition.text
 
-%h2 Users profiles
-INFO Not sure to do this immediatly because of the few Facebook connected accounts
+%h2 Profiling
+TODO Clustering of comportement (via top comparisons per visitor)
+
+%h2 Demography
+TODO Is there a way to have demographic data of visitors?
+
+%h2 Topics heat map
+
+#tags-heapmap{style: "height:360px"}
 
 %h2 Map
 TODO
-
-%h2 Comparison frequency
-
-%p Total: #{Event.where(candidacy_ids: @candidacy.id).count}
-
-%p
-  Compared with:
-  %ul
-    - for candidacy, counter in CandidaciesComparison.most_compared_list(@candidacy)
-      %li #{candidacy.name} #{counter}
 
 %p Conpared more on: TODO map reduce on tags
 

@@ -4,6 +4,7 @@
     %title Voxe Back Office
     = stylesheet_link_tag 'backoffice/application'
     = csrf_meta_tags
+    = yield :head
   %body
     .navbar
       .navbar-inner
@@ -13,3 +14,6 @@
             %ul.nav
               %li= link_to t('backoffice.my_profile'), backoffice_my_profile_path
     .container= yield
+
+    = javascript_include_tag 'backoffice/application'
+    = yield :javascript

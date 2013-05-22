@@ -108,3 +108,9 @@ gem 'koala'
 
 # Additional features for text searching with mongoid
 gem 'mongoid_fulltext'
+
+# Add a type for geospcial stuff on mongoid
+gem 'mongoid_spacial'
+
+# Geocode ip addresses, etc...
+gem 'geocoder', require: false
