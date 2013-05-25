@@ -21,6 +21,7 @@ class Candidate
   alias :lastName :last_name
   
   # relations
+  belongs_to :user
   has_and_belongs_to_many :candidacies, dependent: :destroy
   has_many :propositions, dependent: :destroy
   has_many :photos, as: :photoable, dependent: :destroy, autosave: true

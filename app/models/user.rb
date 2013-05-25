@@ -54,6 +54,7 @@ class User
   has_and_belongs_to_many :contributor_elections, class_name: 'Election', inverse_of: :contributors
   has_many :user_actions
   has_many :owned_candidacies, class_name: 'Candidacy' # The user is the owner
+  has_one :candidate
 
   #
   # Callbacks
