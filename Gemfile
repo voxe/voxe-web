@@ -48,6 +48,7 @@ gem 'simple_form'
 
 # MongoDB adapter and an optimizer for MongoDB
 gem 'mongoid', '~> 3.0.0'
+gem 'mongoid_slug'
 gem 'bson_ext'
 
 # Upload system
