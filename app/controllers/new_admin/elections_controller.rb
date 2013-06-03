@@ -16,7 +16,7 @@ class NewAdmin::ElectionsController < AdminController
 
   def update
     @election.update_attributes(params[:election])
-    respond_with @election, location: new_admin_elections_path
+    respond_with :new_admin, @election, location: new_admin_elections_path
   end
 
   def destroy
@@ -25,7 +25,7 @@ class NewAdmin::ElectionsController < AdminController
     else
       flash[:error] = "An error occured while deleting" + @election.to_s
     end
-    respond_with @election, location: new_admin_elections_path
+    respond_with :new_admin, @election, location: new_admin_elections_path
   end
 
   def publish

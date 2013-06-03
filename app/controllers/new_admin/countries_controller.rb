@@ -10,10 +10,9 @@ class NewAdmin::CountriesController < AdminController
   end
 
   def destroy
-    country = Country.find params[:id]
-    country.destroy
-    flash[:notice] = country.to_s + " has been destroyed !"
-    respond_with country, location: new_admin_countries_path
+    @country.destroy
+    flash[:notice] = "#{@country} has been destroyed !"
+    respond_with :new_admin, @country
   end
 
   def edit
@@ -24,7 +23,7 @@ class NewAdmin::CountriesController < AdminController
     @country = Country.find params[:id]
     old_name = @country.name
     @country.update_attributes(params[:country])
-    flash[:notice] = old_name + " has been updated to " + @country.name
-    respond_with @country, location: new_admin_countries_path
+    flash[:notice] = "#{old_name} has been updated to #{@country}"
+    respond_with :new_admin, @country, location: new_admin_countries_path
   end
 end
