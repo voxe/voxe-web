@@ -1,3 +1,5 @@
+.alert.alert-error
+
 %form#form-tag-search.form-search
   .input-append
     = text_field_tag "tag-search", nil, class: "search-query", placeholder: "Search", autocomplete: "off"
@@ -9,13 +11,18 @@
     %li.tag.root-tag.span2.offset1{:id => et.tag.id}
       .tag-name
         = et.tag
+        %button.add-tag +
+        %button.rm-tag -
       %ul 
         - et.children_election_tags.each do |sub_et|
           %li.tag.sub-tag.span2{:id => sub_et.tag.id}
             .tag-name
               = sub_et.tag
+              %button.add-tag +
+              %button.rm-tag -
             %ul
               - sub_et.children_election_tags.each do |sub_sub_et|
                 %li.tag.sub-sub-tag.span2{:id => sub_sub_et.tag.id}
                   .tag-name
                     = sub_sub_et.tag
+                    %button.rm-tag -
