@@ -4,18 +4,18 @@
     = button_tag type: "submit", class: "btn" do
       %i.icon-search
 
-%ul
+%ul.election-tags{:id => @election.id}
   - @election_tags.each do |et|
-    %li.tag.root-tag.span2.offset1
+    %li.tag.root-tag.span2.offset1{:id => et.tag.id}
       .tag-name
         = et.tag
       %ul 
         - et.children_election_tags.each do |sub_et|
-          %li.tag.sub-tag.span2
+          %li.tag.sub-tag.span2{:id => sub_et.tag.id}
             .tag-name
               = sub_et.tag
             %ul
               - sub_et.children_election_tags.each do |sub_sub_et|
-                %li.tag.sub-sub-tag.span2
+                %li.tag.sub-sub-tag.span2{:id => sub_sub_et.tag.id}
                   .tag-name
                     = sub_sub_et.tag
