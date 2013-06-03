@@ -1,5 +1,6 @@
 class Election
   include Mongoid::Document
+  include Mongoid::Slug
   
   # attributes
   field :name, type: String
@@ -8,6 +9,10 @@ class Election
   field :date, type: Date
   attr_reader :country_namespace
   
+  slug do |cur_object|
+    cur_object.namespace || cur_object.name.parametrize
+  end
+
   # relations
   belongs_to :parent_election, class_name: 'Election'
   has_many :elections, foreign_key: 'parent_election_id'
@@ -60,5 +65,4 @@ class Election
     self.country = Country.where(namespace: @country_namespace).first
     @country_namespace
   end
-
 end

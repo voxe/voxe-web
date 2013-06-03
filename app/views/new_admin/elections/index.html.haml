@@ -14,17 +14,17 @@
     - @elections.each do |e|
       %tr
         %td
-          = link_to e, new_admin_election_path(e.id)
+          = link_to e, new_admin_election_path(e)
         %td
           = e.country
         %td
           - if e.published
-            = link_to "", new_admin_election_unpublish_path(e.id), class: "election-published", method: :post
+            = link_to "", new_admin_election_unpublish_path(e), class: "election-published", method: :post
           - else
-            = link_to "", new_admin_election_publish_path(e.id), class: "election-unpublished", method: :post
+            = link_to "", new_admin_election_publish_path(e), class: "election-unpublished", method: :post
         %td
           = e.date
         %td
-          = link_to "Edit", edit_new_admin_election_path(e.id), class: "btn btn-small"
-          = link_to new_admin_election_path(e.id), method: :delete, confirm: "Sure ?", class: "btn btn-small btn-danger" do
+          = link_to "Edit", edit_new_admin_election_path(e), class: "btn btn-small"
+          = link_to new_admin_election_path(e), method: :delete, confirm: "Sure ?", class: "btn btn-small btn-danger" do
             Delete
