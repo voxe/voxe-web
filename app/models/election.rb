@@ -36,6 +36,12 @@ class Election
     ElectionTag.where(election_id:(parent_election ? parent_election.id : self.id)).includes(:tag)
   end
 
+  def copy_tags_from_election(election)
+    election.election_tags.each do |et|
+      ElectionTag.create election: self, tag: et.tag, parent_tag: et.parent_tag, position: et.position, parent_tag_id: et.parent_tag_id
+    end
+  end
+
   def to_param
     self.namespace
   end

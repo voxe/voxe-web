@@ -1,13 +1,22 @@
-= f.input :name
-= f.input :country_id do
-  %span.add-on
-    %i.icon-flag
-  = f.input_field :country_id, collection: Country.all.order_by(name: :asc)
-= f.input :date, :wrapper => :prepend do
-  %span.add-on
-    %i.icon-calendar
-  = f.input_field :date
-= f.button :submit
+= simple_form_for [:new_admin, @election] do |f|
+  .span4
+    %h4 Information
+    = f.input :name
+    = f.input :namespace
+    = f.input :country_id do
+      %span.add-on
+        %i.icon-flag
+      = f.input_field :country_id, collection: Country.all.order_by(name: :asc)
+    = f.input :date, :wrapper => :prepend do
+      %span.add-on
+        %i.icon-calendar
+      = f.input_field :date
+    = f.button :submit
+
+  .span4
+    - if action_name == "new"
+      %h4 Copy tags from election :
+      = f.input :election_tags, collection: Election.all, label: "Election"
 
 :javascript
   $("#election_date").datepicker({

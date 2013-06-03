@@ -8,6 +8,18 @@ class NewAdmin::ElectionsController < AdminController
   def edit
   end
 
+  def new
+  end
+
+  def create
+    @election.contributors << current_user
+    if @election.save
+      flash[:notice] = "#{@election} has been saved."
+      @election.copy_tags_from_election(Election.find params[:election][:election_tags])
+    end
+    respond_with :new_admin, @election, location: new_admin_elections_path
+  end
+
   def show
     @election_tags = @election.election_tags.
       select{|et| et.root? }.
