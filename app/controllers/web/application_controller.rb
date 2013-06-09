@@ -1,5 +1,6 @@
 class Web::ApplicationController < ApplicationController
-  
+  before_filter :set_locale
+
   # will be reset every deploy
   caches_action :index
 
@@ -7,6 +8,15 @@ class Web::ApplicationController < ApplicationController
     @options = {}
   end
   
+  AVAILABLE_LANGUAGES = I18n.available_locales.map do |l| l.to_s end
+  def set_locale
+    unless request.user_preferred_languages.empty?
+      I18n.locale = request.preferred_language_from(AVAILABLE_LANGUAGES)
+    else
+      I18n.locale = I18n.default_locale
+    end
+  end
+
   private
     def set_election
       @only_published_candidacies = true
