@@ -1,0 +1,9 @@
+%ul.candidacies{style: "list-style-type: none"}
+  - @candidacies.each do |c|
+    %li.candidacy
+      %ul.candidates
+        - c.candidates.each do |candidate|
+          %li.candidate.span2
+            = image_tag candidate.photo_url(:small)
+            = candidate.name
+
