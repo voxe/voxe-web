@@ -16,7 +16,7 @@
     - @elections.each do |e|
       %tr
         %td
-          = link_to e, new_admin_election_path(e)
+          = e
         %td
           = e.country
         %td
@@ -27,6 +27,8 @@
         %td
           = e.date
         %td
-          = link_to "Edit", edit_new_admin_election_path(e), class: "btn btn-small"
+          = link_to "Tags", new_admin_election_election_tags_path(e), class: "btn btn-small"
+          = link_to "Candidacies", new_admin_election_candidacies_path(e), class: "btn btn-small"
+          = link_to "Edit", edit_new_admin_election_path(e), class: "btn btn-small btn-inverse"
           = link_to new_admin_election_path(e), method: :delete, confirm: "Sure ?", class: "btn btn-small btn-danger" do
             Delete

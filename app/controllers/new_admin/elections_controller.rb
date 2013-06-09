@@ -20,7 +20,7 @@ class NewAdmin::ElectionsController < AdminController
     respond_with :new_admin, @election, location: new_admin_elections_path
   end
 
-  def show
+  def tags
     @election_tags = @election.election_tags.
       select{|et| et.root? }.
       sort{|et1,et2| et1.tag.name <=> et2.tag.name}

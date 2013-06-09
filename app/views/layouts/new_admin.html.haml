@@ -9,7 +9,9 @@
     .navbar
       .navbar-inner
         .container
-          = link_to "The Voxe Office", admin_path, class: "brand"
+          = link_to new_admin_path, class: "brand" do
+            = image_tag (asset_path "icons/16.png")
+            "The Voxe Office"
           %ul.nav
             %li= link_to 'Countries', new_admin_countries_path
             %li= link_to 'Elections', new_admin_elections_path

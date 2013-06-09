@@ -18,9 +18,11 @@ Joinplato::Application.routes.draw do
   end
   # New admin (Let the old live until candidate BO isn't finished)
   namespace :new_admin do
-    match '/' => 'backoffice#index'
+    match '/' => 'elections#index'
     resources :countries
     resources :elections do
+      resources :election_tags, only: [:index]
+      resources :candidacies, only: [:index]
       post 'publish'
       post 'unpublish'
       resources :tags, only: [:create]
