@@ -1,7 +1,4 @@
 $ ->
-  # Hide flash message
-  $(".alert").hide()
-
   # Prevent from sending form
   $("#form-tag-search").on "submit", (e) ->
     e.preventDefault()

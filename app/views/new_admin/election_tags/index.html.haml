@@ -1,28 +1,42 @@
-.alert.alert-error
+= render '/new_admin/flash', flash: flash
 
-%form#form-tag-search.form-search
-  .input-append
-    = text_field_tag "tag-search", nil, class: "search-query", placeholder: "Search", autocomplete: "off"
-    = button_tag type: "submit", class: "btn" do
-      %i.icon-search
+= simple_form_for [:new_admin, @tag], html: {class: "form-horizontal"} do |f|
+  = hidden_field_tag 'election', @election.to_param
+  .controls-group
+    = f.label :name, "New tag name : ", class: "control-label"
+    .controls
+      = f.input_field :name, placeholder: "Tag name"
+      = f.submit class: "btn"
+
+%form#form-tag-search.form-search.form-horizontal
+  .control-group
+    = label_tag "tag-search", "Quick search :", class: "control-label"
+    .controls
+      .input-append
+        = text_field_tag "tag-search", nil, class: "search-query", placeholder: "Search", autocomplete: "off"
+        = button_tag type: "submit", class: "btn" do
+          %i.icon-search
+
+.row
+  %button.add-root-tag.span2.btn +
 
 %ul.election-tags{:id => @election.id}
   - @election_tags.each do |et|
     %li.tag.root-tag.span2.offset1{:id => et.tag.id}
       .tag-name
         = et.tag
-        %button.add-tag +
-        %button.rm-tag -
+        %button.btn.add-tag +
+        %button.btn.rm-tag -
       %ul 
         - et.children_election_tags.each do |sub_et|
           %li.tag.sub-tag.span2{:id => sub_et.tag.id}
             .tag-name
               = sub_et.tag
-              %button.add-tag +
-              %button.rm-tag -
+              %button.btn.add-tag +
+              %button.btn.rm-tag -
             %ul
               - sub_et.children_election_tags.each do |sub_sub_et|
                 %li.tag.sub-sub-tag.span2{:id => sub_sub_et.tag.id}
                   .tag-name
                     = sub_sub_et.tag
-                    %button.rm-tag -
+                    %button.btn.rm-tag -

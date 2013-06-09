@@ -20,6 +20,7 @@ Joinplato::Application.routes.draw do
   namespace :new_admin do
     match '/' => 'elections#index'
     resources :countries
+    resources :tags, only: [:create]
     resources :elections do
       resources :election_tags, only: [:index]
       resources :candidacies, only: [:index]
