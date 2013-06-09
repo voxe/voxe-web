@@ -37,12 +37,10 @@ $ ->
       error: (xhr, status, body) ->
         cb({})
 
-  addTag = (e) ->
-    select = $("<div></div>")
-    tagsIds = []
+  buildTagsSelect = (select, filterIds) ->
+    filterIds = []
     $(".tag").each ->
-      tagsIds.push this.id
-    $(this).parent().append(select)
+      filterIds.push this.id
     select.select2
       ajax:
         url: '/api/v1/tags/search'
@@ -53,12 +51,61 @@ $ ->
           name: term
         results: (data, page) ->
           results: _.filter data.response, (tag) ->
-            tagsIds.indexOf(tag.id) == -1
-
+            filterIds.indexOf(tag.id) == -1
       formatResult: (tag) ->
         tag.name
       formatSelection: (tag) ->
         tag.name
+
+  buildNewTag = (elem) ->
+    # Build our tag and add it to the page
+    # We first check who's the parent node to manage the class
+    buttons = $("<button></button>").text("-").addClass("btn").addClass("rm-tag").on("click", removeTag)
+    addButton = $("<button></button>").text("+").addClass("btn").addClass("add-tag").on("click", addTag)
+    classes = $(elem).parent().parent().attr "class"
+    if classes.indexOf("container-fluid") != -1
+      tag_class = "root-tag"
+      buttons = buttons.before addButton
+    else if classes.indexOf("root-tag") != -1
+      tag_class = "sub-tag"
+      buttons = buttons.before addButton
+    else if classes.indexOf("sub-tag") != -1
+      tag_class = "sub-sub-tag"
+
+    # We create the HTML tag directly
+    $("<li></li>").
+      addClass(tag_class).
+      addClass("tag").
+      addClass("span2").
+      attr("id", elem.tag.id).
+      append(
+        $("<div></div>").
+        addClass("tag-name").
+        text(elem.tag.name).
+        append(buttons)
+      ).
+      append($("<ul></ul>"))
+
+  addRootTag = (e) ->
+    select = $("<div></div>")
+    $(this).parent().append(select)
+    buildTagsSelect(select)
+    select.on "change", (e) =>
+      getTag e.val, (tag) =>
+        @tag = tag
+        $.ajax
+          url: '/api/v1/elections/'+ $(".election-tags").attr("id") + '/addtag'
+          type: 'POST'
+          data:
+            tagId: tag.id
+          success: (response, status, xhr) =>
+            select.select2("destroy")
+            $(".election-tags").prepend buildNewTag(@)
+
+  addTag = (e) ->
+    select = $("<div></div>")
+    $(this).parent().append(select)
+    buildTagsSelect(select)
 
     select.on "change", (e) =>
       getTag e.val, (tag) =>
@@ -75,34 +122,10 @@ $ ->
             success: (response, status, xhr) =>
               # Remove select2, we don't need it anymore
               select.select2("destroy")
-
-              # Build our tag and add it to the page
-              # We first check who's the parent node to manage the class
-              buttons = $("<button></button>").text("-").addClass("rm-tag").on("click", removeTag)
-              classes = $(this).parent().parent().attr "class"
-              if classes.indexOf("root-tag") != -1
-                tag_class = "sub-tag"
-                buttons = buttons.before $("<button></button>").text("+").addClass("add-tag").on("click", addTag)
-              else if classes.indexOf("sub-tag") != -1
-                tag_class = "sub-sub-tag"
-
-              # We create the HTML tag directly
-              new_tag = $("<li></li>").
-                addClass(tag_class).
-                addClass("tag").
-                addClass("span2").
-                attr("id", @tag.id).
-                append(
-                  $("<div></div>").
-                  addClass("tag-name").
-                  text(@tag.name).
-                  append(buttons)
-                ).
-                append($("<ul></ul>"))
-
-              # And we add it
-              $(this).parent().next().prepend new_tag
+              $(this).parent().next().prepend buildNewTag(@)
             error: (response, status, body) ->
+              if $(".alert").size() == 0
+                $("body .container-fluid").prepend $('<div class="alert alert-error"></div>')
               $(".alert").text(response.responseText)
               $(".alert").show()
 
@@ -119,6 +142,7 @@ $ ->
           $(this).parent().parent().remove()
 
 
+  $(".add-root-tag").on "click", addRootTag
   $(".add-tag").on "click", addTag
   $(".rm-tag").on "click", removeTag
   
