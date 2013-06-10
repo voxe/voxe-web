@@ -9,10 +9,10 @@
 @add_fields = (link, association, content) ->
   new_id = new Date().getTime();
   regexp = new RegExp("new_" + association, "g");
-  if $(link).parent().find("div.embed").last() == []
-    $(link).parent().find("div.embed").last().append(content.replace(regexp, new_id))
+  if $(link).parent().find("div.embed").length < 1
+    $(link).parent().find("h5").after(content.replace(regexp, new_id))
   else
-    $(link).parent().find("h5").append(content.replace(regexp, new_id))
+    $(link).parent().find("div.embed").last().after(content.replace(regexp, new_id))
 
 $ ->
   try

@@ -36,7 +36,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   protected
 
   def load_tags
-    @tags ||= current_candidacy.election.election_tags.select{ |elt| !elt.root? }.map { |elt| elt.tag }
+    @tags ||= current_candidacy.election.election_tags.select{ |elt| elt.leaf? }.map { |elt| elt.tag }
   end
 
   def load_proposition

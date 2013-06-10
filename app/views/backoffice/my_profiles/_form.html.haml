@@ -1,0 +1,12 @@
+= f.input :address
+= f.input :birthday
+= f.input :phone
+= f.input :email
+= f.input :website, as: :url
+= f.input :biography, as: :text, input_html: { class: "input-xxlarge", maxlength: 300, rows: 5 }, hint: '300 characters max'
+= f.input :introduction, as: :text, input_html: { class: "input-xxlarge", maxlength: 1000, rows: 16 }, hint: '1000 characters max'
+= f.input :facebook, as: :url, label: image_tag('web/icons/facebook.png'), label_html: { class: "cst-label" }
+= f.input :twitter, as: :url, label: image_tag('web/icons/twitter.png'), label_html: { class: "cst-label" }
+= f.input :youtube, as: :url, label: image_tag('web/icons/youtube.png'), label_html: { class: "cst-label" }
+= f.input :wikipedia, as: :url, label: image_tag('web/icons/wikipedia.png'), label_html: { class: "cst-label" }
+= f.submit 'submit'

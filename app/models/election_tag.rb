@@ -30,9 +30,13 @@ class ElectionTag
   def position
     rand 1000
   end
-  
+
   def root?
     parent_tag == nil
+  end
+
+  def leaf?
+    self.children_election_tags.blank?
   end
 
   def to_s
