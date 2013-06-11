@@ -1,9 +1,13 @@
+= form_for :search do |f|
+  %label{:for => "quick search"} Quick search :
+  = f.text_field :search, id: "quick_search"
+
 %a{ :href => new_backoffice_proposition_path }
   .btn.btn-block
     = 'New proposition'
 
 %table{ :class => "table table-hover" }
-  %tbody
+  %tbody#root-propositions
     - @propositions.each do |proposition|
       %tr
         %td
