@@ -29,7 +29,11 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
 
   def update
     params[:proposition][:tag_ids].delete("")
-    @proposition.update_attributes params[:proposition]
+    unless @proposition.update_attributes params[:proposition]
+      load_tags
+      load_proposition_tags
+      gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
+    end
     respond_with @proposition, location: backoffice_proposition_path(@proposition[:_id])
   end
 
