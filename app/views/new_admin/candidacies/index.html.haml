@@ -1,9 +1,9 @@
-%ul.candidacies{style: "list-style-type: none"}
-  - @candidacies.each do |c|
-    %li.candidacy
-      %ul.candidates
-        - c.candidates.each do |candidate|
-          %li.candidate.span2
-            = image_tag candidate.photo_url(:small)
-            = candidate.name
+= simple_form_for [:new_admin, @election, @candidacy] do |f|
+  = f.input :candidates, collection: @available_candidates
+
+%ul.candidates
+  - @candidates.each do |candidate|
+    %li.candidate
+      = image_tag candidate.photo_url(:small)
+      = candidate.name
 
