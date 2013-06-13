@@ -1,9 +1,12 @@
-= simple_form_for [:new_admin, @election, @candidacy] do |f|
-  = f.input :candidates, collection: @available_candidates
+= render '/new_admin/flash', flash: flash
 
-%ul.candidates
-  - @candidates.each do |candidate|
-    %li.candidate
-      = image_tag candidate.photo_url(:small)
-      = candidate.name
+= render 'form'
+
+.candidates
+  - @candidacies.each do |candidacy|
+    - candidate = candidacy.candidates[0]
+    - if candidacy.published
+      = render "candidacy", candidacy: candidacy, candidacy_state: "published"
+    - else
+      = render "candidacy", candidacy: candidacy, candidacy_state: "unpublished"
 

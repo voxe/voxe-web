@@ -41,6 +41,9 @@ class Candidate
     "https://voxe.s3.amazonaws.com/candidates/#{namespace}-#{width}.jpg"
   end
   
+  def to_s
+    "#{name}"
+  end
   private
       
     def default_photo(size)

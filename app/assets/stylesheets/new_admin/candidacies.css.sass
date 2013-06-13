@@ -1,12 +1,37 @@
-ul.candidates
-  list-style-type: none
-  li.candidate
+$candidacy_height: 50px
+$candidacy_width: 250px
+$candidacy_link_width: 220px
+$candidacy_delete_padding: ($candidacy_width - $candidacy_link_width) / 2
+$candidacy_border_size: 1px
+$candidacy_border_color: #c2c2c2
+$candidacy_published_color: #DCF7E3
+$candidacy_unpublished_color: #F2D3D3
+
+
+.candidacy
+  border: $candidacy_border_size solid $candidacy_border_color
+  display: inline-block
+  width: $candidacy_width
+  a
     display: inline-block
-    background-color: #e0e0e0
-    height: 50px
-    width: 250px
-    margin-bottom: 5px
-    border: 1px solid #c2c2c2
+    height: $candidacy_height
+    width: $candidacy_link_width
+    vertical-align: middle
+    &.candidacy-published
+      background-color: $candidacy_published_color  
+    &.candidacy-unpublished
+      background-color: $candidacy_unpublished_color
+    &.candidacy-delete
+      border-left: $candidacy_border_size solid darken($candidacy_border_color, 20%)
+      float: right
+      text-align: center
+      height: 100%
+      padding-top: $candidacy_delete_padding
+      padding-bottom: $candidacy_delete_padding
+      font-size: 40px
+      color: darken($candidacy_unpublished_color, 40%)
+      width: $candidacy_width - $candidacy_link_width - $candidacy_border_size
+      background-color: darken($candidacy_unpublished_color, 20%)
 
 #s2id_candidacy_candidates .select2-choice
   height: 50px
