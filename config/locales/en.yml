@@ -39,3 +39,12 @@ en:
     edit_my_profile: Edit my profile
   backoffice:
     my_profile: My profile
+    my_propositions: My propositions
+    index: Candidate backoffice dashboard
+    new_proposition: New proposition
+    add_link: Add link
+    remove_link: Remove link
+    submit: Submit changes
+    search: Quick search
+    characters_max: characters maximum
+    links: Links to webcontent regarding this proposition
