@@ -2,7 +2,10 @@
 %html
   %head
     %title Voxe Back Office
+    = include_gon
     = stylesheet_link_tag 'backoffice/application'
+    = javascript_include_tag 'backoffice/backoffice'
+    = javascript_include_tag 'backoffice/propositions/applications'
     = csrf_meta_tags
     = yield :head
   %body
@@ -13,6 +16,7 @@
           .nav-collapse.collapse
             %ul.nav
               %li= link_to t('backoffice.my_profile'), backoffice_my_profile_path
+              %li= link_to t('backoffice.my_propositions'), backoffice_propositions_path
     .container= yield
 
     = javascript_include_tag 'backoffice/application'

@@ -84,6 +84,7 @@ gem 'haml_coffee_assets'
 gem 'eco'
 gem 'mustache-trimmer', :git => 'https://github.com/josh/mustache-trimmer.git'
 gem 'simple_form'
+gem 'select2-rails'
 
 # http://voxe.airbrake.io/
 gem "airbrake"
@@ -108,6 +109,9 @@ gem 'koala'
 
 # Additional features for text searching with mongoid
 gem 'mongoid_fulltext'
+
+# Gem to get rails variables in js
+gem 'gon'
 
 # Add a type for geospcial stuff on mongoid
 gem 'mongoid_spacial'

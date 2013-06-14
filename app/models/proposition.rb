@@ -9,7 +9,7 @@ class Proposition
 
   belongs_to :candidacy
   has_and_belongs_to_many :tags, inverse_of: nil
-  
+
   # indexes
   index({ candidacy_id: 1, tag_ids: 1 }, { background: true })
   index({ candidacy_id: 1, support_users_count: 1 }, { background: true })
@@ -26,7 +26,7 @@ class Proposition
   before_save :add_parent_tags
 
   attr_reader :tag
-  
+
   def tag= name
     self.add_tag name
   end
@@ -76,4 +76,5 @@ class Proposition
     end
     self.tags = all_tags
   end
+
 end

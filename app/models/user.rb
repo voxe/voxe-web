@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+
   # Include default devise modules. Others available are:
   # :encryptable, :confirmable, :lockable, :timeoutable :omniauthable and :registerable
   devise :database_authenticatable, :token_authenticatable,
@@ -54,7 +54,7 @@ class User
   has_and_belongs_to_many :contributor_elections, class_name: 'Election', inverse_of: :contributors
   has_many :user_actions
   has_many :owned_candidacies, class_name: 'Candidacy' # The user is the owner
-  has_one :candidate
+  has_one :candidacy
 
   #
   # Callbacks
@@ -87,12 +87,12 @@ class User
 
     user.save ? user : nil
   end
-  
+
   # picture
   def picture?
     !facebook_uid.blank?
   end
-  
+
   def picture
     "http://graph.facebook.com/#{facebook_uid}/picture?type=square"
   end
