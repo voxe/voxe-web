@@ -14,4 +14,4 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.uk
 //= require select2
 //= require underscore
-//= require_tree .
+//= require_tree ./new_admin
