@@ -347,8 +347,8 @@ DEPENDENCIES
   eco
   factory_girl_rails
   fog
-  gon
   geocoder
+  gon
   haml-rails
   haml_coffee_assets
   hirefireapp
