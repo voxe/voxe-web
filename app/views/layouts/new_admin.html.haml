@@ -1,0 +1,23 @@
+!!! HTML
+%html
+  %head
+    %title The Voxe
+    = stylesheet_link_tag "new_admin/application"
+    = javascript_include_tag "new_admin/application"
+    = csrf_meta_tags
+  %body
+    .navbar
+      .navbar-inner
+        .container
+          = link_to new_admin_path, class: "brand" do
+            = image_tag (asset_path "icons/16.png")
+            "The Voxe Office"
+          %ul.nav
+            %li= link_to 'Countries', new_admin_countries_path
+            %li= link_to 'Elections', new_admin_elections_path
+          %ul.nav.pull-right
+            %li
+              = link_to "Logged as #{current_user.email}", '#'
+
+    .container-fluid
+      =yield

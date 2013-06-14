@@ -13,13 +13,26 @@ Joinplato::Application.routes.draw do
   match 'sitemap.xml' => 'web/sitemap#index', format: 'xml'
   
   # admin
-
   namespace :admin do
     match '/' => 'dashboard#index'
   end
+  # New admin (Let the old live until candidate BO isn't finished)
+  namespace :new_admin do
+    match '/' => 'elections#index'
+    resources :countries
+    resources :tags, only: [:create]
+    resources :elections do
+      resources :election_tags, only: [:index]
+      resources :candidacies, only: [:index, :create, :destroy] do
+        post :toggle
+      end
+      post 'publish'
+      post 'unpublish'
+      resources :tags, only: [:create]
+    end
+  end
   
   # API
-
   namespace :api, format: :json do
     namespace :v1 do
 
