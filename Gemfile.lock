@@ -143,8 +143,12 @@ GEM
       ruby-hmac
     formatador (0.2.4)
     fssm (0.2.10)
+    geocoder (1.1.8)
     gherkin (2.11.8)
       multi_json (~> 1.3)
+    gon (4.1.0)
+      actionpack (>= 2.3.0)
+      json
     haml (4.0.2)
       tilt
     haml-rails (0.4)
@@ -209,6 +213,9 @@ GEM
     mongoid_slug (3.1.1)
       mongoid (> 3.0)
       stringex (~> 1.4)
+    mongoid_spacial (0.2.16)
+      activesupport (~> 3.0)
+      mongoid (>= 2.3.0)
     moped (1.4.5)
     multi_json (1.7.2)
     multipart-post (1.2.0)
@@ -340,6 +347,8 @@ DEPENDENCIES
   eco
   factory_girl_rails
   fog
+  gon
+  geocoder
   haml-rails
   haml_coffee_assets
   hirefireapp
@@ -353,6 +362,7 @@ DEPENDENCIES
   mongoid (~> 3.0.0)
   mongoid_fulltext
   mongoid_slug
+  mongoid_spacial
   mustache-trimmer!
   newrelic_rpm
   pry-rails

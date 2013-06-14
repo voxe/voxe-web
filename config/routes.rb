@@ -1,21 +1,22 @@
 Joinplato::Application.routes.draw do
-  
+
   # redirect www to .
   match "/" => redirect("http://voxe.org"), :constraints => {:subdomain => "www"}
   match "/*path" => redirect {|params, request| "http://voxe.org/#{params[:path]}" }, :constraints => {:subdomain => "www"}
-  
+
   # 2008
   match "/election-municipales" => redirect('/')
   match "/election-municipales/" => redirect('/')
   match "/election-municipales/*path" => redirect('/')
-  
+
   # sitemap
   match 'sitemap.xml' => 'web/sitemap#index', format: 'xml'
-  
+
   # admin
   namespace :admin do
     match '/' => 'dashboard#index'
   end
+
   # New admin (Let the old live until candidate BO isn't finished)
   namespace :new_admin do
     match '/' => 'elections#index'
@@ -66,13 +67,13 @@ Joinplato::Application.routes.draw do
           get :search
         end
       end
-      
+
       resources :tags do
         collection do
           get :search
         end
       end
-      
+
       resources :propositions do
         scope module: :user_actions do
           resource :favorite, only: [:create, :destroy]
@@ -113,7 +114,7 @@ Joinplato::Application.routes.draw do
       end
 
       resources :organizations
-      
+
       resources :comparisons do
         collection do
           get :search
@@ -128,13 +129,13 @@ Joinplato::Application.routes.draw do
 
     end
   end
-  
+
   # webviews
   namespace :webviews, format: "touch" do
     resources :comparisons, only: :index
     resources :propositions, only: :show
   end
-  
+
   # web-app
   namespace :embed do
     resources :elections, only: :show
@@ -145,11 +146,11 @@ Joinplato::Application.routes.draw do
       end
     end
   end
-  
+
   # api doc
-  
+
   match 'platform' => 'platform#index'
-  
+
   namespace :platform do
     resources :endpoints do
       collection do
@@ -188,8 +189,11 @@ Joinplato::Application.routes.draw do
   devise_for :users
 
   # Back-office for candidates
-  namespace 'backoffice' do
+  namespace :backoffice do
+    root to: 'dashboard#index'
     resources :candidacies
+    resource :my_profile
+    resources :propositions
   end
 
   # all platforms
@@ -199,29 +203,29 @@ Joinplato::Application.routes.draw do
   match 'about/press' => 'Web::Static#press', :as => :press
   match 'about/thanks' => 'Web::Static#thanks', :as => :thanks
   match 'apps' => 'Web::Static#apps', :as => :apps
-  
+
   # touch
   scope :module => "touch", format: "touch", constraints: TouchConstraint.new do
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election
-    
+
     root to: 'elections#index'
   end
-  
+
   # mobile
   scope :module => "mobile", format: "mobile", constraints: MobileConstraint.new do
     match ':namespace/:candidacies/:tag' => 'elections#compare', :as => :compare
-    
+
     match 'propositions/:id' => 'propositions#show', :as => :proposition
-    
+
     match ':namespace/candidacies' => 'candidacies#create', :as => :candidacies
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election
-    
+
     root to: 'elections#index'
   end
-  
+
   # web
   scope :module => "web", format: "html" do
     match 'propositions/:id' => 'propositions#show', :as => :proposition
@@ -229,8 +233,8 @@ Joinplato::Application.routes.draw do
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election
-    
+
     root to: 'application#index'
   end
-  
+
 end

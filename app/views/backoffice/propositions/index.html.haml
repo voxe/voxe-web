@@ -1,0 +1,15 @@
+= form_for :search do |f|
+  %label{:for => "quick search"}
+    = t('backoffice.search')
+  = f.text_field :search, id: "quick_search"
+
+%a{ :href => new_backoffice_proposition_path }
+  .btn.btn-block
+    = t('backoffice.new_proposition')
+
+%table{ :class => "table table-hover" }
+  %tbody#root-propositions
+    - @propositions.each do |proposition|
+      %tr
+        %td
+          = link_to proposition[:text],edit_backoffice_proposition_path(proposition[:_id])
