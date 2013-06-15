@@ -8,11 +8,14 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   def index
     if (params[:namespace_categ]) 
       @active_tag = current_candidacy.election.election_tags.select{ |election_tag| election_tag.tag.namespace==params[:namespace_categ] }.first
+      @propositions_categ = current_candidacy.propositions.select{ |proposition| proposition.tag_ids.include?(@active_tag.tag_id) }
     else
-      @active_tag = current_candidacy.election.election_tags.where(:parent_tag_id => nil).sort_by{ |categ_tag| categ_tag.tag.name }.first
+      @active_tag = nil
+      #@active_tag = current_candidacy.election.election_tags.where(:parent_tag_id => nil).first
+      @propositions_categ = current_candidacy.propositions
     end
     @lst_tags = current_candidacy.election.election_tags.where(:parent_tag_id => nil)
-    @propositions_categ = current_candidacy.propositions.select{ |proposition| proposition.tag_ids.include?(@active_tag.tag_id) }
+
   end
 
   # def index
