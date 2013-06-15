@@ -194,6 +194,7 @@ Joinplato::Application.routes.draw do
     resources :candidacies
     resource :my_profile
     resources :propositions
+    match 'propositions/categorie/:namespace_categ' => 'propositions#index', :as => :propositions_categorie
   end
 
   # all platforms

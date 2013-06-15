@@ -6,8 +6,18 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   before_filter :load_proposition_tags, :only => [:edit]
 
   def index
-    @propositions = current_candidacy.propositions
+    if (params[:namespace_categ]) 
+      @active_tag = current_candidacy.election.election_tags.select{ |election_tag| election_tag.tag.namespace==params[:namespace_categ] }.first
+    else
+      @active_tag = current_candidacy.election.election_tags.where(:parent_tag_id => nil).sort_by{ |categ_tag| categ_tag.tag.name }.first
+    end
+    @lst_tags = current_candidacy.election.election_tags.where(:parent_tag_id => nil)
+    @propositions_categ = current_candidacy.propositions.select{ |proposition| proposition.tag_ids.include?(@active_tag.tag_id) }
   end
+
+  # def index
+  #  @propositions = current_candidacy.propositions
+  # end
 
   def new
     gon.page = "new"
