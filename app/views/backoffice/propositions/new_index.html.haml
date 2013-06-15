@@ -1,0 +1,21 @@
+%h3
+  = "Catégorie sélectionnée : " + @active_tag.tag.name
+
+%ul{:class => "nav nav-pills" }
+  - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
+    %li
+      = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace)
+
+%h3 Liste des propositions :
+
+= form_for :search do |f|
+  %label{:for => "quick search"}
+    = t('backoffice.search')
+  = f.text_field :search, id: "quick_search"
+
+%table{ :class => "table table-hover" }
+  %tbody#root-propositions
+    - @propositions_categ.each do |proposition|
+      %tr
+        %td
+          = link_to proposition[:text] + " - [Verif : " + proposition.tags.map{ |tag| tag.name}.join(", ") + "]",edit_backoffice_proposition_path(proposition[:_id])
