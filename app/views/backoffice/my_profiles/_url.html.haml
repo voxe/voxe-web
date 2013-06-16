@@ -1,0 +1,9 @@
+%div.control-group.url.optional.candidacy_candidate_profile_website
+  - if name.empty?
+    %label.string.optional.control-label.cst-label
+      = label
+  - else
+    = f.label name
+  .controls
+    = f.input_field input, as: :url
+    = link_to_test_link t('backoffice.test_link'), website, class: "btn"

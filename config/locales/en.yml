@@ -49,3 +49,5 @@ en:
     characters_max: characters maximum
     links: Links to webcontent regarding this proposition
     profile: "%{name}'s profile for the %{election}"
+    website: Your website
+    test_link: Test this link

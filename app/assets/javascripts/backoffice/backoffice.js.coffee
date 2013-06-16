@@ -10,6 +10,17 @@
   else
     $(link).parent().find("div.embed").last().after content.replace(regexp, new_id)
 
+@test_link = (link, website = null) ->
+  value = $(link).prev().val()
+  if(website)
+    final_link = "http://www." + website + ".com/" + value
+  else if (value.search("http://") is -1)
+    final_link = "http://" + value
+  else
+    final_link = value
+
+  window.open(final_link)
+
 $ ->
   if gon?
     if gon.page is "new"

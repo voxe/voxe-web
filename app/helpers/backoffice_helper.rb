@@ -14,4 +14,12 @@ module BackofficeHelper
     end.html_safe
     link_to_function(name, "add_fields(this, '#{association}', '#{escape_javascript(fields)}')",  :class => css_class)
   end
+
+  def link_to_test_link(name, website, options = {})
+    if website.size != 0
+      link_to_function(name, "test_link(this, '#{website}')", options)
+    else
+      link_to_function(name, "test_link(this)", options)
+    end
+  end
 end

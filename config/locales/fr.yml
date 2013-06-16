@@ -49,3 +49,5 @@ fr:
     characters_max: caractères maximum
     links: Liens vers du contenu concernant cette proposition
     profile: "Profil de %{name} pour l'%{election}"
+    website: Votre site web
+    test_link: Tester le lien
