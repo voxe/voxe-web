@@ -11,12 +11,19 @@
     .navbar
       .navbar-inner
         .container
+          = link_to root_url do
+            .brand
+              = '←'
+              = image_tag('icons/32.png', width: '20px')
           = link_to 'Voxe Backoffice', backoffice_root_url, class: 'brand'
           .nav-collapse.collapse
             %ul.nav
               %li= link_to t('backoffice.my_profile'), backoffice_my_profile_path
               %li= link_to t('backoffice.my_propositions'), backoffice_propositions_path
+
+            %ul.nav.pull-right
+              %li
+                = link_to "Logged as #{current_user.email}", '#'
     .container= yield
 
-    = javascript_include_tag 'backoffice/application'
     = yield :javascript
