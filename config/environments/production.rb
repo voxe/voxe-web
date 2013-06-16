@@ -60,7 +60,10 @@ Joinplato::Application.configure do
     mobile.css
     admin/application.css
     admin/application.js
-    backoffice/application.js
+    backoffice.js
+    backoffice.css
+    new_admin.js
+    new_admin.css
   )
 
   config.assets.initialize_on_precompile = true
