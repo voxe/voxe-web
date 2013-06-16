@@ -35,7 +35,7 @@ en:
     password: Password
     sign_up: Sign up
     already_on_voxe_sign_in: Already on Voxe? Sign in.
-    sign_in: Sign in
+    sign_in: Log in
     edit_my_profile: Edit my profile
   backoffice:
     my_profile: My profile

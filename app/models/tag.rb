@@ -28,6 +28,10 @@ class Tag
   def icon_name
     ".png"
   end
+  
+  def to_s
+    name
+  end
 
   # returns all the elections this tag has been mentioned
   def elections

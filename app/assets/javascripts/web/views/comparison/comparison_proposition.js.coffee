@@ -1,8 +1,9 @@
 class window.ComparisonPropositionView extends Backbone.View
-  
+
   initialize: ->
     @commentsDisplayed = false
     @model.comments.bind "reset", @resetComments, @
+    @model.bind 'change:favorite_users', @refresh, @
     @model.bind 'change:commentsCount', @renderCommentsCount, @
 
     @candidacy = app.collections.candidacies.find (ca) => ca.id == @model.get('candidacy').id
@@ -11,6 +12,7 @@ class window.ComparisonPropositionView extends Backbone.View
 
   events:
     "click .comments-count a": "showComments"
+    "click .favorite": "toogleFavorite"
     "click .facebook": "facebook"
     "mouseover": "mouseOver"
     "mouseout": "mouseOut"
@@ -32,7 +34,7 @@ class window.ComparisonPropositionView extends Backbone.View
       $(@el).append view.el
       # focus
       @.$("textarea").focus()
-  
+
   render: ->
     if @model.text().length > 60
       @model.set twitterMessage: "#{@candidacy.name()} : #{@model.text().slice(0,60)}... http://voxe.org"
@@ -52,12 +54,16 @@ class window.ComparisonPropositionView extends Backbone.View
     unless _.isEmpty links
       view = new PropositionEmbedLinksView collection: new EmbedsCollection links
       $('.text', @el).after view.render().el
-    
+
     @renderCommentsCount()
-    
+
     $('.share', @el).hide()
 
     @
+
+  toogleFavorite: (e) ->
+    e.preventDefault()
+    @model.toogleFavorite()
 
   facebook: ->
     obj =
@@ -83,3 +89,8 @@ class window.ComparisonPropositionView extends Backbone.View
       else
         text = "#{@model.commentsCount()} comments"
     @.$('.comments-count a').html text
+
+  refresh: ->
+    @model.fetch
+      success: =>
+        @render()

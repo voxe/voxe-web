@@ -1,0 +1,47 @@
+$root_tag_color: #e5e5e5
+$hover_root_tag_color: #c0c0c0
+
+li.tag
+  list-style-type: none
+  text-align: center
+  margin-bottom: 5px
+  border: 1px solid #ccc
+  border-radius: 2px
+  background-color: white
+  &.root-tag
+    font-size: 12pt
+    background-color: $root_tag_color
+    &:first-child
+      margin-left: 0px
+    &:hover
+      background-color: $hover_root_tag_color
+  &.sub-tag
+    background-color: lighten($root_tag_color, 5%)
+    font-size: 11pt
+    &:hover
+      background-color: lighten($hover_root_tag_color, 5%)
+  &.sub-sub-tag
+    background-color: lighten($root_tag_color, 10%)
+    font-size: 10pt
+    &:hover
+      background-color: lighten($hover_root_tag_color, 10%)
+
+.action-tag
+  padding: 0 2px 0 2px
+  font-weight: bold
+
+button.add-root-tag
+  margin-left: 45px
+  color: green
+  margin-bottom: 5px
+
+button.add-tag
+  @extend .action-tag
+  color: green
+
+button.rm-tag
+  @extend .action-tag
+  color: red
+
+.select2-container
+  width: 200px

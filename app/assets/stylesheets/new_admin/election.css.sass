@@ -1,0 +1,18 @@
+.election-publication
+  display: block
+  width: 30px
+  height: 30px
+  border-radius: 15px
+
+a.election-published
+  @extend .election-publication
+  background-color: green
+  box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.5) inset
+
+a.election-unpublished
+  @extend .election-publication
+  background-color: red
+  box-shadow: -1px 2px 3px 1px rgba(0, 0, 0, 0.9), -1px 2px 10px rgba(255, 255, 255, 0.6) inset
+
+#s2id_election_country_id
+  width: 224px
