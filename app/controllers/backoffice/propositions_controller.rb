@@ -10,6 +10,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   end
 
   def new
+    gon.page = "new"
     @proposition = Proposition.new
   end
 
@@ -24,6 +25,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   end
 
   def edit
+    gon.page = "edit"
     gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
   end
 

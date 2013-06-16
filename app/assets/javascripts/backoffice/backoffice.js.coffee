@@ -11,7 +11,9 @@
     $(link).parent().find("div.embed").last().after content.replace(regexp, new_id)
 
 $ ->
-  try
-    $("#proposition_tag_ids").val(gon.proposition_tags).select2()
-  catch error
-    $("#proposition_tag_ids").select2()
+  if gon?
+    if gon.page is "new"
+      $("#proposition_tag_ids").select2()
+    else if gon.page is "edit"
+      $("#proposition_tag_ids").val(gon.proposition_tags).select2()
+
