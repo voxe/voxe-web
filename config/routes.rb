@@ -190,10 +190,11 @@ Joinplato::Application.routes.draw do
 
   # Back-office for candidates
   namespace :backoffice do
-    root to: 'dashboard#index'
+    root to: 'my_profiles#show'
     resources :candidacies
     resource :my_profile
     resources :propositions
+    match 'propositions/categorie/:namespace_categ' => 'propositions#index', :as => :propositions_categorie
   end
 
   # all platforms

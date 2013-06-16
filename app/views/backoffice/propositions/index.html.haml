@@ -1,3 +1,16 @@
+%ul{:class => "nav nav-pills" }
+  - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
+    - if(@active_tag)
+      - if(categ_tag.tag.name==@active_tag.tag.name)
+        %li{:class => "active" }
+          = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace)
+      - else
+        %li
+          = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace)
+    - else
+      %li
+        = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace)
+
 = form_for :search do |f|
   %label{:for => "quick search"}
     = t('backoffice.search')
@@ -9,7 +22,7 @@
 
 %table{ :class => "table table-hover" }
   %tbody#root-propositions
-    - @propositions.each do |proposition|
+    - @propositions_categ.each do |proposition|
       %tr
         %td
           = link_to proposition[:text],edit_backoffice_proposition_path(proposition[:_id])
