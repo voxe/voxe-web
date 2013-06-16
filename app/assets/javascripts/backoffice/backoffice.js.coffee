@@ -13,7 +13,13 @@
 @test_link = (link, website = null) ->
   value = $(link).prev().val()
   if(website)
-    final_link = "http://www." + website + ".com/" + value
+    if (value.search("http://") is -1)
+      if (value.search(website) is -1)
+        final_link = "http://www." + website + ".com/" + value
+      else
+        final_link = "http://" + value
+    else
+      final_link = value
   else if (value.search("http://") is -1)
     final_link = "http://" + value
   else

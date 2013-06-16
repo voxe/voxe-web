@@ -51,3 +51,6 @@ fr:
     profile: "Profil de %{name} pour l'%{election}"
     website: Votre site web
     test_link: Tester le lien
+    social_username: Votre nom d'utilisateur
+    wikipedia_article: Nom de l'article
+    date_hint: JJ/MM/AAAA
