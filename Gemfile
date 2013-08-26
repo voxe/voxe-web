@@ -97,6 +97,7 @@ gem "settingslogic"
 gem 'newrelic_rpm'
 
 # Caching with Memcache
+gem 'memcachier'
 gem 'dalli'
 
 # templating markup
