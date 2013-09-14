@@ -31,8 +31,9 @@ Joinplato::Application.routes.draw do
       post 'unpublish'
       resources :tags, only: [:create]
     end
+    resources :candidacy_candidate_profiles
   end
-  
+
   # API
   namespace :api, format: :json do
     namespace :v1 do
@@ -192,7 +193,11 @@ Joinplato::Application.routes.draw do
   namespace :backoffice do
     root to: 'my_profiles#show'
     resources :candidacies
-    resource :my_profile
+    resource :my_profile do
+      member do
+        get :thank_you
+      end
+    end
     resources :propositions
     match 'propositions/categorie/:namespace_categ' => 'propositions#index', :as => :propositions_categorie
   end

@@ -1,0 +1,16 @@
+%table
+  %tr
+    %td Created at
+    %td Name
+    %td Email
+    %td User linked?
+    %td Candidacy linked?
+    %td
+  - for profile in @candidacy_candidate_profiles do
+    %tr
+      %td= profile.created_at
+      %td= profile.name
+      %td= profile.email
+      %td= profile.user?
+      %td= profile.candidacy?
+      %td= link_to 'Edit', edit_new_admin_candidacy_candidate_profile_path(profile)

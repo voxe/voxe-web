@@ -15,9 +15,11 @@
           %ul.nav
             %li= link_to 'Countries', new_admin_countries_path
             %li= link_to 'Elections', new_admin_elections_path
+            %li= link_to 'Public profiles', new_admin_candidacy_candidate_profiles_path
           %ul.nav.pull-right
             %li
               = link_to "Logged as #{current_user.email}", '#'
-
+            %li
+              = link_to "Sign out", destroy_user_session_path, method: 'delete'
     .container-fluid
       =yield

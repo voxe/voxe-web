@@ -1,4 +1,8 @@
 %h4
-  = t('backoffice.profile', name: current_candidacy.name, election: current_candidacy.election.name)
+  Créer votre profile candidat
 = simple_form_for @profile, url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
+
+  = f.input :name
   = render "form", f: f
+  = f.input :password
+  = f.submit "Créer", class: "btn btn-success submit-btn"

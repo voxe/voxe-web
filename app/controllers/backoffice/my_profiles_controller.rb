@@ -1,21 +1,31 @@
 class Backoffice::MyProfilesController < Backoffice::BackofficeController
-  before_filter :load_profile
+  skip_before_filter :authenticate_user!, only: [:new, :create, :thank_you]
+  before_filter :load_profile, only: [:show, :edit, :update]
 
   def show
     if @profile.nil?
-      redirect_to action: :new
+      render text: "Profile under validation"
     else
       redirect_to action: :edit
     end
   end
 
   def new
+    redirect_to :show if user_signed_in?
     @profile = CandidacyCandidateProfile.new
   end
 
   def create
-    @profile = current_candidacy.create_candidate_profile(params[:candidacy_candidate_profile])
-    respond_with @profile, location: backoffice_my_profile_path
+    redirect_to :show if user_signed_in?
+    @profile = CandidacyCandidateProfile.new params[:candidacy_candidate_profile]
+    if @profile.save
+      redirect_to thank_you_backoffice_my_profile_path
+    else
+      render action: :new
+    end
+  end
+
+  def thank_you
   end
 
   def edit
@@ -27,7 +37,10 @@ class Backoffice::MyProfilesController < Backoffice::BackofficeController
   end
 
   protected
+
   def load_profile
-    @profile ||= CandidacyCandidateProfile.where(:candidacy_id => current_candidacy._id).first
+    if user_signed_in?
+      @profile ||= current_user.candidacy_candidate_profile
+    end
   end
 end

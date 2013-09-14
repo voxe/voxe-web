@@ -52,8 +52,7 @@ class User
   has_and_belongs_to_many :elections
   has_and_belongs_to_many :ambassador_elections, class_name: 'Election', inverse_of: :ambassadors
   has_and_belongs_to_many :contributor_elections, class_name: 'Election', inverse_of: :contributors
-  has_many :owned_candidacies, class_name: 'Candidacy' # The user is the owner
-  has_one :candidacy
+  has_one :candidacy_candidate_profile
 
   #
   # Callbacks
