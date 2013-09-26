@@ -36,11 +36,4 @@ class Backoffice::MyProfilesController < Backoffice::BackofficeController
     respond_with @profile, location: backoffice_my_profile_path
   end
 
-  protected
-
-  def load_profile
-    if user_signed_in?
-      @profile ||= current_user.candidacy_candidate_profile
-    end
-  end
 end
