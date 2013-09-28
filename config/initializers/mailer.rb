@@ -17,7 +17,7 @@ elsif Rails.env.development?
   end
 
   ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
-  ActionMailer::Base.delivery_method :test
+  ActionMailer::Base.delivery_method = :test
 else
-  ActionMailer::Base.delivery_method :test
+  ActionMailer::Base.delivery_method = :test
 end
