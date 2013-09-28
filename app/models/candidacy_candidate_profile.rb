@@ -27,6 +27,7 @@ class CandidacyCandidateProfile
   validates_presence_of :password, on: :create
 
   after_create :generate_user
+  after_update :notify_backoffice_created, if: "self.candidacy.present? and self.candidacy_id_changed?"
 
   private
 
@@ -35,6 +36,10 @@ class CandidacyCandidateProfile
     self.save
     UserMailer.backoffice_thank_you(self.user).deliver
     true
+  end
+
+  def notify_backoffice_created
+    UserMailer.backoffice_confirmed(self.user).deliver
   end
 
 end

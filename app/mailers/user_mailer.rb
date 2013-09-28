@@ -5,4 +5,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: "Candidats - Votre inscription sur Voxe.org")
   end
+
+  def backoffice_confirmed user
+    @user = user
+    mail(to: @user.email, subject: "Candidats - Votre inscription est validé")
+  end
 end
