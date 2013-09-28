@@ -23,6 +23,9 @@ class CandidacyCandidateProfile
   belongs_to :candidacy
   belongs_to :user
 
+  validates_presence_of :name, :email
+  validates_presence_of :password, on: :create
+
   after_create :generate_user
 
   private

@@ -2,6 +2,7 @@ class Backoffice::BackofficeController < ApplicationController
   layout 'backoffice'
   respond_to :html, :json
   before_filter :authenticate_user!
+  before_filter :set_locale
 
   protected
 
@@ -21,6 +22,10 @@ class Backoffice::BackofficeController < ApplicationController
 
   def load_election
     @election = @candidacy.election
+  end
+
+  def set_locale
+    I18n.locale = :fr if Rails.env.development?
   end
 
 end

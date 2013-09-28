@@ -7,7 +7,7 @@ class Web::ApplicationController < ApplicationController
   def index
     @options = {}
   end
-  
+
   AVAILABLE_LANGUAGES = I18n.available_locales.map do |l| l.to_s end
   def set_locale
     unless request.user_preferred_languages.empty?
@@ -24,5 +24,5 @@ class Web::ApplicationController < ApplicationController
       # returns 404 if election does not exist
       return not_found unless @election
     end
-  
+
 end

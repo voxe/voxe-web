@@ -54,3 +54,15 @@ en:
     social_username: Your username
     wikipedia_article: Name of the article
     date_hint: DD/MM/YYYY
+    create: Create
+    update: Update
+    logged_as: Logged as
+    sign_out: Sign out
+    address: Addresse
+    birthday: Birthday
+    phone: Phone
+    biography: Biography
+    introduction: Introduction
+    choose_a_theme: Choose a theme
+    proposition_text: Text
+    edit: Edit

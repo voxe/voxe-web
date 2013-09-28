@@ -1,4 +1,4 @@
-%h3 Choissisez un thème
+%h3= t('backoffice.choose_a_theme')
 
 %ul{:class => "nav nav-pills" }
   - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
@@ -30,4 +30,6 @@
     - @propositions_categ.each do |proposition|
       %tr
         %td
-          = link_to proposition[:text],edit_backoffice_proposition_path(proposition[:_id])
+          = proposition[:text]
+        %td
+          = link_to t('backoffice.edit'),edit_backoffice_proposition_path(proposition)

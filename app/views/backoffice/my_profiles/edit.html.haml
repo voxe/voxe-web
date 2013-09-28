@@ -2,4 +2,4 @@
   = t('backoffice.profile', name: @profile.candidacy.name, election: @profile.candidacy.election.name)
 = simple_form_for @profile, url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
   = render "form", f: f
-  = f.submit "Mettre à jour", class: "btn btn-success submit-btn"
+  = f.submit t('backoffice.update'), class: "btn btn-success submit-btn"

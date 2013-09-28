@@ -1,6 +1,6 @@
 - unless f.object.persisted?
   = f.association :tags, as: :select, collection: @tags, input_html: { class: "input-xxlarge" }
-= f.input :text, as: :text, input_html: { class: "input-xxlarge", rows: 10 }
+= f.input :text, label: t('backoffice.proposition_text'), as: :text, input_html: { class: "input-xxlarge", rows: 10 }
 %h5
   = t('backoffice.links')
 = f.simple_fields_for :embeds do |embed|

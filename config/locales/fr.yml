@@ -54,3 +54,16 @@ fr:
     social_username: Votre nom d'utilisateur
     wikipedia_article: Nom de l'article
     date_hint: JJ/MM/AAAA
+    create: "Créer"
+    update: "Mettre à jour"
+    logged_as: "Connecté en tant que"
+    sign_out: "Se déconnecter"
+    address: Adresse
+    birthday: Date de naissance
+    phone: "Téléphone"
+    biography: Biographie
+    introduction: "Présentation"
+    choose_a_theme: "Choissisez un thème"
+    proposition_text: Texte de la proposition
+    edit: Editer
+
