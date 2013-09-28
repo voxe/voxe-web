@@ -1,10 +1,10 @@
+# encoding: UTF-8
 class Backoffice::PropositionsController < Backoffice::BackofficeController
   before_filter :load_profile
   before_filter :load_candidacy
   before_filter :load_election
   # load_and_authorize_resource :election, :proposition
   before_filter :load_proposition, :only => [:edit, :update]
-  before_filter :load_tags, :only => [:new, :edit]
   before_filter :load_proposition_tags, :only => [:edit]
 
   def index
@@ -13,8 +13,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
       @propositions_categ = @candidacy.propositions.select{ |proposition| proposition.tag_ids.include?(@active_tag.tag_id) }
     else
       @active_tag = nil
-      #@active_tag = @candidacy.election.election_tags.where(:parent_tag_id => nil).first
-      @propositions_categ = @candidacy.propositions
+      @propositions_categ = []
     end
     @lst_tags = @candidacy.election.election_tags.where(:parent_tag_id => nil)
 
@@ -23,6 +22,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   def new
     gon.page = "new"
     @proposition = Proposition.new
+    @tags = @candidacy.election.election_tags.find(params[:election_tag_id]).children_election_tags.map &:tag
   end
 
   def create
@@ -41,20 +41,17 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   end
 
   def update
-    params[:proposition][:tag_ids].delete("")
-    unless @proposition.update_attributes params[:proposition]
-      load_tags
+    params[:proposition][:tag_ids].delete("") if params[:proposition] and params[:proposition][:tag_ids].present?
+    if @proposition.update_attributes params[:proposition]
+      redirect_to backoffice_propositions_path, notice: 'Votre proposition a été mis à jour'
+    else
       load_proposition_tags
       gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
+      render action: :edit
     end
-    respond_with @proposition, location: backoffice_proposition_path(@proposition[:_id])
   end
 
   protected
-
-  def load_tags
-    @tags ||= @candidacy.election.election_tags.select{ |elt| elt.leaf? }.map { |elt| elt.tag }
-  end
 
   def load_proposition
     @proposition ||= Proposition.where(:_id => params[:id]).first
