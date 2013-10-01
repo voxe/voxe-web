@@ -1,36 +1,42 @@
 !!! HTML
 %html
   %head
-    %title Voxe Back Office
+    %title Candidats, ajoutez votre programme sur Voxe.org
     = include_gon
     = stylesheet_link_tag 'backoffice'
     = javascript_include_tag 'backoffice'
     = csrf_meta_tags
     = yield :head
   %body
-    .navbar
-      .navbar-inner
-        .container
-          = link_to root_url do
-            .brand
-              = '←'
-              = image_tag('icons/32.png', width: '20px')
-          = link_to 'Voxe Backoffice', backoffice_root_url, class: 'brand'
-          - if user_signed_in?
-            .nav-collapse.collapse
-              %ul.nav
-                %li= link_to t('backoffice.my_profile'), backoffice_my_profile_path
-                %li= link_to t('backoffice.my_propositions'), backoffice_propositions_path
 
-              %ul.nav.pull-right
-                %li
-                  = link_to t('backoffice.logged_as') +' '+ current_user.email, '#'
-                %li
-                  = link_to t('backoffice.sign_out'), destroy_user_session_path, method: 'delete'
-    .container
-      - if notice
-        .alert.alert-success
-          = notice
+    - if controller_name == 'my_profiles' and action_name == 'new'
+      / Ugly I know, sorry :(
       = yield
+
+    - else
+      .navbar
+        .navbar-inner
+          .container
+            = link_to root_url do
+              .brand
+                = '←'
+                = image_tag('icons/32.png', width: '20px')
+            = link_to 'Voxe Backoffice', backoffice_root_url, class: 'brand'
+            - if user_signed_in?
+              .nav-collapse.collapse
+                %ul.nav
+                  %li= link_to t('backoffice.my_profile'), backoffice_my_profile_path
+                  %li= link_to t('backoffice.my_propositions'), backoffice_propositions_path
+
+                %ul.nav.pull-right
+                  %li
+                    = link_to t('backoffice.logged_as') +' '+ current_user.email, '#'
+                  %li
+                    = link_to t('backoffice.sign_out'), destroy_user_session_path, method: 'delete'
+      .container
+        - if notice
+          .alert.alert-success
+            = notice
+        = yield
 
     = yield :javascript
