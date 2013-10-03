@@ -181,6 +181,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     meta_request (0.2.6)
       callsite
       rack-contrib
@@ -359,6 +360,7 @@ DEPENDENCIES
   jammit
   jquery-rails (= 2.1.4)
   koala
+  memcachier
   meta_request
   mini_magick
   minitest
