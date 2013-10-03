@@ -7,4 +7,6 @@
   = render "embed_fields", f: embed
 = link_to_add_fields t('backoffice.add_link'), f, :embeds, "btn cst-btn"
 %br
-= f.submit t('backoffice.submit'), class: "btn btn-success submit-btn"
+
+.form-actions
+  = f.submit t('backoffice.submit'), class: "btn btn-success"

@@ -45,7 +45,7 @@ fr:
     add_link: Ajouter un lien
     remove_link: Supprimer le lien
     submit: Soumettre les changements
-    search: Recherche rapide
+    search: "Recherche rapide :"
     characters_max: caractères maximum
     links: Liens vers du contenu concernant cette proposition
     profile: "Profil de %{name} pour l'%{election}"

@@ -25,14 +25,22 @@
             - if user_signed_in?
               .nav-collapse.collapse
                 %ul.nav
-                  %li= link_to t('backoffice.my_profile'), backoffice_my_profile_path
-                  %li= link_to t('backoffice.my_propositions'), backoffice_propositions_path
+                  %li
+                    = link_to backoffice_my_profile_path do
+                      %i.icon-user
+                      = t('backoffice.my_profile')
+                  %li
+                    = link_to backoffice_propositions_path do
+                      %i.icon-list
+                      = t('backoffice.my_propositions')
 
                 %ul.nav.pull-right
                   %li
                     = link_to t('backoffice.logged_as') +' '+ current_user.email, '#'
                   %li
-                    = link_to t('backoffice.sign_out'), destroy_user_session_path, method: 'delete'
+                    = link_to destroy_user_session_path, method: 'delete' do
+                      %i.icon-off
+                      = t('backoffice.sign_out')
       .container
         - if notice
           .alert.alert-success

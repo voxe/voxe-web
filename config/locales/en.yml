@@ -45,7 +45,7 @@ en:
     add_link: Add link
     remove_link: Remove link
     submit: Submit changes
-    search: Quick search
+    search: "Quick search:"
     characters_max: characters maximum
     links: Links to webcontent regarding this proposition
     profile: "%{name}'s profile for the %{election}"

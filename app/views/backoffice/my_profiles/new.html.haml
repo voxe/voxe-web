@@ -337,7 +337,8 @@
         = f.input :name
         = render "form", f: f
         = f.input :password
-        = f.submit t('backoffice.create'), class: "btn btn-success submit-btn"
+        .form-actions
+          = f.submit t('backoffice.create'), class: "btn btn-success btn-large"
 
   / FOOTER
   %footer
