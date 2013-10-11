@@ -1,0 +1,35 @@
+#menu-container
+  %ul#menu
+
+#pages-container
+  #pages
+    .candidate-profile
+      = @profile.name
+      = @profile.birthday
+      = @profile.email
+      = @profile.address
+      = @profile.biography
+      = @profile.introduction
+      = @profile.twitter
+      = @profile.facebook
+      = @profile.youtube
+      = @profile.wikipedia
+      = @profile.website
+
+      #candidate-propositions.tabbable.tabs-left
+        %ul.nav.nav-tabs
+          - for election_tag in @election.root_election_tags
+            %li
+              = link_to election_tag.tag.name, "##{election_tag.tag.namespace}", 'data-toogle' => 'tab'
+        .tab-content
+          - for election_tag in @election.root_election_tags
+            .tab-pane{id: election_tag.tag.namespace}
+              - for proposition in @candidacy.propositions.where(tag_ids: election_tag.tag_id)
+                %br
+                = proposition.text
+
+:javascript
+  $('#candidate-propositions a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })

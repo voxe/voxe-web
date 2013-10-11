@@ -240,6 +240,8 @@ Joinplato::Application.routes.draw do
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election
 
+    match 'election/:electionnamespace/candidate/:candidatenamespace' => 'candidacy_candidate_profiles#show'
+
     root to: 'application#index'
   end
 
