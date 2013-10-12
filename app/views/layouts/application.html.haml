@@ -14,11 +14,11 @@
     = render "layouts/partials/chartbeat_header"
   %body{:class => "#{controller_name} #{action_name}"}
     = render 'layouts/partials/facebook'
-    
+
     #appstores
       = link_to_app_store image_tag("web/app-store-fr-small.png")
       = link_to_android_market image_tag("web/android-market-small.png")
-        
+
     #empire-state-building
       .top-container
         #app
@@ -32,6 +32,8 @@
             <img src="//ssl.gstatic.com/images/icons/gplus-16.png" alt="Google+" style="border:0;width:16px;height:16px;"/></a>
 
         %ul#nav
+          %li= link_to t("navigation.candidates"), new_backoffice_my_profile_path
+          %li ·
           %li= link_to "Blog", "http://blog.voxe.org"
           %li ·
           %li= link_to t("navigation.about"), about_path

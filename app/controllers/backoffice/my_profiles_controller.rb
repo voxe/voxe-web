@@ -11,7 +11,7 @@ class Backoffice::MyProfilesController < Backoffice::BackofficeController
   end
 
   def new
-    redirect_to :show if user_signed_in?
+    redirect_to action: :show if user_signed_in?
     @profile = CandidacyCandidateProfile.new
   end
 

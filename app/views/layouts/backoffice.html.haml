@@ -11,6 +11,20 @@
 
     - if controller_name == 'my_profiles' and action_name == 'new'
       / Ugly I know, sorry :(
+      .navbar{style: "margin-bottom: 0;"}
+        .navbar-inner
+          .container
+            = link_to root_url do
+              .brand
+                = '←'
+                = image_tag('icons/32.png', width: '20px')
+            .nav-collapse.collapse.pull-right
+              %ul.nav
+                - if not user_signed_in?
+                  %li
+                    = link_to edit_backoffice_my_profile_path do
+                      %i.icon-user
+                      = t("navigation.sign_in")
       = yield
 
     - else
