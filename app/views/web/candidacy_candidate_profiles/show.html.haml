@@ -8,17 +8,32 @@
         :plain
           <script type="text/javascript" src="http://s3-eu-west-1.amazonaws.com/cibulstatic/cibulProgramWidget.min.js"></script><div class="cibul-pw"><a class="cibul-pw-link" href="http://cibul.net/#{@profile.cibul}/fr?order=date&limit=5">#{@profile.cibul}</a></div>
       = image_tag @profile.picture
-      = @profile.name
-      = @profile.birthday
-      = @profile.email
-      = @profile.address
-      = @profile.biography
-      = @profile.introduction
-      = @profile.twitter
-      = @profile.facebook
-      = @profile.youtube
-      = @profile.wikipedia
-      = @profile.website
+      %h1.name-title= @profile.name
+      %hr
+      #biographie
+        .titre-part Mes convictions
+        .contenu
+          = @profile.introduction
+        .titre-part Qui suis-je ?
+        .contenu
+          = @profile.biography
+        %br
+        = link_to "Ma page Wikipedia", "@profile.wikipedia", target: "blank"
+
+        .titre-part Contactez-moi
+        = link_to image_tag('web/icons/twitter.png'), "http://www.twitter.com/#{@profile.twitter}", target: "blank"
+        = link_to image_tag('web/icons/facebook.png'), "http://www.wikipedia.fr/#{@profile.facebook}", target: "blank"
+        = link_to image_tag('web/icons/youtube.png'), "http://www.wikipedia.fr/#{@profile.youtube}", target: "blank"
+        %br
+        %br
+        Mon site Internet :
+        = link_to @profile.website, "@profile.website", target: "blank"
+
+      %h1.name-title Rencontrez-moi
+      %hr
+
+      %h1.name-title Mes propositions
+      %hr
 
       #candidate-propositions.tabbable.tabs-left
         %ul.nav.nav-tabs
@@ -29,8 +44,9 @@
           - for election_tag in @election.root_election_tags
             .tab-pane{id: election_tag.tag.namespace}
               - for proposition in @candidacy.propositions.where(tag_ids: election_tag.tag_id)
-                %br
-                = proposition.text
+                .proposition
+                  = proposition.text
+                %hr.hr-proposition
 
 :javascript
   $('#candidate-propositions a').click(function (e) {
