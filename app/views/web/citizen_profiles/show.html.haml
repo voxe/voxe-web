@@ -1,0 +1,20 @@
+#menu-container
+  %ul#menu
+
+#pages-container
+  #pages
+    .citizen-profile
+      = @user.name
+
+    .citizen-propositions.tabbable.tabs-left
+      %ul.nav.nav-tabs
+        %li= link_to 'TODO', "#todo", 'data-toogle' => 'tab'
+      .tab-content
+        .tab-pane{id: 'todo'}
+          .proposition
+
+:javascript
+  $('.citizen-propositions a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })

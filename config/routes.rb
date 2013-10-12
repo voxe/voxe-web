@@ -236,11 +236,11 @@ Joinplato::Application.routes.draw do
   scope :module => "web", format: "html" do
     match 'propositions/:id' => 'propositions#show', :as => :proposition
     match 'country-:countrynamespace' => 'countries#show', :as => :country
+    match 'election/:electionnamespace/candidate/:candidatenamespace' => 'candidacy_candidate_profiles#show'
+    match 'citizen/:id' => 'citizen_profiles#show', as: :citizen_profiles
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election
-
-    match 'election/:electionnamespace/candidate/:candidatenamespace' => 'candidacy_candidate_profiles#show'
 
     root to: 'application#index'
   end
