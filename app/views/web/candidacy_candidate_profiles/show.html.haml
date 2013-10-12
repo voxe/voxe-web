@@ -4,7 +4,8 @@
 #pages-container
   #pages
     .candidate-profile
-      = @profile.name
+      %h1.name-title= @profile.name
+      
       = @profile.birthday
       = @profile.email
       = @profile.address
