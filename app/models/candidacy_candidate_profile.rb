@@ -3,6 +3,8 @@ class CandidacyCandidateProfile
   include Mongoid::Timestamps
   include Mongoid::FullTextSearch
 
+  mount_uploader :picture, ProfileUploader
+
   # attributes
   field :name,          type: String
   field :phone,         type: String

@@ -1,3 +1,9 @@
+- if f.object.picture?
+  .control-group
+    .controls
+      = image_tag f.object.picture, style: "width: 80px"
+- else
+  = f.input :picture, label: t('backoffice.picture')
 = f.input :address, label: t('backoffice.address')
 = f.input :postal_code, label: t('backoffice.postal_code')
 = f.input :birthday, placeholder: t('backoffice.date_hint'), label: t('backoffice.birthday')
