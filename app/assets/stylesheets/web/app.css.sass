@@ -369,6 +369,18 @@ a.button
       padding: 0 0 0 24px
     .text
       padding: 10px 10px 8px 10px
+    .actions .share
+      @each $action in favorite, support, against
+        .#{$action}
+          display: inline-block
+          width: 16px
+          height: 16px
+          margin: 0
+          background-image: image-url("#{$action}.png")
+          background-size: cover
+          &.active
+            background-image: image-url("#{$action}-active.png")
+
     .actions .comments-count a
       color: #3B5998
       span

@@ -61,7 +61,7 @@ class window.PropositionModel extends Backbone.Model
           embeds = model.get 'embeds'
           model.set embeds: _.reject(embeds, (e) -> e.id == embedId)
 
-  toogleFavorite: ->
+  toggleFavorite: ->
     isInCurrentUserFavorites = _.find @get('favorite_users').data,((u) -> u.id is app.models.user.id)
     $.ajax
       type: if isInCurrentUserFavorites then 'DELETE' else 'POST'
@@ -71,7 +71,15 @@ class window.PropositionModel extends Backbone.Model
       success: () =>
         @trigger('change:favorite_users')
 
-  isFavorite: ->
-    console.log @ if @get('favorite_users').count > 0
-    console.log(@get('favorite_users').data[0].id) if @get('favorite_users').count > 0
-    _.find @get('favorite_users').data, (u) -> u.id == app.models.user.id
+  toggleUserAction: (action) ->
+    console.log @
+    alreadyUserActioned = _.find @get("#{action}_users").data,((u) -> u.id is app.models.user.id)
+    $.ajax
+      type: if alreadyUserActioned then 'DELETE' else 'POST'
+      url: "#{@url()}/#{action}"
+      data:
+        auth_token: app.models.user.token()
+      success: () =>
+        @trigger("change:#{action}_users")
+
+  isUserActioned: (action) -> _.find @get("#{action}_users").data, (u) -> u.id == app.models.user.id

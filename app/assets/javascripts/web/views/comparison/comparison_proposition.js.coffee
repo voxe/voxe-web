@@ -3,16 +3,21 @@ class window.ComparisonPropositionView extends Backbone.View
   initialize: ->
     @commentsDisplayed = false
     @model.comments.bind "reset", @resetComments, @
-    @model.bind 'change:favorite_users', @refresh, @
     @model.bind 'change:commentsCount', @renderCommentsCount, @
 
     @candidacy = app.collections.candidacies.find (ca) => ca.id == @model.get('candidacy').id
+
+    @userActions = ["favorite", "support", "against"]
+    _.each @userActions, (action) =>
+      @model.bind "change:#{action}_users", @refresh, @
 
   className: "proposition"
 
   events:
     "click .comments-count a": "showComments"
-    "click .favorite": "toogleFavorite"
+    "click .favorite": "toggleFavorite"
+    "click .support": "toggleSupport"
+    "click .against": "toggleAgainst"
     "click .facebook": "facebook"
     "mouseover": "mouseOver"
     "mouseout": "mouseOut"
@@ -55,15 +60,23 @@ class window.ComparisonPropositionView extends Backbone.View
       view = new PropositionEmbedLinksView collection: new EmbedsCollection links
       $('.text', @el).after view.render().el
 
+    _.each @userActions, (action) =>
+      @$(".#{action}").addClass('active') if @model.isUserActioned(action)
+
     @renderCommentsCount()
 
-    $('.share', @el).hide()
+    # $('.share', @el).hide()
 
     @
 
-  toogleFavorite: (e) ->
+  toggleUserAction: (action, e) ->
     e.preventDefault()
-    @model.toogleFavorite()
+    $(e.currentTarget).toggleClass('active')
+    @model.toggleUserAction(action)
+
+  toggleFavorite: (e) -> @toggleUserAction('favorite', e)
+  toggleSupport: (e) -> @toggleUserAction('support', e)
+  toggleAgainst: (e) -> @toggleUserAction('against', e)
 
   facebook: ->
     obj =
