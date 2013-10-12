@@ -52,7 +52,7 @@ fr:
     website: Votre site web
     test_link: Tester le lien
     social_username: Votre nom d'utilisateur
-    wikipedia_article: Nom de l'article
+    wikipedia_article: URL de l'article
     date_hint: JJ/MM/AAAA
     create: "Créer"
     update: "Mettre à jour"

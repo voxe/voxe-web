@@ -52,7 +52,7 @@ en:
     website: Your website
     test_link: Test this link
     social_username: Your username
-    wikipedia_article: Name of the article
+    wikipedia_article: URL of article
     date_hint: DD/MM/YYYY
     create: Create
     update: Update
