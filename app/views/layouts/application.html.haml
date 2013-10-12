@@ -32,21 +32,17 @@
             <img src="//ssl.gstatic.com/images/icons/gplus-16.png" alt="Google+" style="border:0;width:16px;height:16px;"/></a>
 
         %ul#nav
-          %li= link_to t("navigation.candidates"), new_backoffice_my_profile_path
+          %li= link_to t("navigation.candidates"), new_backoffice_my_profile_path, style: "color: red;"
           %li ·
           %li= link_to "Blog", "http://blog.voxe.org"
           %li ·
           %li= link_to t("navigation.about"), about_path
-          %li ·
-          %li= link_to t("navigation.how"), how_path
           %li ·
           %li= link_to t("navigation.press"), press_path
           %li ·
           %li= link_to t("navigation.apps"), apps_path
           %li ·
           %li= link_to t("navigation.API"), platform_path, target: "_blank"
-          %li ·
-          %li= link_to t("navigation.hackathon"), "http://checkthis.com/kp66", target: "_blank"
           %li ·
       #top
         = link_to image_tag('icons/32.png', valign: "middle"), root_path
