@@ -17,6 +17,7 @@ class CandidacyCandidateProfile
   field :youtube,       type: String
   field :wikipedia,     type: String
   field :website,       type: String
+  field :cibul,         type: String
 
   attr_accessor :password
 

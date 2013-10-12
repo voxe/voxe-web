@@ -12,7 +12,9 @@
 
 @test_link = (link, website = null) ->
   value = $("#candidacy_candidate_profile_#{website || 'website'}").val()
-  if(website)
+  if (website == 'cibul')
+    final_link = "http://cibul.net/" + value
+  else if(website)
     if (value.search("http://") is -1)
       if (value.search(website) is -1)
         final_link = "http://www." + website + ".com/" + value

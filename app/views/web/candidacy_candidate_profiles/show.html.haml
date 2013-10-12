@@ -4,6 +4,9 @@
 #pages-container
   #pages
     .candidate-profile
+      - if @profile.cibul.present?
+        :plain
+          <script type="text/javascript" src="http://s3-eu-west-1.amazonaws.com/cibulstatic/cibulProgramWidget.min.js"></script><div class="cibul-pw"><a class="cibul-pw-link" href="http://cibul.net/#{@profile.cibul}/fr?order=date&limit=5">#{@profile.cibul}</a></div>
       = @profile.name
       = @profile.birthday
       = @profile.email
