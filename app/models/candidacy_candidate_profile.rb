@@ -4,18 +4,19 @@ class CandidacyCandidateProfile
   include Mongoid::FullTextSearch
 
   # attributes
-  field :name, type: String
-  field :phone, type: String
-  field :birthday, type: Date
-  field :email, type: String
-  field :address, type: String
-  field :biography, type: String
-  field :introduction, type: String
-  field :twitter, type: String
-  field :facebook, type: String
-  field :youtube, type: String
-  field :wikipedia, type: String
-  field :website, type: String
+  field :name,          type: String
+  field :phone,         type: String
+  field :birthday,      type: Date
+  field :email,         type: String
+  field :address,       type: String
+  field :postal_code,   type: String
+  field :biography,     type: String
+  field :introduction,  type: String
+  field :twitter,       type: String
+  field :facebook,      type: String
+  field :youtube,       type: String
+  field :wikipedia,     type: String
+  field :website,       type: String
 
   attr_accessor :password
 
@@ -23,7 +24,7 @@ class CandidacyCandidateProfile
   belongs_to :candidacy
   belongs_to :user
 
-  validates_presence_of :name, :email
+  validates_presence_of :name, :email, :phone
   validates_presence_of :password, on: :create
 
   after_create :generate_user

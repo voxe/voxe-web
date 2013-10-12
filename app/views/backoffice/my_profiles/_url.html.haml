@@ -5,5 +5,11 @@
   - else
     = f.label name
   .controls
-    = f.input_field input, as: :url, placeholder: hint
-    = link_to_test_link t('backoffice.test_link'), website, class: "btn"
+    - if input == :twitter
+      .input-prepend
+        %span.add-on @
+        = f.input_field input, as: :url, placeholder: hint, class: 'span2'
+      = link_to_test_link t('backoffice.test_link'), website, class: "btn"
+    - else
+      = f.input_field input, as: :url, placeholder: hint
+      = link_to_test_link t('backoffice.test_link'), website, class: "btn"

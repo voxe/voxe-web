@@ -3,6 +3,7 @@
 //= require select2
 //= require bootstrap-carousel
 //= require bootstrap-transition
+//= require jquery.simplyCountable
 //= require_tree ./backoffice/propositions
 //= require_tree ./backoffice/lib
 //= require_tree ./backoffice

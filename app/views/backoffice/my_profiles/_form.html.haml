@@ -1,4 +1,5 @@
 = f.input :address, label: t('backoffice.address')
+= f.input :postal_code, label: t('backoffice.postal_code')
 = f.input :birthday, placeholder: t('backoffice.date_hint'), label: t('backoffice.birthday')
 = f.input :phone, label: t('backoffice.phone')
 = f.input :email, placeholder: "contact@voxe.org"
@@ -7,5 +8,19 @@
 = render "url", f: f, name: "", input: :twitter, label: image_tag('web/icons/twitter.png'), website: "twitter", hint: t('backoffice.social_username')
 = render "url", f: f, name: "", input: :youtube, label: image_tag('web/icons/youtube.png'), website: "youtube", hint: t('backoffice.social_username')
 = render "url", f: f, name: "", input: :wikipedia, label: image_tag('web/icons/wikipedia.png'), website: "wikipedia", hint: t('backoffice.wikipedia_article')
-= f.input :biography, as: :text, label: t('backoffice.biography'), input_html: { class: "input-xxlarge", maxlength: 300, rows: 5 }, hint: '300 ' + t('backoffice.characters_max'), placeholder: '300 ' + t('backoffice.characters_max')
-= f.input :introduction, as: :text, label: t('backoffice.introduction'), input_html: { class: "input-xxlarge", maxlength: 1000, rows: 16 }, hint: '1000 ' + t('backoffice.characters_max'), placeholder: '1000 ' + t('backoffice.characters_max')
+= f.input :biography, as: :text, label: t('backoffice.biography'), input_html: { class: "input-xxlarge", maxlength: 300, rows: 5 }, hint: tag(:span, id: 'biography-counter'), placeholder: '300 ' + t('backoffice.characters_max')
+
+= f.input :introduction, as: :text, label: t('backoffice.introduction'), input_html: { class: "input-xxlarge", maxlength: 1000, rows: 16 }, hint: tag(:span, id: 'introduction-counter'), placeholder: '1000 ' + t('backoffice.characters_max')
+
+:coffee
+  $ ->
+    $('#candidacy_candidate_profile_biography').simplyCountable({
+      counter: '#biography-counter'
+      maxCount: 300
+      countDirection: 'up'
+    })
+    $('#candidacy_candidate_profile_introduction').simplyCountable({
+      counter: '#introduction-counter'
+      maxCount: 1000
+      countDirection: 'up'
+    })
