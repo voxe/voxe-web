@@ -1,8 +1,18 @@
 - unless f.object.persisted?
-  = f.association :tags, as: :select, collection: @tags, input_html: { class: "input-xxlarge" }
+  .alert.alert-info
+    %b Sous-thèmes : 
+    Saisissez ci-dessus le ou les sous-thèmes où se trouvera votre proposition.
+  = f.association :tags, as: :select, label: "Sous-thème", collection: @tags, input_html: { class: "input-xxlarge" }
+
+  .alert.alert-info
+    %b Texte de la proposition : 
+    Nous recommandons une proposition d'environ 300 caractères, afin qu'elle reste lisible par vos électeurs, et facilement comparable. Elle doit par ailleurs ne présenter qu'une seule idée.
 = f.input :text, label: t('backoffice.proposition_text'), as: :text, input_html: { class: "input-xxlarge", rows: 10 }
-%h5
-  = t('backoffice.links')
+
+.alert.alert-info
+  %b Liens vers du contenu contextuel : 
+  Vous pouvez associer à votre proposition des liens hypertextes (qui pointent par exemple vers une définition ou un chiffre clé) ou des vidéos (Youtube ou Dailymotion).
+
 = f.simple_fields_for :embeds do |embed|
   = render "embed_fields", f: embed
 = link_to_add_fields t('backoffice.add_link'), f, :embeds, "btn cst-btn"

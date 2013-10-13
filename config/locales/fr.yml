@@ -42,11 +42,11 @@ fr:
     my_profile: Mon profil
     my_propositions: Mes propositions
     index: Accueil du backoffice candidat
-    new_proposition: Nouvelle proposition
+    new_proposition: Ajoutez proposition à ce thème
     add_link: Ajouter un lien
     remove_link: Supprimer le lien
     submit: Soumettre les changements
-    search: "Recherche rapide :"
+    search: "Retrouvez une proposition :"
     characters_max: caractères maximum
     links: Liens vers du contenu concernant cette proposition
     profile: "Profil de %{name} pour l'%{election}"

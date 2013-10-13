@@ -16,7 +16,12 @@
 - if @propositions_categ.any?
   %hr
   .row
-    .span6
+    .span3
+      %a{ :href => new_backoffice_proposition_path(election_tag_id: @active_tag.id.to_s) }
+        .btn.btn-block
+          %i.icon-plus-sign
+          = t('backoffice.new_proposition')
+    .offset5.span4
       = form_for :search, html: {class: 'form-search'} do |f|
         %label{:for => "quick_search"}
           = t('backoffice.search')
@@ -24,11 +29,6 @@
           %span.add-on
             %i.icon-search
           = f.text_field :search, id: "quick_search", class: "input-medium"
-    .offset3.span3
-      %a{ :href => new_backoffice_proposition_path(election_tag_id: @active_tag.id.to_s) }
-        .btn.btn-block
-          %i.icon-plus-sign
-          = t('backoffice.new_proposition')
 
 .row
   .span12
