@@ -17,9 +17,9 @@ class window.ComparisonPropositionView extends Backbone.View
 
   events:
     "click .actions .comment": "showComments"
-    "click .favorite": "toggleFavorite"
-    "click .support": "toggleSupport"
-    "click .against": "toggleAgainst"
+    "click .favorite .btn": "toggleFavorite"
+    "click .support .btn": "toggleSupport"
+    "click .against .btn": "toggleAgainst"
     "click .facebook": "facebook"
     "mouseover": "mouseOver"
     "mouseout": "mouseOut"
@@ -57,6 +57,7 @@ class window.ComparisonPropositionView extends Backbone.View
 
     _.each @userActions, (action) =>
       @$(".actions .#{action} .btn").addClass('active') if @model.isUserActioned(action)
+      @$(".actions .#{action} .btn").tipsy()
       @$(".actions .#{action} .count").text @model.get("#{action}_users").count
 
     console.log @model.comments
