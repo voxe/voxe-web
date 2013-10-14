@@ -11,10 +11,12 @@ class window.ComparisonPropositionView extends Backbone.View
     _.each @userActions, (action) =>
       @model.bind "change:#{action}_users", @refresh, @
 
+    @commentsView = new CommentsView(model: @model)
+
   className: "proposition"
 
   events:
-    "click .comments-count a": "showComments"
+    "click .actions .comment": "showComments"
     "click .favorite": "toggleFavorite"
     "click .support": "toggleSupport"
     "click .against": "toggleAgainst"
@@ -26,21 +28,14 @@ class window.ComparisonPropositionView extends Backbone.View
     @.$('.comments-count a').removeClass "indicator"
 
   showComments: (e) ->
-    e.preventDefault()
-    unless @commentsDisplayed
-      @commentsDisplayed = true
-      view = new CommentsView(model: @model)
-      if @model.commentsCount() == 0
-        view.render()
-      else
-        # indicator
-        @.$('.comments-count a').addClass "indicator"
-        @model.comments.fetch()
-      $(@el).append view.el
-      # focus
-      @.$("textarea").focus()
+    e?.preventDefault()
+    @commentsView.show(fetch: true)
 
   render: ->
+    @commentsDisplayed = false
+    if @$('.comments .comment').is(':visible')
+      @comment = @$('form textarea').val()
+
     if @model.text().length > 60
       @model.set twitterMessage: "#{@candidacy.name()} : #{@model.text().slice(0,60)}... http://voxe.org"
     else
@@ -61,11 +56,19 @@ class window.ComparisonPropositionView extends Backbone.View
       $('.text', @el).after view.render().el
 
     _.each @userActions, (action) =>
-      @$(".#{action}").addClass('active') if @model.isUserActioned(action)
+      @$(".actions .#{action} .btn").addClass('active') if @model.isUserActioned(action)
+      @$(".actions .#{action} .count").text @model.get("#{action}_users").count
 
-    @renderCommentsCount()
+    console.log @model.comments
+    @$(".actions .comment .count").text @model.comments.length
 
-    # $('.share', @el).hide()
+    @$el.append @commentsView.render().el
+
+    if @comment?
+      @showComments()
+      @$('form textarea').val @comment
+
+    # @renderCommentsCount()
 
     @
 

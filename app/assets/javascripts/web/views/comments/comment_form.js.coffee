@@ -1,13 +1,15 @@
 class window.CommentFormView extends Backbone.View
-  
+  tagName: 'form'
+
   initialize: (options)->
     # options
     @user = options.user
+    @render()
       
     @user.bind "change:token", @render, @
     
   events:
-    "click a.button": "postComment"
+    "click button": "postComment"
   
   postComment: (event) ->
     event.preventDefault()
@@ -21,8 +23,11 @@ class window.CommentFormView extends Backbone.View
     # add to collection
     @model.comments.add comment
     # reset textarea
-    @.$('textarea').val ''
+    @$('textarea').val ''
     
   render: ->
-    $(@el).html Mustache.to_html($('#comment-form-template').html(), user: @user.toJSON())
+    console.log 'renderform'
+    @comment = @$('textarea').val()
+    @$el.html Mustache.to_html($('#comment-form-template').html(), user: @user.toJSON())
+    @$('textarea').val @comment
     @

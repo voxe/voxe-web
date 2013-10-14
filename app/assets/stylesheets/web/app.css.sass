@@ -369,41 +369,44 @@ a.button
       padding: 0 0 0 24px
     .text
       padding: 10px 10px 8px 10px
-    .actions .share
-      @each $action in favorite, support, against
+    .actions
+      @each $action in favorite, support, against, comment
         .#{$action}
           display: inline-block
-          width: 16px
           height: 16px
-          margin: 0
-          background-image: image-url("#{$action}.png")
-          background-size: cover
-          &.active
-            background-image: image-url("#{$action}-active.png")
+          line-height: 16px
+          margin: 0 3px
+          .btn
+            display: inline-block
+            width: 16px
+            height: 16px
+            margin: 0
+            background-image: image-url("#{$action}.png")
+            background-size: cover
+            &.active
+              background-image: image-url("#{$action}-active.png")
 
-    .actions .comments-count a
-      color: #3B5998
-      span
-        display: none
-        text-decoration: none
-        margin-left: 5px
-      &.indicator span
-        display: inline
+    // .actions .comments-count a
+    //   color: #3B5998
+    //   span
+    //     display: none
+    //     text-decoration: none
+    //     margin-left: 5px
+    //   &.indicator span
+    //     display: inline
     form
       margin: 10px
       textarea
         border: 1px solid #CCC
         padding: 4px
         width: 245px
-    .comment
+    .comments .comment
       padding: 5px 8px
       font-size: 11px
       border-bottom: 1px solid #eee
       img
         margin-right: 4px
         border-radius: 1px
-      span
-        font-weight: bold
       .comment-actions
         float: right
   .no-proposition-available

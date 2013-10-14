@@ -1,20 +1,17 @@
 class window.CommentView extends Backbone.View
-  
-  className: "comment"
-
+  className: 'comment'
   events:
     'mouseenter': 'showActions'
     'mouseleave': 'hideActions'
     'click a.remove': 'removeThisComment'
-  
+
   initialize: ->
     @model.bind 'destroy', @remove, @
+    console.log "addcomment"
 
   render: ->
     $(@el).html Mustache.to_html($('#comment-template').html(), comment: @model.toJSON())
-
     @hideActions()
-
     @
 
   showActions: ->
