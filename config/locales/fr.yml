@@ -70,3 +70,6 @@ fr:
     postal_code: Code postal
     picture: Photo
     view_my_public_profile: Voir mon profil publique
+    back: "Revenir en arrière"
+    delete: "Supprimer"
+    alert_confirmation: "Etes-vous sûr ?"

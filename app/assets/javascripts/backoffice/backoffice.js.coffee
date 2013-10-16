@@ -1,6 +1,6 @@
 @remove_fields = (link) ->
   $(link).prev().val "true"
-  $(link).parent().hide()
+  $(link).closest('.embed').hide()
 
 @add_fields = (link, association, content) ->
   new_id = new Date().getTime()

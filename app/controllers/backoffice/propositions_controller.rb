@@ -4,7 +4,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   before_filter :load_candidacy
   before_filter :load_election
   # load_and_authorize_resource :election, :proposition
-  before_filter :load_proposition, :only => [:edit, :update]
+  before_filter :load_proposition, :only => [:edit, :update, :destroy]
   before_filter :load_proposition_tags, :only => [:edit]
 
   def index
@@ -28,8 +28,10 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   def create
     params[:proposition][:tag_ids].delete("")
     @proposition = @candidacy.propositions.build(params[:proposition])
+    election_tag = @candidacy.election.election_tags.find(params[:election_tag_id])
+    @tags = election_tag.children_election_tags.map &:tag
     if @proposition.save
-      redirect_to backoffice_propositions_path
+      redirect_to backoffice_propositions_path(namespace_categ: election_tag.tag.namespace)
     else
       render action: :new
     end
@@ -53,6 +55,11 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
       gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
       render action: :edit
     end
+  end
+
+  def destroy
+    @proposition.destroy
+    redirect_to :back
   end
 
   protected

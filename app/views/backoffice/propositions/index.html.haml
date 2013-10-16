@@ -44,3 +44,6 @@
               = link_to edit_backoffice_proposition_path(proposition), class: 'btn' do
                 %i.icon-pencil
                 = t('backoffice.edit')
+              = link_to backoffice_proposition_path(proposition), method: :delete, confirm: t('backoffice.alert_confirmation'), class: 'btn btn-danger' do
+                %i.icon-remove
+                = t('backoffice.delete')
