@@ -8,7 +8,7 @@
 .alert.alert-info
   %b Texte de la proposition :
   Nous recommandons une proposition d'environ 300 caractères, afin qu'elle reste lisible par vos électeurs, et facilement comparable. Elle doit par ailleurs ne présenter qu'une seule idée.
-= f.input :text, label: t('backoffice.proposition_text'), as: :text, input_html: { class: "input-xxlarge", rows: 10 }
+= f.input :text, label: t('backoffice.proposition_text'), as: :text, input_html: { class: "input-xxlarge", rows: 10, maxlength: 300 }, hint: tag(:span, id: 'text-counter'), placeholder: '300 ' + t('backoffice.characters_max')
 
 .alert.alert-info
   %b Liens vers du contenu contextuel :
@@ -23,3 +23,11 @@
 .form-actions
   = f.submit t('backoffice.submit'), class: "btn btn-success"
   = link_to t('backoffice.back'), :back, class: 'btn'
+
+:coffee
+  $ ->
+    $('#proposition_text').simplyCountable({
+      counter: '#text-counter'
+      maxCount: 300
+      countDirection: 'up'
+    })
