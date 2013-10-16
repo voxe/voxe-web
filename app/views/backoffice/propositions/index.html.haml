@@ -13,14 +13,16 @@
       %li
         = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace)
 
-- if @propositions_categ.any?
-  %hr
-  .row
+
+%hr
+.row
+  - if @active_tag
     .span3
       %a{ :href => new_backoffice_proposition_path(election_tag_id: @active_tag.id.to_s) }
         .btn.btn-block
           %i.icon-plus-sign
           = t('backoffice.new_proposition')
+  - if @propositions_categ.any?
     .offset5.span4
       = form_for :search, html: {class: 'form-search'} do |f|
         %label{:for => "quick_search"}

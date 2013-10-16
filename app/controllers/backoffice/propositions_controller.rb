@@ -27,8 +27,12 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
 
   def create
     params[:proposition][:tag_ids].delete("")
-    @proposition = @candidacy.propositions.create(params[:proposition])
-    respond_with @proposition, location: backoffice_proposition_path(@proposition[:_id])
+    @proposition = @candidacy.propositions.build(params[:proposition])
+    if @proposition.save
+      redirect_to backoffice_propositions_path
+    else
+      render action: :new
+    end
   end
 
   def show
