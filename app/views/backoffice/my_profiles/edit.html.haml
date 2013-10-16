@@ -1,9 +1,13 @@
 .hero-unit-bo
   %h2 Bienvenue dans votre administration.
   %p Modifiez ici votre profil, et complétez vos propositions.
+
+.pull-right
+  = link_to t('backoffice.view_my_public_profile'), candidate_profile_path(electionnamespace: @profile.candidacy.election.namespace, candidatenamespace: @profile.candidacy.namespace), target: :blank
+
 %h4
   Modifiez ci-dessous votre profil :
-  
+
 = simple_form_for @profile, url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
   = render "form", f: f
   .form-actions
