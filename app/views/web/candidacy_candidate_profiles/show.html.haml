@@ -4,7 +4,10 @@
 #pages-container
   #pages
     .candidate-profile
-      %h1.name-title= @profile.name
+      %h1.name-title
+        = @profile.political_party
+        \-
+        = @profile.name
       %hr
       #biographie
         - if @profile.picture?

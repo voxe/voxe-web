@@ -20,6 +20,7 @@ class CandidacyCandidateProfile
   field :wikipedia,     type: String
   field :website,       type: String
   field :cibul,         type: String
+  field :political_party, type: String
 
   attr_accessor :password
 
