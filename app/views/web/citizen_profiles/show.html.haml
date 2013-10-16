@@ -8,26 +8,21 @@
 
     - for favorite in @user.favorited_propositions
       = favorite.proposition.text
+      = favorite.proposition.tags.map(&:name).join(', ')
+      = favorite.proposition.candidacy.name
+      = favorite.proposition.candidacy.election.name
 
     - for support in @user.supported_propositions
       = support.proposition.text
+      = support.proposition.tags.map(&:name).join(', ')
+      = support.proposition.candidacy.name
+      = support.proposition.candidacy.election.name
 
     - for against in @user.against_propositions
       = against.proposition.text
-
-    / - for election in Election.published
-    /   %h3= election.name
-    /   .citizen-propositions.tabbable.tabs-left
-    /     %ul.nav.nav-tabs
-    /       - for election_tag in election.root_election_tags
-    /         %li
-    /           = link_to election_tag.tag.name, "##{election.namespace}-#{election_tag.tag.namespace}", 'data-toogle' => 'tab'
-    /     .tab-content
-    /       - for election_tag in election.root_election_tags
-    /         .tab-pane{id: "##{election.namespace}-#{election_tag.tag.namespace}"}
-    /           - for favorite in @user.favorited_propositions.where(proposition_id: )
-    /             .proposition
-    /               = proposition.text
+      = against.proposition.tags.map(&:name).join(', ')
+      = against.proposition.candidacy.name
+      = against.proposition.candidacy.election.name
 
 :javascript
   $('.citizen-propositions a').click(function (e) {
