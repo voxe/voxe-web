@@ -7,7 +7,6 @@ class window.CommentView extends Backbone.View
 
   initialize: ->
     @model.bind 'destroy', @remove, @
-    console.log "addcomment"
 
   render: ->
     $(@el).html Mustache.to_html($('#comment-template').html(), comment: @model.toJSON())

@@ -26,7 +26,6 @@ class window.CommentFormView extends Backbone.View
     @$('textarea').val ''
     
   render: ->
-    console.log 'renderform'
     @comment = @$('textarea').val()
     @$el.html Mustache.to_html($('#comment-form-template').html(), user: @user.toJSON())
     @$('textarea').val @comment

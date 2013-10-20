@@ -62,7 +62,6 @@ class window.PropositionModel extends Backbone.Model
           model.set embeds: _.reject(embeds, (e) -> e.id == embedId)
 
   toggleUserAction: (action) ->
-    console.log @
     alreadyUserActioned = _.find @get("#{action}_users").data,((u) -> u.id is app.models.user.id)
     $.ajax
       type: if alreadyUserActioned then 'DELETE' else 'POST'
