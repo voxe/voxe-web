@@ -69,7 +69,6 @@ class window.PropositionModel extends Backbone.Model
       url: "#{@url()}/#{action}"
       data:
         auth_token: app.models.user.token()
-      success: () =>
-        @trigger("change:#{action}_users")
+      success: => @fetch()
 
   isUserActioned: (action) -> _.find @get("#{action}_users").data, (u) -> u.id == app.models.user.id

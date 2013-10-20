@@ -8,8 +8,7 @@ class window.ComparisonPropositionView extends Backbone.View
     @candidacy = app.collections.candidacies.find (ca) => ca.id == @model.get('candidacy').id
 
     @userActions = ["favorite", "support", "against"]
-    _.each @userActions, (action) =>
-      @model.bind "change:#{action}_users", @refresh, @
+    @model.bind "change", @render, @
 
     @commentsView = new CommentsView(model: @model)
 
