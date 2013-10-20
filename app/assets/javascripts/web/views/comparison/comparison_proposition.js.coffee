@@ -62,9 +62,10 @@ class window.ComparisonPropositionView extends Backbone.View
       @$(".actions .#{action} .btn").tipsy()
       @$(".actions .#{action} .count").text @model.get("#{action}_users").count
 
-    @$(".actions .comment .count").text @model.comments.length
 
     @$el.append @commentsView.render().el
+
+    @$(".actions .comment .count").text @model.get('comments').count
 
     if @comment?
       @showComments()
