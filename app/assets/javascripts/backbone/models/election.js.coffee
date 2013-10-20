@@ -118,14 +118,15 @@ class window.ElectionModel extends Backbone.Model
         type: 'PUT'
         dataType: 'json'
         contentType: 'application/json'
-        data: JSON.stringify(_.reduce(
+        data: JSON.stringify({election: _.reduce(
           model.attributes
           (memo, val, key) ->
             memo[key] = val if _.include(modelData, key)
             memo
           {}
-        ))
+        )})
         url: @url()
+      debugger
       $.ajax(_.extend(params, options))
     else
       Backbone.sync(method, model, options)
