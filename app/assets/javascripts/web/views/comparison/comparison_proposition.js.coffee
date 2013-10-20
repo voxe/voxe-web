@@ -32,6 +32,9 @@ class window.ComparisonPropositionView extends Backbone.View
     @commentsView.show(fetch: true)
 
   render: ->
+    # fix tipsy bug
+    $('.tipsy').remove()
+
     @commentsDisplayed = false
     if @$('.comments .comment').is(':visible')
       @comment = @$('form textarea').val()
