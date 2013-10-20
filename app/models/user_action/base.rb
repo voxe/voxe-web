@@ -25,6 +25,7 @@ class UserAction::Base
 
   def support_or_against
     opposed_actions = [UserAction::Support, UserAction::Against]
+    return true unless opposed_actions.include? self.class
     a = opposed_actions[1 - opposed_actions.find_index(self.class)]
     a.where(user_id: self.user_id, proposition_id: self.proposition_id).first.try(:destroy)
   end
