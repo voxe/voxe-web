@@ -5,7 +5,6 @@ class window.CommentsView extends Backbone.View
     @model.comments.bind "add", @render, @
     @model.comments.bind "reset", @render, @
     @model.comments.bind 'destroy', (-> @trigger 'commentRemoved'), @
-    @commentFormView = new CommentFormView user: app.models.user, model: @model
     @$el.hide()
 
   events:
@@ -27,6 +26,7 @@ class window.CommentsView extends Backbone.View
 
   render: ->
     @$el.html ""
+    @commentFormView = new CommentFormView user: app.models.user, model: @model
     $(@el).append @commentFormView.el
     @model.comments.each (comment) =>
       @addComment comment
