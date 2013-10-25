@@ -650,7 +650,7 @@ a.button {
 .fb-connect {
   width: 254px;
   height: 44px;
-  background: url("#{asset_path('facebook-login.png', 'images')}");
+  background: image-url('facebook-login.png');
   margin: 0 auto 10px;
   color: white;
   text-align: center;
