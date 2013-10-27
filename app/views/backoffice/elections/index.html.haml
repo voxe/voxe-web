@@ -1,0 +1,4 @@
+- @elections.each do |election|
+  %a{ :href => backoffice_election_propositions_path(election[:_id]) }
+    .btn.btn-block
+      = election[:name]

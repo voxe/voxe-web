@@ -1,12 +1,13 @@
 //= require jquery
-//= require libs/jquery/jquery.cookie.js
-//= require libs/jquery/jquery.tipsy.js
+//= require jquery/jquery.cookie.js
+//= require jquery/jquery.tipsy.js
 
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
-//= require libs/mustache-2011-10-11
+
+//= require mustache-2011-10-11
 
 //= require_tree './backbone/models'
 //= require_tree './backbone/collections'

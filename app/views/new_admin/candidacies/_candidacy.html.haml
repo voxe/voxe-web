@@ -1,0 +1,7 @@
+.candidacy
+  = link_to "×", new_admin_election_candidacy_path(@election, candidacy), class: "candidacy-delete", method: "DELETE"
+
+  = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: "candidacy-#{candidacy_state}", method: "POST" do
+    = image_tag candidacy.candidates[0].photo_url(:small)
+    = candidacy.candidates[0]
+

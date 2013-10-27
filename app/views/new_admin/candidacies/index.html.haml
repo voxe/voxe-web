@@ -1,0 +1,12 @@
+= render '/new_admin/flash', flash: flash
+
+= render 'form'
+
+.candidates
+  - @candidacies.each do |candidacy|
+    - candidate = candidacy.candidates[0]
+    - if candidacy.published
+      = render "candidacy", candidacy: candidacy, candidacy_state: "published"
+    - else
+      = render "candidacy", candidacy: candidacy, candidacy_state: "unpublished"
+

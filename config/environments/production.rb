@@ -60,6 +60,10 @@ Joinplato::Application.configure do
     mobile.css
     admin/application.css
     admin/application.js
+    backoffice.js
+    backoffice.css
+    new_admin.js
+    new_admin.css
   )
 
   config.assets.initialize_on_precompile = true
@@ -73,6 +77,9 @@ Joinplato::Application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
+
+  # Setting up default locale
+  config.i18n.default_locale = :en
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify

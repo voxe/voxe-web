@@ -9,6 +9,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'pry-rails'
 end
 
 # Gems used only for assets and not required
@@ -19,6 +20,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'rails-backbone'
+  gem 'compass-rails'
+  gem 'bootstrap-sass'
+  gem 'bootstrap-datepicker-rails'
+  gem 'select2-rails'
+  gem 'underscore-rails'
 end
 
 group :test do
@@ -38,9 +44,11 @@ group :development, :test do
 end
 
 gem 'jquery-rails', '=2.1.4'
+gem 'simple_form'
 
 # MongoDB adapter and an optimizer for MongoDB
 gem 'mongoid', '~> 3.0.0'
+gem 'mongoid_slug'
 gem 'bson_ext'
 
 # Upload system
@@ -83,6 +91,8 @@ gem 'haml-rails'
 gem 'haml_coffee_assets'
 gem 'eco'
 gem 'mustache-trimmer', :git => 'https://github.com/josh/mustache-trimmer.git'
+gem 'simple_form'
+gem 'select2-rails'
 
 # http://voxe.airbrake.io/
 gem "airbrake"
@@ -108,3 +118,15 @@ gem 'koala'
 
 # Additional features for text searching with mongoid
 gem 'mongoid_fulltext'
+
+# Internationalization according to http accept-language
+gem 'http_accept_language'
+
+# Gem to get rails variables in js
+gem 'gon'
+
+# Add a type for geospcial stuff on mongoid
+gem 'mongoid_spacial'
+
+# Geocode ip addresses, etc...
+gem 'geocoder', require: false

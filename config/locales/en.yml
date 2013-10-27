@@ -14,6 +14,7 @@ en:
     team: Team
     special_thanks: Special thanks
     candidates: Candidates
+    sign_in: Sign in
   comparator:
     choose_a_country: Choose a country
     upcoming_elections: Upcoming elections
@@ -35,5 +36,41 @@ en:
     password: Password
     sign_up: Sign up
     already_on_voxe_sign_in: Already on Voxe? Sign in.
-    sign_in: Sign in
+    sign_in: Log in
     edit_my_profile: Edit my profile
+  backoffice:
+    my_profile: My profile
+    my_propositions: My propositions
+    index: Candidate backoffice dashboard
+    new_proposition: New proposition
+    add_link: Add link
+    remove_link: Remove link
+    submit: Submit changes
+    search: "Quick search:"
+    characters_max: characters maximum
+    links: Links to webcontent regarding this proposition
+    profile: "%{name}'s profile for the %{election}"
+    website: Your website
+    test_link: Test this link
+    social_username: Your username
+    wikipedia_article: URL of article
+    date_hint: DD/MM/YYYY
+    create: Create
+    update: Update
+    logged_as: Logged as
+    sign_out: Sign out
+    address: Addresse
+    birthday: Birthday
+    phone: Phone
+    biography: Biography
+    introduction: Introduction
+    choose_a_theme: Choose a theme
+    proposition_text: Text
+    edit: Edit
+    postal_code: Postal Code
+    picture: Picture
+    view_my_public_profile: View my public profile
+    back: Back
+    delete: Delete
+    alert_confirmation: Are you sure?
+    political_party: Political party

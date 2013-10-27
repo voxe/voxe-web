@@ -1,0 +1,31 @@
+#menu-container
+  %ul#menu
+
+#pages-container
+  #pages
+    .citizen-profile
+      = @user.name
+
+    - for favorite in @user.favorited_propositions
+      = favorite.proposition.text
+      = favorite.proposition.tags.map(&:name).join(', ')
+      = favorite.proposition.candidacy.name
+      = favorite.proposition.candidacy.election.name
+
+    - for support in @user.supported_propositions
+      = support.proposition.text
+      = support.proposition.tags.map(&:name).join(', ')
+      = support.proposition.candidacy.name
+      = support.proposition.candidacy.election.name
+
+    - for against in @user.against_propositions
+      = against.proposition.text
+      = against.proposition.tags.map(&:name).join(', ')
+      = against.proposition.candidacy.name
+      = against.proposition.candidacy.election.name
+
+:javascript
+  $('.citizen-propositions a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })

@@ -1,10 +1,11 @@
 #= require jquery-ui
-#= require ../libs/underscore-1.2.0
-#= require ../libs/backbone-0.5.3
-#= require_tree ../libs/bootstrap-1.3.0
-#= require jquery.jeditable.min
+#= require jquery/jquery.tablednd
+#= require jquery/jquery.jeditable.min
+#= require underscore-1.2.0
+#= require backbone-0.5.3
+#= require bootstrap-1.3.0
 #= require hamlcoffee
-#= require jquery.tablednd
+
 #= require_self
 #= require_tree ../backbone/models
 #= require_tree ../backbone/collections

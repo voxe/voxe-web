@@ -1,9 +1,9 @@
 //= require jquery
-//= require libs/jquery.stickysectionheaders
+//= require jquery/jquery.stickysectionheaders
 
-//= require libs/underscore-1.2.0
-//= require libs/backbone-0.5.3
-//= require libs/mustache-2011-10-11
+//= require underscore-1.2.0
+//= require backbone-0.5.3
+//= require mustache-2011-10-11
 
 //= require_tree './backbone/models'
 //= require_tree './backbone/collections'

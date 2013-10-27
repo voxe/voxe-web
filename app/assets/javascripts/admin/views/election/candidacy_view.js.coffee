@@ -55,7 +55,9 @@ class Admin.Views.Election.CandidacyView extends Backbone.View
 
   changeFirstName: (event) =>
     firstName = prompt "First name :", @candidate.get('firstName')
-    @candidate.save { candidate: {first_name: firstName} }
+    @candidate.save
+      candidate:
+        first_name: firstName
       success: (model, response) =>
         @render()
       error: (model, response) =>
@@ -63,7 +65,9 @@ class Admin.Views.Election.CandidacyView extends Backbone.View
 
   changeLastName: (event) =>
     lastName = prompt "Last name :", @candidate.get('lastName')
-    @candidate.save { candidate: {last_name: lastName} }
+    @candidate.save
+      candidate:
+        last_name: lastName
       success: (model, response) =>
         @render()
       error: (model, response) =>
@@ -71,7 +75,9 @@ class Admin.Views.Election.CandidacyView extends Backbone.View
   
   changeNamespace: (event) =>
     namespace = prompt "Namespace :", @candidate.get('namespace')
-    @candidate.save { candidate: {namespace: namespace} }
+    @candidate.save
+      candidate:
+        namespace: namespace
       success: (model, response) =>
         @render()
       error: (model, response) =>

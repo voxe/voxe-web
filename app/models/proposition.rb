@@ -2,31 +2,35 @@ class Proposition
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  USER_ACTIONS = %w(favorite against support)
+
   field :text, type: String
-  field :support_users_count, type: Integer, default: 0
-  field :against_users_count, type: Integer, default: 0
-  field :favorite_users_count, type: Integer, default: 0
 
   belongs_to :candidacy
   has_and_belongs_to_many :tags, inverse_of: nil
-  
+
   # indexes
   index({ candidacy_id: 1, tag_ids: 1 }, { background: true })
-  index({ candidacy_id: 1, support_users_count: 1 }, { background: true })
-  index({ candidacy_id: 1, against_users_count: 1 }, { background: true })
-  index({ candidacy_id: 1, favorite_users_count: 1 }, { background: true })
+
+  def self.field_name_for_counter_cache(action)
+    "UserAction::#{action.camelcase}".constantize.proposition_cache_field
+  end
+  USER_ACTIONS.each do |action|
+    field_name = field_name_for_counter_cache(action)
+    field field_name, type: Integer, default: 0
+    index({ candidacy_id: 1, field_name => 1 }, { background: true })
+  end
 
   validates_presence_of :candidacy, :tags, :text
 
   embeds_many :embeds, as: :embedable
   embeds_many :comments
   accepts_nested_attributes_for :embeds, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
-  has_many :user_actions
 
   before_save :add_parent_tags
 
   attr_reader :tag
-  
+
   def tag= name
     self.add_tag name
   end
@@ -50,19 +54,22 @@ class Proposition
     self.tags << tag
   end
 
-  def support_users
-    self.user_actions.where(action: 'support').map(&:user)
+  # Options
+  # anonymous: true to get anonymous users
+  USER_ACTIONS.each do |action|
+    define_method "#{action}_users" do |options={}|
+      options[:anonymous] ||= false
+      klass = "UserAction::#{action.camelcase}".constantize
+      klass.where(proposition: self).reduce([]) do |users, user_action|
+        users << user_action.user if options[:anonymous] || (not user_action.user.is_anonymous?)
+        users
+      end
+    end
   end
 
-  def against_users
-    self.user_actions.where(action: 'against').map(&:user)
-  end
-
-  def favorite_users
-    self.user_actions.where(action: 'favorite').map(&:user)
-  end
 
   private
+
 
   def add_parent_tags
     return false unless candidacy and candidacy.election
@@ -76,4 +83,5 @@ class Proposition
     end
     self.tags = all_tags
   end
+
 end

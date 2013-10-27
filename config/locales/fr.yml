@@ -5,15 +5,16 @@ fr:
   navigation:
     about: Projet
     how: Sources
-    press: On parle de nous
+    press: Presse
     apps: Apps
-    API: Développeurs
+    API: API
     hackathon: Hackathon
     method: Méthode
     donate: Soutenir
     team: Equipe
     special_thanks: Remerciements
     candidates: "Candidats"
+    sign_in: Se connecter
   comparator:
     choose_a_country: Choissisez un pays
     upcoming_elections: Prochaines élections
@@ -35,5 +36,42 @@ fr:
     password: Mot de passe
     sign_up: S'inscrire
     already_on_voxe_sign_in: Déjà sur Voxe? Se connecter.
-    sign_in: Se connecter
+    sign_in: Connexion
     edit_my_profile: Editer mon profile
+  backoffice:
+    my_profile: Mon profil
+    my_propositions: Mes propositions
+    index: Accueil du backoffice candidat
+    new_proposition: Ajoutez proposition à ce thème
+    add_link: Ajouter un lien
+    remove_link: Supprimer le lien
+    submit: Soumettre les changements
+    search: "Retrouvez une proposition :"
+    characters_max: caractères maximum
+    links: Liens vers du contenu concernant cette proposition
+    profile: "Profil de %{name} pour l'%{election}"
+    website: Votre site web
+    test_link: Tester le lien
+    social_username: Votre nom d'utilisateur
+    wikipedia_article: URL de l'article
+    date_hint: JJ/MM/AAAA
+    create: "Créer"
+    update: "Mettre à jour"
+    logged_as: "Connecté en tant que"
+    sign_out: "Se déconnecter"
+    address: Adresse
+    birthday: Date de naissance
+    phone: "Téléphone"
+    biography: Biographie
+    introduction: "Présentation"
+    choose_a_theme: "Choissisez un thème"
+    proposition_text: Texte de la proposition
+    edit: Editer
+    postal_code: Code postal
+    picture: Photo
+    view_my_public_profile: Voir mon profil publique
+    back: "Revenir en arrière"
+    delete: "Supprimer"
+    alert_confirmation: "Etes-vous sûr ?"
+    political_party: Parti politique
+

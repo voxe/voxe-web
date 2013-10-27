@@ -1,5 +1,6 @@
 class Election
   include Mongoid::Document
+  include Mongoid::Slug
   
   # attributes
   field :name, type: String
@@ -8,6 +9,10 @@ class Election
   field :date, type: Date
   attr_reader :country_namespace
   
+  slug do |cur_object|
+    cur_object.namespace || cur_object.name.parametrize
+  end
+
   # relations
   belongs_to :parent_election, class_name: 'Election'
   has_many :elections, foreign_key: 'parent_election_id'
@@ -31,10 +36,20 @@ class Election
     ElectionTag.where(election_id:(parent_election ? parent_election.id : self.id)).includes(:tag)
   end
 
+  def copy_tags_from_election(election)
+    election.election_tags.each do |et|
+      ElectionTag.create election: self, tag: et.tag, parent_tag: et.parent_tag, position: et.position, parent_tag_id: et.parent_tag_id
+    end
+  end
+
   def to_param
     self.namespace
   end
-  
+
+  def to_s
+    self.name
+  end
+
   def candidacies_sorted
     array = candidacies
     array.sort_by! { |candidacy| candidacy.candidates[0].last_name }
@@ -56,5 +71,4 @@ class Election
     self.country = Country.where(namespace: @country_namespace).first
     @country_namespace
   end
-
 end

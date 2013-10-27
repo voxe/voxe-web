@@ -1,0 +1,49 @@
+%h3= t('backoffice.choose_a_theme')
+
+%ul{:class => "nav nav-pills" }
+  - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
+    - if(@active_tag)
+      - if(categ_tag.tag.name==@active_tag.tag.name)
+        %li{:class => "active" }
+          = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace)
+      - else
+        %li
+          = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace)
+    - else
+      %li
+        = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace)
+
+
+%hr
+.row
+  - if @active_tag
+    .span3
+      %a{ :href => new_backoffice_proposition_path(election_tag_id: @active_tag.id.to_s) }
+        .btn.btn-block
+          %i.icon-plus-sign
+          = t('backoffice.new_proposition')
+  - if @propositions_categ.any?
+    .offset5.span4
+      = form_for :search, html: {class: 'form-search'} do |f|
+        %label{:for => "quick_search"}
+          = t('backoffice.search')
+        .input-prepend
+          %span.add-on
+            %i.icon-search
+          = f.text_field :search, id: "quick_search", class: "input-medium"
+
+.row
+  .span12
+    %table.table.table-hover
+      %tbody#root-propositions
+        - @propositions_categ.each do |proposition|
+          %tr
+            %td
+              = proposition[:text]
+            %td
+              = link_to edit_backoffice_proposition_path(proposition), class: 'btn' do
+                %i.icon-pencil
+                = t('backoffice.edit')
+              = link_to backoffice_proposition_path(proposition), method: :delete, confirm: t('backoffice.alert_confirmation'), class: 'btn btn-danger' do
+                %i.icon-remove
+                = t('backoffice.delete')

@@ -20,7 +20,7 @@ class Admin.Views.Election.TagView extends Backbone.View
 
   changeName: (event) =>
     name = prompt "Name :", @tag.get('name')
-    @tag.save {name: name}
+    @tag.save({name: name})
       success: (model, response) =>
         @render()
       error: (model, response) =>

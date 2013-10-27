@@ -1,7 +1,7 @@
 //= require jquery
 //= require jquery_ujs
-//= require ../libs/underscore-1.2.0
-//= require ../libs/backbone-0.5.3
+//= require underscore-1.2.0
+//= require backbone-0.5.3
 
 //= require_self
 //= require_tree ../backbone/models

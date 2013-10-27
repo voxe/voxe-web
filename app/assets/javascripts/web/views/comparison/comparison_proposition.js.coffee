@@ -1,5 +1,5 @@
 class window.ComparisonPropositionView extends Backbone.View
-  
+
   initialize: ->
     @commentsDisplayed = false
     @model.comments.bind "reset", @resetComments, @
@@ -7,10 +7,18 @@ class window.ComparisonPropositionView extends Backbone.View
 
     @candidacy = app.collections.candidacies.find (ca) => ca.id == @model.get('candidacy').id
 
+    @userActions = ["favorite", "support", "against"]
+    @model.bind "change", @render, @
+
+    @commentsView = new CommentsView(model: @model)
+
   className: "proposition"
 
   events:
-    "click .comments-count a": "showComments"
+    "click .actions .comment": "showComments"
+    "click .favorite .btn": "toggleFavorite"
+    "click .support .btn": "toggleSupport"
+    "click .against .btn": "toggleAgainst"
     "click .facebook": "facebook"
     "mouseover": "mouseOver"
     "mouseout": "mouseOut"
@@ -19,21 +27,17 @@ class window.ComparisonPropositionView extends Backbone.View
     @.$('.comments-count a').removeClass "indicator"
 
   showComments: (e) ->
-    e.preventDefault()
-    unless @commentsDisplayed
-      @commentsDisplayed = true
-      view = new CommentsView(model: @model)
-      if @model.commentsCount() == 0
-        view.render()
-      else
-        # indicator
-        @.$('.comments-count a').addClass "indicator"
-        @model.comments.fetch()
-      $(@el).append view.el
-      # focus
-      @.$("textarea").focus()
-  
+    e?.preventDefault()
+    @commentsView.show(fetch: true)
+
   render: ->
+    # fix tipsy bug
+    $('.tipsy').remove()
+
+    @commentsDisplayed = false
+    if @$('.comments .comment').is(':visible')
+      @comment = @$('form textarea').val()
+
     if @model.text().length > 60
       @model.set twitterMessage: "#{@candidacy.name()} : #{@model.text().slice(0,60)}... http://voxe.org"
     else
@@ -52,12 +56,33 @@ class window.ComparisonPropositionView extends Backbone.View
     unless _.isEmpty links
       view = new PropositionEmbedLinksView collection: new EmbedsCollection links
       $('.text', @el).after view.render().el
-    
-    @renderCommentsCount()
-    
-    $('.share', @el).hide()
+
+    _.each @userActions, (action) =>
+      @$(".actions .#{action} .btn").addClass('active') if @model.isUserActioned(action)
+      @$(".actions .#{action} .btn").tipsy()
+      @$(".actions .#{action} .count").text @model.get("#{action}_users").count
+
+
+    @$el.append @commentsView.render().el
+
+    @$(".actions .comment .count").text @model.get('comments').count
+
+    if @comment?
+      @showComments()
+      @$('form textarea').val @comment
+
+    # @renderCommentsCount()
 
     @
+
+  toggleUserAction: (action, e) ->
+    e.preventDefault()
+    $(e.currentTarget).toggleClass('active')
+    @model.toggleUserAction(action)
+
+  toggleFavorite: (e) -> @toggleUserAction('favorite', e)
+  toggleSupport: (e) -> @toggleUserAction('support', e)
+  toggleAgainst: (e) -> @toggleUserAction('against', e)
 
   facebook: ->
     obj =
@@ -83,3 +108,8 @@ class window.ComparisonPropositionView extends Backbone.View
       else
         text = "#{@model.commentsCount()} comments"
     @.$('.comments-count a').html text
+
+  refresh: ->
+    @model.fetch
+      success: =>
+        @render()

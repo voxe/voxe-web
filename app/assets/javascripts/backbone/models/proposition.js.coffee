@@ -60,3 +60,14 @@ class window.PropositionModel extends Backbone.Model
           # sync collection with server
           embeds = model.get 'embeds'
           model.set embeds: _.reject(embeds, (e) -> e.id == embedId)
+
+  toggleUserAction: (action) ->
+    alreadyUserActioned = _.find @get("#{action}_users").data,((u) -> u.id is app.models.user.id)
+    $.ajax
+      type: if alreadyUserActioned then 'DELETE' else 'POST'
+      url: "#{@url()}/#{action}"
+      data:
+        auth_token: app.models.user.token()
+      success: => @fetch()
+
+  isUserActioned: (action) -> _.find @get("#{action}_users").data, (u) -> u.id == app.models.user.id

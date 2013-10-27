@@ -57,16 +57,13 @@ class Ability
           can :manage, Proposition, candidacy: { election: { contributor_ids: user.id } }
           can :destroy, Comment, proposition: { candidacy: { election: { contributor_ids: user.id } } }
         end
-        if user.owned_candidacies.exists?
-          # TODO Special Backoffice for candidates
-        end
       end
     end
-    
+
     # public
     can [:read, :search], Election
     can [:read, :search, :elections], Candidate
-    can [:read, :search, :comments], Proposition
+    can [:read, :search, :comments, :favorite], Proposition
     can [:read, :propositions, :search], Tag
     can :read, Candidacy
     can [:create, :verify, :self, :facebookconnect], User

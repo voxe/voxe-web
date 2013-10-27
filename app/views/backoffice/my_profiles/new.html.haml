@@ -1,0 +1,360 @@
+= content_for :head do
+  :css
+    /* GLOBAL STYLES
+    -------------------------------------------------- */
+    /* Padding below the footer and lighter body text */
+
+    body {
+      padding-bottom: 40px;
+      color: #5a5a5a;
+    }
+
+
+
+    /* CUSTOMIZE THE NAVBAR
+    -------------------------------------------------- */
+
+    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      margin-top: 20px;
+      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+    }
+    .navbar-wrapper .navbar {
+
+    }
+
+    /* Remove border and change up box shadow for more contrast */
+    .navbar .navbar-inner {
+      border: 0;
+      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+              box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+
+    /* Downsize the brand/project name a bit */
+    .navbar .brand {
+      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    }
+
+    /* Navbar links: increase padding for taller navbar */
+    .navbar .nav > li > a {
+      padding: 15px 20px;
+    }
+
+    /* Offset the responsive button for proper vertical alignment */
+    .navbar .btn-navbar {
+      margin-top: 10px;
+    }
+
+
+
+    /* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+
+    /* Carousel base class */
+    .carousel {
+      margin-bottom: 60px;
+    }
+
+    .carousel .container {
+      position: relative;
+      z-index: 9;
+    }
+
+    .carousel-control {
+      height: 80px;
+      margin-top: 0;
+      font-size: 120px;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+      background-color: transparent;
+      border: 0;
+      z-index: 10;
+    }
+
+    .carousel .item {
+      height: 500px;
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 500px;
+    }
+
+    .carousel-caption {
+      background-color: transparent;
+      position: static;
+      max-width: 550px;
+      padding: 0 20px;
+      margin-top: 200px;
+    }
+    .carousel-caption h1,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+    .carousel-caption .btn {
+      margin-top: 10px;
+    }
+
+
+
+    /* MARKETING CONTENT
+    -------------------------------------------------- */
+
+    /* Center align the text within the three columns below the carousel */
+    .marketing .span4 {
+      text-align: center;
+    }
+    .marketing h2 {
+      font-weight: normal;
+    }
+    .marketing .span4 p {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+
+    /* Featurettes
+    ------------------------- */
+
+    .featurette-divider {
+      margin: 80px 0; /* Space out the Bootstrap <hr> more */
+    }
+    .featurette {
+      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+      overflow: hidden; /* Vertically center images part 2: clear their floats. */
+    }
+    .featurette-image {
+      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+    }
+
+    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+    .featurette-image.pull-left {
+      margin-right: 40px;
+    }
+    .featurette-image.pull-right {
+      margin-left: 40px;
+    }
+
+    /* Thin out the marketing headings */
+    .featurette-heading {
+      font-size: 50px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+      .carousel .item {
+        height: 500px;
+      }
+      .carousel img {
+        width: auto;
+        height: 500px;
+      }
+
+      .featurette {
+        height: auto;
+        padding: 0;
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+      }
+    }
+
+
+    @media (max-width: 767px) {
+
+      .navbar-inner {
+        margin: -20px;
+      }
+
+      .carousel {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .carousel .container {
+
+      }
+      .carousel .item {
+        height: 300px;
+      }
+      .carousel img {
+        height: 300px;
+      }
+      .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+        margin-top: 100px;
+      }
+      .carousel-caption h1 {
+        font-size: 30px;
+      }
+      .carousel-caption .lead,
+      .carousel-caption .btn {
+        font-size: 18px;
+      }
+
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 30px;
+      }
+      .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+    }
+%style#holderjs-style{type: "text/css"}
+  :cdata
+    \.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}
+
+/
+  Carousel
+  \==================================================
+#myCarousel.carousel.slide
+  .carousel-inner
+    .item
+      %img{alt: "", "data-score" => "720000", src: image_path("backoffice/debats.png")}/
+      .container
+        .carousel-caption
+          %h1 Candidats, échangez avec vos électeurs.
+          %p.lead{"ct-id" => "1", "data-meaningful" => "true"} Laissez vos électeurs commenter vos propositions. Débattez et convainquez les !
+          %a.btn.btn-large.btn-primary{href: "#inscription"} Je m'inscris
+    .item
+      %img{alt: "", src: image_path("backoffice/transparence.png")}/
+      .container
+        .carousel-caption
+          %h1 Candidats, faîtes preuve de transparence.
+          %p.lead{"data-skip" => "true"} Adaptez une démarche transparence, et laissez les électeurs ccomparer vos propositions avec celles de vos concurrents.
+          %a.btn.btn-large.btn-primary{href: "#inscription"} Je m'inscris
+    .item.active
+      %img{alt: "", src: image_path("backoffice/visibilite.png")}/
+      .container
+        .carousel-caption
+          %h1{"data-skip" => "true"} Candidats, gagnez en visibilité
+          %p.lead{"data-skip" => "true"} Partagez vos propositions à des milliers d'électeurs. Améliorez votre présence sur les moteurs de recherche.
+          %a.btn.btn-large.btn-primary{href: "#inscription"} Je m'inscris
+  %a.left.carousel-control{"data-slide" => "prev", href: "#myCarousel"} ‹
+  %a.right.carousel-control{"data-slide" => "next", href: "#myCarousel"} ›
+/ /.carousel
+/
+  Marketing messaging and featurettes
+  \==================================================
+/ Wrap the rest of the page in another container to center all the content.
+.container.marketing
+  / Three columns of text below the carousel
+  .row
+    .span4
+      %img{alt: "Gagnez en visibilité", src: image_path("backoffice/visibilite-logo.png")}/
+      %h2 Visibilité
+      %p{"ct-id" => "2", "data-meaningful" => "true"} Offrez à vos propositions une vraie visibilité sur Internet et auprès de vos électeurs. En 2012, Voxe.org a reçu plus de 1.5 millions de visiteurs uniques.
+    / /.span4
+    .span4
+      %img{src: image_path("backoffice/transparence-logo.png")}/
+      %h2 Transparence
+      %p{"ct-id" => "3", "data-meaningful" => "true"} Innovez en faisant preuve d'une démarche de réelle transparence, en permettant à vos électeurs de comparer clairment vos propositions avec vos concurrents sur Voxe.org.
+    / /.span4
+    .span4
+      %img{src: image_path("backoffice/debats-logo.png")}/
+      %h2 Echanges
+      %p{"ct-id" => "4", "data-meaningful" => "true"} Echangez avec vos électeurs, répondez à leurs interrogations directement sur la plateforme. Convainquez-les.
+    / /.span4
+  / /.row
+  .row{style: "text-align: center; margin-top: 30px;"}
+    %p
+      %a.btn.btn-large.btn-info{href: "#etape_1"} Comment ça marche ?
+  / START THE FEATURETTES
+  %hr.featurette-divider/
+  #etape_1.featurette
+    %img.featurette-image.pull-right{"data-score" => "3.611598576417642e-7", src: image_path("backoffice/politique.png")}/
+    %h2.featurette-heading
+      1. Inscrivez-vous sur Voxe.org.
+      %span.muted En 2 minutes.
+    %p.lead{"ct-id" => "5", "data-meaningful" => "true"} Remplissez le formulaire ci-dessous en quelques secondes. Nos équipes recevront votre inscription, et vous contacteront dans les meilleurs délais pour valider votre inscription.
+    %p
+      %a.btn.btn-large.btn-info{href: "#etape_2"} Ok. Et après ?
+  %hr.featurette-divider/
+  #etape_2.featurette
+    %img.featurette-image.pull-left{src: image_path("backoffice/voxe-icon.png")}/
+    %h2.featurette-heading
+      2. Ajoutez vos propositions.
+      %span.muted C'est gratuit.
+    %p.lead{"ct-id" => "6", "data-meaningful" => "true"} Une fois votre inscription validée, vous aurez accès à notre back-office. Grâce à lui, vous pourrez ajouter vos propositions dans les thèmes de votre élection. Vous pouvez joindre à chaque proposition des liens, des chiffres clés ou des vidéos afin de les illustrer.
+    %p
+      %a.btn.btn-large.btn-info{href: "#etape_3"} Compris. La suite ?
+  %hr.featurette-divider/
+  #etape_3.featurette
+    %img.featurette-image.pull-right{src: image_path("backoffice/democracy-logo.png")}/
+    %h2.featurette-heading
+      3. La démocratie vous remercie.
+      %span.muted Et les électeurs aussi.
+    %p.lead{"ct-id" => "7", "data-meaningful" => "true"} Voxe.org est une association citoyenne, à but non lucratif. Notre démarche est d'aider les électeurs à voter plus éclairé. Notre service est entièrement gratuit, aussi bien pour les candidats que les électeurs.
+    %p
+      %a.btn.btn-large.btn-info{href: "#inscription"} Je m'inscris !
+  %hr.featurette-divider/
+  / /END THE FEATURETTES
+  #inscription.row
+    .span4.offset4
+      / %div{style: "text-align: center"}
+      %h2 Formulaire d'inscription
+    .span9
+      = simple_form_for @profile, url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
+        = f.input :name
+        = render "form", f: f
+        = f.input :password
+        .form-actions
+          = f.submit t('backoffice.create'), class: "btn btn-success btn-large"
+
+  / FOOTER
+  %footer
+    %p.pull-right
+      %a{href: "#"} Revenir en haut
+    %p
+      © 2013 Voxe.org
+/ /.container
+
+:javascript
+  !function ($) {
+    $(function(){
+      // carousel demo
+      $('#myCarousel').carousel()
+    })
+  }(window.jQuery)
+%script{src: "./Carousel Template · Bootstrap_files/holder.js"}
+%div{style: "position:fixed; top:0; left:0; overflow:hidden;"}
+  %input#focus_retriever{style: "position:absolute; left:-300px;", type: "text", value: ""}/

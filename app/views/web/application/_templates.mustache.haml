@@ -128,13 +128,27 @@
   :plain
     {{#proposition}}
       <div class="text">{{text}}</div>
-      
       <div class="actions ribbon">
         <div class="share">
           #{image_tag('share/facebook16.png', class: 'facebook')}
           <a href="https://twitter.com/intent/tweet?related=voxe&amp;text={{twitterMessage}}" target="_blank">#{image_tag('share/twitter16.png')}</a>
         </div>
-        <div class="comments-count"><a href="#"><span>#{image_tag('ajax-loader-ribbon.gif', valign: "middle")}</span></a></div>
+        <div class="favorite">
+          <a class="btn" href="#" original-title="mark as Favorite"></a>
+          <span class="count"></span>
+        </div>
+        <div class="support">
+          <a class="btn" href="#" original-title="mark as Support"></a>
+          <span class="count"></span>
+        </div>
+        <div class="against">
+          <a class="btn" href="#" original-title="mark as Against"></a>
+          <span class="count"></span>
+        </div>
+        <div class="comment">
+          <a class="btn" href="#"></a>
+          <span class="count"></span>
+        </div>
         <!-- <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F#{Settings.host}%2Fpropositions%2F{{id}}&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=#{Settings.facebook.app_id}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe> -->
       </div>
     {{/proposition}}
@@ -149,21 +163,14 @@
 %script#comment-form-template{type: "text/html"}
   :plain
     {{#user.token}}
-      <form>
-        <textarea />
-        <a href="#" class="button">Commenter</a>
-      </form>
+      <textarea></textarea>
+      <button>Commenter</button>
     {{/user.token}}
-    
     {{^user.token}}
       <a href="#" class="session">#{t("comparator.sign_in_or_sign_up_to_add_a_comment")}</a>
     {{/user.token}}
-    
-%script#comments-template{type: "text/html"}
-  :plain
-    <div class="comments"></div>
-    <div class="comment-form"></div>
-  
+
+
 %script#comment-template{type: "text/html"}
   :plain
     {{#comment}}
@@ -171,7 +178,7 @@
       <span>{{user.name}}</span> {{text}}
       <div class="comment-actions"><a class="remove" href="#">X</a></div>
     {{/comment}}
-    
+
 %script#user-profile-template{type: "text/html"}
   :plain
     {{#user.name}}
@@ -180,7 +187,7 @@
     {{/user.name}}
 
     {{^user.name}}
-      <a href="#" class="connect">Connexion</a>
+      <a href="#" class="connect">#{ t 'account.sign_in' }</a>
     {{/user.name}}
     
 %script#users-new-template{type: "text/html"}

@@ -1,15 +1,64 @@
 !!! HTML
 %html
   %head
-    %title Voxe Back Office
+    %title Candidats, ajoutez votre programme sur Voxe.org
+    = include_gon
+    = stylesheet_link_tag 'backoffice'
+    = javascript_include_tag 'backoffice'
     = csrf_meta_tags
+    = yield :head
   %body
-    .container
-      .content
+
+    - if controller_name == 'my_profiles' and action_name == 'new'
+      / Ugly I know, sorry :(
+      .navbar{style: "margin-bottom: 0;"}
+        .navbar-inner
+          .container
+            = link_to root_url do
+              .brand
+                = '←'
+                = image_tag('icons/32.png', width: '20px')
+            .nav-collapse.collapse.pull-right
+              %ul.nav
+                - if not user_signed_in?
+                  %li
+                    = link_to edit_backoffice_my_profile_path do
+                      %i.icon-user
+                      = t("navigation.sign_in")
+      = yield
+
+    - else
+      .navbar
+        .navbar-inner
+          .container
+            = link_to root_url do
+              .brand
+                = '←'
+                = image_tag('icons/32.png', width: '20px')
+            = link_to 'Voxe Backoffice', backoffice_root_url, class: 'brand'
+            - if user_signed_in?
+              .nav-collapse.collapse
+                %ul.nav
+                  %li
+                    = link_to backoffice_my_profile_path do
+                      %i.icon-user
+                      = t('backoffice.my_profile')
+                  %li
+                    = link_to backoffice_propositions_path do
+                      %i.icon-list
+                      = t('backoffice.my_propositions')
+
+                %ul.nav.pull-right
+                  %li
+                    = link_to t('backoffice.logged_as') +' '+ current_user.email, '#'
+                  %li
+                    = link_to destroy_user_session_path, method: 'delete' do
+                      %i.icon-off
+                      = t('backoffice.sign_out')
+      .container
         - if notice
-          .alert-message.success
-            %p= notice
-        - elsif alert
-          .alert-message.error
-            %p= alert
+          .alert.alert-success
+            = notice
         = yield
+
+    = yield :javascript
