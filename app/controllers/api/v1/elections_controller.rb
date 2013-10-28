@@ -17,8 +17,9 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
       @elections = @elections.where(published: true)
       @only_published_candidacies = true
     end
-    @elections = @elections.where(parent_id: params[:parent] || nil)
-    @elections = @elections.where(name: /#{params[:name]}/i).includes(:candidacies)
+    @elections = @elections.where(parent_election_id: params[:parent] || nil)
+    @elections.where(namespace: /#{params[:namespace]}/i)
+    @elections = @elections.where(name: /#{params[:name]}/i).includes(:candidacies).limit(30)
   end
 
   # POST /api/v1/elections
