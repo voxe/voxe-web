@@ -128,6 +128,10 @@ Joinplato::Application.routes.draw do
         end
       end
 
+      resources :cities do
+        get :search, on: :collection
+      end
+
     end
   end
 

@@ -17,6 +17,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
       @elections = @elections.where(published: true)
       @only_published_candidacies = true
     end
+    @elections = @elections.where(parent_id: params[:parent] || nil)
     @elections = @elections.where(name: /#{params[:name]}/i).includes(:candidacies)
   end
 

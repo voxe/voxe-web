@@ -54,6 +54,15 @@
         {{/election.candidacies}}
       </div>
     </div>
+%script#local-elections-cell-template(type="text/html")
+  :plain
+    <div election-id="{{election.id}}" class="election elections-locals">
+      <div class="name">Elections municipales</div>
+      <div class="ui-widget">
+        <div class="instructions">Dans quel ville souhaitez vous comparer les candidats ?</div>
+        <input type="hidden" placeholder="Choisissez une ville. ex: Paris, Lyon, Marseille" />
+      </div>
+    </div>
       
 %script#candidacy-cell-template{type: "text/html"}
   :plain
