@@ -13,6 +13,9 @@ class Election
     cur_object.namespace || cur_object.name.parametrize
   end
 
+  index name: 1
+  index name: 1, parent: 1
+
   # relations
   belongs_to :parent_election, class_name: 'Election'
   has_many :elections, foreign_key: 'parent_election_id'
@@ -20,7 +23,8 @@ class Election
   has_and_belongs_to_many :ambassadors, class_name: 'User', inverse_of: :ambassador_elections
   has_and_belongs_to_many :contributors, class_name: 'User', inverse_of: :contributor_elections
   belongs_to :country
-  
+  belongs_to :city
+
   # validations
   validates_presence_of :name, :namespace
   validates_uniqueness_of :namespace

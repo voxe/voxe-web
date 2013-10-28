@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery/jquery.cookie.js
 //= require jquery/jquery.tipsy.js
+//= require select2
 
 //= require underscore
 //= require backbone
