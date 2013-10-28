@@ -37,12 +37,16 @@ class window.AppRouter extends Backbone.Router
     @trackPageview()
     app.models.election.candidacies.unselect()
     
+    console.log window.localCache
     # set election using url
     unless _.isEmpty app.collections.elections.models
-      election = _.find app.collections.elections.models, (election) ->
-        election.namespace() == namespace
-      app.models.election.set id: election.id
-      
+      election = _.find app.collections.elections.models, (election) -> election.namespace() == namespace
+      if election
+        app.models.election.set id: election.id
+      else
+        if window.localCache
+          app.models.election.set id: window.localCache[namespace]
+
     app.views.application.scrollTo $('#candidacies').offset().top
     
   tagsList: (namespace, names)->
