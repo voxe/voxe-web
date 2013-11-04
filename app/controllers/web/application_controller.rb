@@ -10,7 +10,7 @@ class Web::ApplicationController < ApplicationController
 
   AVAILABLE_LANGUAGES = I18n.available_locales.map do |l| l.to_s end
   def set_locale
-    unless request.user_preferred_languages.empty?
+    if request.user_preferred_languages.present?
       I18n.locale = request.preferred_language_from(AVAILABLE_LANGUAGES)
     else
       I18n.locale = I18n.default_locale
