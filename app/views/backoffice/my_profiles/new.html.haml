@@ -335,6 +335,10 @@
     .span9
       = simple_form_for @profile, url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
         = f.input :name
+        .control-group
+          = f.label :election_target, t('backoffice.election_target'), class: 'control-label'
+          .controls{style: "width:220px"}
+            = f.select :election_target, []
         = render "form", f: f
         = f.input :password
         .form-actions
@@ -348,6 +352,23 @@
       © 2013 Voxe.org
 / /.container
 
+:coffee
+  options = []
+  for city in frenchcities
+    options.push {
+      id: city,
+      title: city
+    }
+  $('#candidacy_candidate_profile_election_target').selectize(
+    maxOptions: 20,
+    valueField: 'title',
+    labelField: 'title',
+    searchField: 'title',
+    sortField: 'title',
+    options: options,
+    create: false
+  )
+  console.log('loaded')
 :javascript
   !function ($) {
     $(function(){

@@ -21,6 +21,7 @@ class CandidacyCandidateProfile
   field :website,       type: String
   field :cibul,         type: String
   field :political_party, type: String
+  field :election_target
 
   attr_accessor :password
 

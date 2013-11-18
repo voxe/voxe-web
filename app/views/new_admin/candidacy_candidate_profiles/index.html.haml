@@ -1,6 +1,7 @@
 %table
   %tr
     %td Created at
+    %td Election Target
     %td Name
     %td Email
     %td User linked?
@@ -9,6 +10,7 @@
   - for profile in @candidacy_candidate_profiles do
     %tr
       %td= profile.created_at
+      %td= profile.election_target
       %td= profile.name
       %td= profile.email
       %td= profile.user?
