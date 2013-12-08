@@ -42,6 +42,8 @@ $ ->
     $(".tag").each ->
       filterIds.push this.id
     select.select2
+      placeholder: "Click here to select a tag"
+      formatSearching: -> "Please wait..."
       ajax:
         url: '/api/v1/tags/search'
         dataType: 'json'
@@ -145,4 +147,4 @@ $ ->
   $(".add-root-tag").on "click", addRootTag
   $(".add-tag").on "click", addTag
   $(".rm-tag").on "click", removeTag
-  
+
