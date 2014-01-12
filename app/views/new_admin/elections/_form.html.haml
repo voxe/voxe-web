@@ -7,6 +7,8 @@
       %span.add-on
         %i.icon-flag
       = f.input_field :country_id, collection: Country.all.order_by(name: :asc)
+    = f.input :parent_election_id do
+      = f.input_field :parent_election_id, collection: Election.all
     = f.input :date, :wrapper => :prepend do
       %span.add-on
         %i.icon-calendar
