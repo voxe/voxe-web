@@ -17,7 +17,9 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
       @elections = @elections.where(published: true)
       @only_published_candidacies = true
     end
-    @elections = @elections.where(parent_election_id: params[:parent], name: /#{params[:name]}/i).includes(:candidacies).limit(30)
+    if params[:parent].present? or params[:name].present?
+      @elections = @elections.where(parent_election_id: params[:parent], name: /#{params[:name]}/i).includes(:candidacies).limit(30)
+    end
   end
 
   # POST /api/v1/elections
@@ -35,7 +37,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
   def update
     if @election.update_attributes params[:election]
       #expire_action action: "show", id: @election.id
-      
+
       render 'api/v1/elections/show', status: :ok
     else
       render text: {errors: @election.errors}.to_json, status: :unprocessable_entity, layout: 'api_v1'
