@@ -13,6 +13,12 @@
       %td= profile.election_target
       %td= profile.name
       %td= profile.email
-      %td= profile.user?
-      %td= profile.candidacy?
+      %td= true_or_false_icon profile.user?
+      %td
+        - if profile.candidacy?
+          = link_to candidate_profile_path(electionnamespace: profile.candidacy.election.namespace, candidatenamespace: profile.candidacy.namespace), target: :blank do
+            Open profile
+            %i.icon-share
+        - else
+          = true_or_false_icon profile.candidacy?
       %td= link_to 'Edit', edit_new_admin_candidacy_candidate_profile_path(profile)
