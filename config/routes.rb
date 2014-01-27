@@ -24,7 +24,7 @@ Joinplato::Application.routes.draw do
     resources :tags, only: [:create]
     resources :elections do
       resources :election_tags, only: [:index]
-      resources :candidacies, only: [:index, :create, :destroy] do
+      resources :candidacies, only: [:index, :new, :create, :destroy] do
         post :toggle
       end
       post 'publish'
@@ -32,6 +32,7 @@ Joinplato::Application.routes.draw do
       resources :tags, only: [:create]
     end
     resources :candidacy_candidate_profiles
+    resources :candidates
   end
 
   # API
