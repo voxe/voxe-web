@@ -1,8 +1,8 @@
 class window.ComparisonCandidaciesView extends Backbone.View
-  
+
   className: "candidacies"
-  
-  initialize: (options) ->    
+
+  initialize: (options) ->
     @candidacies  = options.candidacies
     @propositions = options.propositions
 
@@ -14,6 +14,6 @@ class window.ComparisonCandidaciesView extends Backbone.View
         $(@el).append view.render().el
     else
       $(@el).append $('#no-proposition-available-template').html()
-    
+
     # returns this
     @
