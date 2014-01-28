@@ -1,0 +1,21 @@
+.pull-right
+  = link_to 'New candidate', [:new, :new_admin, :candidate], class: 'btn'
+
+%br
+
+%table
+  %tr
+    %th ID
+    %th Photo
+    %th Namespace
+    %th Firstname
+    %th Lastname
+    %th Actions
+  - for candidate in @candidates do
+    %tr
+      %td= candidate.id
+      %td= image_tag candidate.photo_url(:small)
+      %td= candidate.namespace
+      %td= candidate.first_name
+      %td= candidate.last_name
+      %td= link_to 'Edit', [:edit, :new_admin, candidate], class: 'btn btn-mini'

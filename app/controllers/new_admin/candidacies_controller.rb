@@ -14,7 +14,7 @@ class NewAdmin::CandidaciesController < AdminController
     end
 
     candidate = Candidate.find params[:candidacy][:candidates]
-    
+
     @candidacy = Candidacy.new election: @election, candidates: [candidate]
 
     if @candidacy.save
@@ -44,7 +44,7 @@ class NewAdmin::CandidaciesController < AdminController
   protected
 
   def load_candidates
-    @candidacies = @election.candidacies.to_a.sort do |c1,c2| 
+    @candidacies = @election.candidacies.to_a.sort do |c1,c2|
       c1.candidates[0].last_name <=> c2.candidates[0].last_name
     end
     candidates = @candidacies.map{ |c| c.candidates[0]}
