@@ -15,7 +15,9 @@ class NewAdmin::ElectionsController < AdminController
     @election.contributors << current_user
     if @election.save
       flash[:notice] = "#{@election} has been saved."
-      @election.copy_tags_from_election(Election.find params[:election][:election_tags])
+      if from_election = Election.where(id: params[:election][:election_tags]).first
+        @election.copy_tags_from_election(from_election)
+      end
     end
     respond_with :new_admin, @election, location: new_admin_elections_path
   end

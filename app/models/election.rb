@@ -1,14 +1,14 @@
 class Election
   include Mongoid::Document
   include Mongoid::Slug
-  
+
   # attributes
   field :name, type: String
   field :namespace, type: String
   field :published, type: Boolean, default: false
   field :date, type: Date
   attr_reader :country_namespace
-  
+
   slug do |cur_object|
     cur_object.namespace || cur_object.name.parametrize
   end
@@ -41,6 +41,7 @@ class Election
   end
 
   def copy_tags_from_election(election)
+    return false if election.nil?
     election.election_tags.each do |et|
       ElectionTag.create election: self, tag: et.tag, parent_tag: et.parent_tag, position: et.position, parent_tag_id: et.parent_tag_id
     end
