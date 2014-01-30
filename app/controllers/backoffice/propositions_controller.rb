@@ -42,6 +42,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   end
 
   def edit
+    @tags = @candidacy.election.election_tags.where(parent_tag_id: nil, :tag.in =>  @proposition.tag_ids).first.children_election_tags.map &:tag
     gon.page = "edit"
     gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
   end
