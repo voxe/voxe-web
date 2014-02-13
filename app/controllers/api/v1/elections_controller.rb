@@ -17,7 +17,11 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
       @elections = @elections.where(published: true)
       @only_published_candidacies = true
     end
-    @elections = @elections.where(parent_election_id: params[:parent], name: /#{params[:name]}/i).includes(:candidacies).limit(30)
+    if params[:flatten] == 'true'
+      # Nothing todo for the moment
+    else
+      @elections = @elections.where(parent_election_id: params[:parent], name: /#{params[:name]}/i).includes(:candidacies).limit(30)
+    end
   end
 
   # POST /api/v1/elections
