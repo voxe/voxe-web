@@ -15,6 +15,7 @@ class Platform.Views.EmbedFormView extends Backbone.View
   initialize: ->
     @collection = new ElectionsCollection()
     @collection.bind 'reset', @render, @
+    @collection.url = '/api/v1/elections/search?flatten=true'
     @collection.fetch()
 
   render: ->
@@ -47,7 +48,7 @@ class Platform.Views.EmbedFormView extends Backbone.View
     pushFilterAndDefaultToParams 'defaultCandidacyIds', anyByDefault: true
     params = $.param params if params
 
-    iframeCode = "<iframe frameborder='0' width='600px' height='570px' src='http://voxe.org/embed/elections/#{@election.id}#{if _.isEmpty(params) then "" else "?#{params}"}'></iframe>"
+    iframeCode = "<iframe frameborder='0' width='600px' height='570px' src='http://#{window.location.host}/embed/elections/#{@election.id}#{if _.isEmpty(params) then "" else "?#{params}"}'></iframe>"
 
     @$('#preview').html @templates.preview(iframeCode: iframeCode)
 
