@@ -1,23 +1,23 @@
 class window.PropositionsView extends Backbone.View
-  
+
   initialize: ->
     app.collections.selectedCandidacies.bind "reset", @loadPropositions, @
     app.models.tag.bind "change", @loadPropositions, @
     app.collections.propositions.bind "reset", @render, @
-    
+
     $(@el).css 'width', "#{app.views.application.width - 49*2}px"
-    
+
   loadPropositions: ->
     if @candidacies().length != 0 && @tag().id
       # animation
       unless $('#app').attr 'compare'
         $('#app').attr 'compare', true
         app.views.tagsList.mouseLeave()
-        
+
       # loading
       $(@el).addClass 'loading'
       @.$('.container').html ''
-        
+
       candidacyIds = _.map app.collections.selectedCandidacies.models, (candidate) ->
            candidate.id
       candidacyIds = candidacyIds.join ','
@@ -27,13 +27,13 @@ class window.PropositionsView extends Backbone.View
     $(@el).removeClass 'loading'
     @.$('.container').html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories())
     @
-  
+
   tag: ->
     app.models.tag
-  
+
   candidacies: ->
     app.collections.selectedCandidacies.toJSON()
-  
+
   categories: ->
     categories = []
     candidacies = @candidacies()
@@ -42,6 +42,17 @@ class window.PropositionsView extends Backbone.View
       category = {}
       category.id = c.id
       category.name = c.name
+
+      category.candidacies = _.map candidacies, (c)->
+        candidacy = {}
+        candidacy.id = c.id
+        candidacy.candidates = c.candidates
+        if tags_propositions[category.id] && tags_propositions[category.id][candidacy.id]
+          candidacy.propositions = tags_propositions[category.id][candidacy.id]
+        else
+          candidacy.propositions = []
+        candidacy
+
       sections = []
       _.each c.tags, (s) ->
         section = {}
@@ -60,7 +71,7 @@ class window.PropositionsView extends Backbone.View
       category.sections = sections
       categories.push category
     categories
-  
+
   tags_propositions: ->
     hash = {}
     _.each app.collections.propositions.models, (proposition) ->
