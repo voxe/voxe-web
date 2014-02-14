@@ -43,38 +43,65 @@
 #propositions {
   border-right: 1px solid #DDD;
   border-left: 1px solid #DDD;
-  -webkit-box-shadow: 0 0 20px #ccc;  
+  -webkit-box-shadow: 0 0 20px #ccc;
   line-height: 22px;
   font-size: 12px;
   z-index: 2;
   left: 250px;
   right: 0;
-  
+
 /*  .container {
     height: 100%;
     position: relative;
     overflow: hidden;
     ul {
       height: 100%;
-      overflow-y: auto; 
+      overflow-y: auto;
     }
   }*/
-  
+
   .indicator {
     display: none;
     margin: 0 auto;
     width: 16px;
     margin-top: 30px;
   }
-  
+
   .category-name {
     padding: 10px;
     font-size: 14px;
     font-weight: bold;
-    border-top: 1px solid #878787;
     border-bottom: 1px solid #878787;
   }
-  
+
+  .category {
+    margin: 10px;
+    border: 1px solid #878787;
+    border-radius: 3px;
+    .section-name {
+      border-bottom: 1px solid #878787;
+      padding: 5px;
+      font-size: 14px;
+    }
+    .candidacy {
+      margin: 10px;
+      overflow: auto;
+      .photo {
+        float: left;
+        img {
+          border-radius: 3px;
+        }
+      }
+      .proposition {
+        margin-left: 54px;
+        background-color: white;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 13px;
+      }
+    }
+  }
+
   .section {
     margin: 10px;
     border: 1px solid #878787;
