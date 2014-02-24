@@ -8,7 +8,7 @@
 
 %script#menu-election-template{type: "text/html"}
   {{election.name}}
-  
+
 %script#menu-candidacies-template{type: "text/html"}
   :plain
     {{#candidacy1}}
@@ -22,7 +22,7 @@
         <img src="{{photo.sizes.small.url}}" width="50px" height="50px" valign="middle" />
       {{/candidates}}
     {{/candidacy2}}
-  
+
 %script#menu-tags-template{type: "text/html"}
   :plain
     {{#tag}}
@@ -59,18 +59,18 @@
     <div election-id="{{election.id}}" class="election elections-locals">
       <div class="name">Elections municipales</div>
       <div class="ui-widget">
-        <div class="instructions">Dans quel ville souhaitez vous comparer les candidats ?</div>
+        <div class="instructions">Dans quelle ville souhaitez vous comparer les candidats ?</div>
         <input type="hidden" placeholder="Choisissez une ville. ex: Paris, Lyon, Marseille" />
       </div>
     </div>
-      
+
 %script#candidacy-cell-template{type: "text/html"}
   :plain
     {{#candidacy.candidates}}
       <div class="image"><img src="{{photo.sizes.small.url}}" width="50px" height="50px" /></div>
       <div class="name">{{firstName}} {{lastName}}</div>
     {{/candidacy.candidates}}
-    
+
 %script#tags-list-template{type: "text/html"}
   :plain
     {{#tags}}
@@ -79,7 +79,7 @@
         <div class="name">{{name}}</div>
       </li>
     {{/tags}}
-  
+
 %script#comparison-template{type: "text/html"}
   :plain
     {{#tag}}
@@ -89,10 +89,10 @@
       <div class="tag">
         <span>{{name}}</span>
       </div>
-      
+
       <div class="indicator"><div class="tag-image">#{image_tag('web/ajax-loader.gif')}</div></div>
     {{/tag}}
-    
+
 %script#comparison-tag-template{type: "text/html"}
   :plain
     {{#tag}}
@@ -100,7 +100,7 @@
         <span>{{name}}</span>
       </div>
     {{/tag}}
-    
+
 %script#comparison-candidacy-template{type: "text/html"}
   :plain
     {{#candidacy}}
@@ -108,7 +108,7 @@
         <img src="{{photo.sizes.medium.url}}" width="60px" height="60px" />
       {{/candidates}}
     {{/candidacy}}
-    
+
 %script#proposition-embed-video-template{type: "text/html"}
   :plain
     {{#embed}}
@@ -132,7 +132,7 @@
     {{#embed}}
       <a href="{{url}}" target="_blank">{{title}}</a>
     {{/embed}}
-    
+
 %script#comparison-proposition-template{type: "text/html"}
   :plain
     {{#proposition}}
@@ -198,23 +198,23 @@
     {{^user.name}}
       <a href="#" class="connect">#{ t 'account.sign_in' }</a>
     {{/user.name}}
-    
+
 %script#users-new-template{type: "text/html"}
-  :plain  
+  :plain
     <div class="logo">#{image_tag "icons/64.png"}</div>
-    
+
     <div class="fb-connect" data-scope="#{Settings.fb_defaults.scope}">Facebook</div>
-    
+
     <div class="ribbon">#{t 'account.not_yet_on_voxe_signup'}</div>
     <div class="fields">
       <div class="field"><input type='text' name='name' placeholder='#{t 'account.full_name'}' /></div>
       <div class="field"><input type='text' name='email' placeholder='#{t 'account.email_address'}' /></div>
       <div class="field"><input type='password' name='password' placeholder='#{t 'account.password'}' /></div>
-        
+
       <div class="button"><a href="#" class="button">#{t 'account.sign_up'}</a></div>
       <ul class="errors"></ul>
     </div>
-    
+
 %script#users-signin-template{type: "text/html"}
   :plain
     <div class="ribbon">#{t 'account.already_on_voxe_sign_in'}</div>
@@ -224,7 +224,7 @@
       <div class="button"><a href="#" class="button">#{t 'account.sign_in'}</a></div>
       <ul class="errors"></ul>
     </div>
-    
+
     <div class="facepile">
       <iframe src="//www.facebook.com/plugins/facepile.php?href=https%3A%2F%2Fwww.facebook.com%2Fjoinvoxe&amp;&amp;action&amp;size=small&amp;max_rows=1&amp;width=300&amp;colorscheme=light&amp;appId=339716929372553" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px;" width="400px" height="60px" allowTransparency="true"></iframe>
     </div>
