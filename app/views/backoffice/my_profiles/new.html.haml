@@ -354,7 +354,7 @@
 
 :coffee
   options = []
-  for city in frenchcities
+  for city in #{Election.published.map(&:name).to_json}
     options.push {
       id: city,
       title: city
