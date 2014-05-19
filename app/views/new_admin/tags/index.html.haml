@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th Name
+    %th Namespace
+    %th Actions
+  - for tag in @tags
+    %tr
+      %td= tag.name
+      %td= tag.namespace
+      %td= link_to 'Edit', edit_new_admin_tag_path(tag)

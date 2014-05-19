@@ -13,6 +13,7 @@
             = image_tag (asset_path "icons/16.png")
             "The Voxe Office"
           %ul.nav
+            %li= link_to 'Tags', new_admin_tags_path
             %li= link_to 'Countries', new_admin_countries_path
             %li= link_to 'Candidates', new_admin_candidates_path
             %li= link_to 'Elections', new_admin_elections_path

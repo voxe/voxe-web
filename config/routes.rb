@@ -33,6 +33,7 @@ Joinplato::Application.routes.draw do
     end
     resources :candidacy_candidate_profiles
     resources :candidates
+    resources :tags, only: [:index, :edit, :update]
   end
 
   # API

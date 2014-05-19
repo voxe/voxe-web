@@ -1,0 +1,6 @@
+%h2 Editing of #{@tag.name}
+
+
+= simple_form_for [:new_admin, @tag] do |f|
+  = f.input :name
+  = f.button :submit
