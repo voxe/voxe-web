@@ -78,7 +78,7 @@ gem 'puma'
 #gem 'thin'
 
 # scaling
-gem 'hirefireapp'
+gem "hirefire-resource"
 
 # Lists for Mongoid
 gem 'acts_as_list_mongoid'

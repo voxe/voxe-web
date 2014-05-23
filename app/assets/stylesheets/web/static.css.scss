@@ -5,10 +5,10 @@
 .static-page-container {
   margin: 51px auto 0 auto;
   width: 980px;
-  
+
   .static-nav {
     padding: 10px 0 0 0;
-    float: left; 
+    float: left;
     width: 200px;
     li {
       margin: 0 0 10px 0;
@@ -16,7 +16,7 @@
       font-weight: 300;
     }
   }
-  
+
   .static-page {
     margin: 0 0 0 200px;
     border-left: 2px dashed #C3CCDF;
@@ -37,7 +37,7 @@
     }
 
   }
-  
+
   h1 {
     font-size: 24px;
     font-weight: 300;
@@ -49,18 +49,18 @@
     font-weight: 300;
     margin-bottom: 5px;
   }
-  
+
 }
 
 .static.team {
   .people {
     margin: 10px 0 20px 0;
   }
-  
+
   .person {
     clear: both;
     margin: 10px 0;
-    overflow: auto;
+    overflow: hidden;
     .picture {
       float: left;
       img {
