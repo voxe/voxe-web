@@ -7,7 +7,7 @@
         :plain
           {{#elections}}
             <li election-id="{{id}}">
-              <img src="http://voxe.s3.amazonaws.com/elections/{{namespace}}-556.png" width="278px" />
+              {{name}}
             </li>
           {{/elections}}
 
@@ -17,19 +17,19 @@
 
   .table-view-container
     .table-view
-      
+
       %p You will be able to edit what you share before posting.
-      
+
       %ul
         %li.facebook
           .image= image_tag 'share/facebook48.png'
           .name Facebook
-  
+
         = link_to twitter_intent_url, target: "_blank" do
           %li.twitter
             .image= image_tag 'share/twitter48.png'
             .name Twitter
-        
+
 %script#candidacy-cell-template{type: "text/html"}
   :plain
     <li data-candidacy-namespace="{{candidacy.namespace}}">
@@ -43,15 +43,15 @@
   .nav-bar
     %a.button.left.nav  ← Elections
     %a.button.right.compare Comparer
-  
+
   .table-view-container
     .table-view
       %ul.candidacies
-        
+
 %script#tags-list-template{type: "text/html"}
   .nav-bar
     %a.button.left.nav  ← Candidats
-  
+
   .table-view-container
     .table-view
       %ul.tags
@@ -62,24 +62,24 @@
               <div class="name">{{name}}</div>
             </li>
           {{/tags}}
-          
+
 %script#compare-template{type: "text/html"}
   .nav-bar
     %a.button.left.nav  ← Themes
     %a.button.right.share Share
-    
+
   .table-view-container
     .table-view
 
 %script#propositions-template{type: "text/html"}
   :plain
     {{#loading}}<div class="ajax-loader">#{image_tag('touch/ajax-loader.gif')}</div>{{/loading}}
-    
+
     {{#categories}}
       <div class="category">
         <div class="category-name">{{name}}</div>
         {{#sections}}
-          <div class="section">               
+          <div class="section">
             <div class="section-name">{{name}}</div>
             {{#candidacies}}
               <div class="candidacy">
@@ -88,7 +88,7 @@
                     <img src="{{photo.sizes.medium.url}}" width="44px" height="44px" />
                   </div>
                 {{/candidates}}
-        
+
                 {{#propositions}}
                   <div class="proposition">
                     {{text}}
