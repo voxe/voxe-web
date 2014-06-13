@@ -20,10 +20,10 @@
           #countries-list
             .category= t 'comparator.upcoming_elections'
             #countries-upcoming-list
-              -# .country
-              -#   = link_to add_country_form_url do
-              -#     = image_tag 'add_country.jpg'
-              -#     .name= t 'comparator.add_your_country'
+              .country
+                = link_to add_country_form_url do
+                  = image_tag 'add_country.jpg'
+                  .name= t 'comparator.add_your_country'
             .clear
             .category= t 'comparator.previous_elections'
             #countries-previous-list
@@ -35,11 +35,11 @@
           .help
             %span 2. #{t 'comparator.choose_an_election'}
           #elections-list
-          -# .add
-          -#   = link_to add_election_form_url do
-          -#     = image_tag 'add_election.jpg'
-          -#     %br/
-          -#     = t 'comparator.add_your_election'
+          .add
+            = link_to add_election_form_url do
+              = image_tag 'add_election.jpg'
+              %br/
+              = t 'comparator.add_your_election'
 
     .page#candidacies
       .page-container
