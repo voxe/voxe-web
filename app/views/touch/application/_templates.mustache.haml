@@ -78,6 +78,23 @@
     {{#categories}}
       <div class="category">
         <div class="category-name">{{name}}</div>
+        <div class="section">
+          {{#candidacies}}
+            <div class="candidacy">
+              {{#candidates}}
+                <div class="photo">
+                  <img src="{{photo.sizes.medium.url}}" width="44px" height="44px" />
+                </div>
+              {{/candidates}}
+
+              {{#propositions}}
+                <div class="proposition">
+                  {{text}}
+                </div>
+              {{/propositions}}
+            </div>
+          {{/candidacies}}
+        </div>
         {{#sections}}
           <div class="section">
             <div class="section-name">{{name}}</div>
