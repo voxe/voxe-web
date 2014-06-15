@@ -1,25 +1,34 @@
 class window.PropositionsView extends Backbone.View
-  
+
   tag: ->
     @model.tags.selected()
-  
+
   candidacies: ->
     @model.candidacies.selected().toJSON()
-    
+
   loading: ->
     return true if @collection.length == 0
     false
-      
+
   categories: ->
     return [] if !@tag() || @collection.length == 0
-    
+
     categories = []
     candidacies = @candidacies()
-    tags_propositions = @tags_propositions() 
-    _.each @tag().tags.toJSON(), (c) ->      
+    tags_propositions = @tags_propositions()
+    _.each @tag().tags.toJSON(), (c) ->
       category = {}
       category.id = c.id
       category.name = c.name
+      category.candidacies = _.map candidacies, (c)->
+        candidacy = {}
+        candidacy.id = c.id
+        candidacy.candidates = c.candidates
+        if tags_propositions[category.id] && tags_propositions[category.id][candidacy.id]
+          candidacy.propositions = tags_propositions[category.id][candidacy.id]
+        else
+          candidacy.propositions = []
+        candidacy
       sections = []
       _.each c.tags, (s) ->
         section = {}
@@ -38,7 +47,7 @@ class window.PropositionsView extends Backbone.View
       category.sections = sections
       categories.push category
     categories
-  
+
   tags_propositions: ->
     hash = {}
     _.each @collection.models, (proposition) ->
@@ -48,12 +57,12 @@ class window.PropositionsView extends Backbone.View
         hash[tag.id][candidacy.id] = [] unless hash[tag.id][candidacy.id]
         hash[tag.id][candidacy.id].push proposition.toJSON()
     hash
-  
+
   initialize: ->
     @collection.bind "reset", @render, @
     # @model.candidacies.bind "change:selected", @loadPropositions, @
     # @model.tags.bind "change:selected", @loadPropositions, @
-        
+
   loadPropositions: ->
     if @candidacies().length != 0 && @tag()?
       @collection.reset ''
@@ -61,14 +70,14 @@ class window.PropositionsView extends Backbone.View
            candidate.id
       candidacyIds = candidacyIds.join ','
       @collection.fetch data: {electionIds: @model.id, tagIds: @tag().id, candidacyIds: candidacyIds}
-    
+
   render: ->
     $(@el).html Mustache.to_html($('#propositions-template').html(), tag: @tag(), categories: @categories(), loading: @loading())
     unless @scrollView
       @scrollView = new iScroll $('#compare .table-view-container').get(0)
     setTimeout hideURLbar, 0
     setTimeout @refreshScroll, 0
-    
+
   refreshScroll: =>
     @scrollView.refresh()
     @scrollView.scrollTo 0, 0, 0
