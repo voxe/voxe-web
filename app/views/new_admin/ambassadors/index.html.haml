@@ -1,0 +1,23 @@
+%h2 Ambassadors of #{@election.name}
+= render "/new_admin/flash", flash: flash
+
+%br
+%br
+%h3 Add an user as ambassador
+= form_tag new_admin_election_ambassadors_path do
+  = label_tag 'Email'
+  = text_field_tag :email
+  = submit_tag 'Add'
+
+%table.table.table-striped.table-hover.table-condensed
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Actions
+  %tbody
+    - for user in @ambassadors
+      %tr
+        %td= user.name
+        %td= user.email
+        %td= link_to "Remove", new_admin_election_ambassador_path(@election.id, user.id), method: :delete, confirm: "Remove #{user.name} from election?", class: "btn btn-small btn-danger"

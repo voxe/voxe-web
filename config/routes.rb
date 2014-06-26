@@ -30,6 +30,7 @@ Joinplato::Application.routes.draw do
       post 'publish'
       post 'unpublish'
       resources :tags, only: [:create]
+      resources :ambassadors
     end
     resources :candidacy_candidate_profiles
     resources :candidates
