@@ -194,7 +194,9 @@ Joinplato::Application.routes.draw do
     resources :open_data, :only => :index
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: "devise/custom_sessions"
+  }
 
   # Back-office for candidates
   namespace :backoffice do

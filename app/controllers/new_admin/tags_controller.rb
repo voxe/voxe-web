@@ -1,4 +1,6 @@
 class NewAdmin::TagsController < AdminController
+  authorize_resource
+  
   def index
     @tags = Tag.asc(:name)
   end

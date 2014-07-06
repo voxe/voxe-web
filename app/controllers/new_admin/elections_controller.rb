@@ -1,5 +1,5 @@
 class NewAdmin::ElectionsController < AdminController
-  load_resource
+  load_and_authorize_resource
 
   def index
     @elections = @elections.order_by name: :asc

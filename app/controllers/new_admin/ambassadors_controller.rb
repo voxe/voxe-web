@@ -1,4 +1,5 @@
 class NewAdmin::AmbassadorsController < AdminController
+  authorize_resource class: false
   before_filter :load_election
   before_filter :load_ambassadors
 
