@@ -1,14 +1,14 @@
 class NewAdmin::CountriesController < AdminController
-  before_filter :load_countries, only: [:index]
-  load_resource except: [:index]
+  load_and_authorize_resource find_by: :namespace
 
   def index
+    @countries = Country.all.order_by name: :asc
     @country ||= Country.new
   end
 
   def create
     if @country.save
-      flash[:notice] = "#{@country} has correctly been created" 
+      flash[:notice] = "#{@country} has correctly been created"
       respond_with :new_admin, @country, location: new_admin_countries_path
     else
       load_countries
@@ -30,11 +30,5 @@ class NewAdmin::CountriesController < AdminController
     @country.update_attributes(params[:country])
     flash[:notice] = "#{old_name} has been updated to #{@country}"
     respond_with :new_admin, @country, location: new_admin_countries_path
-  end
-
-  protected
-
-  def load_countries
-    @countries = Country.all.order_by name: :asc
   end
 end

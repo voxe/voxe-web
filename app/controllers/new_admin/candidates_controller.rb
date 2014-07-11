@@ -1,5 +1,5 @@
 class NewAdmin::CandidatesController < AdminController
-  load_resource :candidate
+  load_and_authorize_resource
 
   def index
   end

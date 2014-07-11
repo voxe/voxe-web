@@ -1,4 +1,6 @@
 class NewAdmin::CandidacyCandidateProfilesController < AdminController
+  authorize_resource
+
   def index
     @candidacy_candidate_profiles = CandidacyCandidateProfile.all
   end

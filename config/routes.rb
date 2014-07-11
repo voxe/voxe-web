@@ -30,6 +30,7 @@ Joinplato::Application.routes.draw do
       post 'publish'
       post 'unpublish'
       resources :tags, only: [:create]
+      resources :ambassadors
     end
     resources :candidacy_candidate_profiles
     resources :candidates
@@ -193,7 +194,9 @@ Joinplato::Application.routes.draw do
     resources :open_data, :only => :index
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: "devise/custom_sessions"
+  }
 
   # Back-office for candidates
   namespace :backoffice do

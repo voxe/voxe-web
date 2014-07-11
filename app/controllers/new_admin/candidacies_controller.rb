@@ -1,13 +1,12 @@
 class NewAdmin::CandidaciesController < AdminController
+  load_and_authorize_resource :election
+  load_and_authorize_resource through: :election
   def index
-    @election = Election.find params[:election_id]
     load_candidates
     @candidacy ||= Candidacy.new
   end
 
   def create
-    @election = Election.find params[:election_id]
-
     if params[:candidacy][:candidates].empty?
       flash[:error] = "Please choose a candidate to add"
       return respond_with nil, location: new_admin_election_candidacies_path(@election)
@@ -29,7 +28,6 @@ class NewAdmin::CandidaciesController < AdminController
   def destroy
     candidacy = Candidacy.find params[:id]
     candidacy.destroy
-    @election = Election.find params[:election_id]
     respond_with nil, location: new_admin_election_candidacies_path(@election)
   end
 
@@ -37,7 +35,6 @@ class NewAdmin::CandidaciesController < AdminController
     candidacy = Candidacy.find params[:candidacy_id]
     candidacy.published = !candidacy.published
     candidacy.save
-    @election = Election.find params[:election_id]
     respond_with nil, location: new_admin_election_candidacies_path(@election)
   end
 

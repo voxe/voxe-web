@@ -18,8 +18,7 @@
 
         %td= c.elections.count
         %td
-          = link_to "Rename", edit_new_admin_country_path(c), class: 'btn btn-smal'
+          = link_to "Edit", edit_new_admin_country_path(c), class: 'btn btn-smal'
           = link_to new_admin_country_path(c), class: 'btn btn-small btn-danger', confirm: "Sure ?", method: "DELETE" do
             %i.icon-remove-circle
             Delete
-
