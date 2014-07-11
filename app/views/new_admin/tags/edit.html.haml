@@ -3,4 +3,7 @@
 
 = simple_form_for [:new_admin, @tag] do |f|
   = f.input :name
-  = f.button :submit
+  = image_tag "#{@tag.icon_prefix}32.png"
+  = f.file_field :icon
+  .form-actions
+    = f.button :submit
