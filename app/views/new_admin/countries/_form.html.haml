@@ -1,3 +1,5 @@
 = simple_form_for [:new_admin, @country], html: {class: "form-vertical"} do |f|
   = f.input :name
-  = f.button :submit, class: "btn"
+  = f.file_field :icon
+  .form-actions
+    = f.button :submit, class: "btn"

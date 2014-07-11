@@ -1,5 +1,5 @@
 class NewAdmin::CountriesController < AdminController
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :namespace
 
   def index
     @countries = Country.all.order_by name: :asc
