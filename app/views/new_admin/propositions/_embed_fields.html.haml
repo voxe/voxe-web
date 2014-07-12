@@ -1,0 +1,9 @@
+.embed
+  .row
+    .span3= f.input :title
+    .span3= f.input :url
+    .span2.offset2
+      = link_to_remove_fields t('backoffice.remove_link'), f, class: "btn cst-btn"
+  .row
+    .span12
+      %hr
