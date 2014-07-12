@@ -1,10 +1,16 @@
-%table
-  %tr
-    %th Name
-    %th Namespace
-    %th Actions
-  - for tag in @tags
-    %tr
-      %td= tag.name
-      %td= tag.namespace
-      %td= link_to 'Edit', edit_new_admin_tag_path(tag)
+.row-fluid
+  .span12
+    %h2 Tags
+
+.row-fluid
+  .span12
+    %table.table.table-striped.table-hover.table-condensed
+      %tr
+        %th Name
+        %th Namespace
+        %th Actions
+      - for tag in @tags
+        %tr
+          %td= tag.name
+          %td= tag.namespace
+          %td= link_to 'Edit', edit_new_admin_tag_path(tag), class: 'btn btn-mini'

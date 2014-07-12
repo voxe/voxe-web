@@ -1,12 +1,13 @@
-= render '/new_admin/flash', flash: flash
+.row-fluid
+  .span12
+    %h2 Candidacies of #{@election.name}
 
-= render 'form'
+    = render 'form'
 
-.candidates
-  - @candidacies.each do |candidacy|
-    - candidate = candidacy.candidates[0]
-    - if candidacy.published
-      = render "candidacy", candidacy: candidacy, candidacy_state: "published"
-    - else
-      = render "candidacy", candidacy: candidacy, candidacy_state: "unpublished"
-
+    .candidates
+      - @candidacies.each do |candidacy|
+        - candidate = candidacy.candidates[0]
+        - if candidacy.published
+          = render "candidacy", candidacy: candidacy, candidacy_state: "published"
+        - else
+          = render "candidacy", candidacy: candidacy, candidacy_state: "unpublished"
