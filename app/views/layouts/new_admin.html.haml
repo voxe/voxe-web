@@ -26,5 +26,7 @@
               = link_to "Logged as #{current_user.email}", '#'
             %li
               = link_to "Sign out", destroy_user_session_path, method: 'delete'
+    .container
+      = render "/new_admin/flash", flash: flash
     .container-fluid
       =yield

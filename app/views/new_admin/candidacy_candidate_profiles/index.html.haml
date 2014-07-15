@@ -1,24 +1,28 @@
-%table
-  %tr
-    %td Created at
-    %td Election Target
-    %td Name
-    %td Email
-    %td User linked?
-    %td Candidacy linked?
-    %td
-  - for profile in @candidacy_candidate_profiles do
-    %tr
-      %td= profile.created_at
-      %td= profile.election_target
-      %td= profile.name
-      %td= profile.email
-      %td= true_or_false_icon profile.user?
-      %td
-        - if profile.candidacy?
-          = link_to candidate_profile_path(electionnamespace: profile.candidacy.election.namespace, candidatenamespace: profile.candidacy.namespace), target: :blank do
-            Open profile
-            %i.icon-share
-        - else
-          = true_or_false_icon profile.candidacy?
-      %td= link_to 'Edit', edit_new_admin_candidacy_candidate_profile_path(profile)
+.row-fluid
+  .span12
+    %h2 Public profiles
+
+    %table.table.table-striped.table-hover.table-condensed
+      %tr
+        %td Created at
+        %td Election Target
+        %td Name
+        %td Email
+        %td User linked?
+        %td Candidacy linked?
+        %td
+      - for profile in @candidacy_candidate_profiles do
+        %tr
+          %td= profile.created_at
+          %td= profile.election_target
+          %td= profile.name
+          %td= profile.email
+          %td= true_or_false_icon profile.user?
+          %td
+            - if profile.candidacy?
+              = link_to candidate_profile_path(electionnamespace: profile.candidacy.election.namespace, candidatenamespace: profile.candidacy.namespace), target: :blank do
+                Open profile
+                %i.icon-share
+            - else
+              = true_or_false_icon profile.candidacy?
+          %td= link_to 'Edit', edit_new_admin_candidacy_candidate_profile_path(profile), class: 'btn btn-mini'

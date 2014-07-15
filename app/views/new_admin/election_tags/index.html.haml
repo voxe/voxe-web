@@ -1,30 +1,34 @@
-= render '/new_admin/flash', flash: flash
+.row-fluid
+  .span12
+    %h2 Tags of #{@election.name}
 
-.row
+.row-fluid
   .span4
     %button.add-root-tag.btn Add an existing tag
 
   .span6
     = simple_form_for [:new_admin, @tag], html: {class: "form-horizontal"} do |f|
       = hidden_field_tag 'election', @election.to_param
-      .controls-group
+      .control-group
         = f.label :name, "or create a new tag", class: "control-label"
         .controls
           = f.input_field :name, placeholder: "Tag name"
           = f.submit 'Create', class: "btn"
 
-.row
-  %hr
+.row-fluid
+  .span12
+    %hr
 
-.row.span4
-  %form#form-tag-search.form-search.form-horizontal
-    .control-group
-      = label_tag "tag-search", "Quick search :", class: "control-label"
-      .controls
-        .input-append
-          = text_field_tag "tag-search", nil, class: "search-query", placeholder: "Search", autocomplete: "off"
-          = button_tag type: "submit", class: "btn" do
-            %i.icon-search
+.row-fluid
+  .span4.offset8
+    %form#form-tag-search.form-search.form-horizontal
+      .control-group
+        = label_tag "tag-search", "Quick search :", class: "control-label"
+        .controls
+          .input-append
+            = text_field_tag "tag-search", nil, class: "search-query", placeholder: "Search", autocomplete: "off"
+            = button_tag type: "submit", class: "btn" do
+              %i.icon-search
 
 .row
   .span12

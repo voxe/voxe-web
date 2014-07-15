@@ -1,12 +1,27 @@
-= render '/new_admin/flash', flash: flash
+.row-fluid
+  .span12
+    %h2 Candidacies of #{@election.name}
 
-= render 'form'
+    = render 'form'
 
-.candidates
-  - @candidacies.each do |candidacy|
-    - candidate = candidacy.candidates[0]
-    - if candidacy.published
-      = render "candidacy", candidacy: candidacy, candidacy_state: "published"
-    - else
-      = render "candidacy", candidacy: candidacy, candidacy_state: "unpublished"
-
+    %table.table.table-striped.table-hover.table-condensed
+      %thead
+        %tr
+          %th Image
+          %th Name
+          %th Published
+          %th Actions
+      %tbody
+        - for candidacy in @candidacies
+          - candidate = candidacy.candidates.first
+          %tr
+            %td= image_tag candidate.photo_url(:small)
+            %td= candidate.name
+            %td
+              - if candidacy.published
+                = link_to "", new_admin_election_candidacy_toggle_path(@election, candidacy), class: "election-published", method: :post
+              - else
+                = link_to "", new_admin_election_candidacy_toggle_path(@election, candidacy), class: "election-unpublished", method: :post
+            %td
+              = link_to "Propositions", new_admin_election_candidacy_propositions_path(@election, candidacy), class: 'btn btn-small'
+              = link_to "Delete", new_admin_election_candidacy_path(@election, candidacy), class: "btn btn-small btn-danger", method: :delete, confirm: "Are you sure?"
