@@ -1,27 +1,19 @@
 class NewAdmin::CandidaciesController < AdminController
   load_and_authorize_resource :election
   load_and_authorize_resource through: :election
+
   def index
     load_candidates
     @candidacy ||= Candidacy.new
   end
 
   def create
-    if params[:candidacy][:candidates].empty?
-      flash[:error] = "Please choose a candidate to add"
-      return respond_with nil, location: new_admin_election_candidacies_path(@election)
-    end
-
-    candidate = Candidate.find params[:candidacy][:candidates]
-
-    @candidacy = Candidacy.new election: @election, candidates: [candidate]
-
     if @candidacy.save
-      flash[:notice] = "#{candidate} attends to the election : #{@election}"
+      flash[:notice] = "#{@candidate} attends to the election : #{@election}"
       respond_with @candidacy, location: new_admin_election_candidacies_path(@election)
     else
-      flash[:error] = "Fail to add #{candidate} to #{@election}"
-      render :index
+      flash[:error] = "Fail to add #{@candidate} to #{@election}"
+      redirect_to :back
     end
   end
 

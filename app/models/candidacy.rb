@@ -21,6 +21,7 @@ class Candidacy
   # Validations
   #
   validates_presence_of :election
+  validate :at_least_one_candidate
 
   #
   # Scopes
@@ -35,6 +36,24 @@ class Candidacy
   # TODO: remove temp hack
   def namespace
     candidates[0].try(:namespace)
+  end
+
+  def candidate_id= candidate_id
+    @candidate_id ||= candidate_id
+    candidate = Candidate.find(candidate_id)
+    self.candidates << candidate
+  end
+
+  def candidate_id
+    @candidate_id
+  end
+
+  private
+
+  def at_least_one_candidate
+    if self.candidates.empty?
+      self.errors.add :candidates, "Need at least one"
+    end
   end
 
 end
