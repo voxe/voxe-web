@@ -1,5 +1,5 @@
 class NewAdmin::CandidaciesController < AdminController
-  load_and_authorize_resource :election
+  load_and_authorize_resource :election, find_by: :namespace
   load_and_authorize_resource through: :election
   def index
     load_candidates
