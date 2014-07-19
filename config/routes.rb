@@ -36,6 +36,7 @@ Joinplato::Application.routes.draw do
     resources :candidacy_candidate_profiles
     resources :candidates
     resources :tags, only: [:index, :edit, :update]
+    resources :users, only: [:index]
   end
 
   # API

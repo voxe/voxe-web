@@ -130,3 +130,6 @@ gem 'mongoid_spacial'
 
 # Geocode ip addresses, etc...
 gem 'geocoder', require: false
+
+# Pagination
+gem 'will_paginate_mongoid'

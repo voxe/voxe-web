@@ -13,6 +13,8 @@
             = image_tag (asset_path "icons/16.png")
             "The Voxe Office"
           %ul.nav
+            - if can? :manage, User
+              %li= link_to 'Users', new_admin_users_path
             - if can? :manage, Tag
               %li= link_to 'Tags', new_admin_tags_path
             - if can? :manage, Country

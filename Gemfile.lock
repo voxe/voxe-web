@@ -323,6 +323,10 @@ GEM
     unicode_utils (1.0.0)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.7)
+    will_paginate_mongoid (2.0.1)
+      mongoid
+      will_paginate (~> 3.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -386,3 +390,4 @@ DEPENDENCIES
   turn
   uglifier (>= 1.0.3)
   underscore-rails
+  will_paginate_mongoid

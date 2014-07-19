@@ -10,4 +10,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: "Voxe.org - Votre inscription est validée")
   end
+
+  def admin_ambassador_granted user, election
+    @user = user
+    mail(to: @user.email, subject: "Profile approved")
+  end
 end
