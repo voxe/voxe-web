@@ -1,4 +1,4 @@
 = simple_form_for [:new_admin, @election, @candidacy], html: {class: "form-inline"}  do |f|
-  = f.label :candidates, "Candidate : "
-  = f.input_field :candidates, collection: @available_candidates
-  = f.submit "Add"
+  = f.label :candidate_id, "Candidate : "
+  = f.input_field :candidate_id, collection: @available_candidates
+  = f.submit "Add", class: 'btn'
