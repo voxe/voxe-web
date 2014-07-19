@@ -10,6 +10,7 @@ class NewAdmin::AmbassadorsController < AdminController
   def create
     if user = User.find_by(email: params[:email])
       @election.ambassadors << user
+      UserMailer.admin_ambassador_granted(user, @election).deliver
     else
       flash[:alert] = "Can't find this user"
     end
