@@ -3,7 +3,7 @@
     %h2
       Candidates
       %small
-        - if can? :create, :candidate
+        - if can? :create, Candidate
           = link_to 'New candidate', [:new, :new_admin, :candidate], class: 'btn btn-info btn-small'
 
     %table.table.table-striped.table-hover.table-condensed

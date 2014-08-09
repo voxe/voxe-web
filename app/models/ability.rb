@@ -44,8 +44,8 @@ class Ability
           can :manage, Tag
           can :manage, Election, ambassador_ids: user.id
           can :manage, Candidacy, election: { ambassador_ids: user.id }
-          can :create, Candidate
           can :manage, Candidate, candidacies: { election: { ambassador_ids: user.id } }
+          can :create, Candidate
           can :create, Proposition
           can :manage, Proposition, candidacy: { election: { ambassador_ids: user.id } }
           can :destroy, Comment, proposition: { candidacy: { election: { ambassador_ids: user.id } } }
