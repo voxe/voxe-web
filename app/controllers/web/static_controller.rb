@@ -1,18 +1,26 @@
 class Web::StaticController < Web::ApplicationController
 
   # # will be reset every deploy
-  caches_action :team, :about, :how, :press, :apps, :thanks
+  caches_action :team, :apps, :press
 
   def team
   end
 
   def about
-    @post_id = 18435358007
+    if I18n.locale == :fr
+      @post_id = 18435358007
+    else
+      @post_id = 95739922215
+    end
     render action: "tumblr"
   end
 
   def how
-    @post_id = 18435068606
+    if I18n.locale == :fr
+      @post_id = 18435068606
+    else
+      @post_id = 95739994350
+    end
     render action: "tumblr"
   end
 
@@ -25,7 +33,11 @@ class Web::StaticController < Web::ApplicationController
   end
 
   def thanks
-    @post_id = 18436182546
+    if I18n.locale == :fr
+      @post_id = 18436182546
+    else
+      @post_id = 95740225780
+    end
     render action: "tumblr"
   end
 
