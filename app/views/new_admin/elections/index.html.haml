@@ -23,9 +23,9 @@
               = e.country
             %td
               - if e.published
-                = link_to "", new_admin_election_unpublish_path(e), class: "election-published", method: :post
+                = link_to "", new_admin_election_unpublish_path(e.id.to_s), class: "election-published", method: :post
               - else
-                = link_to "", new_admin_election_publish_path(e), class: "election-unpublished", method: :post
+                = link_to "", new_admin_election_publish_path(e.id.to_s), class: "election-unpublished", method: :post
             %td
               = e.date
             %td
