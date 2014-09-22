@@ -75,3 +75,6 @@ fr:
     alert_confirmation: "Etes-vous sûr ?"
     political_party: Parti politique
     election_target: Election
+    edit_proposition_sub_tag: "Sous-thèmes : Saisissez ci-dessus le ou les sous-thèmes où se trouvera votre proposition."
+    edit_proposition_text: "Texte de la proposition : Nous recommandons une proposition d'environ 300 caractères, afin qu'elle reste lisible par vos électeurs, et facilement comparable. Elle doit par ailleurs ne présenter qu'une seule idée."
+    edit_proposition_embed_link: "Liens vers du contenu contextuel : Vous pouvez associer à votre proposition des liens hypertextes (qui pointent par exemple vers une définition ou un chiffre clé) ou des vidéos (Youtube ou Dailymotion)."

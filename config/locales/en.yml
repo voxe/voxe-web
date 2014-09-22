@@ -75,3 +75,6 @@ en:
     alert_confirmation: Are you sure?
     political_party: Political party
     election_target: Election
+    edit_proposition_sub_tag: "Sub-themes: Select below one or several subthemes under which you'd like your proposition to appear"
+    edit_proposition_text: "Proposition text: The proposition shouldn't be longer than 300 characters, so it remains readible and easy to compare with other propositions. Furthermore, the proposition should only present one idea. Finally, note that the content should only come from candidate's official sources. "
+    edit_proposition_embed_link: "Enrich your propositon: Please list here the source you've used. You can also link your proposition to contextual content using hyperlinks (example: definitions, keywords, videos...)."
