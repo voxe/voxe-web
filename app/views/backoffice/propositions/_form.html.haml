@@ -2,7 +2,7 @@
 
 .alert.alert-info
   = t 'backoffice.edit_proposition_sub_tag'
-= f.association :tags, as: :select, label: "Sous-thème", collection: @tags, input_html: { class: "input-xxlarge" }
+= f.association :tags, as: :select, label: t('backoffice.sub_theme'), collection: @tags, input_html: { class: "input-xxlarge" }
 
 .alert.alert-info
   = t 'backoffice.edit_proposition_text'
