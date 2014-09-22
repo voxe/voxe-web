@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/josh/mustache-trimmer.git
-  revision: b67722e3eb8d35238c14f7910981cdc0cdc033a2
-  specs:
-    mustache-trimmer (0.2.0)
-      mustache (~> 0.99.4)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -222,7 +215,9 @@ GEM
     moped (1.5.0)
     multi_json (1.7.7)
     multipart-post (1.2.0)
-    mustache (0.99.4)
+    mustache (0.99.6)
+    mustache-trimmer-rails (0.2.0)
+      mustache (~> 0.99.4)
     net-scp (1.1.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.7)
@@ -372,7 +367,7 @@ DEPENDENCIES
   mongoid_fulltext
   mongoid_slug
   mongoid_spacial
-  mustache-trimmer!
+  mustache-trimmer-rails
   newrelic_rpm
   pry-rails
   puma

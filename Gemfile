@@ -90,7 +90,7 @@ gem 'rabl'
 gem 'haml-rails'
 gem 'haml_coffee_assets'
 gem 'eco'
-gem 'mustache-trimmer', :git => 'https://github.com/josh/mustache-trimmer.git'
+gem 'mustache-trimmer-rails'
 gem 'simple_form'
 gem 'select2-rails'
 
