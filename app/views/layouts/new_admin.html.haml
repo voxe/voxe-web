@@ -24,6 +24,9 @@
             - if can? :manage, CandidacyCandidateProfile
               %li= link_to 'Public profiles', new_admin_candidacy_candidate_profiles_path
           %ul.nav.pull-right
+            %li{style: "padding-top: 9px"}
+              %span
+                #{link_to "EN", url_for(locale: 'en')} | #{link_to "FR", url_for(locale: 'fr')} | #{link_to "PT", url_for(locale: 'pt-BR')}
             %li
               = link_to "Logged as #{current_user.email}", '#'
             %li

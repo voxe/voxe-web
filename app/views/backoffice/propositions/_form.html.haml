@@ -1,18 +1,15 @@
 = hidden_field_tag :election_tag_id, params[:election_tag_id]
 
 .alert.alert-info
-  %b Sous-thèmes :
-  Saisissez ci-dessus le ou les sous-thèmes où se trouvera votre proposition.
-= f.association :tags, as: :select, label: "Sous-thème", collection: @tags, input_html: { class: "input-xxlarge" }
+  = t 'backoffice.edit_proposition_sub_tag'
+= f.association :tags, as: :select, label: t('backoffice.sub_theme'), collection: @tags, input_html: { class: "input-xxlarge" }
 
 .alert.alert-info
-  %b Texte de la proposition :
-  Nous recommandons une proposition d'environ 300 caractères, afin qu'elle reste lisible par vos électeurs, et facilement comparable. Elle doit par ailleurs ne présenter qu'une seule idée.
+  = t 'backoffice.edit_proposition_text'
 = f.input :text, label: t('backoffice.proposition_text'), as: :text, input_html: { class: "input-xxlarge", rows: 10, maxlength: 300 }, hint: tag(:span, id: 'text-counter'), placeholder: '300 ' + t('backoffice.characters_max')
 
 .alert.alert-info
-  %b Liens vers du contenu contextuel :
-  Vous pouvez associer à votre proposition des liens hypertextes (qui pointent par exemple vers une définition ou un chiffre clé) ou des vidéos (Youtube ou Dailymotion).
+  = t 'backoffice.edit_proposition_embed_link'
 
 = f.simple_fields_for :embeds do |embed|
   = render "embed_fields", f: embed

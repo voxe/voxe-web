@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 ruby '2.0.0'
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.19'
 
 group :development do
   # http://documentcloud.github.com/jammit/
@@ -90,7 +90,7 @@ gem 'rabl'
 gem 'haml-rails'
 gem 'haml_coffee_assets'
 gem 'eco'
-gem 'mustache-trimmer', :git => 'https://github.com/josh/mustache-trimmer.git'
+gem 'mustache-trimmer-rails'
 gem 'simple_form'
 gem 'select2-rails'
 
