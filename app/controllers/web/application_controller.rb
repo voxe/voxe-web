@@ -2,7 +2,7 @@ class Web::ApplicationController < ApplicationController
   before_filter :set_locale
 
   # will be reset every deploy
-  caches_action :index
+  # caches_action :index
 
   def index
     @options = {}
@@ -10,11 +10,12 @@ class Web::ApplicationController < ApplicationController
 
   AVAILABLE_LANGUAGES = I18n.available_locales.map do |l| l.to_s end
   def set_locale
-    if request.user_preferred_languages.present?
-      I18n.locale = request.preferred_language_from(AVAILABLE_LANGUAGES)
-    else
-      I18n.locale = I18n.default_locale
+    if params[:locale].present? and params[:locale].in?(AVAILABLE_LANGUAGES)
+      session[:locale] = params[:locale]
+    elsif request.user_preferred_languages.present?
+      session[:locale] = request.preferred_language_from(AVAILABLE_LANGUAGES)
     end
+    I18n.locale = session[:locale] if session[:locale].present?
   end
 
   private

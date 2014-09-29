@@ -15,6 +15,14 @@
   %body{:class => "#{controller_name} #{action_name}"}
     = render 'layouts/partials/facebook'
 
+    #languages
+      = link_to url_for(locale: 'en') do
+        = image_tag 'tiny_flags/en.gif'
+      = link_to url_for(locale: 'fr') do
+        = image_tag 'tiny_flags/fr.gif'
+      = link_to url_for(locale: 'pt-BR') do
+        = image_tag 'tiny_flags/br.gif'
+
     #appstores
       = link_to_app_store image_tag("web/app-store-fr-small.png")
       = link_to_android_market image_tag("web/android-market-small.png")

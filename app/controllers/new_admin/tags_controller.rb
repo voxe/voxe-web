@@ -1,6 +1,6 @@
 class NewAdmin::TagsController < AdminController
   authorize_resource
-  
+
   def index
     @tags = Tag.asc(:name)
   end
@@ -10,7 +10,7 @@ class NewAdmin::TagsController < AdminController
     if @tag.save
       flash[:notice] = "#{@tag.name} has been created !"
     else
-      flash[:error] = "#{@tag.name} creation has failed : #{@tag.errors.inspect}"
+      flash[:error] = "#{@tag.name} creation has failed : #{@tag.errors.full_messages.join(', ')}"
     end
     election = Election.find params[:election]
     respond_with [:new_admin, @tag], location: new_admin_election_election_tags_path(election)
