@@ -1,5 +1,5 @@
 class NewAdmin::ElectionTagsController < AdminController
-  before_filter :load_election
+  load_and_authorize_resource :election, find_by: :namespace
   before_filter :load_election_tags
   authorize_resource
 
@@ -8,10 +8,6 @@ class NewAdmin::ElectionTagsController < AdminController
   end
 
   private
-
-  def load_election
-    @election = Election.find_by namespace: params[:election_id]
-  end
 
   def load_election_tags
     @election_tags = @election.election_tags.
