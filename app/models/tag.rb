@@ -50,7 +50,7 @@ class Tag
         tmp_namespace = "#{name.parameterize}_#{i}"
       end
 
-      break if Tag.where(namespace: tmp_namespace).empty?
+      break if Tag.where(namespace: /#{tmp_namespace}/i).empty?
     end
     self.namespace = tmp_namespace
   end
