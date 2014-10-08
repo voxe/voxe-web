@@ -8,7 +8,6 @@
 
   .span6
     = simple_form_for [:new_admin, @tag], html: {class: "form-horizontal"} do |f|
-      = hidden_field_tag 'election', @election.to_param
       .control-group
         = f.label :name, "or create a new tag", class: "control-label"
         .controls

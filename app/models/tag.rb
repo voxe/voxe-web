@@ -11,7 +11,7 @@ class Tag
     generate_namespace
   end
 
-  validates_uniqueness_of :name, :namespace
+  validates_uniqueness_of :namespace
 
   attr_protected :namespace
 
@@ -28,7 +28,7 @@ class Tag
   def icon_name
     ".png"
   end
-  
+
   def to_s
     name
   end
@@ -39,8 +39,20 @@ class Tag
   end
 
   private
-    def generate_namespace
-      self.namespace = name.parameterize
+
+  def generate_namespace
+    tmp_namespace = nil
+    3.times.each do |i|
+      puts i
+      if i.zero?
+        tmp_namespace = name.parameterize
+      else
+        tmp_namespace = "#{name.parameterize}_#{i}"
+      end
+
+      break if Tag.where(namespace: /#{tmp_namespace}/i).empty?
     end
+    self.namespace = tmp_namespace
+  end
 
 end
