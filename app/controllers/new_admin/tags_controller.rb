@@ -12,8 +12,7 @@ class NewAdmin::TagsController < AdminController
     else
       flash[:error] = "#{@tag.name} creation has failed : #{@tag.errors.full_messages.join(', ')}"
     end
-    election = Election.find params[:election]
-    respond_with [:new_admin, @tag], location: new_admin_election_election_tags_path(election)
+    redirect_to :back
   end
 
   def edit
