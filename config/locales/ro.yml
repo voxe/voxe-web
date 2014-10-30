@@ -1,0 +1,37 @@
+ro:
+  navigation:
+    about: Despre noi
+    how: Cum
+    press: Presa
+    apps: Aplicaţii
+    API: API
+    hackathon: Hacketon
+    method: Metoda
+    donate: Donaţii
+    team:     Echipa
+    special_thanks: Mulţumiri speciale
+    candidates: Candidaţi
+    sign_in: Logează-te aici
+  comparator:
+    choose_a_country: Alege o ţară
+    upcoming_elections: Alegerile în curs
+    previous_elections: Alegerile anterioare
+    choose_an_election: Selectează o alegere
+    choose_two_candidates: ... Selectează doi candidaţi
+    choose_a_theme: ... Selectează un subiect
+    no_proposition_available:     nu am găsit propuneri
+    send_us_a_missing_proposition: Trimite-ne o propunere
+    learn_more: Află mai multe
+    sign_in_or_sign_up_to_add_a_comment:    Loghează-te pentru a lăsa un comentariu
+    add_your_country: Adăugăţi ţara
+    add_your_election:     Adăugă alegerea ta
+    add_a_candidate: Adăugă un candidat
+  account:
+    not_yet_on_voxe_signup: Nu am cont încă
+    full_name: Numele întreg
+    email_address: Adresa de e-mail
+    password: Parola
+    sign_up: Conecteazăte
+    already_on_voxe_sign_in: Am deja cont. Logează-te
+    sign_in: Logează-te
+    edit_my_profile: Editarea profilul
