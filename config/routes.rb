@@ -37,6 +37,7 @@ Joinplato::Application.routes.draw do
     resources :candidates
     resources :tags, only: [:index, :edit, :update]
     resources :users, only: [:index]
+    resources :manage_propositions, only: [:index]
   end
 
   # API

@@ -7,6 +7,7 @@ class Proposition
   field :text, type: String
 
   belongs_to :candidacy
+  belongs_to :updated_by, class_name: 'User'
   has_and_belongs_to_many :tags, inverse_of: nil
 
   # indexes
