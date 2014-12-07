@@ -37,11 +37,10 @@
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://voxe.org" data-text="Voxe.org - le comparateur neutre de programmes politiques" data-via="voxe">Tweet</a>
           #facebook-button
             <div class="fb-like" data-href="https://www.facebook.com/joinvoxe" data-send="false" data-layout="button_count" data-width="120" data-show-faces="false"></div>
-          #googleplus-button
-            <a href="https://plus.google.com/101412998971199850447?prsrc=3" rel="publisher" style="text-decoration:none;">
-            <img src="//ssl.gstatic.com/images/icons/gplus-16.png" alt="Google+" style="border:0;width:16px;height:16px;"/></a>
+          %ul.navbar{style: "margin-top: 4px; margin-left: 4px;"}
+            %li= link_to "Blog", "http://blog.voxe.org", style: "color: red;"
 
-        %ul#nav
+        %ul#nav.navbar
           %li#languages
             = link_to url_for(locale: 'en') do
               = image_tag 'tiny_flags/en.gif'
@@ -52,15 +51,13 @@
             = link_to url_for(locale: 'ro') do
               = image_tag 'tiny_flags/ro.gif'
           %li ·
-          %li= link_to t("navigation.candidates"), new_backoffice_my_profile_path
-          %li ·
-          %li= link_to "Blog", "http://blog.voxe.org"
-          %li ·
           %li= link_to t("navigation.about"), about_path
           %li ·
-          %li= link_to t("navigation.press"), press_path
+          %li= link_to t("navigation.candidates"), new_backoffice_my_profile_path
           %li ·
           %li= link_to t("navigation.API"), platform_path, target: "_blank"
+          %li ·
+          %li= mail_to 'contact@voxe.org', 'Contact'
           %li ·
 
       #top

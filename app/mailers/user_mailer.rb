@@ -15,4 +15,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: "Profile approved")
   end
+
+  def admin_proposition_updated
+    @propositions = Proposition.where(:updated_at.gte => Date.yesterday.beginning_of_day, :updated_at.lte => Date.yesterday.end_of_day)
+    mail(to: 'content@voxe.org', subject: 'Propositions updated')
+  end
 end

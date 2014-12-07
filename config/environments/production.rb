@@ -93,4 +93,6 @@ Joinplato::Application.configure do
     :domain         => 'heroku.com'
   }
 
+  config.action_mailer.default_url_options = { :host => "voxe.org" }
+
 end

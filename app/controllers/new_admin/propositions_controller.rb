@@ -28,6 +28,7 @@ class NewAdmin::PropositionsController < AdminController
     @proposition = @candidacy.propositions.build(params[:proposition])
     election_tag = @candidacy.election.election_tags.find(params[:election_tag_id])
     @tags = election_tag.children_election_tags.map &:tag
+    @proposition.updated_by = current_user
     if @proposition.save
       redirect_to new_admin_election_candidacy_propositions_path(@election, @candidacy, namespace_categ: election_tag.tag.namespace)
     else
@@ -47,6 +48,7 @@ class NewAdmin::PropositionsController < AdminController
 
   def update
     params[:proposition][:tag_ids].delete("") if params[:proposition] and params[:proposition][:tag_ids].present?
+    @proposition.updated_by = current_user
     if @proposition.update_attributes params[:proposition]
       redirect_to new_admin_election_candidacy_propositions_path, notice: 'Proposition updated'
     else
