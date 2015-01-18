@@ -19,8 +19,8 @@ fr:
     choose_a_country: Choissisez un pays
     upcoming_elections: Prochaines élections
     previous_elections: Elections passées
-    choose_an_election: Choissisez une election
-    choose_two_candidates: ... puis deux candidats, et...
+    choose_an_election: Sélectionnez une entrée
+    choose_two_candidates: ... puis deux personnes, et...
     choose_a_theme: ... choisissez un thème
     no_proposition_available: En attente de proposition.
     send_us_a_missing_proposition: Vous avez identifié une proposition manquante d'un candidat ? Envoyez-la nous !
