@@ -17,11 +17,13 @@
     .headline {
       font-size: 21pt;
       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
-      width: 780px;
+      width: 940px;
       color: black;
       text-align: center;
       margin: 0 auto;
       margin-top: 190px;
+      text-transform: uppercase;
+      color: rgb(8,10,0);
     }
   }
 
@@ -31,13 +33,14 @@
     .explanation {
       color: rgb(13,25,150);
       .title {
-        font-family: "Bebas Neue";
+        font-family: "bebasregular";
         font-size: 16pt;
         text-transform: uppercase;
       }
       .subtitle {
         font-family: "Helvetica Neue";
         font-size: 21pt;
+        margin-top: 8px;
       }
       .cta {
         margin: 0 auto;
@@ -63,17 +66,13 @@
   width: 100%;
   padding: 20px 140px;
 
-  span {
-    padding-top: 4px;
-  }
-
   span, form {
     float: left;
   }
 
   form {
     input[type="email"] {
-      font-family: "Helvetica Neue";
+      font-family: "Helvetica";
       font-size: 12pt;
       padding: 4px;
       border: none;
@@ -83,10 +82,11 @@
       margin: 0;
       position: relative;
       left: -5px;
+      top: 1px;
       background-color: rgb(99,117,183);
       border: none;
       color: white;
-      font-size: 12pt;
+      font-size: 10pt;
     }
   }
 }

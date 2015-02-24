@@ -4,6 +4,7 @@
 * the top of the compiled file, but it's generally better to create a new file per style scope.
 *
 *= require_tree './web/'
+*= require_tree './font/'
 *= require jquery/jquery.tipsy
 *= require select2
 *= require_self
