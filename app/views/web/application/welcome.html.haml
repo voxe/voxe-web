@@ -1,0 +1,25 @@
+#welcome-page
+  .header
+    .header-background
+      .headline
+        %span Welcome to the crowdsourced, neutral, and international comparison platform for political information
+  .content
+    = image_tag 'welcome/avatar.png', style: "margin-top: -30px; margin-bottom: -16px"
+    .explanation
+      %span.title • Form your opinion •
+      %p.subtitle
+        Discover candidate platforms
+        %br
+        for elections in your country
+      = link_to "&nbsp;".html_safe, root_path, class: 'cta'
+%footer.welcome-footer
+  %span{style: "margin-right: 30px; font-family: 'bebasregular'; font-size: 16pt;"} STAY CONNECTED
+  %span{style: "margin-top: 4px; margin-right: 30px; font-family: 'Helvetica'; font-size: 16pt;"} Keep up to date with all out latest news and infos.
+  %form{action: "//voxe.us6.list-manage.com/subscribe/post?u=127353f7d4445d67a11255028&amp;id=f22b64c0f3", target: "_blank", method: "post"}
+    %input{type: "email", name: "EMAIL", placeholder: "Email address"}
+    %input{type: "submit", value: "OK"}
+
+:css
+  #donate-section, #appstores {
+    bottom: 70px;
+  }
