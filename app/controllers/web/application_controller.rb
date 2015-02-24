@@ -4,6 +4,10 @@ class Web::ApplicationController < ApplicationController
   # will be reset every deploy
   # caches_action :index
 
+  def welcome
+    
+  end
+
   def index
     @options = {}
   end
