@@ -4,12 +4,13 @@ class Web::ApplicationController < ApplicationController
   # will be reset every deploy
   # caches_action :index
 
-  def welcome
-    
-  end
-
   def index
-    @options = {}
+    if params['src'] == 'welcome-page'
+      @options = {}
+    else
+      redirect_to welcome_path
+      return
+    end
   end
 
   AVAILABLE_LANGUAGES = I18n.available_locales.map do |l| l.to_s end
