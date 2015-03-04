@@ -1,3 +1,21 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body.welcome {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+
+
+
 #welcome-page {
   .header {
     margin-top: 60px;
@@ -29,6 +47,7 @@
 
   .content {
     text-align: center;
+    padding-bottom: 40px;
 
     .explanation {
       color: rgb(13,25,150);
@@ -60,11 +79,16 @@
 .welcome-footer {
   position: absolute;
   bottom: 0;
+  height: 60px;
   background-color: #061ca5;
   color: white;
   text-align: center;
   width: 100%;
-  padding: 20px 140px;
+
+  .footer-container {
+    height: 20px;
+    margin: 20px 140px;
+  }
 
   span, form {
     float: left;
