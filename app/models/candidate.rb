@@ -15,7 +15,7 @@ class Candidate
   has_many :photos, as: :photoable, dependent: :destroy, autosave: true
 
   # validations
-  validates_presence_of :namespace, :last_name, :first_name
+  validates_presence_of :namespace, :last_name
   validates_associated :photos
   validates_uniqueness_of :namespace
 
