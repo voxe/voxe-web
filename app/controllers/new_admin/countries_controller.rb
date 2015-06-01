@@ -26,9 +26,8 @@ class NewAdmin::CountriesController < AdminController
   end
 
   def update
-    old_name = @country.name
     @country.update_attributes(params[:country])
-    flash[:notice] = "#{old_name} has been updated to #{@country}"
+    flash[:notice] = "#{@country} has been updated"
     respond_with :new_admin, @country, location: new_admin_countries_path
   end
 end
