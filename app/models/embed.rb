@@ -42,7 +42,7 @@ class Embed
 
   def checkout_embed
     require 'oembed'
-    if self.url =~ /https:\/\/www.youtube.com\/watch\?v=/
+    if /https:\/\/www.youtube.com\/watch\?v=/.match(self.url)
       self.provider_name = 'YouTube'
       self.type = 'video'
       self.html = '<iframe width="480" height="270" src="http://www.youtube.com/embed/' + self.youtube_id + '?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>'
