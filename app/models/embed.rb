@@ -20,13 +20,13 @@ class Embed
   #
   validates_presence_of :url
   validate :checkout_embed, if: :url_changed?
-  
+
   # SUNDAY HACK !! WILL BE CHANGED IN THE FUTURE
   def youtube_id
     rexp = /v=(.*)/
     rexp.match(url).captures.first
   end
-  
+
   def video_player
     # http://apiblog.youtube.com/2009/02/youtube-apis-iphone-cool-mobile-apps.html
     "<object width='270' height='200'>
@@ -42,20 +42,26 @@ class Embed
 
   def checkout_embed
     require 'oembed'
-    begin
-      oembed = OEmbed::ProviderDiscovery.get url
+    if /https:\/\/www.youtube.com\/watch\?v=/.match(self.url)
+      self.provider_name = 'YouTube'
+      self.type = 'video'
+      self.html = '<iframe width="480" height="270" src="http://www.youtube.com/embed/' + self.youtube_id + '?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>'
+    else
+      begin
+        oembed = OEmbed::ProviderDiscovery.get url
 
-      self.title         = oembed.title
-      self.provider_name = oembed.provider_name
-      self.type          = oembed.type
-      self.html          = oembed.html
-    rescue
-      # link or dataviz
-      if self.url =~ /qunb/
-        self.type = 'dataviz'
-        self.provider_name = 'qunb'
-      else
-        self.type = 'link'
+        self.title         = oembed.title
+        self.provider_name = oembed.provider_name
+        self.type          = oembed.type
+        self.html          = oembed.html
+      rescue
+        # link or dataviz
+        if self.url =~ /qunb/
+          self.type = 'dataviz'
+          self.provider_name = 'qunb'
+        else
+          self.type = 'link'
+        end
       end
     end
 
