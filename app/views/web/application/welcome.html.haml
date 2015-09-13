@@ -4,7 +4,8 @@
   .content
     = image_tag 'welcome/gvote.png', style: "margin-top: 30px"
     .explanation
-      = link_to "&nbsp;".html_safe, root_path(src: 'welcome-page'), class: 'cta'
+      =# link_to "&nbsp;".html_safe, root_path(src: 'welcome-page'), class: 'cta'
+      = link_to "&nbsp;".html_safe, 'https://impactchallenge.withgoogle.com/france2015/charity/voxe', class: 'cta'
       = link_to "Découvrez le projet", "http://vote.voxe.org", class: 'discover-project'
 
 %footer.welcome-footer

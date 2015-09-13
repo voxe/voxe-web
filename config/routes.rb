@@ -224,24 +224,26 @@ Joinplato::Application.routes.draw do
 
   # touch
   scope :module => "touch", format: "touch", constraints: TouchConstraint.new do
-    match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
-    match ':namespace/:candidacies' => 'tags#index', :as => :tags
-    match ':namespace' => 'elections#show', :as => :election
-
-    root to: 'elections#index'
+    # match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
+    # match ':namespace/:candidacies' => 'tags#index', :as => :tags
+    # match ':namespace' => 'elections#show', :as => :election
+    #
+    # root to: 'elections#index'
+    root to: redirect('http://vote.voxe.org')
   end
 
   # mobile
   scope :module => "mobile", format: "mobile", constraints: MobileConstraint.new do
-    match ':namespace/:candidacies/:tag' => 'elections#compare', :as => :compare
-
-    match 'propositions/:id' => 'propositions#show', :as => :proposition
-
-    match ':namespace/candidacies' => 'candidacies#create', :as => :candidacies
-    match ':namespace/:candidacies' => 'tags#index', :as => :tags
-    match ':namespace' => 'elections#show', :as => :election
-
-    root to: 'elections#index'
+    # match ':namespace/:candidacies/:tag' => 'elections#compare', :as => :compare
+    #
+    # match 'propositions/:id' => 'propositions#show', :as => :proposition
+    #
+    # match ':namespace/candidacies' => 'candidacies#create', :as => :candidacies
+    # match ':namespace/:candidacies' => 'tags#index', :as => :tags
+    # match ':namespace' => 'elections#show', :as => :election
+    #
+    # root to: 'elections#index'
+    root to: redirect('http://vote.voxe.org')
   end
 
   # web
