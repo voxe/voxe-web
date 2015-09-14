@@ -18,30 +18,17 @@ body.welcome {
 
 #welcome-page {
   .header {
-    margin-top: 60px;
-    background-color: #ff5500;
+    margin-top: 100px;
     text-align: center;
-    height: 310px;
+    height: 202px;
 
     .header-background {
-      background-image: image-url("welcome/header.png");
+      background-image: image-url("welcome/vote_voxe.jpg");
       background-repeat: no-repeat;
       background-position: center center;
       width: 100%;
-      height: 310px;
+      height: 202px;
       float: left;
-    }
-
-    .headline {
-      font-size: 21px;
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
-      width: 720px;
-      color: black;
-      text-align: center;
-      margin: 0 auto;
-      margin-top: 200px;
-      text-transform: uppercase;
-      color: rgb(8,10,0);
     }
   }
 
@@ -51,26 +38,24 @@ body.welcome {
 
     .explanation {
       color: rgb(13,25,150);
-      .title {
-        font-family: "bebasregular";
-        font-size: 16pt;
-        text-transform: uppercase;
-      }
-      .subtitle {
-        font-family: "Helvetica Neue";
-        font-size: 21px;
-        margin-top: 8px;
-      }
       .cta {
         margin: 0 auto;
         margin-top: 32px;
         display: block;
         height: 44px;
-        width: 205px;
-        background-image: image-url('welcome/btn-compare.png');
+        width: 313px;
+        background-image: image-url('welcome/btn_vote_off.jpg');
         &:hover {
-          background-image: image-url('welcome/btn-compare-hover.png');
+          background-image: image-url('welcome/btn_vote_over.jpg');
         }
+      }
+      .discover-project {
+        font-size: 14pt;
+        display: block;
+        margin: 0 auto;
+        margin-top: 40px;
+        color: blue;
+        text-decoration: underline;
       }
     }
   }
