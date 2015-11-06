@@ -1,12 +1,17 @@
 #welcome-page
   .header
     .header-background
+      .headline
+        %span Welcome to the crowdsourced, neutral, and international comparison platform for political information
   .content
-    = image_tag 'welcome/gvote.png', style: "margin-top: 30px"
+    = image_tag 'welcome/avatar.png', style: "margin-top: -30px; margin-bottom: -16px"
     .explanation
-      =# link_to "&nbsp;".html_safe, root_path(src: 'welcome-page'), class: 'cta'
-      = link_to "&nbsp;".html_safe, 'https://impactchallenge.withgoogle.com/france2015/charity/voxe', class: 'cta'
-      = link_to "Découvrez le projet", "http://vote.voxe.org", class: 'discover-project'
+      %span.title • Form your opinion •
+      %p.subtitle
+        Discover candidate platforms
+        %br
+        for elections in your country
+      = link_to "&nbsp;".html_safe, root_path(src: 'welcome-page'), class: 'cta'
 
 %footer.welcome-footer
   .footer-container
@@ -19,7 +24,4 @@
 :css
   #donate-section, #appstores {
     bottom: 70px;
-  }
-  body {
-    background-color: white;
   }
