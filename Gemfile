@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-ruby '2.0.0'
-gem 'rails', '3.2.19'
+ruby '2.2.2'
+gem 'rails', '3.2.22'
 
 group :development do
   # http://documentcloud.github.com/jammit/
@@ -28,6 +28,7 @@ group :assets do
 end
 
 group :test do
+  gem 'test-unit'
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'minitest'
@@ -47,7 +48,7 @@ gem 'jquery-rails', '=2.1.4'
 gem 'simple_form'
 
 # MongoDB adapter and an optimizer for MongoDB
-gem 'mongoid', '~> 3.0.0'
+gem 'mongoid'
 gem 'mongoid_slug'
 gem 'bson_ext'
 
