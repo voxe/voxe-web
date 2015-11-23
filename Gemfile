@@ -28,7 +28,6 @@ group :assets do
 end
 
 group :test do
-  gem 'test-unit'
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'minitest'
@@ -134,3 +133,6 @@ gem 'geocoder', require: false
 
 # Pagination
 gem 'will_paginate_mongoid'
+
+# It needs it, I don't why and I'm tired...
+gem 'test-unit'
