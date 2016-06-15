@@ -224,6 +224,8 @@ Joinplato::Application.routes.draw do
 
   # touch
   scope :module => "touch", format: "touch", constraints: TouchConstraint.new do
+    root to: 'application#welcome'
+    get '/welcome' => 'application#welcome', :as => :welcome
     match ':namespace/:candidacies/:tag' => 'comparisons#show', :as => :compare
     match ':namespace/:candidacies' => 'tags#index', :as => :tags
     match ':namespace' => 'elections#show', :as => :election

@@ -1,10 +1,19 @@
-/**** COLORS ****/
 * {
   margin: 0;
   padding: 0; }
 
 .body-color {
   background-color: #b82132; }
+  
+input[type=text],
+input[type=email],
+input[type=password] {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+ } 
 
 .clearer {
   clear: both; }
@@ -33,11 +42,12 @@
       display: block;
       width: 27px;
       height: 27px;
-      background: transparent url(image-path('welcome/icon-ham.gif')) 6px 8px no-repeat;
+      background: transparent image-url('welcome/icon-ham.gif') 6px 8px no-repeat;
       border: 1px solid #99aab5;
       text-indent: -3000px;
       position: relative; }
       .header .menu > li:first-child:hover ul {
+        z-index: 10;
         display: block; }
     .header .menu ul {
       display: none;
@@ -45,29 +55,33 @@
       top: 27px;
       left: -1px;
       list-style-type: none; }
-      .header .menu ul li a {
-        color: black;
-        font-family: "bebas_neuebold", Arial, sans-serif;
-        background-color: white;
-        display: block;
-        padding: 2vw;
-        border: 1px solid #99aab5;
-        border-bottom-width: 0;
-        text-indent: 0;
-        font-size: 1.5vw;
-        text-decoration: none;
-        width: initial;
-        padding: 1vw 2vw;
-        text-align: left;
-        white-space: nowrap; }
-        .header .menu ul li a:hover {
-          background-color: black;
-          color: white; }
-      .header .menu ul li:last-child a {
-        border-bottom-width: 1px; }
+      .header .menu ul li {
+        position: relative;
+        top: -1px; }
+        .header .menu ul li a {
+          color: black;
+          font-family: "bebas_neuebold", Arial, sans-serif;
+          background-color: white;
+          display: block;
+          border: 1px solid #99aab5;
+          text-indent: 0;
+          font-size: 14.5pt;
+          text-decoration: none;
+          width: initial;
+          padding: 0 2vw;
+          text-align: left;
+          white-space: nowrap;
+          line-height: 51px;
+          height: 47px; }
+          .header .menu ul li a:hover {
+            background-color: black;
+            color: white;
+            border-color: white; }
+        .header .menu ul li:first-child {
+          top: 0; }
   .header .logo {
-    font-family: "bebas_neuebold", Arial, sans-serif;
-    line-height: 50px; }
+    line-height: 50px;
+    font-family: "bebas_neuebold", Arial, sans-serif;}
     .header .logo a {
       color: #d4452f;
       font-size: 18pt;
@@ -82,9 +96,9 @@
     text-transform: uppercase;
     padding-bottom: 7vw;
     width: 33.33%;
-    float: left; }
+    float:left;}
     .content div img {
-      margin: 7vw 0 3vw 0; }
+      margin: 7vw 0 3vw 0;}
     .content div h2 {
       font-family: "bebas_neueregular", Arial, sans-serif;
       font-weight: normal;
@@ -95,7 +109,7 @@
       font-family: "bebas_neueregular", Arial, sans-serif;
       text-decoration: none;
       font-size: 2vw;
-      padding: 1vw;
+      padding: 1.5vw 0.7vw 1vw 1vw;
       border-radius: 1vw;
       letter-spacing: 0.2vw;
       line-height: 7vw; }
@@ -111,7 +125,6 @@
       background-color: #ff6b31; }
       .content div.news a {
         background-color: #ef4e20; }
-
 .newsletter {
   background: white;
   padding: 1vw;
@@ -152,12 +165,11 @@
 
 .footer {
   color: #6d020e;
-  font-family: "bebas_neueregular", Arial, sans-serif;
+  font-family: "bebas_neuebold", Arial, sans-serif;
   text-align: center;
   background-color: transparent;
   padding-bottom: 3vw; }
   .footer h3 {
-    font-family: "bebas_neuebold", Arial, sans-serif;
     padding-top: 2.5vw;
     padding-bottom: 15px;
     font-size: 2vw;
@@ -170,42 +182,66 @@
     .footer a.twitter {
       margin-right: 10px; }
 
-@media (max-width: 500px) {
-  .header span {
-    display: none; } }
+@media (max-width: 899px) {
+  .content div h2 {
+    font-size: 20pt;}
+  .content div a {
+    font-size: 14pt;
+    float: left;
+    margin-left: 15px;}
+    
+  .newsletter {
+    padding:15px;
+    font-size: 16pt;
+  }
+  .newsletter label {
+    display: block;
+    margin-bottom: 3px;
+  }
+  .newsletter input[type=email] {
+    font-size: 12pt;
+    padding: 3px 4px;
+    width: 150px;
+  }
+  .newsletter input[type=submit] {
+    font-size: 14pt;
+    padding: 3px 4px;
+  }
+  .footer h3 {
+    font-size: 16pt; } }
+
 @media (max-width: 650px) {
   .header span {
     font-size: 13pt; }
 
   .content div {
     width: 100%;
-    float: none; }
+    height: 18vw;
+    position: relative;}
 
-  .footer h3 {
-    padding: 25px; } }
-@media (max-width: 899px) {
+  .content div img {
+    margin: 0;
+    height: 14vw;
+    position: absolute;
+    left: 5vw;
+    top: 6vw;}
+    
   .content div h2 {
-    font-size: 20pt; }
+    font-size: 9vw;
+    margin-top: 3vw;
+    margin-left: 32vw;
+    text-align: left;}
+    
   .content div a {
-    font-size: 14pt; }
-  .newsletter {
-    padding:20px;
-    font-size: 16pt;
-  }
-  .newsletter label {
-    display: block;
-  }
-  .newsletter input[type=email] {
-    font-size: 16pt;
-    padding: 7px 12px;
-    width: 200px;
-    margin-top: 10px;
-  }
-  .newsletter input[type=submit] {
-    font-size: 16pt;
-    padding: 9px 12px;
-  }
-  .footer h3 {
-    font-size: 16pt; } }
+    font-size: 6vw;
+    margin-left: 32vw;;
+}
 
-/*# sourceMappingURL=styles.css.map */
+  .footer h3 {
+    padding: 5vw 6vw 3vw 6vw; font-size: 4.5vw; } }
+
+@media (max-width: 500px) {
+  .header span {
+    display: none; } }
+    
+/*# sourceMappingURL=styles.scss.map */

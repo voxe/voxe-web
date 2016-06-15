@@ -1,27 +1,65 @@
-#welcome-page
+.body-color
   .header
-    .header-background
-      .headline
-        %span Welcome to the crowdsourced, neutral, and international comparison platform for political information
+    %ul.menu
+      %li
+        %ul
+          %li
+            %a{:href => ".?src=welcome-page", :target => "_blank"}= t 'welcome.comparator'
+          %li
+            %a{:href => "http://www.happydemocracy.com", :target => "_blank"}= t 'welcome.democracy'
+          %li
+            %a{:href => "http://newswatch.voxe.org", :target => "_blank"}= t 'welcome.newswatch'
+          %li
+            %a{:href => "http://laboxdeseuropeennes.voxe.org", :target => "_blank"}= t 'welcome.boxe_eu' 
+          %li
+            %a{:href => "http://hackcop21.voxe.org", :target => "_blank"}= t 'welcome.hackcop21'
+          %li
+            %a{:href => "http://regionales.voxe.org", :target => "_blank"}= t 'welcome.regionales'
+          %li
+            %a{:href => "http://uselections.voxe.org", :target => "_blank"}= t 'welcome.uselections'
+          %li
+            %a{:href => "http://regionales.voxe.org/dons/", :target => "_blank"}= t 'welcome.donate'
+    %h1.logo
+      %a{:href => "."} Voxe.org
+    %span= t 'welcome.toolbox'
+
   .content
-    = image_tag 'welcome/avatar.png', style: "margin-top: -30px; margin-bottom: -16px"
-    .explanation
-      %span.title • Form your opinion •
-      %p.subtitle
-        Discover candidate platforms
-        %br
-        for elections in your country
-      = link_to "&nbsp;".html_safe, root_path(src: 'welcome-page'), class: 'cta'
-
-%footer.welcome-footer
-  .footer-container
-    %span{style: "margin-right: 30px; font-family: 'bebasregular'; font-size: 16px;"} STAY CONNECTED
-    %span{style: "margin-top: 4px; margin-right: 30px; font-family: 'Helvetica'; font-size: 16px;"} Keep up to date with all out latest news and infos.
-    %form{action: "//voxe.us6.list-manage.com/subscribe/post?u=127353f7d4445d67a11255028&amp;id=f22b64c0f3", target: "_blank", method: "post"}
-      %input{type: "email", name: "EMAIL", placeholder: "Email address"}
-      %input{type: "submit", value: "OK"}
-
+    .compare
+      = image_tag 'welcome/compare.png'
+      %h2= t 'welcome.comparator'
+      %a{:href => ".?src=welcome-page", :target => "_blank"}= t 'welcome.compare'
+    .democracy
+      = image_tag 'welcome/democracy.png'
+      %h2= t 'welcome.democracy'
+      %a{:href => "http://www.happydemocracy.com", :target => "_blank"}= t 'welcome.inscription'
+    .news
+      = image_tag 'welcome/newswatch.png'
+      %h2= t 'welcome.newswatch'
+      %a{:href => "http://newswatch.voxe.org", :target => "_blank"}= t 'welcome.discover'
+  .clearer
+  .newsletter
+    %form{:action => "//voxe.us6.list-manage.com/subscribe/post?u=127353f7d4445d67a11255028&id=f22b64c0f3", :method => "post", :target => "_blank"}
+      %label
+        %strong= t 'welcome.stay_connected'
+        = t 'welcome.last_news'
+      %input{:name => "EMAIL", :placeholder => "Email", :type => "email"}
+      %input{:type => "submit", :value => "OK"}
+  .footer
+    %h3= t 'welcome.join_citizen_hacker'
+    %a.twitter{:href => "https://twitter.com/voxe"}
+      = image_tag 'welcome/icon-twitter.png'
+    %a.facebook{:href => "https://www.facebook.com/joinvoxe"}
+      = image_tag 'welcome/icon-facebook.png'
+    
 :css
+  /***** BEGIN HIDING CONTENT *****/
+  
   #donate-section, #appstores {
-    bottom: 70px;
+    display: none;
   }
+  
+  #empire-state-building {
+    display: none;
+  }
+  
+  /***** END HIDING CONTENT *****/

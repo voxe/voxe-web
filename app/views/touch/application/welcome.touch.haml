@@ -1,0 +1,58 @@
+.body-color
+  .header
+    %ul.menu
+      %li
+        %ul
+          %li
+            %a{:href => "./elections"}= t 'welcome.compare'
+          %li
+            %a{:href => "http://www.happydemocracy.com"}= t 'welcome.inscription'
+          %li
+            %a{:href => "http://newswatch.voxe.org"}= t 'welcome.discover'
+          %li
+            %a{:href => "http://laboxdeseuropeennes.voxe.org"}= t 'welcome.boxe_eu' 
+          %li
+            %a{:href => "http://hackcop21.voxe.org"}= t 'welcome.hackcop21'
+    %h1.logo
+      %a{:href => "."} Voxe.org
+    %span= t 'welcome.toolbox'
+
+  .content
+    .compare
+      = image_tag 'welcome/compare.png'
+      %h2= t 'welcome.comparator'
+      %a{:href => "./elections"}= t 'welcome.compare'
+    .democracy
+      = image_tag 'welcome/democracy.png'
+      %h2= t 'welcome.democracy'
+      %a{:href => "http://www.happydemocracy.com"}= t 'welcome.inscription'
+    .news
+      = image_tag 'welcome/newswatch.png'
+      %h2= t 'welcome.newswatch'
+      %a{:href => "http://newswatch.voxe.org"}= t 'welcome.discover'
+  .clearer
+  .newsletter
+    %form{:action => "//voxe.us6.list-manage.com/subscribe/post?u=127353f7d4445d67a11255028&id=f22b64c0f3", :method => "post"}
+      %label
+        %strong Stay connected
+      %input{:name => "EMAIL", :placeholder => "Email", :type => "email"}
+      %input{:type => "submit", :value => "OK"}
+  .footer
+    %h3= t 'welcome.join_citizen_hacker'
+    %a.twitter{:href => "https://twitter.com/voxe"}
+      = image_tag 'welcome/icon-twitter.png'
+    %a.facebook{:href => "https://www.facebook.com/joinvoxe"}
+      = image_tag 'welcome/icon-facebook.png'
+        
+:css
+  /***** BEGIN HIDING CONTENT *****/
+  
+  #donate-section, #appstores {
+    display: none;
+  }
+  
+  #empire-state-building {
+    display: none;
+  }
+  
+  /***** END HIDING CONTENT *****/
