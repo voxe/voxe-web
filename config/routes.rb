@@ -24,12 +24,13 @@ Joinplato::Application.routes.draw do
     resources :tags, only: [:create]
     resources :elections do
       resources :election_tags, only: [:index]
-      resources :candidacies, only: [:index, :new, :create, :destroy] do
-        post :toggle
+      resources :candidacies do
+          get 'toggle', :defaults => { :format => 'json' }
         resources :propositions
+        match 'propositions/categorie/:namespace_categ' => 'propositions#index', :as => :propositions_categorie
       end
-      post 'publish'
-      post 'unpublish'
+      get 'publish', :defaults => { :format => 'json' }
+      get 'unpublish', :defaults => { :format => 'json' }
       resources :tags, only: [:create]
       resources :ambassadors
     end

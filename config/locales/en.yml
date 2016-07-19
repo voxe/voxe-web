@@ -39,6 +39,7 @@ en:
     sign_in: Log in
     edit_my_profile: Edit my profile
   backoffice:
+    my_profile_existing_email: This email is already used
     my_profile_sign_up_error: An error has occured during the creation of your Candidate profile.
     my_profile_under_validation_title: Profile under validation !
     my_profile_under_validation_text: You have already subjected your candidate profile on Voxe.org. Please wait for confirmation by our teams before being able to access your Candidate account.
@@ -51,7 +52,9 @@ en:
     add_link: Add link
     remove_link: Remove link
     submit: Submit changes
-    search: "Quick search:"
+    search: "search :"
+    candidate_search: "Search :"
+    election_search: "Search :"
     characters_max: characters maximum
     links: Links to webcontent regarding this proposition
     profile: "%{name}'s profile for the %{election}"
@@ -115,6 +118,9 @@ en:
     headline: "Voxe.org - the toolbox for wannabe active citizens"
     contact_us: "Contact us "
     find_us: "or find us on"
+  new_admin: 
+        candidate_edit_title: Edit candidate
+        first_name: Firstname
   devise:
     custom_sessions:
         user:

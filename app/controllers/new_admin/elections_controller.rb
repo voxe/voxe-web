@@ -2,7 +2,8 @@ class NewAdmin::ElectionsController < AdminController
   load_and_authorize_resource find_by: :namespace
 
   def index
-    @elections = @elections.order_by name: :asc
+    @future_elections = load_elections(false)
+    @past_elections = load_elections(true)
   end
 
   def edit
@@ -14,7 +15,7 @@ class NewAdmin::ElectionsController < AdminController
   def create
     @election.contributors << current_user
     if @election.save
-      flash[:notice] = "#{@election} has been saved."
+      flash[:notice] = "#{@election} a bien été créée."
       if from_election = Election.where(id: params[:election][:election_tags]).first
         @election.copy_tags_from_election(from_election)
       end
@@ -35,7 +36,7 @@ class NewAdmin::ElectionsController < AdminController
 
   def destroy
     if @election.destroy
-      flash[:notice] = @election.to_s + " has been deleted."
+      flash[:notice] = @election.to_s + " a été supprimée."
     else
       flash[:error] = "An error occured while deleting" + @election.to_s
     end
@@ -60,6 +61,20 @@ class NewAdmin::ElectionsController < AdminController
     else
       flash[:error] = "An error occured while " + action_name + "ing " + @election.to_s
     end
-    respond_with @election, location: new_admin_elections_path
+    #respond_with @election, location: new_admin_elections_path
+  end
+
+  def load_elections(is_past)
+    @elections.asc(:date).select{ |e| 
+      if !e.date.blank? 
+        if is_past
+          (e.date < Date.today) 
+        else
+          (e.date > Date.today) 
+        end
+      else 
+        false 
+      end
+      }
   end
 end

@@ -1,7 +1,8 @@
 = simple_form_for [:new_admin, @candidate] do |f|
   = f.input :first_name
   = f.input :last_name
-  = f.input :namespace
+  - if @candidate.new_record?
+    = f.input :namespace
   - if f.object.photo?
     = image_tag f.object.photo_url(:small)
   = f.simple_fields_for :photos, Photo.new do |p|

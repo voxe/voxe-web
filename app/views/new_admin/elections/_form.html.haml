@@ -1,8 +1,8 @@
 = simple_form_for [:new_admin, @election] do |f|
-  .span4
-    %h4 Information
+  .span6
     = f.input :name
-    = f.input :namespace
+    - if @election.new_record?
+      = f.input :namespace
     = f.input :country_id do
       %span.add-on
         %i.icon-flag
@@ -15,14 +15,15 @@
       = f.input_field :date
     = f.button :submit
 
-  .span4
+  .span6
+    %br
     - if action_name == "new"
-      %h4 Copy tags from election :
-      = f.input :election_tags, collection: Election.all, label: "Election"
+      %h4 Facultatif : Importer les thèmes d'une élection existante
+      = f.input :election_tags, collection: Election.all.asc(:name), label: "Sélectionner une Élection"
 
 :javascript
   $("#election_date").datepicker({
-    "format": "yyyy-mm-dd",
+    "format": "dd/mm/yyyy",
     "weekStart": 1,
     "autoclose": true
   })

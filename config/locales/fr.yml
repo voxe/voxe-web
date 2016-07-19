@@ -2,6 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 fr:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y" 
   navigation:
     about: Projet
     how: Sources
@@ -39,6 +44,7 @@ fr:
     sign_in: Connexion
     edit_my_profile: Editer mon profile
   backoffice:
+    my_profile_existing_email: Cet email est déjà utilisé
     my_profile_sign_up_error: Une erreur s'est produite lors de la création de votre profil Candidat.
     my_profile_under_validation_title: Profil en attente de validation !
     my_profile_under_validation_text: Vous avez déjà soumis votre profil candidat sur Voxe.org. Veuillez attendre confirmation de la part de nos équipes avant de pouvoir accéder à votre compte Candidat.
@@ -50,6 +56,8 @@ fr:
     remove_link: Supprimer le lien
     submit: Soumettre les changements
     search: "Retrouvez une proposition :"
+    candidate_search: "Retrouver un candidat :"
+    election_search: "Retrouver une élection :"
     characters_max: caractères maximum
     links: Liens vers du contenu concernant cette proposition
     profile: "Profil de %{name} pour l'%{election}"
@@ -115,6 +123,9 @@ fr:
     headline: "Voxe.org - La boîte a outils des super citoyens" 
     contact_us: "Contactez-nous "
     find_us: "ou rejoignez-nous sur"
+  new_admin: 
+        candidate_edit_title: Édite le candidate
+        first_name: Prénom
   mongoid:
     errors:
         embed:

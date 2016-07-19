@@ -6,6 +6,7 @@ class NewAdmin::PropositionsController < AdminController
   before_filter :load_proposition_tags, :only => [:edit]
 
   def index
+    @election_name = @candidacy.election.name
     if (params[:namespace_categ])
       @active_tag = @candidacy.election.election_tags.select{ |election_tag| election_tag.tag.namespace == params[:namespace_categ] }.first
       @propositions_categ = @candidacy.propositions.select{ |proposition| proposition.tag_ids.include?(@active_tag.tag_id) }

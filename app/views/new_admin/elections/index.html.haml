@@ -1,40 +1,36 @@
+%link{href: "https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css", rel: "stylesheet"}
+%script{src: "https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"}
+
+
+
+
 .row-fluid
   .span12
     %h2
-      Elections
+      Élections
       %small
         - if can? :create, Election
-          = link_to "New", new_new_admin_election_path, class: "btn btn-info btn-small"
+          = link_to "Nouvelle élection", new_new_admin_election_path, class: "btn btn-info btn-small"
+    .quick-search-div.col-md-6.col-md-offset-2.col-sm-6
+      = form_for :search, html: {class: 'form-search', style: 'float: right;'} do |f|
+        %label{:for => "quick_search"}
+          = t('backoffice.election_search')
+        .input-prepend
+          %span.add-on
+            %i.icon-search
+          = f.text_field :search, id: "quick_search", class: "input-medium"
+    %br
+    %h3="Élections à venir"
+    = render 'election_item', elections: @future_elections
 
-    %table.table.table-striped.table-hover.table-condensed
-      %thead
-        %tr
-          %th Name
-          %th Country
-          %th Published
-          %th Date
-          %th Actions
-      %tbody
-        - @elections.each do |e|
-          %tr
-            %td
-              = e
-            %td
-              = e.country
-            %td
-              - if e.published
-                = link_to "", new_admin_election_unpublish_path(e.id.to_s), class: "election-published", method: :post
-              - else
-                = link_to "", new_admin_election_publish_path(e.id.to_s), class: "election-unpublished", method: :post
-            %td
-              = e.date
-            %td
-              - if can? :update, :ambassador
-                = link_to pluralize(e.ambassadors.size, 'ambassador'), new_admin_election_ambassadors_path(e.id), class: "btn btn-small"
-              = link_to "Tags", new_admin_election_election_tags_path(e), class: "btn btn-small"
-              = link_to "Candidacies", new_admin_election_candidacies_path(e), class: "btn btn-small"
-              - if can? :update, e
-                = link_to "Edit", edit_new_admin_election_path(e), class: "btn btn-small btn-inverse"
-              - if can? :destroy, e
-                = link_to new_admin_election_path(e), method: :delete, confirm: "Sure ?", class: "btn btn-small btn-danger" do
-                  Delete
+    %br
+    %h3="Élections passées"
+    = render 'election_item', elections: @past_elections
+
+:javascript
+  $('.toggle-two').bootstrapToggle();
+  $('.toggle.btn').css('cssText', 'min-width: 50px !important; min-height: 20px !important;');
+
+
+
+

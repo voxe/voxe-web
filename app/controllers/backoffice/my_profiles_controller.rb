@@ -17,10 +17,16 @@ class Backoffice::MyProfilesController < Backoffice::BackofficeController
   def create
     redirect_to :show if user_signed_in?
     @profile = CandidacyCandidateProfile.new params[:candidacy_candidate_profile]
-    if @profile.save
-      redirect_to thank_you_backoffice_my_profile_path
+    existing_profile = CandidacyCandidateProfile.where(email: @profile.email)
+    if existing_profile.count == 0
+
+      if @profile.save
+        redirect_to thank_you_backoffice_my_profile_path
+      else
+        redirect_to :back, alert: t('backoffice.my_profile_sign_up_error')
+      end
     else
-      redirect_to :back, alert: t('backoffice.my_profile_sign_up_error')
+      redirect_to :back, alert: t('backoffice.my_profile_existing_email')
     end
   end
 

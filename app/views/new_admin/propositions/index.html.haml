@@ -1,54 +1,118 @@
-.row-fluid
-  .span12
-    %h2
-      Propositions of #{@candidacy.name}
-      %small= @election.name
 
 
-%ul{:class => "nav nav-pills" }
-  - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
-    - if(@active_tag)
-      - if(categ_tag.tag.name==@active_tag.tag.name)
-        %li{:class => "active" }
-          = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_path(namespace_categ: categ_tag.tag.namespace)
+- if @active_tag.present?
+  %h2= t('backoffice.election_target') + " : " + @election_name + " - " + t('backoffice.my_propositions')
+  %hr
+  .hero-unit-bo
+    %h4= t('backoffice.choose_a_theme')
+  %ul{:class => "nav nav-pills" }
+    - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
+      - if(@active_tag)
+        - if(categ_tag.tag.name==@active_tag.tag.name)
+          %li{:class => "active" }
+            - unless categ_tag.tag.icon_prefix.blank?
+              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
+            = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;'
+        - else
+          %li
+            - unless categ_tag.tag.icon_prefix.blank?   
+              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
+            = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;'
       - else
         %li
-          = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_path(namespace_categ: categ_tag.tag.namespace)
-    - else
-      %li
-        = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_path(namespace_categ: categ_tag.tag.namespace)
+          - unless categ_tag.tag.icon_prefix.blank?   
+            = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
+          = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;'
 
 
-%hr
-.row
-  - if @active_tag
-    .span3
-      %a{ :href => new_new_admin_election_candidacy_proposition_path(election_tag_id: @active_tag.id.to_s) }
-        .btn.btn-block
-          %i.icon-plus-sign
-          = t('backoffice.new_proposition')
-  - if @propositions_categ.any?
-    .offset5.span4
-      = form_for :search, html: {class: 'form-search'} do |f|
-        %label{:for => "quick_search"}
-          = t('backoffice.search')
-        .input-prepend
-          %span.add-on
-            %i.icon-search
-          = f.text_field :search, id: "quick_search", class: "input-medium"
+  %hr
+  .row
+    - if @active_tag
+      .span4
+        %a{ :href => new_new_admin_election_candidacy_proposition_path(@election, @candidacy, election_tag_id: @active_tag.id.to_s), :target => '_blank' }
+          .btn.btn-block
+            %i.icon-plus-sign
+            = t('backoffice.new_proposition')
+    - if @propositions_categ.any?
+      .quick-search-div.col-md-6.col-md-offset-2.col-sm-6
+        = form_for :search, html: {class: 'form-search', style: 'float: right;'} do |f|
+          %label{:for => "quick_search"}
+            = t('backoffice.search')
+          .input-prepend
+            %span.add-on
+              %i.icon-search{style: 'margin-top: 7px;'}
+            = f.text_field :search, id: "quick_search", class: "input-medium"
 
-.row
-  .span12
-    %table.table.table-hover
-      %tbody#root-propositions
-        - @propositions_categ.each do |proposition|
-          %tr
-            %td
-              = proposition[:text]
-            %td
-              = link_to edit_new_admin_election_candidacy_proposition_path(@election, @candidacy, proposition), class: 'btn' do
-                %i.icon-pencil
-                = t('backoffice.edit')
-              = link_to new_admin_election_candidacy_proposition_path(@election, @candidacy, proposition), method: :delete, confirm: t('backoffice.alert_confirmation'), class: 'btn btn-danger' do
-                %i.icon-remove
-                = t('backoffice.delete')
+  - if @propositions_categ.count > 0
+    .row
+      .col-md-12
+        %br
+        %table.table.table-hover
+          %thead
+            %tr{style: 'border-bottom: 3px solid #B6B6B6;'}
+              %th{style: 'border-right: 1px solid #dddddd; width: 10%;'}
+                %b
+                  = t('backoffice.sub_theme') + "s"
+              %th{style: 'border-right: 1px solid #dddddd; width: 75%;'}
+                = t('backoffice.proposition_text')
+              %th 
+                %b
+                  Action
+          %tbody#root-propositions
+            - @propositions_categ.sort_by{ |p| p.tags.first.name }.reverse.each do |proposition|
+              %tr
+                %td{style: 'border-right: 1px solid #dddddd; width: 10%;'}
+                  - if proposition.tags.count > 0
+                    - proposition.tags.each do |tag|
+                      - unless @active_tag.tag === tag
+                        %b
+                          = tag.name
+                        %br
+                  - else
+                    X
+                %td{style: 'border-right: 1px solid #dddddd; width: 75%;'}
+                  = proposition[:text]
+                  %div{style: 'margin-top: 10px; margin-bottom: 10px;'}
+                    - if proposition.embeds.count > 0
+                      - if proposition.embeds.count > 0
+                        %b
+                          Les liens de la proposition :
+                          %br
+                        - proposition.embeds.each do |embed|
+                          %b
+                            = link_to " - " + embed.title, embed.url, target: '_blank'
+                            - if embed.provider_name == "YouTube"
+                              (Lien Youtube)
+                            %br
+                %td
+                  = link_to edit_new_admin_election_candidacy_proposition_path(@election, @candidacy, proposition, election_tag_id: @active_tag.id.to_s), class: 'btn crud-btn', target: '_blank' do
+                    %i.icon-pencil
+                    = t('backoffice.edit')
+                  = link_to new_admin_election_candidacy_proposition_path(@election, @candidacy, proposition), method: :delete, confirm: t('backoffice.alert_confirmation'), class: 'btn btn-danger crud-btn' do
+                    %i.icon-remove
+                    = t('backoffice.delete')
+  - else 
+    .row
+      .col-md-12
+        %br
+        %br
+        %h3{style: 'text-align: center;'}
+          = t('backoffice.no_proposition')
+
+- else 
+  %h2= t('backoffice.election_target') + " : " + @election_name + " - " + t('backoffice.my_propositions')
+  %hr
+  %br
+  .hero-unit-bo
+    %h4= t('backoffice.choose_a_theme')
+  .row{style: 'margin-top: 20px;'}
+    .col-md-12
+      - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
+        = link_to new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), class: 'theme-choose' do
+          .span12{style: 'text-align: left; padding-bottom: 30px; padding-top: 30px;'}
+            - unless categ_tag.tag.icon_prefix.blank?
+              &nbsp;&nbsp;
+              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 32px;'
+            = categ_tag.tag.name
+
+

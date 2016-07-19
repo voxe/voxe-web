@@ -1,0 +1,36 @@
+%table.table.table-striped.table-hover.table-condensed
+  %thead
+    %tr
+      %th{style: 'width: 36%;'} Nom
+      %th{style: 'width: 12%;'} Pays
+      %th{style: 'width: 8%;'} État de publication
+      %th{style: 'width: 8%;'} Date
+      %th{style: 'width: 36%;'} Actions
+          
+          
+  %tbody
+    - elections.each do |e|
+      %tr
+        %td
+          = e
+        %td
+          = e.country
+        %td
+          - if e.published
+            = link_to new_admin_election_unpublish_path(e.id.to_s), class: '', remote: true do
+              %input{type: "checkbox", class: "toggle-two", checked: true, :data => {:toggle => "toggle", :on => "Publié", :off => "Non"}}
+          - else
+            = link_to new_admin_election_publish_path(e.id.to_s), class: '', remote: true do
+              %input{type: "checkbox", class: "toggle-two", :data => {:toggle => "toggle", :on => "Publié", :off => "Non"}}
+        %td
+          = "#{I18n.l e.date}" unless e.date.blank?
+        %td
+          - if can? :update, :ambassador
+            = link_to pluralize(e.ambassadors.size, 'ambassadeur'), new_admin_election_ambassadors_path(e.id), class: "btn btn-small"
+            = link_to "Thèmes", new_admin_election_election_tags_path(e), class: "btn btn-small"
+            = link_to pluralize(e.candidacies.size, "Candidature"), new_admin_election_candidacies_path(e), class: "btn btn-small"
+            - if can? :update, e
+              = link_to "Éditer", edit_new_admin_election_path(e), class: "btn btn-small btn-inverse"
+            - if can? :destroy, e
+              = link_to new_admin_election_path(e), method: :delete, confirm: "Êtes-vous sur de vouloir supprimer ?", class: "btn btn-small btn-danger" do
+                Supprimer

@@ -27,7 +27,6 @@ class NewAdmin::CandidaciesController < AdminController
     candidacy = Candidacy.find params[:candidacy_id]
     candidacy.published = !candidacy.published
     candidacy.save
-    respond_with nil, location: new_admin_election_candidacies_path(@election)
   end
 
   protected

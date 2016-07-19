@@ -1,1 +1,17 @@
+%h3 Créer un candidat
+
 = render 'form'
+
+
+:javascript
+  $('#candidate_first_name, #candidate_last_name').keyup(function(){
+  if ($("#candidate_first_name").val() != "" && $("#candidate_last_name").val() != "") {
+  $("#candidate_namespace").val(($("#candidate_first_name").val() + "-" + $("#candidate_last_name").val()).replace(" ", "").toLowerCase());
+  } else if ($("#candidate_first_name").val() == "" && $("#candidate_last_name").val() == "") {
+  $("#candidate_namespace").val("");
+  } else if ($("#candidate_last_name").val() == "") {
+  $("#candidate_namespace").val($("#candidate_first_name").val().replace(" ", "").toLowerCase());
+  } else if ($("#candidate_first_name").val() == "") {
+  $("#candidate_namespace").val($("#candidate_last_name").val().replace(" ", "").toLowerCase());
+  }
+  });

@@ -1,25 +1,27 @@
 .row-fluid
   .span12
-    %h2 Ambassadors of #{@election.name}
+    %h2 #{@election.name} - Les ambassadeurs
 
     %br
-    %h3 Add an user as ambassador
+    %h3 Sélectionner un ambassadeur
     = form_tag new_admin_election_ambassadors_path, class: 'form-horizontal' do
       .control-group
-        = label_tag 'Email', nil, class: 'control-label'
+        = label_tag 'Utilisateur', nil, class: 'control-label'
         .controls
-          = text_field_tag :email
-          = submit_tag 'Add', class: 'submit'
+          = select_tag :user_id, options_from_collection_for_select(@users, "id", "name"), :include_blank => ''
+          = submit_tag 'Ajouter', class: 'submit'
 
     %table.table.table-striped.table-hover.table-condensed
       %thead
         %tr
-          %th Name
+          %th ID
+          %th Nom
           %th Email
           %th Actions
       %tbody
         - for user in @ambassadors
           %tr
+            %td= user.id
             %td= user.name
             %td= user.email
-            %td= link_to "Remove", new_admin_election_ambassador_path(@election.id, user.id), method: :delete, confirm: "Remove #{user.name} from election?", class: "btn btn-small btn-danger"
+            %td= link_to "Supprimer", new_admin_election_ambassador_path(@election.id, user.id), method: :delete, confirm: "Êtes-vous sur ?", class: "btn btn-small btn-danger"

@@ -1,27 +1,38 @@
+%link{href: "https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css", rel: "stylesheet"}
+%script{src: "https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"}
+
 .row-fluid
   .span12
-    %h2 Candidacies of #{@election.name}
-
+    %h2 #{@election.name} - Candidatures
+    %br
     = render 'form'
 
     %table.table.table-striped.table-hover.table-condensed
       %thead
         %tr
+          %th ID
           %th Image
           %th Name
           %th Published
           %th Actions
       %tbody
-        - for candidacy in @candidacies
+        - for candidacy in @candidacies.sort_by{ |c| c.name.strip }
           - candidate = candidacy.candidates.first
           %tr
+            %td= candidate.id
             %td= image_tag candidate.photo_url(:small)
             %td= candidate.name
             %td
               - if candidacy.published
-                = link_to "", new_admin_election_candidacy_toggle_path(@election, candidacy), class: "election-published", method: :post
+                = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: '', remote: true do
+                  %input{type: "checkbox", class: "toggle-two", checked: true, :data => {:toggle => "toggle", :on => "Publié", :off => "Non"}}
               - else
-                = link_to "", new_admin_election_candidacy_toggle_path(@election, candidacy), class: "election-unpublished", method: :post
+                = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: '', remote: true do
+                  %input{type: "checkbox", class: "toggle-two", :data => {:toggle => "toggle", :on => "Publié", :off => "Non"}}
             %td
               = link_to "Propositions", new_admin_election_candidacy_propositions_path(@election, candidacy), class: 'btn btn-small'
-              = link_to "Delete", new_admin_election_candidacy_path(@election, candidacy), class: "btn btn-small btn-danger", method: :delete, confirm: "Are you sure?"
+              = link_to "Supprimer", new_admin_election_candidacy_path(@election, candidacy), class: "btn btn-small btn-danger", method: :delete, confirm: "Are you sure?"
+
+:javascript
+  $('.toggle-two').bootstrapToggle();
+  $('.toggle.btn').css('cssText', 'min-width: 50px !important; min-height: 20px !important;');

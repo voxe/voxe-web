@@ -29,7 +29,7 @@
   .row
     - if @active_tag
       .col-md-4.col-sm-6
-        %a{ :href => new_backoffice_proposition_path(election_tag_id: @active_tag.id.to_s) }
+        %a{ :href => new_backoffice_proposition_path(election_tag_id: @active_tag.id.to_s), :target => '_blank' }
           .btn.btn-block
             %i.icon-plus-sign
             = t('backoffice.new_proposition')
@@ -85,7 +85,7 @@
                               (Lien Youtube)
                             %br
                 %td
-                  = link_to edit_backoffice_proposition_path(proposition, election_tag_id: @active_tag.id.to_s), class: 'btn crud-btn' do
+                  = link_to edit_backoffice_proposition_path(proposition, election_tag_id: @active_tag.id.to_s), class: 'btn crud-btn', target: '_blank' do
                     %i.icon-pencil
                     = t('backoffice.edit')
                   = link_to backoffice_proposition_path(proposition), method: :delete, confirm: t('backoffice.alert_confirmation'), class: 'btn btn-danger crud-btn' do
@@ -109,7 +109,7 @@
     .col-md-12
       - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
         = link_to backoffice_propositions_categorie_path(categ_tag.tag.namespace), class: 'theme-choose' do
-          .col-md-3.col-sm-4.col-xs-6{style: 'text-align: left; padding-bottom: 30px; padding-top: 30px;'}
+          .col-md-12{style: 'text-align: left; padding-bottom: 30px; padding-top: 30px; padding-left 15px;'}
             - unless categ_tag.tag.icon_prefix.blank?
               = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 32px;'
             = categ_tag.tag.name

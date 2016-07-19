@@ -1,24 +1,32 @@
 .row-fluid
   .span12
     %h2
-      Candidates
+      Candidats
       %small
         - if can? :create, Candidate
-          = link_to 'New candidate', [:new, :new_admin, :candidate], class: 'btn btn-info btn-small'
+          = link_to 'Nouveau candidat', [:new, :new_admin, :candidate], class: 'btn btn-info btn-small'
+    .quick-search-div.col-md-6.col-md-offset-2.col-sm-6
+      = form_for :search, html: {class: 'form-search', style: 'float: right;'} do |f|
+        %label{:for => "quick_search"}
+          = t('backoffice.candidate_search')
+        .input-prepend
+          %span.add-on
+            %i.icon-search
+          = f.text_field :search, id: "quick_search", class: "input-medium"
 
     %table.table.table-striped.table-hover.table-condensed
       %tr
         %th ID
         %th Photo
         %th Namespace
-        %th Firstname
-        %th Lastname
+        %th Nom complet
         %th Actions
-      - for candidate in @candidates.sort_by{ |c| c[:namespace]  } do
+      - for candidate in @candidates.sort_by{ |c| c.name  } do
         %tr
           %td= candidate.id
           %td= image_tag candidate.photo_url(:small)
           %td= candidate.namespace
-          %td= candidate.first_name
-          %td= candidate.last_name
-          %td= link_to 'Edit', [:edit, :new_admin, candidate], class: 'btn btn-mini'
+          %td= candidate.name
+          %td
+            = link_to 'Éditer', [:edit, :new_admin, candidate], class: 'btn btn-mini'
+            = link_to 'Supprimer', [:new_admin, candidate], method: :delete, class: 'btn btn-mini btn-danger', style: 'margin-top: 3px;', confirm: "Êtes-vous sur de vouloir supprimer ?"
