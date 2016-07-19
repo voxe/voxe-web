@@ -1,14 +1,49 @@
+= content_for :head do
+  :css
+    @media (max-width: 979px) {
+      #candidacy_candidate_profile_picture{
+        width: 300px;
+      }
+    }
+    @media (min-width: 980px) {
+      #candidacy_candidate_profile_picture{
+        width: 100%;
+      }
+    }
+    #candidacy_candidate_profile_picture{
+        font-size: 12px;
+      }
+      
+
 .hero-unit-bo
-  %h2 Bienvenue dans votre administration.
-  %p Modifiez ici votre profil, et complétez vos propositions.
+  %h2= t('backoffice.welcome_my_profile')
+  %br
+  %br
+  %p{style: 'line-height: 25px;'}= t('backoffice.welcome_text') + " : " + @election.name + "."
+  %br
+  %br
+  %br
+  = link_to t('backoffice.view_my_public_profile'), candidate_profile_path(electionnamespace: @profile.candidacy.election.namespace, candidatenamespace: @profile.candidacy.namespace), class: 'btn btn-primary', target: :blank
+  
 
-.pull-right
-  = link_to t('backoffice.view_my_public_profile'), candidate_profile_path(electionnamespace: @profile.candidacy.election.namespace, candidatenamespace: @profile.candidacy.namespace), target: :blank
-
-%h4
-  Modifiez ci-dessous votre profil :
+%h4{style: 'margin-left: 20px;'}
+  = t('backoffice.my_profile_edit_information')
+  %hr{style: "width: 50%;"}
 
 = simple_form_for @profile, url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
-  = render "form", f: f
-  .form-actions
+  .img-col.col-md-3.pull-right
+    %h4.hidden-sm.hidden-xs= t('backoffice.my_picture_profile')
+    %br
+    %label.hidden-md.hidden-lg.hidden-xl{style: 'width: 160px; text-align: right;'}
+      = t('backoffice.my_picture_profile')
+    = image_tag f.object.picture, id: 'picture-profile', style: 'max-width: 200px; height: auto; display: inline'
+    #picture-changed{class: 'hide'}
+      %i.icon-check
+      = t('backoffice.my_picture_profile_changed')
+    %br
+    %br
+    = f.file_field :picture, class: 'btn', style: 'height: 40px; border: 1px solid #C8C8C8;'
+  .col-md-9
+    = render "form", f: f
+  .col-md-12.form-actions
     = f.submit t('backoffice.update'), class: "btn btn-success btn-large"

@@ -41,6 +41,8 @@ GEM
     asset_sync (0.5.4)
       activemodel
       fog
+    autoprefixer-rails (6.3.7)
+      execjs
     bcrypt-ruby (3.0.1)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
@@ -332,6 +334,7 @@ DEPENDENCIES
   acts_as_list_mongoid
   airbrake
   asset_sync
+  autoprefixer-rails
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails
@@ -357,7 +360,7 @@ DEPENDENCIES
   hirefire-resource
   http_accept_language
   jammit
-  jquery-rails (= 2.1.4)
+  jquery-rails (~> 2.1.4)
   koala
   memcachier
   meta_request
@@ -388,5 +391,8 @@ DEPENDENCIES
   underscore-rails
   will_paginate_mongoid
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.10.3
+   1.12.5

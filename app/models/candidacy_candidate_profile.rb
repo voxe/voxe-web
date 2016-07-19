@@ -40,6 +40,7 @@ class CandidacyCandidateProfile
   def generate_user
     self.create_user email: self.email, password: self.password, password_confirmation: self.password, name: self.name
     self.save
+    ## WORK HERE
     UserMailer.backoffice_thank_you(self.user).deliver
     true
   end

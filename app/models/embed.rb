@@ -23,7 +23,7 @@ class Embed
 
   # SUNDAY HACK !! WILL BE CHANGED IN THE FUTURE
   def youtube_id
-    rexp = /v=(.*)/
+    rexp = /v=(.*)/ or /embed\/(.*)/
     rexp.match(url).captures.first
   end
 
@@ -46,6 +46,10 @@ class Embed
       self.provider_name = 'YouTube'
       self.type = 'video'
       self.html = '<iframe width="480" height="270" src="http://www.youtube.com/embed/' + self.youtube_id + '?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>'
+    elsif /https:\/\/www.youtube.com\/embed/.match(self.url)
+      self.provider_name = 'YouTube'
+      self.type = 'video'
+      self.html = '<iframe width="480" height="270" src="' + self.url + '" frameborder="0" allowfullscreen></iframe>'
     else
       begin
         oembed = OEmbed::ProviderDiscovery.get url

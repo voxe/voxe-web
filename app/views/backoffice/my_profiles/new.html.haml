@@ -1,5 +1,6 @@
 = content_for :head do
   :css
+
     /* GLOBAL STYLES
     -------------------------------------------------- */
     /* Padding below the footer and lighter body text */
@@ -90,10 +91,17 @@
       height: 500px;
     }
 
+    .error {
+      color: red !important;
+    }
+
+    #candidacy_candidate_profile_twitter {
+      width: 180px;
+    }
+
     .carousel-caption {
       background-color: transparent;
       position: static;
-      max-width: 550px;
       padding: 0 20px;
       margin-top: 200px;
     }
@@ -169,7 +177,6 @@
       }
       .navbar-inner {
         border-radius: 0;
-        margin: -20px 0;
       }
 
       .carousel .item {
@@ -193,11 +200,17 @@
       }
     }
 
+    @media (min-width: 768px) {
+      .carousel-caption {
+        max-width: 550px;
+      }
+    }
 
     @media (max-width: 767px) {
 
       .navbar-inner {
-        margin: -20px;
+        margin-left: -20px;
+        margin-right: -20px;
       }
 
       .carousel {
@@ -214,7 +227,7 @@
         height: 300px;
       }
       .carousel-caption {
-        width: 65%;
+        width: 100%;
         padding: 0 70px;
         margin-top: 100px;
       }
@@ -278,18 +291,18 @@
 / Wrap the rest of the page in another container to center all the content.
 .container.marketing
   / Three columns of text below the carousel
-  .row
-    .span4
+  .row{style: "text-align: center !important;"}
+    .col-md-4.col-sm-4
       %img{alt: "Gagnez en visibilité", src: image_path("backoffice/visibilite-logo.png")}/
       %h2 Visibilité
       %p{"ct-id" => "2", "data-meaningful" => "true"} Offrez à vos propositions une vraie visibilité sur Internet et auprès de vos électeurs. En 2012, Voxe.org a reçu plus de 1.5 millions de visiteurs uniques.
     / /.span4
-    .span4
+    .col-md-4.col-sm-4
       %img{src: image_path("backoffice/transparence-logo.png")}/
       %h2 Transparence
       %p{"ct-id" => "3", "data-meaningful" => "true"} Innovez en faisant preuve d'une démarche de réelle transparence, en permettant à vos électeurs de comparer clairment vos propositions avec vos concurrents sur Voxe.org.
     / /.span4
-    .span4
+    .col-md-4.col-sm-4
       %img{src: image_path("backoffice/debats-logo.png")}/
       %h2 Echanges
       %p{"ct-id" => "4", "data-meaningful" => "true"} Echangez avec vos électeurs, répondez à leurs interrogations directement sur la plateforme. Convainquez-les.
@@ -332,15 +345,34 @@
     .span4.offset4
       / %div{style: "text-align: center"}
       %h2 Formulaire d'inscription
+
+    .span12
+      - unless alert.blank?
+        %br
+        .alert.alert-danger.auto-fade.col-md-12
+          %p.col-md-12
+            %a.close{ :href => '#', :data => { :dismiss => "alert" } }
+              &times;
+            = alert
+        %br
+
     .span9
-      = simple_form_for @profile, url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
-        = f.input :name
+      %br
+      %p 
+        Les champs munis du symbole * sont obligatoire pour créer votre profil Candidat.
+      %br
+      = simple_form_for @profile, id: 'new_candidate_profile', url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
+        .control-group
+          = f.label :name, "*  " + t('backoffice.name'), class: 'control-label'
+          = f.input :name, label: false
         .control-group
           = f.label :election_target, t('backoffice.election_target'), class: 'control-label'
           .controls{style: "width:220px"}
             = f.select :election_target, []
         = render "form", f: f
-        = f.input :password
+        .control-group
+          = f.label :password, "*  " + t('backoffice.password'), class: 'control-label'
+          = f.input :password, label: false
         .form-actions
           = f.submit t('backoffice.create'), class: "btn btn-success btn-large"
 

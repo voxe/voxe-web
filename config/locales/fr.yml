@@ -39,6 +39,9 @@ fr:
     sign_in: Connexion
     edit_my_profile: Editer mon profile
   backoffice:
+    my_profile_sign_up_error: Une erreur s'est produite lors de la création de votre profil Candidat.
+    my_profile_under_validation_title: Profil en attente de validation !
+    my_profile_under_validation_text: Vous avez déjà soumis votre profil candidat sur Voxe.org. Veuillez attendre confirmation de la part de nos équipes avant de pouvoir accéder à votre compte Candidat.
     my_profile: Mon profil
     my_propositions: Mes propositions
     index: Accueil du backoffice candidat
@@ -64,35 +67,59 @@ fr:
     phone: "Téléphone"
     biography: Biographie
     introduction: "Présentation"
-    choose_a_theme: "Choissisez un thème"
-    proposition_text: Texte de la proposition
-    edit: Editer
+    choose_a_theme: "Sélectionner un thème"
+    proposition_text: Contenu de la proposition
+    edit: Éditer
     postal_code: Code postal
     picture: Photo
-    view_my_public_profile: Voir mon profil publique
+    view_my_public_profile: Visualiser mon profil public
+    welcome_my_profile: Bienvenue dans votre Espace Candidat
+    welcome_text: "Modifiez ici votre informations générales, et complétez vos propositions pour l'élection"
+    my_profile_edit_information: "Éditer votre profil :"
+    my_picture_profile: "Photo de profil"
+    my_picture_profile_changed: Nouvelle image chargée
     back: "Revenir en arrière"
     delete: "Supprimer"
     alert_confirmation: "Etes-vous sûr ?"
     political_party: Parti politique
-    election_target: Election
+    name: Nom entier
+    password: Mot de passe
+    election_target: Élection
+    no_proposition: Aucune proposition existante pour ce thème
     sub_theme: Sous-thème
-    edit_proposition_sub_tag: "Sous-thèmes : Saisissez ci-dessus le ou les sous-thèmes où se trouvera votre proposition."
-    edit_proposition_text: "Texte de la proposition : Nous recommandons une proposition d'environ 300 caractères, afin qu'elle reste lisible par vos électeurs, et facilement comparable. Elle doit par ailleurs ne présenter qu'une seule idée."
-    edit_proposition_embed_link: "Liens vers du contenu contextuel : Vous pouvez associer à votre proposition des liens hypertextes (qui pointent par exemple vers une définition ou un chiffre clé) ou des vidéos (Youtube ou Dailymotion)."
+    proposition_text: Contenu de la proposition
+    edit_proposition_sub_tag: "Sous-thèmes : Sélectionner ci-dessous le ou les sous-thèmes dans lesquelles se situera votre proposition."
+    edit_proposition_text: "Contenu de la proposition : Nous recommandons une proposition d'environ 300 caractères, afin qu'elle reste lisible par vos électeurs, et facilement comparable. Elle doit par ailleurs ne présenter qu'une seule idée."
+    edit_proposition_embed_link: "Liens vers du contenu contextuel : Vous pouvez associer à votre proposition des liens hypertextes (qui pointent par exemple vers une définition, un chiffre clé) ou des vidéos Youtube (veuillez entrez l'url original de la vidéo ou son url Embed). Ces liens et ces vidéos seront bientôt visible dans le comparateur."
   welcome:
     compare: "Comparer"
     inscription: "S'inscrire"
     discover: "Découvrir"
     boxe_eu: "Box des élections européennes"
+    hello2017: "Hello 2017"
     hackcop21: "#HackCOP21"
     regionales: "Regionales 2015"
     uselections: "US Elections 2016"
     donate: "→ Soutenir Voxe.org ←"
     toolbox: "La toolbox du citoyen"
     comparator: "Le comparateur"
+    comparator-headline: "Comparer les programmes des candidats du monde entier"
     democracy: "Happy democracy"
-    newswatch: "Le newswatch"
+    democracy-headline: "Recevoir les news de la civic tech et les événements dans ma boîte mail"
+    newswatch: "What the Voxe ?"
+    newswatch-headline: "2 minutes pour comprendre, un clic pour agir"
+    contact: "Contact"
     stay_connected: "Vous voulez tout savoir sur nos derniers hacks ?"
     last_news: "Abonnez-vous à notre newsletter !"
     join_citizen_hacker: "Rejoignez la communauté des hackers citoyens"
-
+    headline: "Voxe.org - La boîte a outils des super citoyens" 
+    contact_us: "Contactez-nous "
+    find_us: "ou rejoignez-nous sur"
+  mongoid:
+    errors:
+        embed:
+            url: Votre lien ne peut contenir une url vide.
+  devise:
+    custom_sessions:
+        user:
+            signed_in: Vous êtes correctement connecté

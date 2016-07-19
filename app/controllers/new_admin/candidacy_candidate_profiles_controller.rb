@@ -2,7 +2,7 @@ class NewAdmin::CandidacyCandidateProfilesController < AdminController
   authorize_resource
 
   def index
-    @candidacy_candidate_profiles = CandidacyCandidateProfile.all
+    @candidacy_candidate_profiles = CandidacyCandidateProfile.all.desc(:created_at)
   end
 
   def edit

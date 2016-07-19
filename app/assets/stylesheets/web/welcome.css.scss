@@ -9,10 +9,15 @@
 .clearer {
   clear: both; }
 
+a:hover {
+    text-decoration: none;
+    color: #e92626;
+}
+
 .header {
   font-family: "bebas_neuebook", Arial, sans-serif;
   text-transform: uppercase;
-  height: 50px;
+  max-height: 400px;
   background-color: white;
   text-align: center;
   position: relative; }
@@ -20,11 +25,10 @@
     color: black;
     font-size: 15pt;
     letter-spacing: 2px;
-    float: right;
     position: absolute;
     top: 3px;
-    right: 10px;
-    line-height: 50px; }
+    line-height: 57px;
+    left: 65px; }
   .header .menu {
     position: absolute;
     top: 10px;
@@ -36,7 +40,8 @@
       background: transparent url(image-path('welcome/icon-ham.gif')) 6px 8px no-repeat;
       border: 1px solid #99aab5;
       text-indent: -3000px;
-      position: relative; }
+      position: relative;
+      top: 12px; }
       .header .menu > li:first-child:hover ul {
         display: block; }
     .header .menu ul {
@@ -50,7 +55,6 @@
         font-family: "bebas_neuebold", Arial, sans-serif;
         background-color: white;
         display: block;
-        padding: 2vw;
         border: 1px solid #99aab5;
         border-bottom-width: 0;
         text-indent: 0;
@@ -61,6 +65,7 @@
         text-align: left;
         white-space: nowrap; }
         .header .menu ul li a:hover {
+    text-decoration: none;
           background-color: black;
           color: white; }
       .header .menu ul li:last-child a {
@@ -77,6 +82,11 @@
 .content {
   color: white;
   font-family: "bebas_neuebook", Arial, sans-serif; }
+  .content div h3 {
+    font-size: 16pt;
+    margin-bottom: 2vw;
+    letter-spacing: 0.1vw;
+    margin-top: 1vw;}
   .content div {
     text-align: center;
     text-transform: uppercase;
@@ -115,18 +125,18 @@
 .newsletter {
   background: white;
   padding: 1vw;
-  font-size: 2vw;
+  font-size: 20pt;
   text-align: center;
 }
 .newsletter label {
   font-family: "bebas_neuebold", Arial, sans-serif;
   color: #b82132;
-  margin-right: 2vw;
+  margin-left: 1vw;
   vertical-align: middle;
 }
 .newsletter label strong {
   font-family: "bebas_neuebold", Arial, sans-serif; 
-  margin-right: 2vw;
+  margin-left: 2vw;
   color: #d4452f;
 }
 .newsletter input[type=email] {
@@ -141,13 +151,16 @@
 }
 .newsletter input[type=submit] {
   border: white;
-  background: #b82132;
+  background: #D4452F;
   color: white;
   padding: .5vw;
   font-size: 1vw;
   font-family: "bebas_neuebold", Arial, sans-serif;
   display: inline-block;
   vertical-align: middle;
+}
+.newsletter input[type=submit]:hover {
+  background-color: #B82132;
 }
 
 .footer {
@@ -161,7 +174,8 @@
     padding-top: 2.5vw;
     padding-bottom: 15px;
     font-size: 2vw;
-    letter-spacing: 0.3vw; }
+    line-height: 2.5vw;
+    letter-spacing: 0.1vw; }
   .footer a {
     background-color: transparent;
     background-position: top left;
@@ -208,4 +222,24 @@
   .footer h3 {
     font-size: 16pt; } }
 
+.toolbox {
+  font-family: "bebas_neuebold", Arial, sans-serif;
+  color: #b82132;
+  vertical-align: middle;
+ /* margin-right: 2vw; */
+}
+.toolbox a {
+  color: #b82132;
+    float: left;
+    margin-left: 40px;
+    margin-top: 6px;
+}
+.getintouch {
+  text-align: right;
+}
+.contact {
+color: rgb(212, 69, 47);
+float: right;
+margin-top: 4px;
+}
 /*# sourceMappingURL=styles.css.map */

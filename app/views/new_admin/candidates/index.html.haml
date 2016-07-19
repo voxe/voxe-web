@@ -14,7 +14,7 @@
         %th Firstname
         %th Lastname
         %th Actions
-      - for candidate in @candidates do
+      - for candidate in @candidates.sort_by{ |c| c[:namespace]  } do
         %tr
           %td= candidate.id
           %td= image_tag candidate.photo_url(:small)

@@ -22,6 +22,7 @@ group :assets do
   gem 'rails-backbone'
   gem 'compass-rails'
   gem 'bootstrap-sass'
+  gem 'autoprefixer-rails'
   gem 'bootstrap-datepicker-rails'
   gem 'select2-rails'
   gem 'underscore-rails'
@@ -43,7 +44,7 @@ group :development, :test do
   gem 'rake'
 end
 
-gem 'jquery-rails', '=2.1.4'
+gem 'jquery-rails', '~>2.1.4'
 gem 'simple_form'
 
 # MongoDB adapter and an optimizer for MongoDB

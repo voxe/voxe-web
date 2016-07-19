@@ -10,6 +10,8 @@
           %li
             %a{:href => "http://newswatch.voxe.org", :target => "_blank"}= t 'welcome.newswatch'
           %li
+            %a{:href => "http://hello2017.org", :target => "_blank"}= t 'welcome.hello2017'
+          %li
             %a{:href => "http://laboxdeseuropeennes.voxe.org", :target => "_blank"}= t 'welcome.boxe_eu' 
           %li
             %a{:href => "http://hackcop21.voxe.org", :target => "_blank"}= t 'welcome.hackcop21'
@@ -18,34 +20,42 @@
           %li
             %a{:href => "http://uselections.voxe.org", :target => "_blank"}= t 'welcome.uselections'
           %li
+            %a{:href => "mailto:contact@voxe.org", :target => "_blank"}= t 'welcome.contact'
+          %li
             %a{:href => "http://regionales.voxe.org/dons/", :target => "_blank"}= t 'welcome.donate'
-    %h1.logo
-      %a{:href => "."} Voxe.org
-    %span= t 'welcome.toolbox'
-
+    .newsletter
+      %form{:action => "http://api.mailerlite.com/api/v2/groups/4044519/subscribers", :method => "post"}
+        .toolbox
+          %a{:href => "."} Voxe.org
+        .getintouch
+          %label
+            %strong= t 'welcome.last_news'
+          %input{:name => "EMAIL", :placeholder => "Email", :type => "email"}
+          %input{:type => "submit", :value => "OK"}
+     
   .content
     .compare
       = image_tag 'welcome/compare.png'
       %h2= t 'welcome.comparator'
+      %h3= t 'welcome.comparator-headline'
       %a{:href => ".?src=welcome-page", :target => "_blank"}= t 'welcome.compare'
     .democracy
       = image_tag 'welcome/democracy.png'
       %h2= t 'welcome.democracy'
+      %h3= t 'welcome.democracy-headline'
       %a{:href => "http://www.happydemocracy.com", :target => "_blank"}= t 'welcome.inscription'
     .news
       = image_tag 'welcome/newswatch.png'
       %h2= t 'welcome.newswatch'
+      %h3= t 'welcome.newswatch-headline'
       %a{:href => "http://newswatch.voxe.org", :target => "_blank"}= t 'welcome.discover'
   .clearer
-  .newsletter
-    %form{:action => "//voxe.us6.list-manage.com/subscribe/post?u=127353f7d4445d67a11255028&id=f22b64c0f3", :method => "post", :target => "_blank"}
-      %label
-        %strong= t 'welcome.stay_connected'
-        = t 'welcome.last_news'
-      %input{:name => "EMAIL", :placeholder => "Email", :type => "email"}
-      %input{:type => "submit", :value => "OK"}
   .footer
-    %h3= t 'welcome.join_citizen_hacker'
+    %h3
+      = t 'welcome.headline'
+      %br
+      %a{:href => "mailto:contact@voxe.org", :target => "_blank"}= t 'welcome.contact_us'
+      = t 'welcome.find_us'
     %a.twitter{:href => "https://twitter.com/voxe"}
       = image_tag 'welcome/icon-twitter.png'
     %a.facebook{:href => "https://www.facebook.com/joinvoxe"}
