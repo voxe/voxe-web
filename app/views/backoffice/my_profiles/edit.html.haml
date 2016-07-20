@@ -1,6 +1,6 @@
 = content_for :head do
   :css
-  
+
     @media (max-width: 979px) {
       #candidacy_candidate_profile_picture{
         width: 300px;
@@ -37,7 +37,8 @@
     %br
     %label.hidden-md.hidden-lg.hidden-xl{style: 'width: 160px; text-align: right;'}
       = t('backoffice.my_picture_profile')
-    = image_tag f.object.picture, id: 'picture-profile', style: 'max-width: 200px; height: auto; display: inline'
+    - if @profile.picture.present?
+      = image_tag @profile.picture, id: 'picture-profile', style: 'max-width: 200px; height: auto; display: inline' 
     #picture-changed{class: 'hide'}
       %i.icon-check
       = t('backoffice.my_picture_profile_changed')
