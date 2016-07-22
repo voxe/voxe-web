@@ -1,4 +1,21 @@
 = simple_form_for [:new_admin, @election, @candidacy], html: {class: "form-inline"}  do |f|
   = f.label :candidate_id, "Sélectionner un candidat : "
-  = f.input_field :candidate_id, collection: @available_candidates.sort_by{ |c| c.name.strip  }
-  = f.submit "Ajouter", class: 'btn'
+  = select_tag :candidate_id, options_from_collection_for_select(@available_candidates.sort_by{ |c| c.name.strip  }, "id", "name"), :include_blank => '', style: 'width: 300px; display: inline;'
+  = f.submit "Ajouter", class: 'btn', style: 'width: 300px;'
+
+:coffee
+  options = []
+  for candidate in #{@available_candidates.map(&:name).to_json}
+    options.push {
+      id: candidate,
+      title: candidate
+    }
+  $('#candidate_id').selectize(
+    valueField: 'title',
+    labelField: 'title',
+    searchField: 'title',
+    sortField: 'title',
+    options: options,
+    create: false
+  )
+  console.log('loaded')

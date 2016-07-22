@@ -7,6 +7,9 @@ fr:
       default: "%d/%m/%Y"
       short: "%e %b"
       long: "%e %B %Y" 
+  time: 
+    formats:
+      default: "%d/%m/%Y"
   navigation:
     about: Projet
     how: Sources
@@ -80,6 +83,7 @@ fr:
     edit: Éditer
     postal_code: Code postal
     picture: Photo
+    add_new_proposition: Ajouter une proposition
     view_my_public_profile: Visualiser mon profil public
     welcome_my_profile: Bienvenue dans votre Espace Candidat
     welcome_text: "Modifiez ici votre informations générales, et complétez vos propositions pour l'élection"
@@ -94,8 +98,13 @@ fr:
     password: Mot de passe
     election_target: Élection
     no_proposition: Aucune proposition existante pour ce thème
-    sub_theme: Sous-thème
     proposition_text: Contenu de la proposition
+    sub_tag: Sous-thèmes
+    tag: Thème
+    link_hypertext: Hypertexte du lien
+    link_url: Url du lien
+    edit_proposition: Éditer votre proposition
+    edit_proposition_tag: "Thème : Sélectionner ci-dessous le thème parent de votre proposition."
     edit_proposition_sub_tag: "Sous-thèmes : Sélectionner ci-dessous le ou les sous-thèmes dans lesquelles se situera votre proposition."
     edit_proposition_text: "Contenu de la proposition : Nous recommandons une proposition d'environ 300 caractères, afin qu'elle reste lisible par vos électeurs, et facilement comparable. Elle doit par ailleurs ne présenter qu'une seule idée."
     edit_proposition_embed_link: "Liens vers du contenu contextuel : Vous pouvez associer à votre proposition des liens hypertextes (qui pointent par exemple vers une définition, un chiffre clé) ou des vidéos Youtube (veuillez entrez l'url original de la vidéo ou son url Embed). Ces liens et ces vidéos seront bientôt visible dans le comparateur."

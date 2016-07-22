@@ -51,6 +51,10 @@
                   = link_to backoffice_propositions_path do
                     %i.icon-list
                     = t('backoffice.my_propositions')
+                %li{style: 'border-left: 1px solid #E8E8E8 !important; border-right: 1px solid #E8E8E8  !important;'}
+                  = link_to new_backoffice_proposition_path, :target => '_blank', style: 'color: #337ab7 !important;'  do
+                    %i.icon-plus{style: 'color: #337ab7 !important;'}
+                    = t('backoffice.add_new_proposition')
 
               %ul.nav.pull-right
                 %li

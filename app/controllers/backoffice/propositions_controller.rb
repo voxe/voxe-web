@@ -23,7 +23,7 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   def new
     gon.page = "new"
     @proposition = Proposition.new
-    @tags = @candidacy.election.election_tags.find(params[:election_tag_id]).children_election_tags.map &:tag
+    load_select_tag
   end
 
   def create
@@ -43,9 +43,9 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   end
 
   def edit
-    @tags = @candidacy.election.election_tags.where(parent_tag_id: nil, :tag.in =>  @proposition.tag_ids).first.children_election_tags.map &:tag
     gon.page = "edit"
     gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
+    load_select_tag
   end
 
   def update
@@ -66,6 +66,18 @@ class Backoffice::PropositionsController < Backoffice::BackofficeController
   end
 
   protected
+
+  def load_select_tag
+    @election_tags = @candidacy.election.election_tags.where("parent_tag_id" => nil).sort_by{ |t| t.tag.name }
+    
+    @tags = Array.new
+      i = 0
+      @election_tags.each do |t|
+        @tags[i] = t.children_election_tags.map &:tag
+        @stock = i if t.id.to_s == params[:election_tag_id]
+        i += 1
+      end
+  end
 
   def load_proposition
     @proposition ||= Proposition.where(:_id => params[:id]).first

@@ -1,8 +1,4 @@
-- if f.object.picture?
-  .control-group
-    .controls
-      = image_tag f.object.picture, style: "width: 80px"
-- else
+- unless f.object.picture? 
   = f.input :picture, label: t('backoffice.picture')
 = f.input :political_party, label: t('backoffice.political_party')
 = f.input :address, label: t('backoffice.address')

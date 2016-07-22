@@ -21,7 +21,7 @@ class NewAdmin::PropositionsController < AdminController
   def new
     gon.page = "new"
     @proposition = Proposition.new
-    @tags = @candidacy.election.election_tags.find(params[:election_tag_id]).children_election_tags.map &:tag
+    load_select_tag
   end
 
   def create
@@ -31,9 +31,11 @@ class NewAdmin::PropositionsController < AdminController
     @tags = election_tag.children_election_tags.map &:tag
     @proposition.updated_by = current_user
     if @proposition.save
+      flash[:notice] = 'Votre proposition a été ajoutée'
       redirect_to new_admin_election_candidacy_propositions_path(@election, @candidacy, namespace_categ: election_tag.tag.namespace)
     else
-      render action: :new
+      flash[:error] = 'Une erreur est survenue lors de la création de votre proposition. Veuillez réessayer et veillez à bien remplir les champs ci-dessous'
+      redirect_to :back
     end
   end
 
@@ -45,17 +47,21 @@ class NewAdmin::PropositionsController < AdminController
     @tags = @candidacy.election.election_tags.where(parent_tag_id: nil, :tag.in =>  @proposition.tag_ids).first.children_election_tags.map &:tag
     gon.page = "edit"
     gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
+    load_select_tag
   end
 
   def update
     params[:proposition][:tag_ids].delete("") if params[:proposition] and params[:proposition][:tag_ids].present?
     @proposition.updated_by = current_user
     if @proposition.update_attributes params[:proposition]
-      redirect_to new_admin_election_candidacy_propositions_path, notice: 'Proposition updated'
+      flash[:notice] = "Votre proposition a été mis à jour"
+      election_tag = @candidacy.election.election_tags.find(params[:election_tag_id])
+      redirect_to new_admin_election_candidacy_propositions_path(namespace_categ: election_tag.tag.namespace)
     else
       load_proposition_tags
       gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
-      render action: :edit
+      flash[:error] = 'Une erreur est survenue lors de la mise à jour de votre proposition. Veuillez réessayer et veillez à bien remplir les champs ci-dessous'
+      redirect_to :back
     end
   end
 
@@ -65,6 +71,18 @@ class NewAdmin::PropositionsController < AdminController
   end
 
   protected
+
+  def load_select_tag
+    @election_tags = @candidacy.election.election_tags.where("parent_tag_id" => nil).sort_by{ |t| t.tag.name }
+    
+    @tags = Array.new
+      i = 0
+      @election_tags.each do |t|
+        @tags[i] = t.children_election_tags.map &:tag
+        @stock = i if t.id.to_s == params[:election_tag_id]
+        i += 1
+      end
+  end
 
   def load_proposition
     @proposition ||= Proposition.where(:_id => params[:id]).first

@@ -1,23 +1,29 @@
 .row-fluid
   .span12
     %h2
-      Last propositions
+      Propositions
 
   %table.table.table-striped.table-hover.table-condensed
     %thead
       %tr
-        %th ID
-        %th Status
-        %th{style: 'width: 100px;'} Updated at
-        %th User
-        %th Proposition
+        %th Statut
+        %th{style: 'width: 100px;'} Dernière modification
+        %th{style: 'width: 130px; border-right: 1px solid #C8C8C8;'} Utilisateur
+        %th{style: 'width: 130px; padding-left: 15px;'} Thème
+        %th{style: 'width: 100px;'} Candidat
+        %th{style: 'border-right: 1px solid #C8C8C8;'} Proposition
         %th Actions
     %tbody
       - for proposition in @propositions
         %tr
-          %td= proposition.id
-          %td= proposition.created_at == proposition.updated_at ? 'Newly' : 'Updated'
-          %td= proposition.updated_at
-          %td= proposition.updated_by.try :email
-          %td= proposition.text
-          %td= link_to 'Candidacy', new_admin_election_candidacy_propositions_path(proposition.candidacy.election, proposition.candidacy)
+          %td= proposition.created_at == proposition.updated_at ? 'Créé' : 'modifié'
+          %td
+            - unless proposition.updated_at.blank?
+              = "#{I18n.l proposition.updated_at}" 
+          %td{style: 'border-right: 1px solid #C8C8C8;'}= proposition.updated_by.try :email
+          %td{style: 'padding-left: 15px;'}= proposition.tags.where("parent_tag_id" => nil).first
+          %td= proposition.candidacy.candidates.first.name
+          %td{style: 'border-right: 1px solid #C8C8C8;'}= proposition.text
+          %td= link_to 'Candidature', new_admin_election_candidacy_propositions_path(proposition.candidacy.election, proposition.candidacy)
+
+  %center= will_paginate @propositions

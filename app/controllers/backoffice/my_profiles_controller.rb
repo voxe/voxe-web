@@ -38,12 +38,8 @@ class Backoffice::MyProfilesController < Backoffice::BackofficeController
   end
 
   def update
-    stock = @profile.email
     @profile.update_attributes params[:candidacy_candidate_profile]
-    unless stock == @profile.email
-      @profile.user.email = @profile.email 
-      @profile.user.save
-    end
+    flash[:notice] = "Votre profil a été mis à jour"
     respond_with @profile, location: backoffice_my_profile_path
   end
 

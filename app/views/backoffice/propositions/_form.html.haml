@@ -1,8 +1,20 @@
-= hidden_field_tag :election_tag_id, params[:election_tag_id]
+
+.alert.alert-info
+  = t 'backoffice.edit_proposition_tag'
+.control-group
+  = label_tag :election_tag_id, "* " + t('backoffice.tag'), class: 'control-label'
+  .controls
+    = select_tag :election_tag_id, options_for_select(@election_tags.map.with_index{|t,i| [t.tag, t.id, {'data-index' => i }]}, params[:election_tag_id]), input_html: { class: "input-xxlarge" }
 
 .alert.alert-info
   = t 'backoffice.edit_proposition_sub_tag'
-= f.association :tags, as: :select, label: t('backoffice.sub_theme'), collection: @tags, input_html: { class: "input-xxlarge" }
+- if !@tags.blank?
+  - if params[:election_tag_id]
+    = f.association :tags, as: :select, label: t('backoffice.sub_tag'), collection: @tags[@stock], input_html: { class: "input-xxlarge" }
+  - else
+    = f.association :tags, as: :select, label: t('backoffice.sub_tag'), collection: @tags[0], input_html: { class: "input-xxlarge" } 
+- else
+  %p= "Pas de sous-thème"
 
 .alert.alert-info
   = t 'backoffice.edit_proposition_text'
@@ -14,7 +26,7 @@
 = f.simple_fields_for :embeds do |embed|
   = render "embed_fields", f: embed
 .embed
-= link_to_add_fields t('backoffice.add_link'), f, :embeds, "btn cst-btn"
+= link_to_add_fields t('backoffice.add_link'), f, :embeds, "btn cst-btn btn-primary"
 %br
 
 .form-actions
@@ -28,3 +40,17 @@
       maxCount: 300
       countDirection: 'up'
     })
+
+:javascript
+  var tags_j = #{@tags.to_json};
+  
+  $('#election_tag_id').change(function(){
+    var selected = $('#election_tag_id option:selected').data("index");
+    $('#proposition_tag_ids').empty();
+    $('.select2-search-choice').remove();
+    for (var i = 0; i< tags_j[selected].length; i++){
+      $('#proposition_tag_ids').append('<option value="' + tags_j[selected][i]._id+ '">' + tags_j[selected][i].name + '</option>');
+    }
+  });
+
+

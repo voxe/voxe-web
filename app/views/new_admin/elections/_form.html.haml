@@ -7,6 +7,7 @@
       %span.add-on
         %i.icon-flag
       = f.input_field :country_id, collection: Country.all.order_by(name: :asc)
+      = link_to 'Ajouter un pays', new_new_admin_country_path, class: "btn btn-info btn-small", target: '_blank'
     = f.input :parent_election_id do
       = f.input_field :parent_election_id, collection: Election.all
     = f.input :date, :wrapper => :prepend do

@@ -8,9 +8,9 @@
       .control-group
         = label_tag 'Utilisateur', nil, class: 'control-label'
         .controls
-          = select_tag :user_id, options_from_collection_for_select(@users, "id", "name"), :include_blank => ''
-          = submit_tag 'Ajouter', class: 'submit'
-
+          = select_tag :user_id, options_from_collection_for_select(@users, "id", "name"), :include_blank => '', style: 'width: 300px;'
+          = submit_tag 'Ajouter', class: 'submit', style: "display: inline;"
+    %br
     %table.table.table-striped.table-hover.table-condensed
       %thead
         %tr
@@ -25,3 +25,23 @@
             %td= user.name
             %td= user.email
             %td= link_to "Supprimer", new_admin_election_ambassador_path(@election.id, user.id), method: :delete, confirm: "Êtes-vous sur ?", class: "btn btn-small btn-danger"
+
+:coffee
+  options = []
+  for user in #{@users.map(&:name).to_json}
+    options.push {
+      id: user,
+      title: user
+    }
+  $('#user_id').selectize(
+    valueField: 'title',
+    labelField: 'title',
+    searchField: 'title',
+    sortField: 'title',
+    options: options,
+    create: false
+  )
+  console.log('loaded')
+
+%div{style: "position:fixed; top:0; left:0; overflow:hidden;"}
+  %input#focus_retriever{style: "position:absolute; left:-300px;", type: "text", value: ""}/

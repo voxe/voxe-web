@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class NewAdmin::ElectionsController < AdminController
   load_and_authorize_resource find_by: :namespace
 

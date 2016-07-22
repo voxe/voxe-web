@@ -17,3 +17,4 @@
 // Backoffice js is used for propositions editing
 //= require ./backoffice
 //= require_tree ./new_admin
+

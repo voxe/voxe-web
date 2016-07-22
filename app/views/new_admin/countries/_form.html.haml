@@ -1,5 +1,8 @@
 = simple_form_for [:new_admin, @country], html: {class: "form-vertical"} do |f|
   = f.input :name
-  = f.file_field :icon
+  - unless @country.new_record?
+    = image_tag @country.photo_url(:small), onerror: "this.style.display = 'none';"
+  = f.simple_fields_for :photos, Photo.new do |p|
+    = f.file_field :icon
   .form-actions
     = f.button :submit, class: "btn"

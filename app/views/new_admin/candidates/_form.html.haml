@@ -3,8 +3,8 @@
   = f.input :last_name
   - if @candidate.new_record?
     = f.input :namespace
-  - if f.object.photo?
-    = image_tag f.object.photo_url(:small)
+  - else
+    = image_tag @candidate.photo_url(:small), onerror: "this.style.display = 'none';"
   = f.simple_fields_for :photos, Photo.new do |p|
     = p.input :image
   = f.button :submit

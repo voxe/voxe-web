@@ -16,14 +16,12 @@
 
     %table.table.table-striped.table-hover.table-condensed
       %tr
-        %th ID
         %th Photo
         %th Namespace
         %th Nom complet
         %th Actions
       - for candidate in @candidates.sort_by{ |c| c.name  } do
         %tr
-          %td= candidate.id
           %td= image_tag candidate.photo_url(:small)
           %td= candidate.namespace
           %td= candidate.name

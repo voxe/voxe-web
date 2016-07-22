@@ -7,7 +7,9 @@ class NewAdmin::ManagePropositionsController < AdminController
   private
 
   def load_propositions
-    @propositions = Proposition.desc(:updated_at).limit(30)
+    @propositions = Proposition.desc(:updated_at).paginate(:page => params[:proposition], :per_page => 30)
     authorize! :manage, @propositions
   end
+
+  
 end

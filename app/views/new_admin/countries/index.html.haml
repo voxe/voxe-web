@@ -1,27 +1,27 @@
 .row-fluid
   .span12
     %h2
-      Countries management
+      Gestion des pays
       %small
       - if can? :create, Country
-        = link_to 'New country', new_new_admin_country_path, class: "btn btn-info btn-small"
+        = link_to 'Nouveau pays', new_new_admin_country_path, class: "btn btn-info btn-small"
 
     %table.table.table-striped.table-hover.table-condensed
       %thead
         %tr
-          %th Name
-          %th Flag
-          %th Number of elections
+          %th Nom
+          %th Drapeau
+          %th Nombre d'élection
           %th Actions
       %tbody
         - @countries.each do |c|
           %tr.country
             %td= c
-            %td= image_tag "https://voxe.s3.amazonaws.com/countries/" + c.namespace + ".jpg", class: "flag"
+            %td= image_tag "https://voxe.s3.amazonaws.com/countries/" + c.namespace + ".jpg", class: "flag", onerror: "this.style.display = 'none';"
 
             %td= c.elections.count
             %td
-              = link_to "Edit", edit_new_admin_country_path(c), class: 'btn btn-small'
-              = link_to new_admin_country_path(c), class: 'btn btn-small btn-danger', confirm: "Sure ?", method: "DELETE" do
+              = link_to "Éditer", edit_new_admin_country_path(c), class: 'btn btn-small'
+              = link_to new_admin_country_path(c), class: 'btn btn-small btn-danger', confirm: "êtes-vous sur de vouloir supprimer ce pays ?", method: "DELETE" do
                 %i.icon-remove-circle
-                Delete
+                Supprimer

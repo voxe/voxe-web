@@ -12,17 +12,17 @@
           %li{:class => "active" }
             - unless categ_tag.tag.icon_prefix.blank?
               = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
-            = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;'
+            = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;', onerror: "this.style.display = 'none';"
         - else
           %li
             - unless categ_tag.tag.icon_prefix.blank?   
               = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
-            = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;'
+            = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;', onerror: "this.style.display = 'none';"
       - else
         %li
           - unless categ_tag.tag.icon_prefix.blank?   
             = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
-          = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;'
+          = link_to categ_tag.tag.name, new_admin_election_candidacy_propositions_categorie_path(@election, @candidacy, categ_tag.tag.namespace), style: 'display: inline;', onerror: "this.style.display = 'none';"
 
 
   %hr
@@ -52,7 +52,7 @@
             %tr{style: 'border-bottom: 3px solid #B6B6B6;'}
               %th{style: 'border-right: 1px solid #dddddd; width: 10%;'}
                 %b
-                  = t('backoffice.sub_theme') + "s"
+                  = t('backoffice.sub_tag')
               %th{style: 'border-right: 1px solid #dddddd; width: 75%;'}
                 = t('backoffice.proposition_text')
               %th 
@@ -112,7 +112,7 @@
           .span12{style: 'text-align: left; padding-bottom: 30px; padding-top: 30px;'}
             - unless categ_tag.tag.icon_prefix.blank?
               &nbsp;&nbsp;
-              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 32px;'
+              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 32px;', onerror: "this.style.display = 'none';"
             = categ_tag.tag.name
 
 

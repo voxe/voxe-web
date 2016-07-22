@@ -78,6 +78,7 @@ en:
     proposition_text: Text
     edit: Edit
     postal_code: Postal Code
+    add_new_proposition: Add a proposition
     picture: Picture
     view_my_public_profile: View my public profile
     welcome_my_profile: Welcome to your Candidate profile
@@ -89,9 +90,14 @@ en:
     political_party: Political party
     election_target: Election
     no_proposition: Any existing proposition for this theme
-    sub_theme: Sub-theme
     proposition_text: Proposition Text
-    edit_proposition_sub_tag: "Sub-themes: Select below one or several subthemes under which you'd like your proposition to appear"
+    sub_tag: Sub-tags
+    tag: Tag
+    link_hypertext: Link Hypertext
+    link_url: Link Url
+    edit_proposition: Edit your proposition
+    edit_proposition_tag: "Tag : Select below the parent tag of your proposition."
+    edit_proposition_sub_tag: "Sub-tags: Select below one or several subthemes under which you'd like your proposition to appear"
     edit_proposition_text: "Proposition text: The proposition shouldn't be longer than 300 characters, so it remains readible and easy to compare with other propositions. Furthermore, the proposition should only present one idea. Finally, note that the content should only come from candidate's official sources. "
     edit_proposition_embed_link: "Enrich your propositon: Please list here the source you've used. You can also link your proposition to contextual content using hyperlinks (example: definitions, keywords...) or add a Youtube Embed video. This link and embed video will be available soon in Voxe comparator."
   welcome:
