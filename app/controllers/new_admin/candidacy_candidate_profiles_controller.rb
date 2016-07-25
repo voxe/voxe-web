@@ -8,6 +8,7 @@ class NewAdmin::CandidacyCandidateProfilesController < AdminController
 
   def edit
     @candidacy_candidate_profile = CandidacyCandidateProfile.find(params[:id])
+    @current_user = current_user
   end
 
   def update

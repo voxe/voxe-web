@@ -6,7 +6,7 @@
 = f.input :birthday, placeholder: t('backoffice.date_hint'), label: "Date de naissance"
 = f.input :phone, label: "Téléphone"
 = f.input :email, placeholder: "contact@voxe.org"
-= render "url", f: f, name: t('backoffice.website'), input: :website, website:"", hint: t('backoffice.website')
+= render "url", f: f, name: "Site Internet", input: :website, website:"", hint: "Site Internet"
 = render "url", f: f, name: "", input: :facebook, label: image_tag('web/icons/facebook.png'), website: "facebook", hint: t('backoffice.social_username')
 = render "url", f: f, name: "", input: :twitter, label: image_tag('web/icons/twitter.png'), website: "twitter", hint: t('backoffice.social_username')
 = render "url", f: f, name: "", input: :youtube, label: image_tag('web/icons/youtube.png'), website: "youtube", hint: t('backoffice.social_username')

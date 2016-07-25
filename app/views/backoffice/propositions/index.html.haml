@@ -1,7 +1,7 @@
 
 
 - if @active_tag.present?
-  %h2= t('backoffice.election_target') + " : " + @election_name + " - " + t('backoffice.my_propositions')
+  %h2= "Élection : " + @election_name + " - Mes propositions"
   %hr
   .hero-unit-bo
     %h4 Choisir un thème
@@ -11,18 +11,18 @@
         - if(categ_tag.tag.name==@active_tag.tag.name)
           %li{:class => "active" }
             - unless categ_tag.tag.icon_prefix.blank?
-              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
-            = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace), style: 'display: inline;', onerror: "this.style.display = 'none';"
+              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;', onerror: "this.style.display = 'none';"
+            = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace), style: 'display: inline;'
         - else
           %li
             - unless categ_tag.tag.icon_prefix.blank?   
-              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
-            = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace), style: 'display: inline;', onerror: "this.style.display = 'none';"
+              = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;', onerror: "this.style.display = 'none';"
+            = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace), style: 'display: inline;'
       - else
         %li
           - unless categ_tag.tag.icon_prefix.blank?   
-            = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;'
-          = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace), style: 'display: inline;', onerror: "this.style.display = 'none';"
+            = image_tag "#{categ_tag.tag.icon_prefix}32.png", style: 'width: auto; height: 24px;', onerror: "this.style.display = 'none';"
+          = link_to categ_tag.tag.name, backoffice_propositions_categorie_path(categ_tag.tag.namespace), style: 'display: inline;'
 
 
   %hr
@@ -100,14 +100,14 @@
         %br
         %br
         %h3{style: 'text-align: center;'}
-          = t('backoffice.no_proposition')
+          = "Aucune proposition pour ce thème"
 
 - else 
   %h2= t('backoffice.election_target') + " : " + @election_name + " - " + t('backoffice.my_propositions')
   %hr
   %br
   .hero-unit-bo
-    %h4= t('backoffice.choose_a_theme')
+    %h4 Choisir un thème
   .row{style: 'margin-top: 20px;'}
     .col-md-12
       - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|

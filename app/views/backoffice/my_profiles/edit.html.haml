@@ -20,7 +20,7 @@
   %h2 Bienvenue dans votre administration
   %br
   %br
-  %p{style: 'line-height: 25px;'}= t('backoffice.welcome_text') + " : " + @election.name + "."
+  %p{style: 'line-height: 25px;'}= "Modifiez ici votre informations générales, et complétez vos propositions pour l'élection : " + @election.name + "."
   %br
   %br
   %br
@@ -33,7 +33,7 @@
 
 = simple_form_for @profile, url: backoffice_my_profile_path, html: { class: 'form-horizontal' } do |f|
   .img-col.col-md-3.pull-right
-    %h4.hidden-sm.hidden-xs= t('backoffice.my_picture_profile')
+    %h4.hidden-sm.hidden-xs= "Photo de profil"
     %br
     %label.hidden-md.hidden-lg.hidden-xl{style: 'width: 160px; text-align: right;'}
       = t('backoffice.my_picture_profile')
