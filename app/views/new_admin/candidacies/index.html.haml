@@ -5,7 +5,8 @@
   .span12
     %h2 #{@election.name} - Candidacies
     %br
-    = render 'form'
+    - if can? :create, Candidacy
+      = render 'form'
 
     %table.table.table-striped.table-hover.table-condensed
       %thead
@@ -23,12 +24,18 @@
             %td= image_tag candidate.photo_url(:small)
             %td= candidate.name
             %td
-              - if candidacy.published
-                = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: '', remote: true do
-                  %input{type: "checkbox", class: "toggle-two", checked: true, :data => {:toggle => "toggle", :on => "Yes", :off => "Non"}}
-              - else
-                = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: '', remote: true do
-                  %input{type: "checkbox", class: "toggle-two", :data => {:toggle => "toggle", :on => "Yes", :off => "No"}}
+              - if can? :create, Candidacy
+                - if candidacy.published
+                  = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: '', remote: true do
+                    %input{type: "checkbox", class: "toggle-two", checked: true, :data => {:toggle => "toggle", :on => "Yes", :off => "Non"}}
+                - else
+                  = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: '', remote: true do
+                    %input{type: "checkbox", class: "toggle-two", :data => {:toggle => "toggle", :on => "Yes", :off => "No"}}
+              - else 
+                - if candidacy.published
+                  Yes
+                - else
+                  No
             %td
               = link_to "Propositions", new_admin_election_candidacy_propositions_path(@election, candidacy), class: 'btn btn-small'
               = link_to "Delete", new_admin_election_candidacy_path(@election, candidacy), class: "btn btn-small btn-danger", method: :delete, confirm: "Delete this candidacy ?"

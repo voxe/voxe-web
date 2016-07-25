@@ -7,7 +7,7 @@
     = select_tag :election_tag_id, options_for_select(@election_tags.map.with_index{|t,i| [t.tag, t.id, {'data-index' => i }]}, params[:election_tag_id]), input_html: { class: "input-xxlarge" }
 
 .alert.alert-info
-  Sous-thèmes : sélectionnez ci-dessous un ou plusieurs thème sous lequel vous voudriez que votre proposition apparaisse
+  Sous-thèmes : sélectionnez ci-dessous un ou plusieurs thèmes sous lequel vous voudriez que votre proposition apparaisse
 
 - if !@tags.blank?
   - if params[:election_tag_id]
@@ -22,7 +22,7 @@
 = f.input :text, label: "Texte", as: :text, input_html: { class: "input-xxlarge", rows: 10, maxlength: 300 }, hint: tag(:span, id: 'text-counter'), placeholder: '300 ' + t('backoffice.characters_max')
 
 .alert.alert-info
-  Enrichissez votre proposition : merci de mettre ici la source que vous avez utilisée. Vous pouvez aussi lier votre proposition à un contenu contextuel en utilisant des hyperlinks (par exemple : définitions, mots clés, vidéos)
+  Enrichissez votre proposition : vous pouvez lier votre proposition à un contenu contextuel en utilisant des hyperlinks (par exemple : définitions, mots clés, vidéos)
 
 = f.simple_fields_for :embeds do |embed|
   = render "embed_fields", f: embed

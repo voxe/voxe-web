@@ -17,10 +17,20 @@ class AdminAbility
           can :manage, Candidacy, election: { ambassador_ids: user.id }
           can :manage, Candidate
           can :manage, CandidacyCandidateProfile, election: { ambassador_ids: user.id }
-          can :update, :contributor
+          can :manage, :contributor
           can :create, Proposition
           can :manage, Proposition, candidacy: { election: { ambassador_ids: user.id } }
           can :destroy, Comment, proposition: { candidacy: { election: { ambassador_ids: user.id } } }
+        end
+        if user.contributor_elections.exists?
+          can :index, :dashboard
+          can :search, User
+          can [:read], Election, contributor_ids: user.id
+          can :manage, ElectionTag, election: { contributor_ids: user.id }
+          can :read, Candidacy, election: { contributor_ids: user.id }
+          can :create, Proposition
+          can :manage, Proposition, candidacy: { election: { contributor_ids: user.id } }
+          can :destroy, Comment, proposition: { candidacy: { election: { contributor_ids: user.id } } }
         end
       end
     end

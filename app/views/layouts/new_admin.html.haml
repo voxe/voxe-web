@@ -6,6 +6,8 @@
     = stylesheet_link_tag "new_admin"
     = javascript_include_tag "new_admin"
     = csrf_meta_tags
+
+
   %body
     .navbar
       .navbar-inner
@@ -25,10 +27,17 @@
                     %li= link_to 'Tags', new_admin_tags_path
                   - if can? :manage, Country
                     %li= link_to 'Countries', new_admin_countries_path
-            %li{class: 'nav-li'}= link_to 'Candidates', new_admin_candidates_path
-            %li{class: 'nav-li'}= link_to 'Elections', new_admin_elections_path
-
-            %li{class: 'nav-li'}= link_to 'Public profiles', new_admin_candidacy_candidate_profiles_path
+            - if can? :manage, Candidate
+              - if current_user.ambassador_elections.exists?
+                %li{class: 'nav-li', style: 'border-left: 1px solid #C8C8C8'}= link_to 'Candidates', new_admin_candidates_path
+              - else
+                %li{class: 'nav-li'}= link_to 'Candidates', new_admin_candidates_path
+            - if current_user.contributor_elections.exists?
+              %li{class: 'nav-li contrib-li', style: 'border-left: 1px solid #C8C8C8'}= link_to 'Elections', new_admin_elections_path
+            - else 
+              %li{class: 'nav-li contrib-li'}= link_to 'Elections', new_admin_elections_path
+            - if can? :manage, Candidate
+              %li{class: 'nav-li'}= link_to 'Public profiles', new_admin_candidacy_candidate_profiles_path
             - if current_user.admin?
               %li{class: 'nav-li'}= link_to 'Last propositions', new_admin_manage_propositions_path
           %ul.nav.pull-right
@@ -43,4 +52,3 @@
       = render "/new_admin/flash", flash: flash
     .container-fluid
       =yield
-

@@ -33,6 +33,14 @@ class Candidacy
     candidates[0].try(:name)
   end
 
+  def election_name_with_candidacy
+    if self.election.present?
+      self.election.name + ' - ' + self.name
+    else
+      nil
+    end
+  end
+
   # TODO: remove temp hack
   def namespace
     candidates[0].try(:namespace)
