@@ -1,7 +1,7 @@
 .row-fluid
   .span12
     %h2
-      Utilisateurs
+      Users
     .pull-right
       = form_tag new_admin_users_path, method: :get, class: 'form form-horizontal' do
         .control-group
@@ -12,10 +12,10 @@
       %thead
         %tr
           %th ID
-          %th Nom
+          %th Name
           %th Email
-          %th Date de création
-          %th Dernière connexion
+          %th Creation date
+          %th last sign-in
       %tbody
         - @users.each do |user|
           %tr

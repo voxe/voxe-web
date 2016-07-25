@@ -1,4 +1,4 @@
-%h2 Édite le thème : #{@tag.name}
+%h2 Éditing the tag : #{@tag.name}
 
 
 = simple_form_for [:new_admin, @tag] do |f|
@@ -6,4 +6,4 @@
   = image_tag "#{@tag.icon_prefix}32.png", onerror: "this.style.display = 'none';"
   = f.file_field :icon
   .form-actions
-    = f.button :submit, 'Éditer'
+    = f.button :submit, 'Edit'

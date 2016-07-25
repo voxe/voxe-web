@@ -13,7 +13,12 @@ class UserMailer < ActionMailer::Base
 
   def admin_ambassador_granted user, election
     @user = user
-    mail(to: @user.email, subject: "Profile approved")
+    mail(to: @user.email, subject: "You are a new ambassador of election on Voxe.org")
+  end
+
+  def admin_contributor_granted user, election
+    @user = user
+    mail(to: @user.email, subject: "You are a new contributor of election on Voxe.org")
   end
 
   def admin_proposition_updated propositions

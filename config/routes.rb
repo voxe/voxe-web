@@ -33,6 +33,7 @@ Joinplato::Application.routes.draw do
       get 'unpublish', :defaults => { :format => 'json' }
       resources :tags, only: [:create]
       resources :ambassadors
+      resources :contributors
     end
     resources :candidacy_candidate_profiles
     resources :candidates
@@ -55,6 +56,8 @@ Joinplato::Application.routes.draw do
           get :contributors
           post :addambassador
           get :ambassadors
+          post :addcontributor
+          get :contributors
         end
         collection do
           get :search

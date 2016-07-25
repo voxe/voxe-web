@@ -1,37 +1,38 @@
 
 .alert.alert-info
-  = t 'backoffice.edit_proposition_tag'
+  Thème
 .control-group
   = label_tag :election_tag_id, "* " + t('backoffice.tag'), class: 'control-label'
   .controls
     = select_tag :election_tag_id, options_for_select(@election_tags.map.with_index{|t,i| [t.tag, t.id, {'data-index' => i }]}, params[:election_tag_id]), input_html: { class: "input-xxlarge" }
 
 .alert.alert-info
-  = t 'backoffice.edit_proposition_sub_tag'
+  Sous-thèmes : sélectionnez ci-dessous un ou plusieurs (il faudrait pouvoir en sélectionner qu’un seul non?) sous lequel vous voudriez que votre proposition apparaisse
+
 - if !@tags.blank?
   - if params[:election_tag_id]
-    = f.association :tags, as: :select, label: t('backoffice.sub_tag'), collection: @tags[@stock], input_html: { class: "input-xxlarge" }
+    = f.association :tags, as: :select, label: "Sous-thème", collection: @tags[@stock], input_html: { class: "input-xxlarge" }
   - else
-    = f.association :tags, as: :select, label: t('backoffice.sub_tag'), collection: @tags[0], input_html: { class: "input-xxlarge" } 
+    = f.association :tags, as: :select, label: "Sous-thème", collection: @tags[0], input_html: { class: "input-xxlarge" } 
 - else
   %p= "Pas de sous-thème"
 
 .alert.alert-info
-  = t 'backoffice.edit_proposition_text'
-= f.input :text, label: t('backoffice.proposition_text'), as: :text, input_html: { class: "input-xxlarge", rows: 10, maxlength: 300 }, hint: tag(:span, id: 'text-counter'), placeholder: '300 ' + t('backoffice.characters_max')
+  Texte de proposition : la proposition ne doit pas faire plus de 300 caractères pour qu’elle soit lisible et facilement comparable avec les autres propositions. De plus, la proposition doit uniquement présenter une idée. Enfin, le contenu des propositions doit venir uniquement des sources officielles du candidat.
+= f.input :text, label: "Texte", as: :text, input_html: { class: "input-xxlarge", rows: 10, maxlength: 300 }, hint: tag(:span, id: 'text-counter'), placeholder: '300 ' + t('backoffice.characters_max')
 
 .alert.alert-info
-  = t 'backoffice.edit_proposition_embed_link'
+  Enrichissez votre proposition : merci de mettre ici la source que vous avez utilisé. Vous pouvez aussi lier votre proposition à un contenu contextuel en utilisant des hyperlinks (par exemple : définitions, mots clés, vidéos)
 
 = f.simple_fields_for :embeds do |embed|
   = render "embed_fields", f: embed
 .embed
-= link_to_add_fields t('backoffice.add_link'), f, :embeds, "btn cst-btn btn-primary"
+= link_to_add_fields "Ajouter un lien", f, :embeds, "btn cst-btn btn-primary"
 %br
 
 .form-actions
-  = f.submit t('backoffice.submit'), class: "btn btn-success"
-  = link_to t('backoffice.back'), :back, class: 'btn'
+  = f.submit "Soumettre", class: "btn btn-success"
+  = link_to "Retour", :back, class: 'btn'
 
 :coffee
   $ ->

@@ -31,10 +31,10 @@ class NewAdmin::PropositionsController < AdminController
     @tags = election_tag.children_election_tags.map &:tag
     @proposition.updated_by = current_user
     if @proposition.save
-      flash[:notice] = 'Votre proposition a été ajoutée'
+      flash[:notice] = 'The proposition has been created'
       redirect_to new_admin_election_candidacy_propositions_path(@election, @candidacy, namespace_categ: election_tag.tag.namespace)
     else
-      flash[:error] = 'Une erreur est survenue lors de la création de votre proposition. Veuillez réessayer et veillez à bien remplir les champs ci-dessous'
+      flash[:error] = 'The proposition could not be created, try again'
       redirect_to :back
     end
   end
@@ -54,13 +54,13 @@ class NewAdmin::PropositionsController < AdminController
     params[:proposition][:tag_ids].delete("") if params[:proposition] and params[:proposition][:tag_ids].present?
     @proposition.updated_by = current_user
     if @proposition.update_attributes params[:proposition]
-      flash[:notice] = "Votre proposition a été mis à jour"
+      flash[:notice] = "The proposition has been updated"
       election_tag = @candidacy.election.election_tags.find(params[:election_tag_id])
       redirect_to new_admin_election_candidacy_propositions_path(namespace_categ: election_tag.tag.namespace)
     else
       load_proposition_tags
       gon.proposition_tags = @proposition_tags.map{ |tag| tag._id }
-      flash[:error] = 'Une erreur est survenue lors de la mise à jour de votre proposition. Veuillez réessayer et veillez à bien remplir les champs ci-dessous'
+      flash[:error] = 'The proposition could not be updated, try again'
       redirect_to :back
     end
   end

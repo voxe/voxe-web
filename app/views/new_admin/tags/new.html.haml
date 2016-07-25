@@ -1,7 +1,7 @@
-%h2  Créer un thème 
+%h2  Create tag
 
 = simple_form_for [:new_admin, @tag] do |f|
   = f.input :name
   = f.file_field :icon
   .form-actions
-    = f.button :submit, 'Ajouter'
+    = f.button :submit, 'Add'

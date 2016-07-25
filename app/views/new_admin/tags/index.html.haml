@@ -1,10 +1,10 @@
 .row-fluid
   .span12
     %h2 
-      Thèmes
+      Tags
       %small
       - if can? :create, Country
-        = link_to 'Nouveau thème', new_new_admin_tag_path, class: "btn btn-info btn-small", style: 'display: inline'
+        = link_to 'New tags', new_new_admin_tag_path, class: "btn btn-info btn-small", style: 'display: inline'
 .row-fluid
   .span12
     %table.table.table-striped.table-hover.table-condensed
@@ -19,5 +19,5 @@
             = image_tag "#{tag.icon_prefix}32.png", onerror: "this.style.display = 'none';"
           %td= tag.name
           %td= tag.namespace
-          %td= link_to 'Éditer', edit_new_admin_tag_path(tag), class: 'btn btn-mini'
+          %td= link_to 'Edit', edit_new_admin_tag_path(tag), class: 'btn btn-mini'
     %center= will_paginate @tags

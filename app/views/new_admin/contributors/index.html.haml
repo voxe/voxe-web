@@ -1,10 +1,10 @@
 .row-fluid
   .span12
-    %h2 #{@election.name} - Ambassadors
+    %h2 #{@election.name} - Contributors
 
     %br
-    %h3 Select an ambassador
-    = form_tag new_admin_election_ambassadors_path, class: 'form-horizontal' do
+    %h3 Select a contributor
+    = form_tag new_admin_election_contributors_path, class: 'form-horizontal' do
       .control-group
         = label_tag 'User', nil, class: 'control-label'
         .controls
@@ -15,16 +15,16 @@
       %thead
         %tr
           %th ID
-          %th Nom
+          %th Name
           %th Email
           %th Actions
       %tbody
-        - for user in @ambassadors
+        - for user in @contributors
           %tr
             %td= user.id
             %td= user.name
             %td= user.email
-            %td= link_to "Delete", new_admin_election_ambassador_path(@election.id, user.id), method: :delete, confirm: "Delete this ambassador ?", class: "btn btn-small btn-danger"
+            %td= link_to "Delete", new_admin_election_contributor_path(@election.id, user.id), method: :delete, confirm: "Delete this contributor ?", class: "btn btn-small btn-danger"
 
 :coffee
   options = []

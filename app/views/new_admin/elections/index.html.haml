@@ -7,10 +7,10 @@
 .row-fluid
   .span12
     %h2
-      Élections
+      Elections
       %small
         - if can? :create, Election
-          = link_to "Nouvelle élection", new_new_admin_election_path, class: "btn btn-info btn-small"
+          = link_to "New election", new_new_admin_election_path, class: "btn btn-info btn-small"
     .quick-search-div.col-md-6.col-md-offset-2.col-sm-6
       = form_for :search, html: {class: 'form-search', style: 'float: right;'} do |f|
         %label{:for => "quick_search"}
@@ -20,11 +20,11 @@
             %i.icon-search
           = f.text_field :search, id: "quick_search", class: "input-medium"
     %br
-    %h3="Élections à venir"
+    %h3="Futures elections"
     = render 'election_item', elections: @future_elections
 
     %br
-    %h3="Élections passées"
+    %h3="Pasts elections"
     = render 'election_item', elections: @past_elections
 
 :javascript

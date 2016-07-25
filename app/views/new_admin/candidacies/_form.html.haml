@@ -1,7 +1,7 @@
 = simple_form_for [:new_admin, @election, @candidacy], html: {class: "form-inline"}  do |f|
-  = f.label :candidate_id, "Sélectionner un candidat : "
+  = f.label :candidate_id, "Select a candidate : "
   = select_tag :candidate_id, options_from_collection_for_select(@available_candidates.sort_by{ |c| c.name.strip  }, "id", "name"), :include_blank => '', style: 'width: 300px; display: inline;'
-  = f.submit "Ajouter", class: 'btn', style: 'width: 300px;'
+  = f.submit "Add", class: 'btn', style: 'width: 300px;'
 
 :coffee
   options = []

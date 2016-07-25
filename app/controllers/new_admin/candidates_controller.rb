@@ -25,9 +25,9 @@ class NewAdmin::CandidatesController < AdminController
   def destroy
     candidate = Candidate.find params[:id]
     if candidate.destroy
-      flash[:notice] = "Le candidat a bien été supprimé"
+      flash[:notice] = "The candidate  has been removed"
     else
-      flash[:error] = "Une erreur est survenue lors de la suppression du candidat, veuillez réessayer"
+      flash[:error] = "The candidate could not be removed, try again"
     end
     redirect_to :back
   end

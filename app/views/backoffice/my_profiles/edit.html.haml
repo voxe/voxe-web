@@ -17,14 +17,14 @@
 
 
 .hero-unit-bo
-  %h2= t('backoffice.welcome_my_profile')
+  %h2 Bienvenue dans votre administration
   %br
   %br
   %p{style: 'line-height: 25px;'}= t('backoffice.welcome_text') + " : " + @election.name + "."
   %br
   %br
   %br
-  = link_to t('backoffice.view_my_public_profile'), candidate_profile_path(electionnamespace: @profile.candidacy.election.namespace, candidatenamespace: @profile.candidacy.namespace), class: 'btn btn-primary', target: :blank
+  = link_to 'Voir mon profil public', candidate_profile_path(electionnamespace: @profile.candidacy.election.namespace, candidatenamespace: @profile.candidacy.namespace), class: 'btn btn-primary', target: :blank
   
 
 %h4{style: 'margin-left: 20px;'}
@@ -48,4 +48,4 @@
   .col-md-9
     = render "form", f: f, profile: @profile
   .col-md-12.form-actions
-    = f.submit t('backoffice.update'), class: "btn btn-success btn-large"
+    = f.submit "Mettre à jour", class: "btn btn-success btn-large"

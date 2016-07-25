@@ -46,23 +46,23 @@
                 %li
                   = link_to backoffice_my_profile_path do
                     %i.icon-user
-                    = t('backoffice.my_profile')
+                    Mon profil
                 %li
                   = link_to backoffice_propositions_path do
                     %i.icon-list
-                    = t('backoffice.my_propositions')
+                    Mes propositions
                 %li{style: 'border-left: 1px solid #E8E8E8 !important; border-right: 1px solid #E8E8E8  !important;'}
                   = link_to new_backoffice_proposition_path, :target => '_blank', style: 'color: #337ab7 !important;'  do
                     %i.icon-plus{style: 'color: #337ab7 !important;'}
-                    = t('backoffice.add_new_proposition')
+                    Ajouter une proposition
 
               %ul.nav.pull-right
                 %li
-                  = link_to t('backoffice.logged_as') +' '+ current_user.email, '#'
+                  = link_to 'connecté en tant que' +' '+ current_user.email, '#'
                 %li
                   = link_to destroy_user_session_path, method: 'delete' do
                     %i.icon-off
-                    = t('backoffice.sign_out')
+                    Déconnexion
           - else 
       .container
         - if notice

@@ -1,17 +1,17 @@
 .row-fluid
   .span12
     %h2
-      Gestion des pays
+      Countries management
       %small
       - if can? :create, Country
-        = link_to 'Nouveau pays', new_new_admin_country_path, class: "btn btn-info btn-small"
+        = link_to 'New country', new_new_admin_country_path, class: "btn btn-info btn-small"
 
     %table.table.table-striped.table-hover.table-condensed
       %thead
         %tr
-          %th Nom
-          %th Drapeau
-          %th Nombre d'élection
+          %th Email
+          %th Flag
+          %th Number of elections
           %th Actions
       %tbody
         - @countries.each do |c|
@@ -21,7 +21,7 @@
 
             %td= c.elections.count
             %td
-              = link_to "Éditer", edit_new_admin_country_path(c), class: 'btn btn-small'
-              = link_to new_admin_country_path(c), class: 'btn btn-small btn-danger', confirm: "êtes-vous sur de vouloir supprimer ce pays ?", method: "DELETE" do
+              = link_to "Edit", edit_new_admin_country_path(c), class: 'btn btn-small'
+              = link_to new_admin_country_path(c), class: 'btn btn-small btn-danger', confirm: "delete this country ?", method: "DELETE" do
                 %i.icon-remove-circle
-                Supprimer
+                Delete

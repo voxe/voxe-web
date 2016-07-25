@@ -4,7 +4,7 @@
   %h2= t('backoffice.election_target') + " : " + @election_name + " - " + t('backoffice.my_propositions')
   %hr
   .hero-unit-bo
-    %h4= t('backoffice.choose_a_theme')
+    %h4 Choisir un thème
   %ul{:class => "nav nav-pills" }
     - @lst_tags.sort_by{ |categ_tag| categ_tag.tag.name }.each do |categ_tag|
       - if(@active_tag)
@@ -32,7 +32,7 @@
         %a{ :href => new_backoffice_proposition_path(election_tag_id: @active_tag.id.to_s), :target => '_blank' }
           .btn.btn-block
             %i.icon-plus-sign
-            = t('backoffice.new_proposition')
+            Nouvelle proposition
     - if @propositions_categ.any?
       .quick-search-div.col-md-6.col-md-offset-2.col-sm-6
         = form_for :search, html: {class: 'form-search', style: 'float: right;'} do |f|

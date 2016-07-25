@@ -16,7 +16,7 @@ class NewAdmin::ElectionsController < AdminController
   def create
     @election.contributors << current_user
     if @election.save
-      flash[:notice] = "#{@election} a bien été créée."
+      flash[:notice] = "#{@election} has been created"
       if from_election = Election.where(id: params[:election][:election_tags]).first
         @election.copy_tags_from_election(from_election)
       end
@@ -37,7 +37,7 @@ class NewAdmin::ElectionsController < AdminController
 
   def destroy
     if @election.destroy
-      flash[:notice] = @election.to_s + " a été supprimée."
+      flash[:notice] = @election.to_s + " has been removed"
     else
       flash[:error] = "An error occured while deleting" + @election.to_s
     end

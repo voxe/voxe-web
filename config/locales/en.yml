@@ -130,4 +130,4 @@ en:
   devise:
     custom_sessions:
         user:
-            signed_in: Successfully signed in
+            signed_in: Vous êtes connecté

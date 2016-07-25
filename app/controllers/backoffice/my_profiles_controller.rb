@@ -23,10 +23,10 @@ class Backoffice::MyProfilesController < Backoffice::BackofficeController
       if @profile.save
         redirect_to thank_you_backoffice_my_profile_path
       else
-        redirect_to :back, alert: t('backoffice.my_profile_sign_up_error')
+        redirect_to :back, alert: "Une erreur est survenue lors de votre inscription, veuillez réessayer."
       end
     else
-      redirect_to :back, alert: t('backoffice.my_profile_existing_email')
+      redirect_to :back, alert: "Cet mail est déjà utilisé"
     end
   end
 

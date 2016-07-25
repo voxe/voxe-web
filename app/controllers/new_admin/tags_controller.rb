@@ -11,10 +11,10 @@ class NewAdmin::TagsController < AdminController
     @tag = Tag.new params[:tag]
     @tag.name = @tag.name.upcase
     if @tag.save
-      flash[:notice] = "#{@tag.name} a bien été créé !"
+      flash[:notice] = "#{@tag.name} has been created !"
       redirect_to new_admin_tags_path
     else
-      flash[:error] = "La création du thème a échoué : #{@tag.errors.full_messages.join(', ')}"
+      flash[:error] = "The tag could not be created : #{@tag.errors.full_messages.join(', ')}"
       redirect_to :back
     end
   end
@@ -32,10 +32,10 @@ class NewAdmin::TagsController < AdminController
     @tag.attributes params[:tag]
     @tag.name = @tag.name.upcase
     if @tag.save
-      flash[:notice] = "#{@tag.name} a bien été modifié !"
+      flash[:notice] = "#{@tag.name} has been updated"
       redirect_to new_admin_tags_path
     else
-      flash[:error] = "La modification du thème a échoué : #{@tag.errors.full_messages.join(', ')}"
+      flash[:error] = "The  tag could not be updated : #{@tag.errors.full_messages.join(', ')}"
       redirect_to :back
     end
   end

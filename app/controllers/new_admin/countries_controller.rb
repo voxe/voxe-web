@@ -11,11 +11,11 @@ class NewAdmin::CountriesController < AdminController
 
   def create
     if @country.save
-      flash[:notice] = "#{@country} a bien été créé"
+      flash[:notice] = "#{@country} has been created"
       respond_with :new_admin, @country, location: new_admin_countries_path
     else
       load_countries
-      flash[:error] = "Une erreur est survenue, veuilles réessayer"
+      flash[:error] = "The candidate could not be created, try again"
       redirect_to :back
     end
   end
@@ -23,7 +23,7 @@ class NewAdmin::CountriesController < AdminController
 
   def destroy
     @country.destroy
-    flash[:notice] = "#{@country} a bien été supprimé"
+    flash[:notice] = "#{@country} has been removed"
     respond_with :new_admin, @country
   end
 
@@ -34,11 +34,11 @@ class NewAdmin::CountriesController < AdminController
 
   def update
     if @country.update_attributes(params[:country])
-      flash[:notice] = "#{@country} a bien été modifié"
+      flash[:notice] = "#{@country} has been updated"
       respond_with :new_admin, @country, location: new_admin_countries_path
     else
       load_countries
-      flash[:error] = "Une erreur est survenue, veuillez réessayer"
+      flash[:error] = "The country could not be removed, try again"
       redirect_to :back
     end
   end

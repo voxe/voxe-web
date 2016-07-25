@@ -25,13 +25,13 @@
             %td
               - if candidacy.published
                 = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: '', remote: true do
-                  %input{type: "checkbox", class: "toggle-two", checked: true, :data => {:toggle => "toggle", :on => "Publié", :off => "Non"}}
+                  %input{type: "checkbox", class: "toggle-two", checked: true, :data => {:toggle => "toggle", :on => "Yes", :off => "Non"}}
               - else
                 = link_to new_admin_election_candidacy_toggle_path(@election, candidacy), class: '', remote: true do
-                  %input{type: "checkbox", class: "toggle-two", :data => {:toggle => "toggle", :on => "Publié", :off => "Non"}}
+                  %input{type: "checkbox", class: "toggle-two", :data => {:toggle => "toggle", :on => "Yes", :off => "No"}}
             %td
               = link_to "Propositions", new_admin_election_candidacy_propositions_path(@election, candidacy), class: 'btn btn-small'
-              = link_to "Supprimer", new_admin_election_candidacy_path(@election, candidacy), class: "btn btn-small btn-danger", method: :delete, confirm: "Are you sure?"
+              = link_to "Delete", new_admin_election_candidacy_path(@election, candidacy), class: "btn btn-small btn-danger", method: :delete, confirm: "Delete this candidacy ?"
 
 :javascript
   $('.toggle-two').bootstrapToggle();
