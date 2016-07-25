@@ -5,13 +5,14 @@
 
 :coffee
   options = []
-  for candidate in #{@available_candidates.map(&:name).to_json}
+  for candidate in #{@available_candidates.map{|ac| [ac.id, ac.name]}.to_json}
+
     options.push {
-      id: candidate,
-      title: candidate
+      id: candidate[0],
+      title: candidate[1]
     }
-  $('#candidate_id').selectize(
-    valueField: 'title',
+  $('#user_id').selectize(
+    valueField: 'id',
     labelField: 'title',
     searchField: 'title',
     sortField: 'title',

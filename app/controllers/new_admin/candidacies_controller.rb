@@ -8,6 +8,7 @@ class NewAdmin::CandidaciesController < AdminController
   end
 
   def create
+    @candidacy.candidate_id = params[:candidate_id]
     if @candidacy.save
       flash[:notice] = "#{@candidate} attends to the election : #{@election}"
       respond_with @candidacy, location: new_admin_election_candidacies_path(@election)

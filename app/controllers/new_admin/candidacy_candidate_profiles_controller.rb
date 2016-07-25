@@ -3,6 +3,7 @@ class NewAdmin::CandidacyCandidateProfilesController < AdminController
 
   def index
     @candidacy_candidate_profiles = CandidacyCandidateProfile.all.desc(:created_at)
+    @current_user = current_user
   end
 
   def edit

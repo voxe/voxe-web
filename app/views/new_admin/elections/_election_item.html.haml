@@ -16,12 +16,18 @@
         %td
           = e.country
         %td
-          - if e.published
-            = link_to new_admin_election_unpublish_path(e.id.to_s), class: '', remote: true do
-              %input{type: "checkbox", class: "toggle-two", checked: true, :data => {:toggle => "toggle", :on => "Yes", :off => "No"}}
+          - if can? :publish, Election
+            - if e.published
+              = link_to new_admin_election_unpublish_path(e.id.to_s), class: '', remote: true do
+                %input{type: "checkbox", class: "toggle-two", checked: true, :data => {:toggle => "toggle", :on => "Yes", :off => "No"}}
+            - else
+              = link_to new_admin_election_publish_path(e.id.to_s), class: '', remote: true do
+                %input{type: "checkbox", class: "toggle-two", :data => {:toggle => "toggle", :on => "Yes", :off => "No"}}
           - else
-            = link_to new_admin_election_publish_path(e.id.to_s), class: '', remote: true do
-              %input{type: "checkbox", class: "toggle-two", :data => {:toggle => "toggle", :on => "Yes", :off => "No"}}
+            - if e.published
+              Yes
+            - else
+              No
         %td
           = "#{I18n.l e.date}" unless e.date.blank?
         %td
@@ -29,10 +35,10 @@
             = link_to pluralize(e.ambassadors.size, 'ambassador'), new_admin_election_ambassadors_path(e.id), class: "btn btn-small"
           - if can? :update, :contributor
             = link_to pluralize(e.contributors.size, 'contributor'), new_admin_election_contributors_path(e.id), class: "btn btn-small"
-            = link_to "Tags", new_admin_election_election_tags_path(e), class: "btn btn-small"
-            = link_to pluralize(e.candidacies.size, "candidacy"), new_admin_election_candidacies_path(e), class: "btn btn-small"
-            - if can? :update, e
-              = link_to "Edit", edit_new_admin_election_path(e), class: "btn btn-small btn-inverse"
-            - if can? :destroy, e
-              = link_to new_admin_election_path(e), method: :delete, confirm: "delete this election ?", class: "btn btn-small btn-danger" do
-                Supprimer
+          = link_to "Tags", new_admin_election_election_tags_path(e), class: "btn btn-small"
+          = link_to pluralize(e.candidacies.size, "candidacy"), new_admin_election_candidacies_path(e), class: "btn btn-small"
+          - if can? :update, e
+            = link_to "Edit", edit_new_admin_election_path(e), class: "btn btn-small btn-inverse"
+          - if can? :destroy, e
+            = link_to new_admin_election_path(e), method: :delete, confirm: "delete this election ?", class: "btn btn-small btn-danger" do
+              Supprimer

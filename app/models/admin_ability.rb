@@ -12,10 +12,12 @@ class AdminAbility
         if user.ambassador_elections.exists?
           can :index, :dashboard
           can :search, User
-          can [:read, :update], Election, ambassador_ids: user.id
+          can [:read], Election, ambassador_ids: user.id
           can :manage, ElectionTag, election: { ambassador_ids: user.id }
           can :manage, Candidacy, election: { ambassador_ids: user.id }
           can :manage, Candidate
+          can :manage, CandidacyCandidateProfile, election: { ambassador_ids: user.id }
+          can :update, :contributor
           can :create, Proposition
           can :manage, Proposition, candidacy: { election: { ambassador_ids: user.id } }
           can :destroy, Comment, proposition: { candidacy: { election: { ambassador_ids: user.id } } }
