@@ -1,7 +1,25 @@
-= simple_form_for @candidacy_candidate_profile, url: new_admin_candidacy_candidate_profile_path(@candidacy_candidate_profile), html: { class: 'form-horizontal' } do |f|
+= simple_form_for @candidacy_candidate_profile, url: new_admin_candidacy_candidate_profile_path(@candidacy_candidate_profile), html: { class: 'form-horizontal', style: 'width: 300px;' } do |f|
   - if @current_user.admin
     = f.input :candidacy_id, collection: Candidacy.all.asc('election.name').map {|c| [c.election.name + ' - ' + c.name, c.id]}
   - else 
     = f.label :candidacy_id, "Candidacy"
     = f.select :candidacy_id,options_from_collection_for_select(Candidacy.asc('election.name').all.select{ |c| c.election_name_with_candidacy.include? @candidacy_candidate_profile.election_target }, "id", "election_name_with_candidacy"), :include_blank => ''
   = f.submit "Update", class: 'btn'
+
+:coffee
+  options = []
+  for candidacy_candidate_profile in #{Candidacy.asc('election.name').map{|c| [c.id, c.election_name_with_candidacy]}.to_json}
+
+    options.push {
+      id: candidacy_candidate_profile[0],
+      title: candidacy_candidate_profile[1]
+    }
+  $('#candidacy_candidate_profile_candidacy_id').selectize(
+    valueField: 'id',
+    labelField: 'title',
+    searchField: 'title',
+    sortField: 'title',
+    options: options,
+    create: false
+  )
+  console.log('loaded')
