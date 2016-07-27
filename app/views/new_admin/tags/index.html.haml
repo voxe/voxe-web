@@ -5,6 +5,13 @@
       %small
       - if can? :create, Country
         = link_to 'New tags', new_new_admin_tag_path, class: "btn btn-info btn-small", style: 'display: inline'
+    .pull-right
+      = form_tag new_admin_tags_path, method: :get, class: 'form form-horizontal' do
+        .control-group
+          = label_tag :search, "Search", class: 'control-label'
+          .controls
+            = text_field_tag :search, params[:search]
+            = button_tag :submit, class: 'btn'
 .row-fluid
   .span12
     %table.table.table-striped.table-hover.table-condensed
