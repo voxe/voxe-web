@@ -30,7 +30,6 @@ class NewAdmin::TagsController < AdminController
   def update
     @tag = Tag.find(params[:id])
     @tag.attributes = params[:tag]
-    @tag.name = @tag.name.upcase
     if @tag.save
       flash[:notice] = "#{@tag.name} has been updated"
       redirect_to new_admin_tags_path
