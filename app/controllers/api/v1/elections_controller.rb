@@ -20,7 +20,7 @@ class Api::V1::ElectionsController < Api::V1::ApplicationController
     if params[:flatten] == 'true'
       # Nothing todo for the moment
     else
-      @elections = @elections.where(parent_election_id: params[:parent], name: /#{params[:name]}/i).includes(:candidacies).limit(30)
+      @elections = @elections.where(parent_election_id: params[:parent], name: /#{params[:name]}/i).includes(:candidacies).desc(:_id).limit(50)
     end
   end
 
